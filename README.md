@@ -1,3 +1,6 @@
+[![Python package](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml)
+![](https://komarev.com/ghpvc/?username=Belfagor2005)
+
 # WiFi-Manager
 
 WiFi-Manager is a comprehensive tool for Enigma2 devices to manage, monitor, and optimize your WiFi connections.
@@ -6,8 +9,6 @@ It provides both basic and advanced functionalities for home or professional use
 ---
 
 <img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png">
-
-
 
 ## 1. Main Menu
 
