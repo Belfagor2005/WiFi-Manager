@@ -47,7 +47,8 @@ It provides both basic and advanced functionalities for home or professional use
 ---
 
 ## 4. Structure
----
+
+```text
 /usr/lib/enigma2/python/Plugins/Extensions/WiFiManager/
 ├── plugin.py # Main descriptor
 ├── WiFiManager.py # Main screen with 3x2 grid
@@ -69,10 +70,11 @@ It provides both basic and advanced functionalities for home or professional use
 ├── wifi-scan.png # Scanner
 ├── wifi-monitor.png # Monitor
 ├── wifi-config.png # Configuration
-├── wifi-diagnostic.png # Diagnostics
+├── wifi-diagnostic.png# Diagnostics
 ├── wifi-info.png # Detailed info
 └── wifi-tools.png # Advanced tools
----
+```
+
 
 ## 5. Support
 
