@@ -6,9 +6,10 @@
 WiFi-Manager is a comprehensive tool for Enigma2 devices to manage, monitor, and optimize your WiFi connections.
 It provides both basic and advanced functionalities for home or professional use.
 
----
 
 <img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png">
+
+---
 
 ## 1. Main Menu
 
@@ -45,7 +46,36 @@ It provides both basic and advanced functionalities for home or professional use
 
 ---
 
-## 4. Support
+## 4. Structure
+
+/usr/lib/enigma2/python/Plugins/Extensions/WiFiManager/
+├── plugin.py # Main descriptor
+├── WiFiManager.py # Main screen with 3x2 grid
+├── modules/
+│ ├── init.py # Import all modules
+│ ├── scanner.py # Basic network scanner
+│ ├── monitor.py # Signal quality monitor
+│ ├── config.py # WiFi configuration
+│ ├── diagnostics.py # Diagnostic tests
+│ ├── detailed_info.py # Detailed info (iwconfig style)
+│ ├── iwlist_tools.py # Advanced tools (iwlist)
+│ ├── flags.py # Wireless constants
+│ ├── iwlibs.py # Base WiFi functions
+│ ├── iwconfig.py # iwconfig equivalent
+│ ├── iwlist.py # iwlist equivalent
+│ └── tools.py # Utilities
+└── icons/
+├── plugin.png # Main icon (64x64)
+├── wifi-scan.png # Scanner
+├── wifi-monitor.png # Monitor
+├── wifi-config.png # Configuration
+├── wifi-diagnostic.png # Diagnostics
+├── wifi-info.png # Detailed info
+└── wifi-tools.png # Advanced tools
+
+---
+
+## 5. Support
 
 For troubleshooting, guidance, or community support, visit:  
 - [LinuxSat Support](https://www.linuxsat-support.com)  
