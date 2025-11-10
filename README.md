@@ -5,7 +5,7 @@ It provides both basic and advanced functionalities for home or professional use
 
 ---
 
-<img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.jpg">
+<img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png">
 
 
 
