@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "*****************************************"
+echo "*          WiFiManager Installed        *"
+echo "*              By Lululla               *"
+echo "*****************************************"
+sleep 2
+echo $LINE
+echo "*****************************************"
+echo "*            Restart Enigma2            *"
+echo "*****************************************"
+sleep 2
+killall -9 enigma2
+exit 0

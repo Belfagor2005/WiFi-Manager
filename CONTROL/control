@@ -1,0 +1,11 @@
+Package: enigma2-plugin-extensions-wifimanager
+Version: 1.0
+Section: enigma2
+Priority: optional
+Architecture: all
+Maintainer: lululla
+Description: WIFIMANAGER for enigma2 by Lululla
+Source: enigma2-plugin-extensions-wifimanager
+Homepage: 
+OE: Enigma2 Plugin
+License: open
