@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# # command = wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/installer.sh -O - | /bin/sh
 TMPPATH=/tmp/WiFiManager-main
 FILEPATH=/tmp/main.tar.gz
 PLUGINPATH=/usr/lib/enigma2/python/Plugins/Extensions/WiFiManager
