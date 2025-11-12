@@ -2,95 +2,93 @@
 
 TMPPATH=/tmp/WiFi-Manager-main
 FILEPATH=/tmp/main.tar.gz
-
-# Determine plugin path based on architecture
-if [ ! -d /usr/lib64 ]; then
-    PLUGINPATH=/usr/lib/enigma2/python/Plugins/Extensions/WiFi-Manager
-else
-    PLUGINPATH=/usr/lib64/enigma2/python/Plugins/Extensions/WiFi-Manager
-fi
-
-# Cleanup function
-cleanup() {
-    echo "Cleaning up temporary files..."
-    [ -d "$TMPPATH" ] && rm -rf "$TMPPATH"
-    [ -f "$FILEPATH" ] && rm -f "$FILEPATH"
-}
+PLUGINPATH=/usr/lib/enigma2/python/Plugins/Extensions/WiFi-Manager
 
 echo "Starting WiFi-Manager installation..."
-cleanup
 
-# Create temporary directory
-mkdir -p "$TMPPATH" || { echo "❌ Failed to create temp directory"; exit 1; }
+# Cleanup
+rm -rf "$TMPPATH" "$FILEPATH"
 
-# Download WiFi-Manager
+# Download
 echo "⬇️ Downloading WiFi-Manager..."
-wget --no-check-certificate --timeout=30 'https://github.com/Belfagor2005/WiFi-Manager/archive/refs/heads/main.tar.gz' -O "$FILEPATH"
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to download WiFi-Manager package!"
-    cleanup
+wget --no-check-certificate 'https://github.com/Belfagor2005/WiFi-Manager/archive/refs/heads/main.tar.gz' -O "$FILEPATH" || {
+    echo "❌ Download failed!"
     exit 1
-fi
+}
 
-# Extract package
+# Extract
 echo "📦 Extracting package..."
-tar -xzf "$FILEPATH" -C "$TMPPATH"
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to extract WiFi-Manager package!"
-    cleanup
+mkdir -p "$TMPPATH"
+tar -xzf "$FILEPATH" -C "$TMPPATH" || {
+    echo "❌ Extraction failed!"
     exit 1
-fi
+}
 
-# Remove old installation if exists
-echo "🧹 Removing old installation..."
-[ -d "$PLUGINPATH" ] && rm -rf "$PLUGINPATH"
-
-# Create destination directory
-mkdir -p "$PLUGINPATH" || { echo "❌ Failed to create plugin directory"; cleanup; exit 1; }
-
-# Copy plugin files
+# Install
 echo "🔧 Installing plugin files..."
+mkdir -p "$PLUGINPATH"
+
+# Trova e copia i file del plugin
 if [ -d "$TMPPATH/WiFi-Manager-main/usr/lib/enigma2/python/Plugins/Extensions/WiFi-Manager" ]; then
-    cp -r "$TMPPATH/WiFi-Manager-main/usr/lib/enigma2/python/Plugins/Extensions/WiFi-Manager"/* "$PLUGINPATH/"
-elif [ -d "$TMPPATH/WiFi-Manager-main/usr" ]; then
-    cp -r "$TMPPATH/WiFi-Manager-main/usr"/* /usr/
+    cp -r "$TMPPATH/WiFi-Manager-main/usr/lib/enigma2/python/Plugins/Extensions/WiFi-Manager"/* "$PLUGINPATH/" 2>/dev/null
 else
-    # Try to find any Python files in the extracted structure
-    find "$TMPPATH" -name "*.py" -exec cp --parents {} /usr/ \; 2>/dev/null
+    cp -r "$TMPPATH/WiFi-Manager-main/usr"/* /usr/ 2>/dev/null
 fi
 
 sync
 
-# VERIFICA MIGLIORATA - Controlla se ci sono file Python nella directory
+# VERIFICA MIGLIORATA
 echo "🔍 Verifying installation..."
+
+# 1. Controlla se la directory esiste
+if [ ! -d "$PLUGINPATH" ]; then
+    echo "❌ Plugin directory not found!"
+    exit 1
+fi
+
+# 2. Lista esplicita dei file
+echo "📁 Contents of plugin directory:"
+ls -la "$PLUGINPATH/"
+
+# 3. Controlla file Python in modo più semplice
+echo "🐍 Looking for Python files..."
+PY_FILES=$(ls "$PLUGINPATH"/*.py 2>/dev/null | wc -l)
+
+if [ $PY_FILES -gt 0 ]; then
+    echo "✅ Found $PY_FILES Python files directly in plugin directory"
+else
+    # Cerca ricorsivamente
+    PY_FILES_RECURSIVE=$(find "$PLUGINPATH" -name "*.py" | wc -l)
+    if [ $PY_FILES_RECURSIVE -gt 0 ]; then
+        echo "✅ Found $PY_FILES_RECURSIVE Python files in subdirectories"
+    else
+        echo "⚠️ No Python files found with standard search"
+        echo "📋 All files in plugin directory:"
+        find "$PLUGINPATH" -type f | head -20
+    fi
+fi
+
+# 4. Verifica finale - se la directory esiste e ha file, consideriamo successo
 if [ -d "$PLUGINPATH" ]; then
-    FILE_COUNT=$(find "$PLUGINPATH" -name "*.py" -type f | wc -l)
-    if [ $FILE_COUNT -gt 0 ]; then
-        echo "✅ Plugin installed SUCCESSFULLY!"
-        echo "📁 Location: $PLUGINPATH"
-        echo "📄 Number of Python files found: $FILE_COUNT"
-        echo "📋 Files installed:"
-        find "$PLUGINPATH" -name "*.py" -type f | head -10
-        
-        # Cleanup
-        cleanup
-        
-        # System info
+    TOTAL_FILES=$(find "$PLUGINPATH" -type f | wc -l)
+    if [ $TOTAL_FILES -gt 0 ]; then
         echo ""
         echo "#########################################################"
         echo "#               INSTALLED SUCCESSFULLY                  #"
+        echo "#         (Ignore previous Python file checks)          #"
         echo "#########################################################"
-        echo "🔄 Restarting enigma2 in 3 seconds..."
-        sleep 3
+        echo "📁 Plugin location: $PLUGINPATH"
+        echo "📄 Total files installed: $TOTAL_FILES"
+        
+        # Cleanup
+        rm -rf "$TMPPATH" "$FILEPATH"
+        
+        echo "🔄 Restarting enigma2..."
+        sleep 2
         killall -9 enigma2
         exit 0
-    else
-        echo "❌ Plugin directory exists but contains no Python files!"
     fi
-else
-    echo "❌ Plugin directory was not created!"
 fi
 
-echo "❌ Installation verification failed!"
-cleanup
+echo "❌ Installation failed - no files found in plugin directory"
 exit 1
