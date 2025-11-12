@@ -116,11 +116,11 @@ sync
 set +e
 
 # Verify installation
-# if [ ! -d "$PLUGINPATH" ]; then
-    # echo "Error: Plugin installation failed!"
-    # rm -rf "$TMPPATH" "$FILEPATH"
-    # exit 1
-# fi
+if [ ! -d "$PLUGINPATH" ]; then
+    echo "Error: Plugin installation failed!"
+    rm -rf "$TMPPATH" "$FILEPATH"
+    exit 1
+fi
 
 # Cleanup
 rm -rf "$TMPPATH" "$FILEPATH"
