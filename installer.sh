@@ -107,11 +107,10 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-cd /tmp
 rm -rf WiFi-Manager-main main.tar.gz
 wget -q --no-check-certificate https://github.com/Belfagor2005/WiFi-Manager/archive/refs/heads/main.tar.gz -O main.tar.gz
 tar -xzf main.tar.gz
-cp -r WiFi-Manager-main/usr/ /
+cp -r WiFi-Manager-main/usr /
 sync
 
 set +e
