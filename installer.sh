@@ -3,8 +3,8 @@
 ##setup command=wget -q --no-check-certificate https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/installer.sh -O - | /bin/sh
 
 ######### Only These 2 lines to edit with new version ######
-version='1.38'
-changelog='\n- Test Upgrade\n- fix player - infobar - Add --> refresh player'
+version='1.0'
+changelog='\n- Init version Wifi Manager'
 ##############################################################
 
 TMPPATH=/tmp/WiFi-Manager-main
@@ -35,6 +35,7 @@ else
     STATUS=/var/lib/opkg/status
     OSTYPE=Dream
     PKG_MANAGER="opkg"
+    INSTALL_CMD="install"
 fi
 
 echo ""
@@ -88,7 +89,7 @@ set -e
 echo -e "\n# Your image is ${OSTYPE}\n"
 
 # Install additional dependencies for non-DreamOs systems
-if [ "$OSTYPE" != "DreamOs" ]; then
+if [ "$OSTYPE" = "DreamOs" ]; then
     echo "WiFi-Manager package not work on dreamos!"
     exit 1
 fi
@@ -106,19 +107,24 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-cp -r 'WiFi-Manager-main/usr' '/'
+cd /tmp
+rm -rf WiFi-Manager-main main.tar.gz
+wget -q --no-check-certificate https://github.com/Belfagor2005/WiFi-Manager/archive/refs/heads/main.tar.gz -O main.tar.gz
+tar -xzf main.tar.gz
+cp -r WiFi-Manager-main/usr/ /
+sync
 
 set +e
 
 # Verify installation
 if [ ! -d "$PLUGINPATH" ]; then
     echo "Error: Plugin installation failed!"
-    cleanup
+    rm -rf "$TMPPATH" "$FILEPATH"
     exit 1
 fi
 
 # Cleanup
-cleanup
+rm -rf "$TMPPATH" "$FILEPATH"
 sync
 
 # System info
