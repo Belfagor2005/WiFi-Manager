@@ -634,10 +634,20 @@ class ResultsScreen(Screen):
         self["results"] = ScrollLabel(text)
         self["key_red"] = Button(_("Back"))
 
-        self["actions"] = ActionMap(["ColorActions", "OkCancelActions"], {
+        self["actions"] = ActionMap(["ColorActions", "OkCancelActions", "DirectionActions"], {
             "red": self.close,
             "cancel": self.close,
-            "up": self["results"].pageUp,
-            "down": self["results"].pageDown,
+            "pageUp": self.pageUp,
+            "pageDown": self.pageDown,
+            "up": self.pageUp,
+            "down": self.pageDown,
+            "left": self.pageUp,
+            "right": self.pageDown,
         })
         self.setTitle(title)
+
+    def pageUp(self):
+        self["results"].pageUp()
+
+    def pageDown(self):
+        self["results"].pageDown()
