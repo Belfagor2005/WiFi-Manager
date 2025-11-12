@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 12:36+0100\n"
-"PO-Revision-Date: 2025-11-12 12:36+0100\n"
+"POT-Creation-Date: 2025-11-12 15:00+0100\n"
+"PO-Revision-Date: 2025-11-12 15:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -47,7 +47,7 @@ msgstr "Scansione"
 msgid "Monitor"
 msgstr ""
 
-#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1063
+#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1077
 msgid "Connect"
 msgstr "Connetti"
 
@@ -711,19 +711,30 @@ msgstr "Impossibile connettersi a {}"
 msgid "Connection error: {}"
 msgstr "Errore di Connessione :  {}"
 
-#: modules/connect.py:683
-msgid "Connecting..."
-msgstr "Connessione..."
+#: modules/connect.py:684 modules/connect.py:1111
+#, python-format
+msgid "Connecting to %s..."
+msgstr "Connessione a %s..."
 
-#: modules/connect.py:700 modules/connect.py:712
+#: modules/connect.py:701
+#, python-format
+msgid "Connected to %s"
+msgstr "Connesso a %s"
+
+#: modules/connect.py:704
+#, python-format
+msgid "Failed to connect to %s"
+msgstr "Impossibile connettersi a %s"
+
+#: modules/connect.py:713
 msgid "Connected successfully!"
 msgstr "Connessione completata con successo!"
 
-#: modules/connect.py:703 modules/connect.py:714
+#: modules/connect.py:715
 msgid "Connection failed!"
 msgstr "Connessione  fallita!"
 
-#: modules/connect.py:761 modules/connect.py:1181
+#: modules/connect.py:762 modules/connect.py:1181
 #, python-format
 msgid ""
 "Configuration saved for %s\n"
@@ -734,12 +745,12 @@ msgstr ""
 "\n"
 "Connettersi ora?"
 
-#: modules/connect.py:802
+#: modules/connect.py:803
 #, python-format
 msgid "Error opening configuration: %s"
 msgstr "Errore durante l'apertura della configurazione: %s"
 
-#: modules/connect.py:814
+#: modules/connect.py:815
 #, python-format
 msgid ""
 "Password saved for %s\n"
@@ -750,60 +761,60 @@ msgstr ""
 "\n"
 "Connettersi ora?"
 
-#: modules/connect.py:824
+#: modules/connect.py:825
 #, python-format
 msgid "Enter password for: %s"
 msgstr "Inserisci la password per: %s"
 
-#: modules/connect.py:825
+#: modules/connect.py:826
 msgid "WiFi Password"
 msgstr "Password WiFi"
 
-#: modules/connect.py:834
+#: modules/connect.py:835
 msgid "Disconnected successfully!"
 msgstr "Disconnesso con successo!"
 
-#: modules/connect.py:861
-msgid "Disconnected from network"
-msgstr "Disconnesso dalla Rete"
+#: modules/connect.py:862
+msgid "Disconnected"
+msgstr "Disconnesso"
 
-#: modules/connect.py:864
+#: modules/connect.py:865
 msgid "Error disconnecting"
 msgstr "Errore durante la disconnessione"
 
-#: modules/connect.py:875
+#: modules/connect.py:876
 msgid "Network forgotten!"
 msgstr "Rete dimenticata!"
 
-#: modules/connect.py:894
+#: modules/connect.py:895
 #, python-brace-format
 msgid "Forgotten network: {}"
 msgstr "Rete dimenticata: {}"
 
-#: modules/connect.py:897
+#: modules/connect.py:898
 #, python-brace-format
 msgid "Error: {}"
 msgstr "Errore: {}"
 
-#: modules/connect.py:913
+#: modules/connect.py:914
 msgid "No IP"
 msgstr "Nessun IP"
 
-#: modules/connect.py:915
+#: modules/connect.py:916
 #, python-brace-format
 msgid "Connected: {} | Signal: {} dBm | IP: {}"
 msgstr "Connesso: {} | Segnale: {} dBm | IP: {}"
 
-#: modules/connect.py:918 modules/connect.py:1150 modules/connect.py:1163
+#: modules/connect.py:919 modules/connect.py:1150 modules/connect.py:1163
 msgid "Not connected to any network"
 msgstr "Non connesso a nessuna rete"
 
-#: modules/connect.py:921
+#: modules/connect.py:922
 #, python-brace-format
 msgid "Status check failed: {}"
 msgstr "Controllo dello stato non riuscito: {}"
 
-#: modules/connect.py:990
+#: modules/connect.py:991
 #, python-format
 msgid ""
 "Connection Details:\n"
@@ -814,62 +825,56 @@ msgstr ""
 "\n"
 "%s"
 
-#: modules/connect.py:1004
+#: modules/connect.py:1005
 msgid "No connection details available"
 msgstr "Nessun dettaglio di connessione disponibile"
 
-#: modules/connect.py:1012
+#: modules/connect.py:1013
 #, python-format
 msgid "Error getting connection details: %s"
 msgstr "Errore durante il recupero dei dettagli di connessione: %s"
 
-#: modules/connect.py:1053
+#: modules/connect.py:1067
 msgid "Disconnect"
 msgstr "Disconnetti"
 
-#: modules/connect.py:1054 modules/connect.py:1073
+#: modules/connect.py:1068 modules/connect.py:1087
 msgid "Connection Info"
 msgstr "Informazioni di Connessione"
 
-#: modules/connect.py:1055 modules/connect.py:1071
+#: modules/connect.py:1069 modules/connect.py:1085
 msgid "Edit Configuration"
 msgstr "Modifica Configurazione"
 
-#: modules/connect.py:1056 modules/connect.py:1074 modules/iwlist_tools.py:635
+#: modules/connect.py:1070 modules/connect.py:1088 modules/iwlist_tools.py:635
 msgid "Back"
 msgstr "Torna"
 
-#: modules/connect.py:1058
+#: modules/connect.py:1072
 #, python-format
 msgid "Connected to: %s"
 msgstr "Connesso a: %s"
 
-#: modules/connect.py:1067
+#: modules/connect.py:1081
 msgid "Edit Password"
 msgstr "Modifica Password"
 
-#: modules/connect.py:1069
+#: modules/connect.py:1083
 msgid "Enter Password"
 msgstr "Inserire Password"
 
-#: modules/connect.py:1072
+#: modules/connect.py:1086
 msgid "Forget Network"
 msgstr "Dimentica Rete"
 
-#: modules/connect.py:1076
+#: modules/connect.py:1090
 #, python-format
 msgid "Network: %s"
 msgstr "Rete: %s"
 
-#: modules/connect.py:1100
-#, python-format
-msgid "Connected successfully to %s"
-msgstr "Connessione riuscita a %s"
-
-#: modules/connect.py:1111
-#, python-format
-msgid "Disconnected from %s"
-msgstr "Disconnesso da %s"
+#: modules/connect.py:1117
+msgid "Disconnecting..."
+msgstr "Disconnessione..."
 
 #: modules/connect.py:1140
 msgid "No network selected"
@@ -1803,6 +1808,17 @@ msgstr "Debole"
 msgid "Very Poor"
 msgstr "Molto Debole"
 
+#~ msgid "Disconnected from network"
+#~ msgstr "Disconnesso dalla Rete"
+
+#, python-format
+#~ msgid "Connected successfully to %s"
+#~ msgstr "Connessione riuscita a %s"
+
+#, python-format
+#~ msgid "Disconnected from %s"
+#~ msgstr "Disconnesso da %s"
+
 #~ msgid "Press BLUE button for menu"
 #~ msgstr "Premere il pulsante BLU per il menu"
 
@@ -1923,19 +1939,11 @@ msgstr "Molto Debole"
 #~ msgid "Test in progress. Please wait..."
 #~ msgstr "Test in corso. Attendi..."
 
-#, python-format
-#~ msgid "Connecting to %s..."
-#~ msgstr "Connessione a %s..."
-
 #~ msgid "Configuration file not found"
 #~ msgstr "File di configurazione non trovato"
 
 #~ msgid "Connection failed - check configuration"
 #~ msgstr "Connessione fallita - controlla la configurazione"
-
-#, python-format
-#~ msgid "Connected to %s"
-#~ msgstr "Connesso a %s"
 
 #, python-format
 #~ msgid "Successfully connected to %s"

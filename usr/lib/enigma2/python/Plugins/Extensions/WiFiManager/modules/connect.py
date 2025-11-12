@@ -680,13 +680,14 @@ class WiFiConnectZ(Screen):
             return
 
         self.is_connecting = True
-        self["status"].setText(_("Connecting..."))
+        essid = self.current_network.get('essid')
+        self["status"].setText(_("Connecting to %s...") % essid)
 
         def connect_thread():
             try:
                 if self.current_network.get('encryption'):
-                    saved_password = self.get_saved_password(self.current_network.get('essid'))
-                    return self.connect_with_saved_config_thread(self.current_network.get('essid'), saved_password)
+                    saved_password = self.get_saved_password(essid)
+                    return self.connect_with_saved_config_thread(essid, saved_password)
                 else:
                     return self.connect_to_open_network_thread()
             except Exception as e:
@@ -697,10 +698,10 @@ class WiFiConnectZ(Screen):
 
         def connect_callback(success):
             if success:
-                self["status"].setText(_("Connected successfully!"))
+                self["status"].setText(_("Connected to %s") % essid)
                 self.refresh_after_connection()
             else:
-                self["status"].setText(_("Connection failed!"))
+                self["status"].setText(_("Failed to connect to %s") % essid)
             self.update_button_labels()
 
         threads.deferToThread(connect_thread).addCallback(connect_callback)
@@ -858,10 +859,10 @@ class WiFiConnectZ(Screen):
 
         def disconnect_callback(success):
             if success:
-                self.show_message(_("Disconnected from network"))
+                self["status"].setText(_("Disconnected"))
                 self.refresh_after_connection()
             else:
-                self.show_message(_("Error disconnecting"))
+                self["status"].setText(_("Error disconnecting"))
 
         threads.deferToThread(disconnect_thread).addCallback(disconnect_callback)
 
@@ -1017,16 +1018,29 @@ class WiFiConnectZ(Screen):
         """Show message with proper callback handling"""
         print(f"[DEBUG] show_message: '{message}'")
 
-        if callback:
-            self.session.openWithCallback(
-                lambda result: callback() if callback else None,
-                MessageBox,
-                message,
-                MessageBox.TYPE_INFO,
-                timeout=timeout or 3
-            )
-        else:
-            self.session.open(MessageBox, message, MessageBox.TYPE_INFO, timeout=timeout or 3)
+        try:
+            if callback:
+                self.session.openWithCallback(
+                    lambda result: callback() if callback else None,
+                    MessageBox,
+                    message,
+                    MessageBox.TYPE_INFO,
+                    timeout=timeout or 3
+                )
+            else:
+                def show_msg():
+                    try:
+                        self.session.open(MessageBox, message, MessageBox.TYPE_INFO, timeout=timeout or 3)
+                    except Exception as e:
+                        print(f"[DEBUG] Error showing message: {e}")
+                        # Fallback: update status instead
+                        self["status"].setText(message)
+                
+                reactor.callLater(0.1, show_msg)
+        except Exception as e:
+            print(f"[DEBUG] Error in show_message: {e}")
+            # Fallback: update status instead
+            self["status"].setText(message)
 
     def show_network_options(self):
         """ChoiceBox with all possible options"""
@@ -1091,45 +1105,31 @@ class WiFiConnectZ(Screen):
                     return
 
                 elif action == "connect":
-                    print("[DEBUG] Connect selected - will show message and exit")
-
-                    def after_connect():
-                        # Refresh the interface status
-                        self.refresh_after_connection()
-                        # Show success message that requires OK button
-                        self.show_message(_("Connected successfully to %s") % essid, timeout=0)
-
-                    self.execute_connection_with_callback(after_connect)
+                    print("[DEBUG] Connect selected")
+                    # SEMPLICE: esegui connessione e aggiorna status
+                    self.execute_connection()
+                    self["status"].setText(_("Connecting to %s...") % essid)
 
                 elif action == "disconnect":
-                    print("[DEBUG] Disconnect selected - will show message and exit")
-
-                    def after_disconnect():
-                        # Refresh the interface status
-                        self.refresh_after_connection()
-                        # Show success message that requires OK button
-                        self.show_message(_("Disconnected from %s") % essid, timeout=0)
-
-                    self.disconnect_with_callback(after_disconnect)
+                    print("[DEBUG] Disconnect selected")
+                    # SEMPLICE: esegui disconnessione e aggiorna status
+                    self.disconnect_from_network()
+                    self["status"].setText(_("Disconnecting..."))
 
                 elif action == "enter_password":
                     print("[DEBUG] Enter password selected")
-                    # After entering password, just exit
                     self.open_password_dialog_with_callback(lambda: None)
 
                 elif action == "edit_config":
                     print("[DEBUG] Edit config selected")
-                    # After editing config, just exit
                     self.open_configuration_with_callback(lambda: None)
 
                 elif action == "forget":
                     print("[DEBUG] Forget selected")
-                    # After forgetting, just exit
                     self.forget_network_with_callback(lambda: None)
 
                 elif action == "info":
                     print("[DEBUG] Info selected")
-                    # After showing info, just exit
                     self.show_connection_details_with_callback(lambda: None)
 
             # Open ChoiceBox with callback
@@ -1137,7 +1137,7 @@ class WiFiConnectZ(Screen):
 
         else:
             print("[DEBUG] No valid network selected")
-            self.show_message(_("No network selected"))
+            self["status"].setText(_("No network selected"))
 
     def check_current_connection(self):
         """Check current connection status using tools.py"""
