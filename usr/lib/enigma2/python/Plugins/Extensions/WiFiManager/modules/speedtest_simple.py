@@ -1,0 +1,463 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+#########################################################
+#                                                       #
+#  WiFi Manager Plugin                                  #
+#  Version: 1.0                                         #
+#  Created by Lululla (https://github.com/Belfagor2005) #
+#  License: Gnu Gpl v2                                  #
+#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
+#  Last Modified: "00:00 - 20250101"                    #
+#                                                       #
+#  Credits:                                             #
+#  - Original concept by Lululla                        #
+#  Usage of this code without proper attribution        #
+#  is strictly prohibited.                              #
+#  For modifications and redistribution,                #
+#  please maintain this credit header.                  #
+#########################################################
+"""
+
+import time
+import subprocess
+import socket
+from json import loads
+from re import search
+
+
+try:
+    from urllib.request import urlopen, Request
+    from urllib.error import URLError, HTTPError
+except ImportError:
+    from urllib2 import urlopen, Request, URLError, HTTPError
+
+
+class Enigma2Speedtest:
+    def __init__(self):
+        self.results = {
+            'download': 0,
+            'upload': 0,
+            'ping': 0,
+            'server': {},
+            'client': {},
+            'timestamp': '',
+            'sponsor': '',
+            'host': '',
+            'distance': 0,
+            'ip_address': ''
+        }
+
+    def _check_internet_connection(self):
+        """Check if there is an internet connection"""
+        try:
+            # Try connecting to Google DNS
+            socket.create_connection(("8.8.8.8", 53), timeout=5)
+            return True
+        except OSError:
+            return False
+
+    def get_client_info(self):
+        """Get client information"""
+        try:
+            if not self._check_internet_connection():
+                print("No internet connection in get_client_info")
+                return False
+            try:
+                # Get public IP
+                ip_response = urlopen('http://ipinfo.io/json', timeout=10)
+                ip_data = loads(ip_response.read().decode())
+                self.results['client'] = {
+                    'ip': ip_data.get('ip', 'Unknown'),
+                    'city': ip_data.get('city', 'Unknown'),
+                    'region': ip_data.get('region', 'Unknown'),
+                    'country': ip_data.get('country', 'Unknown'),
+                    'isp': ip_data.get('org', 'Unknown')
+                }
+                print("Client info obtained successfully")
+                return True
+            except (URLError, HTTPError) as e:
+                print(f" ipinfo.io failed: {e}")
+                try:
+                    ip_response = urlopen('http://api.ipify.org', timeout=5)
+                    self.results['client'] = {'ip': ip_response.read().decode().strip()}
+                    print("IP obtained via fallback")
+                    return True
+                except Exception as e2:
+                    print(f"Fallback IP also failed: {e2}")
+                    return False
+        except Exception as e:
+            print(f"Client info error: {e}")
+            self.results['client'] = {'ip': 'Unknown'}
+            return False
+
+    def test_specific_ping(self, host):
+        """Test ping specific host"""
+        try:
+            print(f"Pinging {host}...")
+            result = subprocess.run(
+                ["ping", "-c", "2", "-W", "3", host],
+                capture_output=True, text=True, timeout=5
+            )
+
+            if result.returncode == 0:
+                for line in result.stdout.split('\n'):
+                    if 'min/avg/max' in line:
+                        stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
+                        if stats_match:
+                            ping_time = float(stats_match.group(2))
+                            print(f"Ping {host}: {ping_time} ms")
+                            return ping_time
+            print(f"Ping failed for {host}")
+            return 999
+        except subprocess.TimeoutExpired:
+            print(f"Ping timeout for {host}")
+            return 999
+        except Exception as e:
+            print(f"Ping error for {host}: {e}")
+            return 999
+
+    def test_ping(self):
+        """Improved ping test with multiple servers"""
+        try:
+            print("Starting ping test...")
+            ping_hosts = [
+                ("Google DNS", "8.8.8.8"),
+                ("Cloudflare", "1.1.1.1"),
+                ("OpenDNS", "208.67.222.222")
+            ]
+
+            ping_results = []
+            total_ping = 0
+            valid_pings = 0
+
+            for name, host in ping_hosts:
+                ping_time = self.test_specific_ping(host)
+                if ping_time < 999:
+                    ping_results.append(f"{name}: {ping_time:.1f} ms")
+                    total_ping += ping_time
+                    valid_pings += 1
+
+            if valid_pings > 0:
+                avg_ping = total_ping / valid_pings
+                self.results['ping_details'] = ping_results
+                self.results['ping'] = avg_ping
+                print(f"Ping test completed: {avg_ping:.1f} ms average")
+                return avg_ping
+            else:
+                print("All ping tests failed")
+                return 999
+
+        except Exception as e:
+            print(f"Ping test error: {e}")
+            return 999
+
+    def test_download_simple(self):
+        """Download test semplificato e più affidabile"""
+        try:
+            # Check connection
+            if not self._check_internet_connection():
+                print("No internet connection for download test")
+                return 0
+
+            # Use a small, reliable test file
+            test_urls = [
+                "http://ipv4.download.thinkbroadband.com/1MB.zip",  # 1MB
+                "http://speedtest.ftp.otenet.gr/files/test1Mb.db",   # 1MB
+                "http://cachefly.cachefly.net/1mb.test"              # 1MB
+            ]
+
+            best_speed_mbps = 0
+            download_details = []
+
+            for url in test_urls:
+                try:
+                    print(f"Testing download from: {url}")
+
+                    start_time = time.time()
+                    request = Request(url)
+                    response = urlopen(request, timeout=15)
+
+                    # Read only 1MB per test
+                    data = response.read(1024 * 1024)  # 1MB
+                    end_time = time.time()
+
+                    download_time = end_time - start_time
+                    response.close()
+
+                    if download_time > 0:
+                        speed_bps = (len(data) * 8) / download_time
+                        speed_mbps = speed_bps / 1000000
+
+                        download_details.append({
+                            'server': url.split('/')[2],
+                            'speed_mbps': speed_mbps,
+                            'time_seconds': download_time,
+                            'data_mb': len(data) / (1024 * 1024)
+                        })
+
+                        if speed_mbps > best_speed_mbps:
+                            best_speed_mbps = speed_mbps
+
+                        print(f"Download from {url.split('/')[2]}: {speed_mbps:.2f} Mbps")
+
+                    # Short break between tests
+                    time.sleep(1)
+
+                except Exception as e:
+                    print(f"Download test failed for {url}: {e}")
+                    continue
+
+            if download_details:
+                self.results['download_details'] = download_details
+                self.results['download'] = best_speed_mbps * 1000000  # Convert to bps
+                print(f"Download test completed. Best speed: {best_speed_mbps:.2f} Mbps")
+                return best_speed_mbps * 1000000
+            else:
+                print("All download tests failed")
+                return 0
+
+        except Exception as e:
+            print(f"Download test error: {e}")
+            return 0
+
+    def test_upload_estimated(self):
+        """Upload test basato su stima realistica"""
+        try:
+            if self.results['download'] > 0:
+                download_mbps = self.results['download'] / 1000000
+
+                # Upload estimate based on connection type
+                if download_mbps > 100:  # Fibra
+                    upload_ratio = 0.9
+                elif download_mbps > 50:  # VDSL
+                    upload_ratio = 0.8
+                elif download_mbps > 20:  # ADSL2+
+                    upload_ratio = 0.3
+                else:  # ADSL
+                    upload_ratio = 0.1
+
+                upload_mbps = download_mbps * upload_ratio
+                self.results['upload'] = upload_mbps * 1000000
+                print(f"Upload estimated: {upload_mbps:.2f} Mbps (ratio: {upload_ratio})")
+                return upload_mbps * 1000000
+
+            print("Cannot estimate upload - no download data")
+            return 0
+        except Exception as e:
+            print(f"Upload test error: {e}")
+            return 0
+
+    def get_best_server(self):
+        """Trova il server migliore basato sul ping"""
+        try:
+            servers = [
+                {
+                    'name': 'Google DNS',
+                    'url': 'http://8.8.8.8',
+                    'sponsor': 'Google',
+                    'host': '8.8.8.8',
+                    'country': 'Global'
+                },
+                {
+                    'name': 'Cloudflare DNS',
+                    'url': 'http://1.1.1.1',
+                    'sponsor': 'Cloudflare',
+                    'host': '1.1.1.1',
+                    'country': 'Global'
+                },
+                {
+                    'name': 'OpenDNS',
+                    'url': 'http://208.67.222.222',
+                    'sponsor': 'OpenDNS',
+                    'host': '208.67.222.222',
+                    'country': 'Global'
+                }
+            ]
+
+            best_server = None
+            best_ping = 9999
+
+            for server in servers:
+                ping_time = self.test_specific_ping(server['host'])
+                if ping_time < best_ping and ping_time < 999:
+                    best_ping = ping_time
+                    best_server = server
+                    best_server['ping'] = ping_time
+
+            if best_server:
+                self.results['server'] = best_server
+                self.results['sponsor'] = best_server.get('sponsor', 'Unknown')
+                self.results['host'] = best_server.get('host', 'Unknown')
+                print(f"Best server: {best_server['name']} ({best_ping} ms)")
+                return best_server
+
+            print("No suitable server found")
+            return None
+
+        except Exception as e:
+            print(f"Server selection error: {e}")
+            return None
+
+    def run_test(self, callback=None):
+        """Run all tests"""
+        try:
+            print("Starting detailed speed test...")
+            self.results['timestamp'] = time.strftime('%Y-%m-%d %H:%M:%S')
+
+            # Initial internet connection test
+            if callback:
+                callback('checking_connection')
+
+            if not self._check_internet_connection():
+                error_msg = "No internet connection detected"
+                print(error_msg)
+                if callback:
+                    callback('error', error_msg)
+                return None
+
+            # Client information
+            if callback:
+                callback('client_info_start')
+            self.get_client_info()
+            if callback:
+                callback('client_info_complete')
+
+            # Ping test
+            if callback:
+                callback('ping_start')
+            self.test_ping()
+            if callback:
+                callback('ping_complete')
+
+            # Find best server
+            if callback:
+                callback('server_selection_start')
+
+            server = self.get_best_server()
+            if callback:
+                callback(f'server_found {str(server)}')
+
+            # Download test
+            if callback:
+                callback('download_start')
+            download_result = self.test_download_simple()
+            if callback:
+                callback('download_complete')
+
+            # Upload test (stima)
+            if callback:
+                callback('upload_start')
+            self.test_upload_estimated()
+            if callback:
+                callback('upload_complete')
+
+            # Verifica che almeno il ping sia riuscito
+            if self.results['ping'] == 999 and download_result == 0:
+                print("Test failed completely")
+                return None
+
+            print("All tests completed successfully")
+            return self.results
+
+        except Exception as e:
+            error_msg = f"Speedtest failed: {str(e)}"
+            print(error_msg)
+            if callback:
+                callback('error', error_msg)
+            return None
+
+    def format_results(self):
+        """Format the results for display"""
+        # Check if the test was successful
+        has_ping = self.results.get('ping', 0) > 0 and self.results.get('ping', 0) < 999
+        has_download = self.results.get('download', 0) > 0
+
+        if not has_ping and not has_download:
+            return "Speedtest failed - No internet connection or all tests failed"
+
+        download_mbps = self.results['download'] / 1000000 if has_download else 0
+        upload_mbps = self.results['upload'] / 1000000 if self.results['upload'] > 0 else 0
+        ping_ms = self.results.get('ping', 0) if has_ping else 999
+
+        result_text = (
+            f"📊 ENIGMA2 DETAILED SPEEDTEST\n"
+            f"============================\n"
+            f"🕐 Timestamp: {self.results['timestamp']}\n\n"
+        )
+
+        # Client Information
+        if self.results.get('client'):
+            result_text += "👤 CLIENT INFORMATION:\n"
+            result_text += f"IP: {self.results['client'].get('ip', 'Unknown')}\n"
+            if 'city' in self.results['client']:
+                result_text += f"Location: {self.results['client'].get('city', 'Unknown')}, "
+                result_text += f"{self.results['client'].get('country', 'Unknown')}\n"
+            if 'isp' in self.results['client']:
+                result_text += f"ISP: {self.results['client'].get('isp', 'Unknown')}\n"
+            result_text += "\n"
+
+        # Server Information
+        if self.results.get('server'):
+            result_text += "🏢 SERVER INFORMATION:\n"
+            result_text += f"Name: {self.results['server'].get('name', 'Unknown')}\n"
+            result_text += f"Sponsor: {self.results['server'].get('sponsor', 'Unknown')}\n"
+            result_text += f"Host: {self.results['server'].get('host', 'Unknown')}\n\n"
+
+        # Main Results
+        result_text += "📈 TEST RESULTS:\n"
+        if has_ping:
+            result_text += f"Ping: {ping_ms:.1f} ms\n"
+        else:
+            result_text += "Ping: Failed\n"
+
+        if has_download:
+            result_text += f"Download: {download_mbps:.2f} Mbps\n"
+        else:
+            result_text += "Download: Failed\n"
+
+        if self.results['upload'] > 0:
+            result_text += f"Upload: {upload_mbps:.2f} Mbps (estimated)\n"
+        else:
+            result_text += "Upload: Not available\n"
+
+        # Additional Details
+        if 'ping_details' in self.results:
+            result_text += "\n📡 PING DETAILS:\n"
+            for ping_detail in self.results['ping_details']:
+                result_text += f"{ping_detail}\n"
+
+        if 'download_details' in self.results and has_download:
+            result_text += "\n⬇️ DOWNLOAD DETAILS:\n"
+            for detail in self.results['download_details']:
+                result_text += f"{detail['server']}: {detail['speed_mbps']:.2f} Mbps "
+                result_text += f"({detail['data_mb']:.1f} MB in {detail['time_seconds']:.1f}s)\n"
+
+        # Quality Assessment
+        result_text += "\n📊 QUALITY ASSESSMENT:\n"
+        if has_ping:
+            if ping_ms < 50:
+                result_text += "✅ Excellent latency\n"
+            elif ping_ms < 100:
+                result_text += "⚠️ Good latency\n"
+            elif ping_ms < 200:
+                result_text += "⚠️ Average latency\n"
+            else:
+                result_text += "❌ Poor latency\n"
+        else:
+            result_text += "❌ Latency test failed\n"
+
+        if has_download:
+            if download_mbps > 50:
+                result_text += "✅ Excellent download speed\n"
+            elif download_mbps > 20:
+                result_text += "⚠️ Good download speed\n"
+            elif download_mbps > 5:
+                result_text += "⚠️ Average download speed\n"
+            else:
+                result_text += "❌ Poor download speed\n"
+        else:
+            result_text += "❌ Download test failed\n"
+
+        return result_text

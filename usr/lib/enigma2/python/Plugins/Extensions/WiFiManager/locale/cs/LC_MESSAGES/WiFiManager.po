@@ -1,0 +1,1632 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WiFiManager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-12 12:35+0100\n"
+"PO-Revision-Date: 2025-11-12 12:35+0100\n"
+"Last-Translator: \n"
+"Language-Team: <ekekaz@gmail.com>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: plugin.py\n"
+"X-Poedit-SearchPath-1: WiFiManager.py\n"
+"X-Poedit-SearchPath-2: modules\n"
+
+#: WiFiManager.py:101
+msgid "WiFi Manager v."
+msgstr ""
+
+#: WiFiManager.py:102
+msgid "Select an option"
+msgstr ""
+
+#: WiFiManager.py:105
+msgid "Scanner"
+msgstr ""
+
+#: WiFiManager.py:109
+msgid "Monitor"
+msgstr ""
+
+#: WiFiManager.py:113 WiFiManager.py:190 ⁨modules/connect - Copia.py⁩:1079
+#: modules/connect.py:1063
+msgid "Connect"
+msgstr ""
+
+#: WiFiManager.py:117
+msgid "Diagnostics"
+msgstr ""
+
+#: WiFiManager.py:121
+msgid "Details Info"
+msgstr ""
+
+#: WiFiManager.py:125
+msgid "Tools"
+msgstr ""
+
+#: WiFiManager.py:129
+msgid "Config"
+msgstr ""
+
+#: WiFiManager.py:133 WiFiManager.py:152
+msgid "Speedtest"
+msgstr ""
+
+#: WiFiManager.py:137
+msgid "Info"
+msgstr ""
+
+#: WiFiManager.py:143
+msgid "Scan for available networks"
+msgstr ""
+
+#: WiFiManager.py:144
+msgid "Real-time signal quality monitor"
+msgstr ""
+
+#: WiFiManager.py:145
+msgid "Connect to WiFi networks"
+msgstr ""
+
+#: WiFiManager.py:147
+msgid "WiFi diagnostics and tests"
+msgstr ""
+
+#: WiFiManager.py:148
+msgid "Complete iwconfig-like information"
+msgstr ""
+
+#: WiFiManager.py:149
+msgid "Advanced Tools"
+msgstr ""
+
+#: WiFiManager.py:151
+msgid "Advanced WiFi configuration"
+msgstr ""
+
+#: WiFiManager.py:153
+msgid "About"
+msgstr ""
+
+#: WiFiManager.py:172
+msgid "WiFi Manager"
+msgstr ""
+
+#: WiFiManager.py:185 modules/config.py:395
+msgid "Password"
+msgstr ""
+
+#: WiFiManager.py:186
+msgid "Remember password"
+msgstr ""
+
+#: WiFiManager.py:293
+msgid ""
+"Need help or have questions about WiFi Manager?\n"
+"\n"
+msgstr ""
+
+#: WiFiManager.py:294
+msgid "For troubleshooting, detailed guidance, or community support, visit:\n"
+msgstr ""
+
+#: WiFiManager.py:297
+msgid "These forums are great places to get help,\n"
+msgstr ""
+
+#: WiFiManager.py:298
+msgid "share experiences,and connect with other users."
+msgstr ""
+
+#: WiFiManager.py:324 modules/iwlist.py:107
+msgid "No WiFi interfaces found"
+msgstr ""
+
+#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:59
+#: modules/iwlist_tools.py:68
+msgid "Advanced Scan"
+msgstr ""
+
+#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:60
+#: modules/iwlist_tools.py:69 modules/iwlist_tools.py:229
+msgid "Channel Info"
+msgstr ""
+
+#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:61
+#: modules/iwlist_tools.py:70 modules/iwlist_tools.py:255
+msgid "Bitrate Info"
+msgstr ""
+
+#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:62
+#: modules/iwlist_tools.py:71 modules/iwlist_tools.py:281
+msgid "Encryption Info"
+msgstr ""
+
+#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:63
+#: modules/iwlist_tools.py:72 modules/iwlist_tools.py:307
+msgid "Power Management"
+msgstr ""
+
+#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:64
+#: modules/iwlist_tools.py:73 modules/iwlist_tools.py:333
+msgid "Retry Limits"
+msgstr ""
+
+#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist.py:65
+#: modules/iwlist_tools.py:74 modules/iwlist_tools.py:359
+msgid "Access Points"
+msgstr ""
+
+#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:75
+msgid "Advanced Config"
+msgstr ""
+
+#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:76
+msgid "Restart WiFi Interface"
+msgstr ""
+
+#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:77
+msgid "Reload WiFi Modules"
+msgstr ""
+
+#: WiFiManager.py:353 WiFiManager.py:408 modules/iwlist_tools.py:78
+msgid "Check System Logs"
+msgstr ""
+
+#: WiFiManager.py:359 WiFiManager.py:426 modules/iwlist_tools.py:87
+msgid "WiFi Advanced Tools"
+msgstr ""
+
+#: WiFiManager.py:398
+msgid "Detailed network scanning with signal strength and encryption info"
+msgstr ""
+
+#: WiFiManager.py:399
+msgid "Available frequencies and channels for your region"
+msgstr ""
+
+#: WiFiManager.py:400
+msgid "Supported bitrates and current transmission rates"
+msgstr ""
+
+#: WiFiManager.py:401
+msgid "Encryption keys and security protocols"
+msgstr ""
+
+#: WiFiManager.py:402
+msgid "Power management settings and power saving modes"
+msgstr ""
+
+#: WiFiManager.py:403
+msgid "Packet retry limits and frame lifetime settings"
+msgstr ""
+
+#: WiFiManager.py:404
+msgid "List of access points and connected peer stations"
+msgstr ""
+
+#: WiFiManager.py:405
+msgid "Advanced WiFi interface configuration"
+msgstr ""
+
+#: WiFiManager.py:406
+msgid "Restart wireless interface to reset connectivity"
+msgstr ""
+
+#: WiFiManager.py:407
+msgid "Reload kernel WiFi modules to fix driver issues"
+msgstr ""
+
+#: WiFiManager.py:408
+msgid "Check system logs for WiFi errors and connection issues"
+msgstr ""
+
+#: WiFiManager.py:412 WiFiManager.py:454
+msgid "Select a tool to see description"
+msgstr ""
+
+#: WiFiManager.py:413 modules/detailed_info.py:59 modules/iwlist.py:149
+#: modules/iwlist_tools.py:63 modules/speedtest_manager.py:73
+msgid "Close"
+msgstr ""
+
+#: WiFiManager.py:414
+msgid "Select"
+msgstr ""
+
+#: WiFiManager.py:432
+msgid ""
+"Performs a detailed scan of available WiFi networks showing:\n"
+"- Signal strength\n"
+"- Encryption type\n"
+"- Channels\n"
+"- Frequency bands\n"
+"- MAC addresses"
+msgstr ""
+
+#: WiFiManager.py:433
+msgid ""
+"Shows available channels and frequencies for your region:\n"
+"- 2.4GHz channels (1-14)\n"
+"- 5GHz channels\n"
+"- Regulatory domain info\n"
+"- Channel widths"
+msgstr ""
+
+#: WiFiManager.py:434
+msgid ""
+"Displays supported bitrates and current transmission rates:\n"
+"- Available bitrates\n"
+"- Current bitrate\n"
+"- MCS indexes (for 802.11n/ac)\n"
+"- HT/VHT capabilities"
+msgstr ""
+
+#: WiFiManager.py:435
+msgid ""
+"Shows encryption and security information:\n"
+"- Supported encryption types\n"
+"- Current encryption\n"
+"- Key management\n"
+"- Security protocols"
+msgstr ""
+
+#: WiFiManager.py:436
+msgid ""
+"Displays power management settings:\n"
+"- Current power state\n"
+"- Power saving mode\n"
+"- Transmission power\n"
+"- Power management features"
+msgstr ""
+
+#: WiFiManager.py:437
+msgid ""
+"Shows packet retry limits and settings:\n"
+"- Retry short limit\n"
+"- Retry long limit\n"
+"- Frame lifetime\n"
+"- Retry statistics"
+msgstr ""
+
+#: WiFiManager.py:438
+msgid ""
+"Lists access points and peer stations:\n"
+"- Connected stations\n"
+"- AP information\n"
+"- Peer statistics\n"
+"- Connection quality"
+msgstr ""
+
+#: WiFiManager.py:439
+msgid ""
+"Advanced WiFi interface configuration:\n"
+"- Operation mode (Managed/AP/Monitor)\n"
+"- Channel selection\n"
+"- TX power control\n"
+"- Basic interface settings"
+msgstr ""
+
+#: WiFiManager.py:440
+msgid ""
+"Restarts the WiFi interface:\n"
+"- Brings interface down/up\n"
+"- Reinitializes driver\n"
+"- Preserves configuration\n"
+"- Quick connectivity reset"
+msgstr ""
+
+#: WiFiManager.py:441
+msgid ""
+"Reloads WiFi kernel modules:\n"
+"- Unloads/loads drivers\n"
+"- Resets hardware\n"
+"- Fixes driver issues\n"
+"- Requires root access"
+msgstr ""
+
+#: WiFiManager.py:442
+msgid ""
+"Checks system logs for WiFi errors:\n"
+"- Kernel messages (dmesg)\n"
+"- System logs\n"
+"- Driver errors\n"
+"- Connection issues"
+msgstr ""
+
+#: WiFiManager.py:444
+msgid "No help available for this tool."
+msgstr ""
+
+#: WiFiManager.py:457
+msgid "Error loading help"
+msgstr ""
+
+#: modules/config.py:153 modules/iwlist_tools.py:511
+msgid "Cancel"
+msgstr ""
+
+#: modules/config.py:154 modules/config.py:192
+msgid "Save & Connect"
+msgstr ""
+
+#: modules/config.py:155 modules/config.py:419
+msgid "Advanced"
+msgstr ""
+
+#: modules/config.py:156 modules/iwlist_tools.py:513
+msgid "Defaults"
+msgstr ""
+
+#: modules/config.py:168
+#, python-brace-format
+msgid "Configure {}"
+msgstr ""
+
+#: modules/config.py:367
+msgid ""
+"WiFi settings applied successfully\n"
+"\n"
+msgstr ""
+
+#: modules/config.py:368
+#, python-brace-format
+msgid "Applied: {} commands\n"
+msgstr ""
+
+#: modules/config.py:370
+#, python-brace-format
+msgid "Failed: {} commands"
+msgstr ""
+
+#: modules/config.py:373
+msgid ""
+"No settings were applied\n"
+"\n"
+"Failed commands:\n"
+msgstr ""
+
+#: modules/config.py:387
+msgid "Interface"
+msgstr ""
+
+#: modules/config.py:389
+msgid "Network Name (SSID)"
+msgstr ""
+
+#: modules/config.py:390
+msgid "Hidden Network"
+msgstr ""
+
+#: modules/config.py:391
+msgid "Encryption"
+msgstr ""
+
+#: modules/config.py:399
+msgid "WEP Key Type"
+msgstr ""
+
+#: modules/config.py:405 modules/iwlist_tools.py:504
+msgid "Operation Mode"
+msgstr ""
+
+#: modules/config.py:406 modules/iwlist_tools.py:505
+msgid "Channel"
+msgstr ""
+
+#: modules/config.py:407 modules/iwlist_tools.py:506
+msgid "TX Power"
+msgstr ""
+
+#: modules/config.py:408
+msgid "RTS Threshold"
+msgstr ""
+
+#: modules/config.py:409
+msgid "Fragmentation"
+msgstr ""
+
+#: modules/config.py:410
+msgid "Country Code"
+msgstr ""
+
+#: modules/config.py:411
+msgid "Data Rate"
+msgstr ""
+
+#: modules/config.py:419
+msgid "Basic"
+msgstr ""
+
+#: modules/config.py:435
+msgid "Please enter a network name"
+msgstr ""
+
+#: modules/config.py:439
+msgid "Please enter a password"
+msgstr ""
+
+#: modules/config.py:526
+msgid "All settings reset to defaults"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:97 modules/connect.py:97
+msgid "Initializing WiFi..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:98 modules/connect.py:98 modules/diagnostics.py:56
+#: modules/monitor.py:80 modules/scanner.py:73
+msgid "Exit"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:101 ⁨modules/connect - Copia.py⁩:226
+#: ⁨modules/connect - Copia.py⁩:232 modules/connect.py:101 modules/connect.py:226
+#: modules/connect.py:232 modules/scanner.py:70
+msgid "Scan"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:119 modules/connect.py:119
+msgid "WiFi Connection Manager"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:138 ⁨modules/connect - Copia.py⁩:183
+#: ⁨modules/connect - Copia.py⁩:210 modules/connect.py:138 modules/connect.py:183
+#: modules/connect.py:210 modules/iwlist_tools.py:383
+msgid "No WiFi interface available"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:142 modules/connect.py:142
+msgid "Performing initial scan..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:154 modules/connect.py:154
+#, python-brace-format
+msgid "Interface found: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:157 modules/connect.py:157
+msgid "No WiFi interface found"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:158 modules/connect.py:158
+msgid "No WiFi interface detected. Please check your hardware."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:214 modules/connect.py:214
+msgid "Scanning..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:215 modules/connect.py:215
+msgid "Scanning for networks..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:233 modules/connect.py:233
+msgid "Scan failed"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:252 modules/connect.py:252
+msgid "Unknown"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:265 modules/connect.py:265
+msgid "Secured"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:268 modules/connect.py:268
+msgid "Open"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:306 modules/connect.py:306
+#, python-brace-format
+msgid "CONNECTED to: {} - Press OK for options"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:310 modules/connect.py:310
+#, python-brace-format
+msgid "{} - Password saved - Press OK for options"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:312 modules/connect.py:312
+#, python-brace-format
+msgid "{} - Password required - Press OK for options"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:315 modules/connect.py:315
+#, python-brace-format
+msgid "{} - Open network - Press OK for options"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:346 modules/connect.py:346
+#, python-format
+msgid ""
+"CONNECTED to: %(essid)s\n"
+"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK for options"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:356 modules/connect.py:356
+#, python-format
+msgid ""
+"%(essid)s - Password saved\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to connect or edit"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:365 modules/connect.py:365
+#, python-format
+msgid ""
+"%(essid)s - Password required\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to enter password"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:374 modules/connect.py:374
+#, python-format
+msgid ""
+"%(essid)s - Open network\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to connect"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:440 modules/connect.py:440
+msgid "No networks found - Press BLUE to rescan"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:441 modules/connect.py:441
+#: modules/iwlist_tools.py:185 modules/iwlist_tools.py:199
+msgid "No networks found"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:504 modules/connect.py:504
+msgid "Configuration saved"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:561 modules/connect.py:555
+#, python-brace-format
+msgid "Connecting to {}..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:579 modules/connect.py:573
+#, python-brace-format
+msgid "Connected to {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:580 modules/connect.py:574
+#, python-brace-format
+msgid "Successfully connected to {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:584 modules/connect.py:578
+#, python-brace-format
+msgid "Connection to {} failed"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:586 modules/connect.py:580
+#, python-brace-format
+msgid "Failed to connect to {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:589 modules/connect.py:583
+#, python-brace-format
+msgid "Connection error: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:689 modules/connect.py:683
+msgid "Connecting..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:706 ⁨modules/connect - Copia.py⁩:721
+#: modules/connect.py:700 modules/connect.py:712
+msgid "Connected successfully!"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:709 ⁨modules/connect - Copia.py⁩:729
+#: modules/connect.py:703 modules/connect.py:714
+msgid "Connection failed!"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:777 ⁨modules/connect - Copia.py⁩:1193
+#: modules/connect.py:761 modules/connect.py:1181
+#, python-format
+msgid ""
+"Configuration saved for %s\n"
+"\n"
+"Connect now?"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:818 modules/connect.py:802
+#, python-format
+msgid "Error opening configuration: %s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:830 modules/connect.py:814
+#, python-format
+msgid ""
+"Password saved for %s\n"
+"\n"
+"Connect now?"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:840 modules/connect.py:824
+#, python-format
+msgid "Enter password for: %s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:841 modules/connect.py:825
+msgid "WiFi Password"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:850 modules/connect.py:834
+msgid "Disconnected successfully!"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:877 modules/connect.py:861
+msgid "Disconnected from network"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:880 modules/connect.py:864
+msgid "Error disconnecting"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:891 modules/connect.py:875
+msgid "Network forgotten!"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:910 modules/connect.py:894
+#, python-brace-format
+msgid "Forgotten network: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:913 modules/connect.py:897
+#, python-brace-format
+msgid "Error: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:929 modules/connect.py:913
+msgid "No IP"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:931 modules/connect.py:915
+#, python-brace-format
+msgid "Connected: {} | Signal: {} dBm | IP: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:934 ⁨modules/connect - Copia.py⁩:1162
+#: ⁨modules/connect - Copia.py⁩:1175 modules/connect.py:918 modules/connect.py:1150
+#: modules/connect.py:1163
+msgid "Not connected to any network"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:937 modules/connect.py:921
+#, python-brace-format
+msgid "Status check failed: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1006 modules/connect.py:990
+#, python-format
+msgid ""
+"Connection Details:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1020 modules/connect.py:1004
+msgid "No connection details available"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1028 modules/connect.py:1012
+#, python-format
+msgid "Error getting connection details: %s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1069 modules/connect.py:1053
+msgid "Disconnect"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1070 ⁨modules/connect - Copia.py⁩:1089
+#: modules/connect.py:1054 modules/connect.py:1073
+msgid "Connection Info"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1071 ⁨modules/connect - Copia.py⁩:1087
+#: modules/connect.py:1055 modules/connect.py:1071
+msgid "Edit Configuration"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1072 ⁨modules/connect - Copia.py⁩:1090
+#: modules/connect.py:1056 modules/connect.py:1074 modules/iwlist_tools.py:635
+msgid "Back"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1074 modules/connect.py:1058
+#, python-format
+msgid "Connected to: %s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1083 modules/connect.py:1067
+msgid "Edit Password"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1085 modules/connect.py:1069
+msgid "Enter Password"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1088 modules/connect.py:1072
+msgid "Forget Network"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1092 modules/connect.py:1076
+#, python-format
+msgid "Network: %s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1152 modules/connect.py:1140
+msgid "No network selected"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:1173 modules/connect.py:1161
+#, python-brace-format
+msgid ""
+"Connected to: {}\n"
+"Signal: {} | IP: {}"
+msgstr ""
+
+#: modules/connect.py:1100
+#, python-format
+msgid "Connected successfully to %s"
+msgstr ""
+
+#: modules/connect.py:1111
+#, python-format
+msgid "Disconnected from %s"
+msgstr ""
+
+#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
+msgid "Refresh"
+msgstr ""
+
+#: modules/detailed_info.py:74
+#, python-brace-format
+msgid "Detailed Info - {}"
+msgstr ""
+
+#: modules/diagnostics.py:53 modules/speedtest_manager.py:75
+#: modules/speedtest_manager.py:106
+msgid "Full Test"
+msgstr ""
+
+#: modules/diagnostics.py:54 modules/speedtest_manager.py:74
+#: modules/speedtest_manager.py:105
+msgid "Quick Test"
+msgstr ""
+
+#: modules/diagnostics.py:55
+msgid "Clear"
+msgstr ""
+
+#: modules/diagnostics.py:73
+msgid "WiFi Diagnostics"
+msgstr ""
+
+#: modules/iwlist.py:59 modules/iwlist_tools.py:68
+msgid "Detailed network scanning"
+msgstr ""
+
+#: modules/iwlist.py:60 modules/iwlist_tools.py:69
+msgid "Available frequencies/channels"
+msgstr ""
+
+#: modules/iwlist.py:61 modules/iwlist_tools.py:70
+msgid "Supported bit rates"
+msgstr ""
+
+#: modules/iwlist.py:62 modules/iwlist_tools.py:71
+msgid "Encryption keys and security"
+msgstr ""
+
+#: modules/iwlist.py:63 modules/iwlist_tools.py:72
+msgid "Power management settings"
+msgstr ""
+
+#: modules/iwlist.py:64 modules/iwlist_tools.py:73
+msgid "Retry limits and lifetime"
+msgstr ""
+
+#: modules/iwlist.py:65 modules/iwlist_tools.py:74
+msgid "List of access points/peers"
+msgstr ""
+
+#: modules/iwlist.py:69
+msgid "Select a tool to view detailed information"
+msgstr ""
+
+#: modules/iwlist.py:84
+msgid "Advanced WiFi Tools"
+msgstr ""
+
+#: modules/iwlist.py:130
+msgid "Tool not available"
+msgstr ""
+
+#: modules/iwlist_tools.py:62
+msgid "Executing tool..."
+msgstr ""
+
+#: modules/iwlist_tools.py:75
+msgid "Advanced WiFi Configuration"
+msgstr ""
+
+#: modules/iwlist_tools.py:76
+msgid "Restart wireless interface"
+msgstr ""
+
+#: modules/iwlist_tools.py:77
+msgid "Reload kernel WiFi modules"
+msgstr ""
+
+#: modules/iwlist_tools.py:78
+msgid "Check system logs for WiFi errors"
+msgstr ""
+
+#: modules/iwlist_tools.py:132
+#, python-brace-format
+msgid "Tool not implemented: {}"
+msgstr ""
+
+#: modules/iwlist_tools.py:151
+msgid "Scan completed."
+msgstr ""
+
+#: modules/iwlist_tools.py:152
+msgid "Channel info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:153
+msgid "Bitrate info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:154
+msgid "Encryption info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:155
+msgid "Power management info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:156
+msgid "Retry limits info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:157
+msgid "Access points info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:158
+msgid "Advanced configuration completed."
+msgstr ""
+
+#: modules/iwlist_tools.py:159
+msgid "Interface restarted."
+msgstr ""
+
+#: modules/iwlist_tools.py:160
+msgid "Modules reloaded."
+msgstr ""
+
+#: modules/iwlist_tools.py:161
+msgid "Logs checked."
+msgstr ""
+
+#: modules/iwlist_tools.py:164
+msgid "Operation completed."
+msgstr ""
+
+#: modules/iwlist_tools.py:178
+msgid "Advanced Scan Results"
+msgstr ""
+
+#: modules/iwlist_tools.py:200
+msgid ""
+"=== ADVANCED SCAN RESULTS ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:201
+#, python-format
+msgid ""
+"Found %d networks\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:203
+#, python-format
+msgid "Network %d:\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:204
+#, python-format
+msgid "  ESSID: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:205
+#, python-format
+msgid "  MAC: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:206
+#, python-format
+msgid "  Channel: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:207
+#, python-format
+msgid "  Frequency: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:208
+#, python-format
+msgid "  Quality: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:209
+#, python-format
+msgid "  Signal: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:210
+#, python-format
+msgid "  Encryption: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:216
+msgid "Getting channel information..."
+msgstr ""
+
+#: modules/iwlist_tools.py:220
+msgid ""
+"=== CHANNEL INFORMATION ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:222
+#, python-format
+msgid ""
+"Frequency Bands:\n"
+"%s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:224
+msgid "Frequency information not available\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:242
+msgid "Getting bitrate information..."
+msgstr ""
+
+#: modules/iwlist_tools.py:246
+msgid ""
+"=== BITRATE INFORMATION ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:248
+#, python-format
+msgid ""
+"Supported Bitrates:\n"
+"%s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:250
+msgid "Bitrate information not available\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:268
+msgid "Getting encryption information..."
+msgstr ""
+
+#: modules/iwlist_tools.py:272
+msgid ""
+"=== ENCRYPTION INFORMATION ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:274
+#, python-format
+msgid ""
+"Authentication:\n"
+"%s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:276
+msgid "Encryption information not available\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:294
+msgid "Getting power management information..."
+msgstr ""
+
+#: modules/iwlist_tools.py:298
+msgid ""
+"=== POWER MANAGEMENT ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:302
+msgid "Power management information not available\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:320
+msgid "Getting retry information..."
+msgstr ""
+
+#: modules/iwlist_tools.py:324
+msgid ""
+"=== RETRY LIMITS ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:328
+msgid "Retry limit information not available\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:346
+msgid "Getting access point information..."
+msgstr ""
+
+#: modules/iwlist_tools.py:350
+msgid ""
+"=== ACCESS POINTS / PEERS ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:354
+msgid "No station/peer information available\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:387
+msgid ""
+"Select a tool from the menu to get detailed information about WiFi "
+"configuration and status."
+msgstr ""
+
+#: modules/iwlist_tools.py:395
+#, python-format
+msgid "Restart WiFi interface %s?"
+msgstr ""
+
+#: modules/iwlist_tools.py:402
+msgid "Restarting interface..."
+msgstr ""
+
+#: modules/iwlist_tools.py:409
+msgid "Interface restarted successfully"
+msgstr ""
+
+#: modules/iwlist_tools.py:425
+msgid ""
+"Reload WiFi kernel modules?\n"
+"This will temporarily disconnect all WiFi."
+msgstr ""
+
+#: modules/iwlist_tools.py:431
+msgid "Checking system logs..."
+msgstr ""
+
+#: modules/iwlist_tools.py:437
+msgid ""
+"=== SYSTEM LOGS - WIFI ERRORS ===\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:439
+msgid "Kernel Messages (dmesg):\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:443
+msgid ""
+"No WiFi messages in dmesg\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:444
+msgid "System Logs:\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:448
+msgid "No WiFi messages in system logs"
+msgstr ""
+
+#: modules/iwlist_tools.py:452
+msgid "System Logs"
+msgstr ""
+
+#: modules/iwlist_tools.py:510
+msgid "Advanced WiFi configuration settings"
+msgstr ""
+
+#: modules/iwlist_tools.py:512
+msgid "Apply"
+msgstr ""
+
+#: modules/iwlist_tools.py:514
+msgid "Help"
+msgstr ""
+
+#: modules/iwlist_tools.py:526
+#, python-brace-format
+msgid "Advanced Config - {}"
+msgstr ""
+
+#: modules/iwlist_tools.py:567
+msgid "Settings applied successfully"
+msgstr ""
+
+#: modules/iwlist_tools.py:612
+msgid ""
+"Advanced WiFi Configuration:\n"
+"\n"
+"RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
+"Fragmentation: Max frame size before fragmentation\n"
+"Beacon Interval: Time between beacon signals (ms)\n"
+"DTIM Period: Delivery Traffic Indication Message interval\n"
+"\n"
+"Warning: Incorrect settings may degrade performance!"
+msgstr ""
+
+#: modules/monitor.py:77 modules/monitor.py:111
+msgid "Start"
+msgstr ""
+
+#: modules/monitor.py:78
+msgid "Stop"
+msgstr ""
+
+#: modules/monitor.py:94
+msgid "WiFi Signal Monitor"
+msgstr ""
+
+#: modules/monitor.py:106
+msgid "Pause"
+msgstr ""
+
+#: modules/scanner.py:72 modules/speedtest_manager.py:76
+#: modules/speedtest_manager.py:107
+msgid "Details"
+msgstr ""
+
+#: modules/scanner.py:95
+msgid "WiFi Scanner"
+msgstr ""
+
+#: modules/scanner.py:105
+msgid "Scanning for WiFi networks..."
+msgstr ""
+
+#: modules/scanner.py:251
+msgid "Scan error: "
+msgstr ""
+
+#: modules/scanner.py:568
+msgid "Detailed view enabled - rescan to see details"
+msgstr ""
+
+#: modules/scanner.py:570
+msgid "Basic view enabled - rescan to see basic info"
+msgstr ""
+
+#: modules/speedtest_manager.py:69
+msgid "Select a speed test type"
+msgstr ""
+
+#: modules/speedtest_manager.py:94
+msgid "WiFi Speed Test Manager"
+msgstr ""
+
+#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:511
+msgid "Test cancelled"
+msgstr ""
+
+#: modules/speedtest_manager.py:147 modules/speedtest_manager.py:159
+#: modules/speedtest_manager.py:172
+msgid "wait..."
+msgstr ""
+
+#: modules/speedtest_manager.py:148
+msgid "Running quick speed test..."
+msgstr ""
+
+#: modules/speedtest_manager.py:160
+msgid "Running full speed test..."
+msgstr ""
+
+#: modules/speedtest_manager.py:173
+msgid "Running detailed speed test..."
+msgstr ""
+
+#: modules/speedtest_manager.py:189
+#, python-brace-format
+msgid "Hostname: {hostname}"
+msgstr ""
+
+#: modules/speedtest_manager.py:195
+#, python-brace-format
+msgid "Public IP: {ip}"
+msgstr ""
+
+#: modules/speedtest_manager.py:196
+#, python-brace-format
+msgid "Location: {city}, {country}"
+msgstr ""
+
+#: modules/speedtest_manager.py:200
+#, python-brace-format
+msgid "ISP: {isp}"
+msgstr ""
+
+#: modules/speedtest_manager.py:202
+msgid "Public IP: Unable to determine"
+msgstr ""
+
+#: modules/speedtest_manager.py:206
+#, python-brace-format
+msgid "Client info error: {error}"
+msgstr ""
+
+#: modules/speedtest_manager.py:224
+#, python-brace-format
+msgid "Server info error: {error}"
+msgstr ""
+
+#: modules/speedtest_manager.py:234
+#, python-brace-format
+msgid "Network Interface: {interface}"
+msgstr ""
+
+#: modules/speedtest_manager.py:242
+#, python-brace-format
+msgid "Gateway: {gateway}"
+msgstr ""
+
+#: modules/speedtest_manager.py:247
+msgid "Network information unavailable"
+msgstr ""
+
+#: modules/speedtest_manager.py:249
+#, python-brace-format
+msgid "Network info error: {error}"
+msgstr ""
+
+#: modules/speedtest_manager.py:256
+msgid "Testing connectivity..."
+msgstr ""
+
+#: modules/speedtest_manager.py:259 modules/speedtest_manager.py:366
+msgid "Testing download speed..."
+msgstr ""
+
+#: modules/speedtest_manager.py:262 modules/speedtest_manager.py:316
+msgid "Testing upload speed..."
+msgstr ""
+
+#: modules/speedtest_manager.py:265
+msgid "Quick test completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:268
+msgid ""
+"=== QUICK SPEED TEST RESULTS ===\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:269
+#, python-brace-format
+msgid "Ping/Latency: {ping}\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:270
+#, python-brace-format
+msgid "Download Speed: {download}\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:271
+#, python-brace-format
+msgid "Upload Speed: {upload}\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:277
+#, python-brace-format
+msgid "Quick test error: {error}"
+msgstr ""
+
+#: modules/speedtest_manager.py:283
+msgid ""
+"=== COMPREHENSIVE SPEED TEST ===\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:288
+msgid "Gathering client information..."
+msgstr ""
+
+#: modules/speedtest_manager.py:290
+#, python-brace-format
+msgid ""
+"=== CLIENT INFORMATION ===\n"
+"{info}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:295
+msgid "Testing latency to multiple hosts..."
+msgstr ""
+
+#: modules/speedtest_manager.py:297
+#, python-brace-format
+msgid ""
+"=== LATENCY TEST ===\n"
+"{ping}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:302 modules/speedtest_manager.py:364
+msgid "Finding best server..."
+msgstr ""
+
+#: modules/speedtest_manager.py:304
+#, python-brace-format
+msgid ""
+"=== SERVER INFORMATION ===\n"
+"{server}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:309
+msgid "Testing download speed (multiple servers)..."
+msgstr ""
+
+#: modules/speedtest_manager.py:311
+#, python-brace-format
+msgid ""
+"=== DOWNLOAD SPEED TEST ===\n"
+"{download}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:318
+#, python-brace-format
+msgid ""
+"=== UPLOAD SPEED TEST ===\n"
+"{upload}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:323
+msgid "Testing connection stability..."
+msgstr ""
+
+#: modules/speedtest_manager.py:325
+#, python-brace-format
+msgid ""
+"=== CONNECTION STABILITY ===\n"
+"{stability}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:330
+msgid "Gathering network details..."
+msgstr ""
+
+#: modules/speedtest_manager.py:332
+#, python-brace-format
+msgid ""
+"=== NETWORK INFORMATION ===\n"
+"{network}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:337
+msgid "Final connectivity check..."
+msgstr ""
+
+#: modules/speedtest_manager.py:339
+#, python-brace-format
+msgid ""
+"=== FINAL CHECK ===\n"
+"Connectivity: {conn}\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:342
+msgid "Full test completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:346
+#, python-brace-format
+msgid "Full test error: {error}"
+msgstr ""
+
+#: modules/speedtest_manager.py:354
+msgid "SpeedtestSimple not available"
+msgstr ""
+
+#: modules/speedtest_manager.py:359
+msgid "Checking internet connection..."
+msgstr ""
+
+#: modules/speedtest_manager.py:360
+msgid "Getting client information..."
+msgstr ""
+
+#: modules/speedtest_manager.py:361
+msgid "Client info completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:362
+msgid "Testing latency..."
+msgstr ""
+
+#: modules/speedtest_manager.py:363
+msgid "Latency test completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:365
+msgid "Server found"
+msgstr ""
+
+#: modules/speedtest_manager.py:367
+msgid "Download test completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:368
+msgid "Estimating upload speed..."
+msgstr ""
+
+#: modules/speedtest_manager.py:369
+msgid "Upload estimation completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:370 modules/speedtest_manager.py:481
+msgid "Test failed"
+msgstr ""
+
+#: modules/speedtest_manager.py:377
+msgid "Initializing detailed speed test..."
+msgstr ""
+
+#: modules/speedtest_manager.py:383
+msgid "Detailed test completed"
+msgstr ""
+
+#: modules/speedtest_manager.py:387
+msgid "Detailed speed test failed - Check internet connection"
+msgstr ""
+
+#: modules/speedtest_manager.py:390
+#, python-brace-format
+msgid "Detailed test error: {error}"
+msgstr ""
+
+#: modules/speedtest_manager.py:394
+msgid ""
+"\n"
+"=== CONNECTION QUALITY ===\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:401 modules/speedtest_manager.py:448
+msgid "Excellent download speed\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
+msgid "Good download speed\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:405
+msgid "Average download speed\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:407 modules/speedtest_manager.py:452
+msgid "Poor download speed\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:409
+msgid "Download speed unavailable\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:415
+msgid "Excellent latency\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:417
+msgid "Good latency\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:419
+msgid "Average latency\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:421
+msgid "Poor latency\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:423
+msgid "Latency unavailable\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:426
+msgid "Quality assessment unavailable\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:437
+msgid ""
+"=== SPEED TEST RESULTS ===\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:438
+#, python-format
+msgid "Download Speed: %s\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:438 modules/speedtest_manager.py:439
+#: modules/speedtest_manager.py:440
+msgid "Failed"
+msgstr ""
+
+#: modules/speedtest_manager.py:439
+#, python-format
+msgid "Upload Speed: %s\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:440
+#, python-format
+msgid "Latency: %s\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:443
+msgid ""
+"\n"
+"=== QUALITY ASSESSMENT ===\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:454 modules/speedtest_manager.py:456
+msgid "Unable to assess download quality\n"
+msgstr ""
+
+#: modules/speedtest_manager.py:464
+msgid "Test completed - See results below"
+msgstr ""
+
+#: modules/speedtest_manager.py:471
+msgid "Test completed!"
+msgstr ""
+
+#: modules/speedtest_manager.py:502
+msgid "Cancelling test..."
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:302 modules/tools.py:618
+msgid "Excellent"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:303 modules/tools.py:619
+msgid "Good"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:304 modules/tools.py:620
+msgid "Fair"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:305 modules/tools.py:621
+msgid "Poor"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:306 ⁨modules/tools - Copia.py⁩:313 modules/tools.py:622
+#: modules/tools.py:629
+msgid "Very Poor"
+msgstr ""
