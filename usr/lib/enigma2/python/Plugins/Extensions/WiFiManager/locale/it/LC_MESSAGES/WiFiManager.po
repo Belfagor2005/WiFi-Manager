@@ -1,0 +1,3787 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WiFiManager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-12 12:36+0100\n"
+"PO-Revision-Date: 2025-11-12 12:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: <ekekaz@gmail.com>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: plugin.py\n"
+"X-Poedit-SearchPath-1: WiFiManager.py\n"
+"X-Poedit-SearchPath-2: modules/config.py\n"
+"X-Poedit-SearchPath-3: modules/connect.py\n"
+"X-Poedit-SearchPath-4: modules/detailed_info.py\n"
+"X-Poedit-SearchPath-5: modules/diagnostics.py\n"
+"X-Poedit-SearchPath-6: modules/iwconfig.py\n"
+"X-Poedit-SearchPath-7: modules/iwlibs.py\n"
+"X-Poedit-SearchPath-8: modules/iwlist.py\n"
+"X-Poedit-SearchPath-9: modules/iwlist_tools.py\n"
+"X-Poedit-SearchPath-10: modules/monitor.py\n"
+"X-Poedit-SearchPath-11: modules/scanner.py\n"
+"X-Poedit-SearchPath-12: modules/speedtest.py\n"
+"X-Poedit-SearchPath-13: modules/speedtest_manager.py\n"
+"X-Poedit-SearchPath-14: modules/speedtest_simple.py\n"
+"X-Poedit-SearchPath-15: modules/tools.py\n"
+
+#: WiFiManager.py:101
+msgid "WiFi Manager v."
+msgstr "Gestore WiFi v."
+
+#: WiFiManager.py:102
+msgid "Select an option"
+msgstr "Seleziona un opzione"
+
+#: WiFiManager.py:105
+msgid "Scanner"
+msgstr "Scansione"
+
+#: WiFiManager.py:109
+msgid "Monitor"
+msgstr ""
+
+#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1063
+msgid "Connect"
+msgstr "Connetti"
+
+#: WiFiManager.py:117
+msgid "Diagnostics"
+msgstr "Diagnostica"
+
+#: WiFiManager.py:121
+msgid "Details Info"
+msgstr "Dettagli Info"
+
+#: WiFiManager.py:125
+msgid "Tools"
+msgstr "Strumenti"
+
+#: WiFiManager.py:129
+msgid "Config"
+msgstr "Configura"
+
+#: WiFiManager.py:133 WiFiManager.py:152
+msgid "Speedtest"
+msgstr ""
+
+#: WiFiManager.py:137
+msgid "Info"
+msgstr "Informazioni"
+
+#: WiFiManager.py:143
+msgid "Scan for available networks"
+msgstr "Cerca le reti disponibili"
+
+#: WiFiManager.py:144
+msgid "Real-time signal quality monitor"
+msgstr "Monitoraggio della qualità del segnale in tempo reale"
+
+#: WiFiManager.py:145
+msgid "Connect to WiFi networks"
+msgstr "Connettiti alle reti WiFi"
+
+#: WiFiManager.py:147
+msgid "WiFi diagnostics and tests"
+msgstr "Diagnostica e test WiFi"
+
+#: WiFiManager.py:148
+msgid "Complete iwconfig-like information"
+msgstr "Informazioni complete simili a iwconfig"
+
+#: WiFiManager.py:149
+msgid "Advanced Tools"
+msgstr "Strumenti Avanzati"
+
+#: WiFiManager.py:151
+msgid "Advanced WiFi configuration"
+msgstr "Configurazione WiFi avanzata"
+
+#: WiFiManager.py:153
+msgid "About"
+msgstr "Informazioni"
+
+#: WiFiManager.py:172
+msgid "WiFi Manager"
+msgstr "Gestore WiFi"
+
+#: WiFiManager.py:185 modules/config.py:395
+msgid "Password"
+msgstr "Password"
+
+#: WiFiManager.py:186
+msgid "Remember password"
+msgstr "Ricorda la password"
+
+#: WiFiManager.py:293
+msgid ""
+"Need help or have questions about WiFi Manager?\n"
+"\n"
+msgstr ""
+"Hai bisogno di aiuto o hai domande su WiFi Manager?\n"
+"\n"
+
+#: WiFiManager.py:294
+msgid "For troubleshooting, detailed guidance, or community support, visit:\n"
+msgstr ""
+"Per la risoluzione dei problemi, una guida dettagliata o il supporto della "
+"community, visita:\n"
+
+#: WiFiManager.py:297
+msgid "These forums are great places to get help,\n"
+msgstr "Questi forum sono ottimi posti per ottenere aiuto,\n"
+
+#: WiFiManager.py:298
+msgid "share experiences,and connect with other users."
+msgstr "condividere esperienze e connettersi con altri utenti."
+
+#: WiFiManager.py:324 modules/iwlist.py:107
+msgid "No WiFi interfaces found"
+msgstr "Nessuna interfaccia WiFi trovato"
+
+#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:59
+#: modules/iwlist_tools.py:68
+msgid "Advanced Scan"
+msgstr "Scansione  Avanzata"
+
+#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:60
+#: modules/iwlist_tools.py:69 modules/iwlist_tools.py:229
+msgid "Channel Info"
+msgstr "Informazioni sul canale"
+
+#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:61
+#: modules/iwlist_tools.py:70 modules/iwlist_tools.py:255
+msgid "Bitrate Info"
+msgstr "Informazioni sul bitrate"
+
+#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:62
+#: modules/iwlist_tools.py:71 modules/iwlist_tools.py:281
+msgid "Encryption Info"
+msgstr "Informazioni sulla crittografia"
+
+#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:63
+#: modules/iwlist_tools.py:72 modules/iwlist_tools.py:307
+msgid "Power Management"
+msgstr "Impostazioni di gestione"
+
+#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:64
+#: modules/iwlist_tools.py:73 modules/iwlist_tools.py:333
+msgid "Retry Limits"
+msgstr "Limiti di ripetizione"
+
+#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist.py:65
+#: modules/iwlist_tools.py:74 modules/iwlist_tools.py:359
+msgid "Access Points"
+msgstr "Punti di accesso"
+
+#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:75
+msgid "Advanced Config"
+msgstr "Configurazione Avanzata"
+
+#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:76
+msgid "Restart WiFi Interface"
+msgstr "Riavvio interfaccia WiFi"
+
+#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:77
+msgid "Reload WiFi Modules"
+msgstr "Ricarica i moduli WiFi"
+
+#: WiFiManager.py:353 WiFiManager.py:408 modules/iwlist_tools.py:78
+msgid "Check System Logs"
+msgstr "Controllare i registri di sistema"
+
+#: WiFiManager.py:359 WiFiManager.py:426 modules/iwlist_tools.py:87
+msgid "WiFi Advanced Tools"
+msgstr "Strumenti Avanzati WiFi"
+
+#: WiFiManager.py:398
+msgid "Detailed network scanning with signal strength and encryption info"
+msgstr ""
+"Scansione dettagliata della rete con informazioni sulla potenza del segnale "
+"e sulla crittografia"
+
+#: WiFiManager.py:399
+msgid "Available frequencies and channels for your region"
+msgstr "Frequenze e canali disponibili per la tua regione"
+
+#: WiFiManager.py:400
+msgid "Supported bitrates and current transmission rates"
+msgstr "Bitrate supportati e velocità di trasmissione attuali"
+
+#: WiFiManager.py:401
+msgid "Encryption keys and security protocols"
+msgstr "Chiavi di crittografia e protocolli di sicurezza"
+
+#: WiFiManager.py:402
+msgid "Power management settings and power saving modes"
+msgstr ""
+"Impostazioni di gestione dell'alimentazione e modalità di risparmio "
+"energetico"
+
+#: WiFiManager.py:403
+msgid "Packet retry limits and frame lifetime settings"
+msgstr ""
+"Limiti di ripetizione dei pacchetti e impostazioni della durata dei frame"
+
+#: WiFiManager.py:404
+msgid "List of access points and connected peer stations"
+msgstr "Elenco dei punti di accesso e delle stazioni peer connesse"
+
+#: WiFiManager.py:405
+msgid "Advanced WiFi interface configuration"
+msgstr "Configurazione avanzata dell'interfaccia WiFi"
+
+#: WiFiManager.py:406
+msgid "Restart wireless interface to reset connectivity"
+msgstr "Riavviare l'interfaccia wireless per ripristinare la connettività"
+
+#: WiFiManager.py:407
+msgid "Reload kernel WiFi modules to fix driver issues"
+msgstr "Ricarica i moduli WiFi del kernel per risolvere i problemi del driver"
+
+#: WiFiManager.py:408
+msgid "Check system logs for WiFi errors and connection issues"
+msgstr ""
+"Controllare i registri di sistema per errori Wi-Fi e problemi di connessione"
+
+#: WiFiManager.py:412 WiFiManager.py:454
+msgid "Select a tool to see description"
+msgstr "Seleziona uno strumento per visualizzare informazioni"
+
+#: WiFiManager.py:413 modules/detailed_info.py:59 modules/iwlist.py:149
+#: modules/iwlist_tools.py:63 modules/speedtest_manager.py:73
+msgid "Close"
+msgstr "Esci"
+
+#: WiFiManager.py:414
+msgid "Select"
+msgstr "Seleziona"
+
+#: WiFiManager.py:432
+msgid ""
+"Performs a detailed scan of available WiFi networks showing:\n"
+"- Signal strength\n"
+"- Encryption type\n"
+"- Channels\n"
+"- Frequency bands\n"
+"- MAC addresses"
+msgstr ""
+"Esegue una scansione dettagliata delle reti Wi-Fi disponibili, mostrando:\n"
+"- Potenza del segnale\n"
+"- Tipo di crittografia\n"
+"- Canali\n"
+"- Bande di frequenza\n"
+"- Indirizzi MAC"
+
+#: WiFiManager.py:433
+msgid ""
+"Shows available channels and frequencies for your region:\n"
+"- 2.4GHz channels (1-14)\n"
+"- 5GHz channels\n"
+"- Regulatory domain info\n"
+"- Channel widths"
+msgstr ""
+"Mostra i canali e le frequenze disponibili per la tua regione:\n"
+"- Canali a 2,4 GHz (1-14)\n"
+"- Canali a 5 GHz\n"
+"- Informazioni sul dominio normativo\n"
+"- Larghezza dei canali"
+
+#: WiFiManager.py:434
+msgid ""
+"Displays supported bitrates and current transmission rates:\n"
+"- Available bitrates\n"
+"- Current bitrate\n"
+"- MCS indexes (for 802.11n/ac)\n"
+"- HT/VHT capabilities"
+msgstr ""
+"Visualizza i bitrate supportati e le velocità di trasmissione correnti:\n"
+"- Bitrate disponibili\n"
+"- Bitrate corrente\n"
+"- Indici MCS (per 802.11n/ac)\n"
+"- Funzionalità HT/VHT"
+
+#: WiFiManager.py:435
+msgid ""
+"Shows encryption and security information:\n"
+"- Supported encryption types\n"
+"- Current encryption\n"
+"- Key management\n"
+"- Security protocols"
+msgstr ""
+"Mostra informazioni su crittografia e sicurezza:\n"
+"- Tipi di crittografia supportati\n"
+"- Crittografia corrente\n"
+"- Gestione delle chiavi\n"
+"- Protocolli di sicurezza"
+
+#: WiFiManager.py:436
+msgid ""
+"Displays power management settings:\n"
+"- Current power state\n"
+"- Power saving mode\n"
+"- Transmission power\n"
+"- Power management features"
+msgstr ""
+"Visualizza le impostazioni di gestione dell'alimentazione:\n"
+"- Stato di alimentazione attuale\n"
+"- Modalità di risparmio energetico\n"
+"- Potenza di trasmissione\n"
+"- Funzioni di gestione dell'alimentazione"
+
+#: WiFiManager.py:437
+msgid ""
+"Shows packet retry limits and settings:\n"
+"- Retry short limit\n"
+"- Retry long limit\n"
+"- Frame lifetime\n"
+"- Retry statistics"
+msgstr ""
+"Mostra i limiti e le impostazioni di ripetizione dei pacchetti:\n"
+"- Limite breve di ripetizione\n"
+"- Limite lungo di ripetizione\n"
+"- Durata del frame\n"
+"- Statistiche di ripetizione"
+
+#: WiFiManager.py:438
+msgid ""
+"Lists access points and peer stations:\n"
+"- Connected stations\n"
+"- AP information\n"
+"- Peer statistics\n"
+"- Connection quality"
+msgstr ""
+"Elenca i punti di accesso e le stazioni peer:\n"
+"- Stazioni connesse\n"
+"- Informazioni sugli AP\n"
+"- Statistiche peer\n"
+"- Qualità della connessione"
+
+#: WiFiManager.py:439
+msgid ""
+"Advanced WiFi interface configuration:\n"
+"- Operation mode (Managed/AP/Monitor)\n"
+"- Channel selection\n"
+"- TX power control\n"
+"- Basic interface settings"
+msgstr ""
+"Configurazione avanzata dell'interfaccia WiFi:\n"
+"- Modalità operativa (Gestita/AP/Monitor)\n"
+"- Selezione del canale\n"
+"- Controllo della potenza di trasmissione\n"
+"- Impostazioni di base dell'interfaccia"
+
+#: WiFiManager.py:440
+msgid ""
+"Restarts the WiFi interface:\n"
+"- Brings interface down/up\n"
+"- Reinitializes driver\n"
+"- Preserves configuration\n"
+"- Quick connectivity reset"
+msgstr ""
+"Riavvia l'interfaccia WiFi:\n"
+"- Disattiva/attiva l'interfaccia\n"
+"- Reinizializza il driver\n"
+"- Mantiene la configurazione\n"
+"- Ripristino rapido della connettività"
+
+#: WiFiManager.py:441
+msgid ""
+"Reloads WiFi kernel modules:\n"
+"- Unloads/loads drivers\n"
+"- Resets hardware\n"
+"- Fixes driver issues\n"
+"- Requires root access"
+msgstr ""
+"Ricarica i moduli del kernel WiFi:\n"
+"- Scarica/carica i driver\n"
+"- Reimposta l'hardware\n"
+"- Risolve i problemi dei driver\n"
+"- Richiede l'accesso root"
+
+#: WiFiManager.py:442
+msgid ""
+"Checks system logs for WiFi errors:\n"
+"- Kernel messages (dmesg)\n"
+"- System logs\n"
+"- Driver errors\n"
+"- Connection issues"
+msgstr ""
+"Controlla i registri di sistema per errori WiFi:\n"
+"- Messaggi del kernel (dmesg)\n"
+"- Registri di sistema\n"
+"- Errori del driver\n"
+"- Problemi di connessione"
+
+#: WiFiManager.py:444
+msgid "No help available for this tool."
+msgstr "Nessun aiuto  disponibile per la selezione."
+
+#: WiFiManager.py:457
+msgid "Error loading help"
+msgstr "Errore durante il caricamento della guida"
+
+#: modules/config.py:153 modules/iwlist_tools.py:511
+msgid "Cancel"
+msgstr "Annulla"
+
+#: modules/config.py:154 modules/config.py:192
+msgid "Save & Connect"
+msgstr "Salva e Connetti"
+
+#: modules/config.py:155 modules/config.py:419
+msgid "Advanced"
+msgstr "Avanzato"
+
+#: modules/config.py:156 modules/iwlist_tools.py:513
+msgid "Defaults"
+msgstr "Predefiniti"
+
+#: modules/config.py:168
+#, python-brace-format
+msgid "Configure {}"
+msgstr "Configura {}"
+
+#: modules/config.py:367
+msgid ""
+"WiFi settings applied successfully\n"
+"\n"
+msgstr ""
+"Impostazioni WiFi applicate correttamente\n"
+"\n"
+
+#: modules/config.py:368
+#, python-brace-format
+msgid "Applied: {} commands\n"
+msgstr "Applicato: {} comandi\n"
+
+#: modules/config.py:370
+#, python-brace-format
+msgid "Failed: {} commands"
+msgstr "Errore: {} comandi"
+
+#: modules/config.py:373
+msgid ""
+"No settings were applied\n"
+"\n"
+"Failed commands:\n"
+msgstr ""
+"Nessuna impostazione applicata\n"
+"\n"
+"Comandi non riusciti:\n"
+
+#: modules/config.py:387
+msgid "Interface"
+msgstr "Interfaccia"
+
+#: modules/config.py:389
+msgid "Network Name (SSID)"
+msgstr "Nome della rete (SSID)"
+
+#: modules/config.py:390
+msgid "Hidden Network"
+msgstr "Rete Nascosta"
+
+#: modules/config.py:391
+msgid "Encryption"
+msgstr "Crittografia"
+
+#: modules/config.py:399
+msgid "WEP Key Type"
+msgstr "Tipo WEP Key"
+
+#: modules/config.py:405 modules/iwlist_tools.py:504
+msgid "Operation Mode"
+msgstr "Modalità operativa"
+
+#: modules/config.py:406 modules/iwlist_tools.py:505
+msgid "Channel"
+msgstr "Canale"
+
+#: modules/config.py:407 modules/iwlist_tools.py:506
+msgid "TX Power"
+msgstr "Potenza trasmissione"
+
+#: modules/config.py:408
+msgid "RTS Threshold"
+msgstr "Soglia RTS"
+
+#: modules/config.py:409
+msgid "Fragmentation"
+msgstr "Frammentazione"
+
+#: modules/config.py:410
+msgid "Country Code"
+msgstr "Codice Paese"
+
+#: modules/config.py:411
+msgid "Data Rate"
+msgstr "Velocità dati"
+
+#: modules/config.py:419
+msgid "Basic"
+msgstr "Di base"
+
+#: modules/config.py:435
+msgid "Please enter a network name"
+msgstr "Prego Inserire il nome della Rete"
+
+#: modules/config.py:439
+msgid "Please enter a password"
+msgstr "Prego Inserire la password"
+
+#: modules/config.py:526
+msgid "All settings reset to defaults"
+msgstr "Tutte le impostazioni vengono ripristinate ai valori predefiniti"
+
+#: modules/connect.py:97
+msgid "Initializing WiFi..."
+msgstr "Inizializzazione WiFi in corso..."
+
+#: modules/connect.py:98 modules/diagnostics.py:56 modules/monitor.py:80
+#: modules/scanner.py:73
+msgid "Exit"
+msgstr "Esci"
+
+#: modules/connect.py:101 modules/connect.py:226 modules/connect.py:232
+#: modules/scanner.py:70
+msgid "Scan"
+msgstr "Scansione"
+
+#: modules/connect.py:119
+msgid "WiFi Connection Manager"
+msgstr "Gestore Connessione WiFi"
+
+#: modules/connect.py:138 modules/connect.py:183 modules/connect.py:210
+#: modules/iwlist_tools.py:383
+msgid "No WiFi interface available"
+msgstr "Nessuna interfaccia WiFi disponibile"
+
+#: modules/connect.py:142
+msgid "Performing initial scan..."
+msgstr "Esecuzione della scansione iniziale..."
+
+#: modules/connect.py:154
+#, python-brace-format
+msgid "Interface found: {}"
+msgstr "Interfaccia trovata: {}"
+
+#: modules/connect.py:157
+msgid "No WiFi interface found"
+msgstr "Nessuna interfaccia WiFi trovata"
+
+#: modules/connect.py:158
+msgid "No WiFi interface detected. Please check your hardware."
+msgstr "Nessuna interfaccia WiFi rilevata. Controlla l'hardware."
+
+#: modules/connect.py:214
+msgid "Scanning..."
+msgstr "Scansione..."
+
+#: modules/connect.py:215
+msgid "Scanning for networks..."
+msgstr "Scansione delle reti..."
+
+#: modules/connect.py:233
+msgid "Scan failed"
+msgstr "Scansione  fallita"
+
+#: modules/connect.py:252
+msgid "Unknown"
+msgstr "Errore Sconosciuto"
+
+#: modules/connect.py:265
+msgid "Secured"
+msgstr "Protetto"
+
+#: modules/connect.py:268
+msgid "Open"
+msgstr "Apri"
+
+#: modules/connect.py:306
+#, python-brace-format
+msgid "CONNECTED to: {} - Press OK for options"
+msgstr "CONNESSO a: {} - Premere OK per le opzioni"
+
+#: modules/connect.py:310
+#, python-brace-format
+msgid "{} - Password saved - Press OK for options"
+msgstr "{} - Password salvata - Premere OK per le opzioni"
+
+#: modules/connect.py:312
+#, python-brace-format
+msgid "{} - Password required - Press OK for options"
+msgstr "{} - Password richiesta - Premere OK per le opzioni"
+
+#: modules/connect.py:315
+#, python-brace-format
+msgid "{} - Open network - Press OK for options"
+msgstr "{} - Rete Aperta - Premi OK per le opzioni"
+
+#: modules/connect.py:346
+#, python-format
+msgid ""
+"CONNECTED to: %(essid)s\n"
+"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK for options"
+msgstr ""
+"CONNESSO a: %(essid)s\n"
+"IP: %(ip)s | Segnale: %(quality)s (%(strength)s dBm)\n"
+"Premi OK per le opzioni"
+
+#: modules/connect.py:356
+#, python-format
+msgid ""
+"%(essid)s - Password saved\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to connect or edit"
+msgstr ""
+"%(essid)s - Password salvata\n"
+"Segnale: %(quality)s (%(strength)s dBm)\n"
+"Premi OK per connetterti o modificare"
+
+#: modules/connect.py:365
+#, python-format
+msgid ""
+"%(essid)s - Password required\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to enter password"
+msgstr ""
+"%(essid)s - Password richiesta\n"
+"Segnale: %(quality)s (%(strength)s dBm)\n"
+"Premi OK per inserire la password"
+
+#: modules/connect.py:374
+#, python-format
+msgid ""
+"%(essid)s - Open network\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to connect"
+msgstr ""
+"%(essid)s - Rete aperta\n"
+"Segnale: %(quality)s (%(strength)s dBm)\n"
+"Premi OK per connetterti"
+
+#: modules/connect.py:440
+msgid "No networks found - Press BLUE to rescan"
+msgstr "Nessuna rete trovata - Premi BLU per ripetere la scansione"
+
+#: modules/connect.py:441 modules/iwlist_tools.py:185
+#: modules/iwlist_tools.py:199
+msgid "No networks found"
+msgstr "Nessuna Network trovato"
+
+#: modules/connect.py:504
+msgid "Configuration saved"
+msgstr "Impostazioni salvate"
+
+#: modules/connect.py:555
+#, python-brace-format
+msgid "Connecting to {}..."
+msgstr "Connessione a {}..."
+
+#: modules/connect.py:573
+#, python-brace-format
+msgid "Connected to {}"
+msgstr "Connesso a: {}"
+
+#: modules/connect.py:574
+#, python-brace-format
+msgid "Successfully connected to {}"
+msgstr "Connessione riuscita a {}"
+
+#: modules/connect.py:578
+#, python-brace-format
+msgid "Connection to {} failed"
+msgstr "Connessione  a {} fallita"
+
+#: modules/connect.py:580
+#, python-brace-format
+msgid "Failed to connect to {}"
+msgstr "Impossibile connettersi a {}"
+
+#: modules/connect.py:583
+#, python-brace-format
+msgid "Connection error: {}"
+msgstr "Errore di Connessione :  {}"
+
+#: modules/connect.py:683
+msgid "Connecting..."
+msgstr "Connessione..."
+
+#: modules/connect.py:700 modules/connect.py:712
+msgid "Connected successfully!"
+msgstr "Connessione completata con successo!"
+
+#: modules/connect.py:703 modules/connect.py:714
+msgid "Connection failed!"
+msgstr "Connessione  fallita!"
+
+#: modules/connect.py:761 modules/connect.py:1181
+#, python-format
+msgid ""
+"Configuration saved for %s\n"
+"\n"
+"Connect now?"
+msgstr ""
+"Configurazione salvata per %s\n"
+"\n"
+"Connettersi ora?"
+
+#: modules/connect.py:802
+#, python-format
+msgid "Error opening configuration: %s"
+msgstr "Errore durante l'apertura della configurazione: %s"
+
+#: modules/connect.py:814
+#, python-format
+msgid ""
+"Password saved for %s\n"
+"\n"
+"Connect now?"
+msgstr ""
+"Password salvata per %s\n"
+"\n"
+"Connettersi ora?"
+
+#: modules/connect.py:824
+#, python-format
+msgid "Enter password for: %s"
+msgstr "Inserisci la password per: %s"
+
+#: modules/connect.py:825
+msgid "WiFi Password"
+msgstr "Password WiFi"
+
+#: modules/connect.py:834
+msgid "Disconnected successfully!"
+msgstr "Disconnesso con successo!"
+
+#: modules/connect.py:861
+msgid "Disconnected from network"
+msgstr "Disconnesso dalla Rete"
+
+#: modules/connect.py:864
+msgid "Error disconnecting"
+msgstr "Errore durante la disconnessione"
+
+#: modules/connect.py:875
+msgid "Network forgotten!"
+msgstr "Rete dimenticata!"
+
+#: modules/connect.py:894
+#, python-brace-format
+msgid "Forgotten network: {}"
+msgstr "Rete dimenticata: {}"
+
+#: modules/connect.py:897
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Errore: {}"
+
+#: modules/connect.py:913
+msgid "No IP"
+msgstr "Nessun IP"
+
+#: modules/connect.py:915
+#, python-brace-format
+msgid "Connected: {} | Signal: {} dBm | IP: {}"
+msgstr "Connesso: {} | Segnale: {} dBm | IP: {}"
+
+#: modules/connect.py:918 modules/connect.py:1150 modules/connect.py:1163
+msgid "Not connected to any network"
+msgstr "Non connesso a nessuna rete"
+
+#: modules/connect.py:921
+#, python-brace-format
+msgid "Status check failed: {}"
+msgstr "Controllo dello stato non riuscito: {}"
+
+#: modules/connect.py:990
+#, python-format
+msgid ""
+"Connection Details:\n"
+"\n"
+"%s"
+msgstr ""
+"Dettagli Connessione:\n"
+"\n"
+"%s"
+
+#: modules/connect.py:1004
+msgid "No connection details available"
+msgstr "Nessun dettaglio di connessione disponibile"
+
+#: modules/connect.py:1012
+#, python-format
+msgid "Error getting connection details: %s"
+msgstr "Errore durante il recupero dei dettagli di connessione: %s"
+
+#: modules/connect.py:1053
+msgid "Disconnect"
+msgstr "Disconnetti"
+
+#: modules/connect.py:1054 modules/connect.py:1073
+msgid "Connection Info"
+msgstr "Informazioni di Connessione"
+
+#: modules/connect.py:1055 modules/connect.py:1071
+msgid "Edit Configuration"
+msgstr "Modifica Configurazione"
+
+#: modules/connect.py:1056 modules/connect.py:1074 modules/iwlist_tools.py:635
+msgid "Back"
+msgstr "Torna"
+
+#: modules/connect.py:1058
+#, python-format
+msgid "Connected to: %s"
+msgstr "Connesso a: %s"
+
+#: modules/connect.py:1067
+msgid "Edit Password"
+msgstr "Modifica Password"
+
+#: modules/connect.py:1069
+msgid "Enter Password"
+msgstr "Inserire Password"
+
+#: modules/connect.py:1072
+msgid "Forget Network"
+msgstr "Dimentica Rete"
+
+#: modules/connect.py:1076
+#, python-format
+msgid "Network: %s"
+msgstr "Rete: %s"
+
+#: modules/connect.py:1100
+#, python-format
+msgid "Connected successfully to %s"
+msgstr "Connessione riuscita a %s"
+
+#: modules/connect.py:1111
+#, python-format
+msgid "Disconnected from %s"
+msgstr "Disconnesso da %s"
+
+#: modules/connect.py:1140
+msgid "No network selected"
+msgstr "Nessuna Rete selezionata"
+
+#: modules/connect.py:1161
+#, python-brace-format
+msgid ""
+"Connected to: {}\n"
+"Signal: {} | IP: {}"
+msgstr ""
+"Connesso a: {}\n"
+"Segnale: {} | IP: {}"
+
+#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
+msgid "Refresh"
+msgstr "Aggiorna"
+
+#: modules/detailed_info.py:74
+#, python-brace-format
+msgid "Detailed Info - {}"
+msgstr "Informazioni dettagliate - {}"
+
+#: modules/diagnostics.py:53 modules/speedtest_manager.py:75
+#: modules/speedtest_manager.py:106
+msgid "Full Test"
+msgstr "Test completo"
+
+#: modules/diagnostics.py:54 modules/speedtest_manager.py:74
+#: modules/speedtest_manager.py:105
+msgid "Quick Test"
+msgstr "Test rapido"
+
+#: modules/diagnostics.py:55
+msgid "Clear"
+msgstr "Pulire"
+
+#: modules/diagnostics.py:73
+msgid "WiFi Diagnostics"
+msgstr "Diagnostica WiFi"
+
+#: modules/iwlist.py:59 modules/iwlist_tools.py:68
+msgid "Detailed network scanning"
+msgstr "Scansione dettagliata della rete"
+
+#: modules/iwlist.py:60 modules/iwlist_tools.py:69
+msgid "Available frequencies/channels"
+msgstr "Frequenze/canali disponibili"
+
+#: modules/iwlist.py:61 modules/iwlist_tools.py:70
+msgid "Supported bit rates"
+msgstr "Bit Rates supportato"
+
+#: modules/iwlist.py:62 modules/iwlist_tools.py:71
+msgid "Encryption keys and security"
+msgstr "Chiavi di crittografia e sicurezza"
+
+#: modules/iwlist.py:63 modules/iwlist_tools.py:72
+msgid "Power management settings"
+msgstr "Impostazioni di gestione dell'alimentazione"
+
+#: modules/iwlist.py:64 modules/iwlist_tools.py:73
+msgid "Retry limits and lifetime"
+msgstr "Limiti di ripetizione e durata"
+
+#: modules/iwlist.py:65 modules/iwlist_tools.py:74
+msgid "List of access points/peers"
+msgstr "Elenco dei punti di accesso/peer"
+
+#: modules/iwlist.py:69
+msgid "Select a tool to view detailed information"
+msgstr "Seleziona uno strumento per visualizzare informazioni dettagliate"
+
+#: modules/iwlist.py:84
+msgid "Advanced WiFi Tools"
+msgstr "Strumenti WiFi Avanzati"
+
+#: modules/iwlist.py:130
+msgid "Tool not available"
+msgstr "Strumento non disponibile"
+
+#: modules/iwlist_tools.py:62
+msgid "Executing tool..."
+msgstr "Esecuzione dello strumento..."
+
+#: modules/iwlist_tools.py:75
+msgid "Advanced WiFi Configuration"
+msgstr "Configurazione WiFi avanzata"
+
+#: modules/iwlist_tools.py:76
+msgid "Restart wireless interface"
+msgstr "Riavvio interfaccia wireless"
+
+#: modules/iwlist_tools.py:77
+msgid "Reload kernel WiFi modules"
+msgstr "Ricarica i moduli WiFi del kernel"
+
+#: modules/iwlist_tools.py:78
+msgid "Check system logs for WiFi errors"
+msgstr "Controllare i registri di sistema per Errori WIFI"
+
+#: modules/iwlist_tools.py:132
+#, python-brace-format
+msgid "Tool not implemented: {}"
+msgstr "Strumento non ancora implementato: {}"
+
+#: modules/iwlist_tools.py:151
+msgid "Scan completed."
+msgstr "Scansione completata."
+
+#: modules/iwlist_tools.py:152
+msgid "Channel info displayed."
+msgstr "Informazioni sul canale visualizzate."
+
+#: modules/iwlist_tools.py:153
+msgid "Bitrate info displayed."
+msgstr "Informazioni sul bitrate visualizzate."
+
+#: modules/iwlist_tools.py:154
+msgid "Encryption info displayed."
+msgstr "Vengono visualizzate le informazioni sulla crittografia."
+
+#: modules/iwlist_tools.py:155
+msgid "Power management info displayed."
+msgstr ""
+"Vengono visualizzate le informazioni sulla gestione dell'alimentazione."
+
+#: modules/iwlist_tools.py:156
+msgid "Retry limits info displayed."
+msgstr "Vengono visualizzate le informazioni sui limiti di ripetizione."
+
+#: modules/iwlist_tools.py:157
+msgid "Access points info displayed."
+msgstr "Informazioni sui punti di accesso visualizzate."
+
+#: modules/iwlist_tools.py:158
+msgid "Advanced configuration completed."
+msgstr "Configurazione avanzata completata."
+
+#: modules/iwlist_tools.py:159
+msgid "Interface restarted."
+msgstr "Interfaccia riavviata."
+
+#: modules/iwlist_tools.py:160
+msgid "Modules reloaded."
+msgstr "Moduli ricaricati."
+
+#: modules/iwlist_tools.py:161
+msgid "Logs checked."
+msgstr "Registri controllati."
+
+#: modules/iwlist_tools.py:164
+msgid "Operation completed."
+msgstr "Operazione completata."
+
+#: modules/iwlist_tools.py:178
+msgid "Advanced Scan Results"
+msgstr "Risultati Scansione  Avanzata"
+
+#: modules/iwlist_tools.py:200
+msgid ""
+"=== ADVANCED SCAN RESULTS ===\n"
+"\n"
+msgstr ""
+"=== RISULTATI DELLA SCANSIONE AVANZATA ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:201
+#, python-format
+msgid ""
+"Found %d networks\n"
+"\n"
+msgstr ""
+"Trovate %d reti\n"
+"\n"
+
+#: modules/iwlist_tools.py:203
+#, python-format
+msgid "Network %d:\n"
+msgstr "Rete %d:\n"
+
+#: modules/iwlist_tools.py:204
+#, python-format
+msgid "  ESSID: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:205
+#, python-format
+msgid "  MAC: %s\n"
+msgstr ""
+
+#: modules/iwlist_tools.py:206
+#, python-format
+msgid "  Channel: %s\n"
+msgstr " Canale: %s\n"
+
+#: modules/iwlist_tools.py:207
+#, python-format
+msgid "  Frequency: %s\n"
+msgstr "  Frequenza: %s\n"
+
+#: modules/iwlist_tools.py:208
+#, python-format
+msgid "  Quality: %s\n"
+msgstr "  Qualità: %s\n"
+
+#: modules/iwlist_tools.py:209
+#, python-format
+msgid "  Signal: %s\n"
+msgstr "  Segnale: %s\n"
+
+#: modules/iwlist_tools.py:210
+#, python-format
+msgid "  Encryption: %s\n"
+msgstr " Crittografia: %s\n"
+
+#: modules/iwlist_tools.py:216
+msgid "Getting channel information..."
+msgstr "Ottenimento informazioni sul canale..."
+
+#: modules/iwlist_tools.py:220
+msgid ""
+"=== CHANNEL INFORMATION ===\n"
+"\n"
+msgstr ""
+"=== INFORMAZIONI SUL CANALE ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:222
+#, python-format
+msgid ""
+"Frequency Bands:\n"
+"%s\n"
+msgstr ""
+"Bande di frequenza:\n"
+"%s\n"
+
+#: modules/iwlist_tools.py:224
+msgid "Frequency information not available\n"
+msgstr "Informazioni sulla frequenza non disponibili\n"
+
+#: modules/iwlist_tools.py:242
+msgid "Getting bitrate information..."
+msgstr "Ottenimento informazioni sul bitrate..."
+
+#: modules/iwlist_tools.py:246
+msgid ""
+"=== BITRATE INFORMATION ===\n"
+"\n"
+msgstr ""
+"=== INFORMAZIONI SUL BITRATE ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:248
+#, python-format
+msgid ""
+"Supported Bitrates:\n"
+"%s\n"
+msgstr ""
+"Bitrate supportati:\n"
+"%s\n"
+
+#: modules/iwlist_tools.py:250
+msgid "Bitrate information not available\n"
+msgstr "Informazioni sul bitrate non disponibili\n"
+
+#: modules/iwlist_tools.py:268
+msgid "Getting encryption information..."
+msgstr "Ottenimento delle informazioni sulla crittografia..."
+
+#: modules/iwlist_tools.py:272
+msgid ""
+"=== ENCRYPTION INFORMATION ===\n"
+"\n"
+msgstr ""
+"=== INFORMAZIONI DI CRITTOGRAFIA ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:274
+#, python-format
+msgid ""
+"Authentication:\n"
+"%s\n"
+msgstr ""
+"Autenticazione:\n"
+"%s\n"
+
+#: modules/iwlist_tools.py:276
+msgid "Encryption information not available\n"
+msgstr "Informazioni sulla crittografia non disponibili\n"
+
+#: modules/iwlist_tools.py:294
+msgid "Getting power management information..."
+msgstr "Ottenimento di informazioni sulla gestione dell'alimentazione..."
+
+#: modules/iwlist_tools.py:298
+msgid ""
+"=== POWER MANAGEMENT ===\n"
+"\n"
+msgstr ""
+"=== GESTIONE DELL'ENERGIA ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:302
+msgid "Power management information not available\n"
+msgstr "Informazioni sulla gestione dell'alimentazione non disponibili\n"
+
+#: modules/iwlist_tools.py:320
+msgid "Getting retry information..."
+msgstr "Ottenimento delle informazioni per un nuovo tentativo..."
+
+#: modules/iwlist_tools.py:324
+msgid ""
+"=== RETRY LIMITS ===\n"
+"\n"
+msgstr ""
+"=== LIMITI DI RIPETIZIONE ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:328
+msgid "Retry limit information not available\n"
+msgstr "Informazioni sul limite di tentativi non disponibili\n"
+
+#: modules/iwlist_tools.py:346
+msgid "Getting access point information..."
+msgstr "Ottenimento delle informazioni sul punto di accesso..."
+
+#: modules/iwlist_tools.py:350
+msgid ""
+"=== ACCESS POINTS / PEERS ===\n"
+"\n"
+msgstr ""
+"=== PUNTI DI ACCESSO / PEER ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:354
+msgid "No station/peer information available\n"
+msgstr "Nessuna informazione disponibile su stazione/peer\n"
+
+#: modules/iwlist_tools.py:387
+msgid ""
+"Select a tool from the menu to get detailed information about WiFi "
+"configuration and status."
+msgstr ""
+"Seleziona uno strumento dal menu per ottenere informazioni dettagliate sulla "
+"configurazione e sullo stato del WiFi."
+
+#: modules/iwlist_tools.py:395
+#, python-format
+msgid "Restart WiFi interface %s?"
+msgstr "Riavvio interfaccia WiFi %s?"
+
+#: modules/iwlist_tools.py:402
+msgid "Restarting interface..."
+msgstr "Riavvio dell'interfaccia.."
+
+#: modules/iwlist_tools.py:409
+msgid "Interface restarted successfully"
+msgstr "Interfaccia riavviata correttamente"
+
+#: modules/iwlist_tools.py:425
+msgid ""
+"Reload WiFi kernel modules?\n"
+"This will temporarily disconnect all WiFi."
+msgstr ""
+"Ricaricare i moduli del kernel WiFi?\n"
+"Questo disconnetterà temporaneamente tutte le reti WiFi."
+
+#: modules/iwlist_tools.py:431
+msgid "Checking system logs..."
+msgstr "Controllo dei log di sistema..."
+
+#: modules/iwlist_tools.py:437
+msgid ""
+"=== SYSTEM LOGS - WIFI ERRORS ===\n"
+"\n"
+msgstr ""
+"=== REGISTRI DI SISTEMA - ERRORI WIFI ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:439
+msgid "Kernel Messages (dmesg):\n"
+msgstr "Messaggi del kernel (dmesg):\n"
+
+#: modules/iwlist_tools.py:443
+msgid ""
+"No WiFi messages in dmesg\n"
+"\n"
+msgstr ""
+"Nessun messaggio WiFi in dmesg\n"
+"\n"
+
+#: modules/iwlist_tools.py:444
+msgid "System Logs:\n"
+msgstr "Registri di sistema:\n"
+
+#: modules/iwlist_tools.py:448
+msgid "No WiFi messages in system logs"
+msgstr "Nessun messaggio WiFi nei registri di sistema"
+
+#: modules/iwlist_tools.py:452
+msgid "System Logs"
+msgstr "Registri di sistema"
+
+#: modules/iwlist_tools.py:510
+msgid "Advanced WiFi configuration settings"
+msgstr "Configurazione WiFi Avanzata"
+
+#: modules/iwlist_tools.py:512
+msgid "Apply"
+msgstr "Applica"
+
+#: modules/iwlist_tools.py:514
+msgid "Help"
+msgstr "Aiuto"
+
+#: modules/iwlist_tools.py:526
+#, python-brace-format
+msgid "Advanced Config - {}"
+msgstr "Configurazione avanzata - {}"
+
+#: modules/iwlist_tools.py:567
+msgid "Settings applied successfully"
+msgstr "Impostazioni applicate correttamente"
+
+#: modules/iwlist_tools.py:612
+msgid ""
+"Advanced WiFi Configuration:\n"
+"\n"
+"RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
+"Fragmentation: Max frame size before fragmentation\n"
+"Beacon Interval: Time between beacon signals (ms)\n"
+"DTIM Period: Delivery Traffic Indication Message interval\n"
+"\n"
+"Warning: Incorrect settings may degrade performance!"
+msgstr ""
+"Configurazione WiFi avanzata:\n"
+"\n"
+"Soglia RTS: controlla l'handshake RTS/CTS (2347=disabilitato)\n"
+"Frammentazione: dimensione massima del frame prima della frammentazione\n"
+"Intervallo beacon: tempo tra i segnali beacon (ms)\n"
+"Periodo DTIM: intervallo di messaggio Delivery Traffic Indication\n"
+"\n"
+"Attenzione: impostazioni errate potrebbero compromettere le prestazioni!"
+
+#: modules/monitor.py:77 modules/monitor.py:111
+msgid "Start"
+msgstr "Inizio"
+
+#: modules/monitor.py:78
+msgid "Stop"
+msgstr "Ferma"
+
+#: modules/monitor.py:94
+msgid "WiFi Signal Monitor"
+msgstr "Monitor del segnale WiFi"
+
+#: modules/monitor.py:106
+msgid "Pause"
+msgstr "Pausa"
+
+#: modules/scanner.py:72 modules/speedtest_manager.py:76
+#: modules/speedtest_manager.py:107
+msgid "Details"
+msgstr "Dettagli"
+
+#: modules/scanner.py:95
+msgid "WiFi Scanner"
+msgstr "Scanner WiFi"
+
+#: modules/scanner.py:105
+msgid "Scanning for WiFi networks..."
+msgstr "Scansione delle reti WiFi in corso..."
+
+#: modules/scanner.py:251
+msgid "Scan error: "
+msgstr "Errore scansione: "
+
+#: modules/scanner.py:568
+msgid "Detailed view enabled - rescan to see details"
+msgstr ""
+"Visualizzazione dettagliata abilitata: esegui una nuova scansione per vedere "
+"i dettagli"
+
+#: modules/scanner.py:570
+msgid "Basic view enabled - rescan to see basic info"
+msgstr ""
+"Visualizzazione di base abilitata: esegui una nuova scansione per "
+"visualizzare le informazioni di base"
+
+#: modules/speedtest_manager.py:69
+msgid "Select a speed test type"
+msgstr "Seleziona un tipo di test di velocità"
+
+#: modules/speedtest_manager.py:94
+msgid "WiFi Speed Test Manager"
+msgstr "Gestore WiFi Speed Test Manager"
+
+#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:511
+msgid "Test cancelled"
+msgstr "Test cancellato"
+
+#: modules/speedtest_manager.py:147 modules/speedtest_manager.py:159
+#: modules/speedtest_manager.py:172
+msgid "wait..."
+msgstr "attendi prego..."
+
+#: modules/speedtest_manager.py:148
+msgid "Running quick speed test..."
+msgstr "Eseguo un test rapido della velocità..."
+
+#: modules/speedtest_manager.py:160
+msgid "Running full speed test..."
+msgstr "Eseguo il test a piena velocità..."
+
+#: modules/speedtest_manager.py:173
+msgid "Running detailed speed test..."
+msgstr "Eseguo un test di velocità dettagliato..."
+
+#: modules/speedtest_manager.py:189
+#, python-brace-format
+msgid "Hostname: {hostname}"
+msgstr "Nome Host: {hostname}"
+
+#: modules/speedtest_manager.py:195
+#, python-brace-format
+msgid "Public IP: {ip}"
+msgstr "IP pubblico: {ip}"
+
+#: modules/speedtest_manager.py:196
+#, python-brace-format
+msgid "Location: {city}, {country}"
+msgstr "Posizione: {city}, {country}"
+
+#: modules/speedtest_manager.py:200
+#, python-brace-format
+msgid "ISP: {isp}"
+msgstr "Fornitore di servizi Internet: {isp}"
+
+#: modules/speedtest_manager.py:202
+msgid "Public IP: Unable to determine"
+msgstr "IP pubblico: impossibile determinarlo"
+
+#: modules/speedtest_manager.py:206
+#, python-brace-format
+msgid "Client info error: {error}"
+msgstr "Errore nelle informazioni del cliente: {error}"
+
+#: modules/speedtest_manager.py:224
+#, python-brace-format
+msgid "Server info error: {error}"
+msgstr "Errore informazioni server: {error}"
+
+#: modules/speedtest_manager.py:234
+#, python-brace-format
+msgid "Network Interface: {interface}"
+msgstr "Interfaccia di rete: {interface}"
+
+#: modules/speedtest_manager.py:242
+#, python-brace-format
+msgid "Gateway: {gateway}"
+msgstr "Porta d'accesso: {gateway}"
+
+#: modules/speedtest_manager.py:247
+msgid "Network information unavailable"
+msgstr "Informazioni Rete non disponibili"
+
+#: modules/speedtest_manager.py:249
+#, python-brace-format
+msgid "Network info error: {error}"
+msgstr "Errore informazioni di rete: {error}"
+
+#: modules/speedtest_manager.py:256
+msgid "Testing connectivity..."
+msgstr "Test di connettività..."
+
+#: modules/speedtest_manager.py:259 modules/speedtest_manager.py:366
+msgid "Testing download speed..."
+msgstr "Test della velocità di download..."
+
+#: modules/speedtest_manager.py:262 modules/speedtest_manager.py:316
+msgid "Testing upload speed..."
+msgstr "Test della velocità di caricamento..."
+
+#: modules/speedtest_manager.py:265
+msgid "Quick test completed"
+msgstr "Test rapido completato"
+
+#: modules/speedtest_manager.py:268
+msgid ""
+"=== QUICK SPEED TEST RESULTS ===\n"
+"\n"
+msgstr ""
+"=== RISULTATI DEL TEST DI VELOCITÀ RAPIDO ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:269
+#, python-brace-format
+msgid "Ping/Latency: {ping}\n"
+msgstr "Ping/Latenza: {ping}\n"
+
+#: modules/speedtest_manager.py:270
+#, python-brace-format
+msgid "Download Speed: {download}\n"
+msgstr "Velocità di download: {download}\n"
+
+#: modules/speedtest_manager.py:271
+#, python-brace-format
+msgid "Upload Speed: {upload}\n"
+msgstr "Velocità Upload: {upload}\n"
+
+#: modules/speedtest_manager.py:277
+#, python-brace-format
+msgid "Quick test error: {error}"
+msgstr "Errore del test rapido: {error}"
+
+#: modules/speedtest_manager.py:283
+msgid ""
+"=== COMPREHENSIVE SPEED TEST ===\n"
+"\n"
+msgstr ""
+"=== TEST DI VELOCITÀ COMPLETO ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:288
+msgid "Gathering client information..."
+msgstr "Raccolta delle informazioni sui clienti..."
+
+#: modules/speedtest_manager.py:290
+#, python-brace-format
+msgid ""
+"=== CLIENT INFORMATION ===\n"
+"{info}\n"
+"\n"
+msgstr ""
+"=== INFORMAZIONI CLIENTE ===\n"
+"{info}\n"
+"\n"
+
+#: modules/speedtest_manager.py:295
+msgid "Testing latency to multiple hosts..."
+msgstr "Test di latenza su più host..."
+
+#: modules/speedtest_manager.py:297
+#, python-brace-format
+msgid ""
+"=== LATENCY TEST ===\n"
+"{ping}\n"
+"\n"
+msgstr ""
+"=== TEST DI LATENZA ===\n"
+"{ping}\n"
+"\n"
+
+#: modules/speedtest_manager.py:302 modules/speedtest_manager.py:364
+msgid "Finding best server..."
+msgstr "Trovare il miglior server..."
+
+#: modules/speedtest_manager.py:304
+#, python-brace-format
+msgid ""
+"=== SERVER INFORMATION ===\n"
+"{server}\n"
+"\n"
+msgstr ""
+"=== INFORMAZIONI SUL SERVER ===\n"
+"{server}\n"
+"\n"
+
+#: modules/speedtest_manager.py:309
+msgid "Testing download speed (multiple servers)..."
+msgstr "Test della velocità di download (server multipli)..."
+
+#: modules/speedtest_manager.py:311
+#, python-brace-format
+msgid ""
+"=== DOWNLOAD SPEED TEST ===\n"
+"{download}\n"
+"\n"
+msgstr ""
+"=== SCARICA IL TEST DI VELOCITÀ ===\n"
+"{download}\n"
+"\n"
+
+#: modules/speedtest_manager.py:318
+#, python-brace-format
+msgid ""
+"=== UPLOAD SPEED TEST ===\n"
+"{upload}\n"
+"\n"
+msgstr ""
+"=== TEST DI VELOCITÀ DI CARICAMENTO ===\n"
+"{upload}\n"
+"\n"
+
+#: modules/speedtest_manager.py:323
+msgid "Testing connection stability..."
+msgstr "Test della stabilità della connessione..."
+
+#: modules/speedtest_manager.py:325
+#, python-brace-format
+msgid ""
+"=== CONNECTION STABILITY ===\n"
+"{stability}\n"
+"\n"
+msgstr ""
+"=== STABILITÀ DELLA CONNESSIONE ===\n"
+"{stability}\n"
+"\n"
+
+#: modules/speedtest_manager.py:330
+msgid "Gathering network details..."
+msgstr "Raccolta dei dettagli di rete in corso..."
+
+#: modules/speedtest_manager.py:332
+#, python-brace-format
+msgid ""
+"=== NETWORK INFORMATION ===\n"
+"{network}\n"
+"\n"
+msgstr ""
+"=== INFORMAZIONI DI RETE ===\n"
+"{network}\n"
+"\n"
+
+#: modules/speedtest_manager.py:337
+msgid "Final connectivity check..."
+msgstr "Controllo finale della connettività..."
+
+#: modules/speedtest_manager.py:339
+#, python-brace-format
+msgid ""
+"=== FINAL CHECK ===\n"
+"Connectivity: {conn}\n"
+msgstr ""
+"=== CONTROLLO FINALE ===\n"
+"Connettività: {conn}\n"
+
+#: modules/speedtest_manager.py:342
+msgid "Full test completed"
+msgstr "Test Completo completato"
+
+#: modules/speedtest_manager.py:346
+#, python-brace-format
+msgid "Full test error: {error}"
+msgstr "Errore del test completo: {error}"
+
+#: modules/speedtest_manager.py:354
+msgid "SpeedtestSimple not available"
+msgstr "SpeedtestSimple non disponibile"
+
+#: modules/speedtest_manager.py:359
+msgid "Checking internet connection..."
+msgstr "Controllo della connessione Internet..."
+
+#: modules/speedtest_manager.py:360
+msgid "Getting client information..."
+msgstr "Ottenimento delle informazioni sul cliente..."
+
+#: modules/speedtest_manager.py:361
+msgid "Client info completed"
+msgstr "Informazioni sul cliente completate"
+
+#: modules/speedtest_manager.py:362
+msgid "Testing latency..."
+msgstr "Test di latenza..."
+
+#: modules/speedtest_manager.py:363
+msgid "Latency test completed"
+msgstr "Test Latenza completato"
+
+#: modules/speedtest_manager.py:365
+msgid "Server found"
+msgstr "Server trovato"
+
+#: modules/speedtest_manager.py:367
+msgid "Download test completed"
+msgstr "Download test completato"
+
+#: modules/speedtest_manager.py:368
+msgid "Estimating upload speed..."
+msgstr "Stima della velocità di caricamento..."
+
+#: modules/speedtest_manager.py:369
+msgid "Upload estimation completed"
+msgstr "Caricamento stima completato"
+
+#: modules/speedtest_manager.py:370 modules/speedtest_manager.py:481
+msgid "Test failed"
+msgstr "Test fallito"
+
+#: modules/speedtest_manager.py:377
+msgid "Initializing detailed speed test..."
+msgstr "Inizializzazione del test di velocità dettagliato..."
+
+#: modules/speedtest_manager.py:383
+msgid "Detailed test completed"
+msgstr "Test Dettaglio completata"
+
+#: modules/speedtest_manager.py:387
+msgid "Detailed speed test failed - Check internet connection"
+msgstr ""
+"Test di velocità dettagliato fallito - Controlla la connessione Internet"
+
+#: modules/speedtest_manager.py:390
+#, python-brace-format
+msgid "Detailed test error: {error}"
+msgstr "Errore di test dettagliato: {error}"
+
+#: modules/speedtest_manager.py:394
+msgid ""
+"\n"
+"=== CONNECTION QUALITY ===\n"
+msgstr ""
+"\n"
+"=== QUALITÀ DELLA CONNESSIONE ===\n"
+
+#: modules/speedtest_manager.py:401 modules/speedtest_manager.py:448
+msgid "Excellent download speed\n"
+msgstr "Ottima velocità di download\n"
+
+#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
+msgid "Good download speed\n"
+msgstr "Buona velocità di download\n"
+
+#: modules/speedtest_manager.py:405
+msgid "Average download speed\n"
+msgstr "Velocità media di download\n"
+
+#: modules/speedtest_manager.py:407 modules/speedtest_manager.py:452
+msgid "Poor download speed\n"
+msgstr "Scarsa velocità di download\n"
+
+#: modules/speedtest_manager.py:409
+msgid "Download speed unavailable\n"
+msgstr "Velocità di download non disponibile\n"
+
+#: modules/speedtest_manager.py:415
+msgid "Excellent latency\n"
+msgstr "Ottima latenza\n"
+
+#: modules/speedtest_manager.py:417
+msgid "Good latency\n"
+msgstr "Buona latenza\n"
+
+#: modules/speedtest_manager.py:419
+msgid "Average latency\n"
+msgstr "Latenza media\n"
+
+#: modules/speedtest_manager.py:421
+msgid "Poor latency\n"
+msgstr "Bassa latenza\n"
+
+#: modules/speedtest_manager.py:423
+msgid "Latency unavailable\n"
+msgstr "Latenza non disponibile\n"
+
+#: modules/speedtest_manager.py:426
+msgid "Quality assessment unavailable\n"
+msgstr "Valutazione della qualità non disponibile\n"
+
+#: modules/speedtest_manager.py:437
+msgid ""
+"=== SPEED TEST RESULTS ===\n"
+"\n"
+msgstr ""
+"=== RISULTATI DEL TEST DI VELOCITÀ ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:438
+#, python-format
+msgid "Download Speed: %s\n"
+msgstr "Velocità di download: %s\n"
+
+#: modules/speedtest_manager.py:438 modules/speedtest_manager.py:439
+#: modules/speedtest_manager.py:440
+msgid "Failed"
+msgstr "Fallito"
+
+#: modules/speedtest_manager.py:439
+#, python-format
+msgid "Upload Speed: %s\n"
+msgstr "Velocità Upload: %s\n"
+
+#: modules/speedtest_manager.py:440
+#, python-format
+msgid "Latency: %s\n"
+msgstr "Latenza: %s\n"
+
+#: modules/speedtest_manager.py:443
+msgid ""
+"\n"
+"=== QUALITY ASSESSMENT ===\n"
+msgstr ""
+"\n"
+"=== VALUTAZIONE DELLA QUALITÀ ===\n"
+
+#: modules/speedtest_manager.py:454 modules/speedtest_manager.py:456
+msgid "Unable to assess download quality\n"
+msgstr "Impossibile valutare la qualità del download\n"
+
+#: modules/speedtest_manager.py:464
+msgid "Test completed - See results below"
+msgstr "Test completato - Vedi i risultati sotto"
+
+#: modules/speedtest_manager.py:471
+msgid "Test completed!"
+msgstr "Test completato!"
+
+#: modules/speedtest_manager.py:502
+msgid "Cancelling test..."
+msgstr "Annullamento del Test..."
+
+#: modules/tools.py:618
+msgid "Excellent"
+msgstr "Ottimo"
+
+#: modules/tools.py:619
+msgid "Good"
+msgstr "Buono"
+
+#: modules/tools.py:620
+msgid "Fair"
+msgstr "Giusto"
+
+#: modules/tools.py:621
+msgid "Poor"
+msgstr "Debole"
+
+#: modules/tools.py:622 modules/tools.py:629
+msgid "Very Poor"
+msgstr "Molto Debole"
+
+#~ msgid "Press BLUE button for menu"
+#~ msgstr "Premere il pulsante BLU per il menu"
+
+#~ msgid "Execute"
+#~ msgstr "Eseguire"
+
+#~ msgid "No WiFi interface found!"
+#~ msgstr "Nessuna interfaccia WiFi trovata!"
+
+#~ msgid "Scan completed. Press GREEN to rescan"
+#~ msgstr "Scansione completata. Premere VERDE per ripetere la scansione"
+
+#~ msgid "Interface restarted. Press GREEN to restart again"
+#~ msgstr "Interfaccia riavviata. Premere VERDE per riavviare di nuovo"
+
+#~ msgid "Modules reloaded. Press GREEN to reload again"
+#~ msgstr "Moduli ricaricati. Premi VERDE per ricaricare di nuovo"
+
+#~ msgid "Logs checked. Press GREEN to check again"
+#~ msgstr "Registri controllati. Premi VERDE per controllare di nuovo"
+
+#~ msgid "Operation completed. Press BLUE for menu"
+#~ msgstr "Operazione completata. Premi BLU per il Menu"
+
+#, python-format
+#~ msgid "  Mode: %s\n"
+#~ msgstr " Modalità: %s\n"
+
+#~ msgid "Select Advanced WiFi Tool"
+#~ msgstr "Seleziona Strumento WiFi avanzato"
+
+#~ msgid "Reloading modules..."
+#~ msgstr "Ricaricamento dei moduli..."
+
+#~ msgid ""
+#~ "=== MODULE RELOAD ===\n"
+#~ "\n"
+#~ msgstr ""
+#~ "=== RICARICA MODULO ===\n"
+#~ "\n"
+
+#, python-format
+#~ msgid ""
+#~ "Loaded WiFi modules:\n"
+#~ "%s\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Ricarica i moduli WiFi:\n"
+#~ "%s\n"
+#~ "\n"
+
+#~ msgid "None found"
+#~ msgstr "Nessuno trovato"
+
+#~ msgid ""
+#~ "Module reload functionality requires custom implementation for your "
+#~ "system."
+#~ msgstr ""
+#~ "La funzionalità di ricaricamento del modulo richiede un'implementazione "
+#~ "personalizzata per il tuo sistema."
+
+#~ msgid "Module Info"
+#~ msgstr "Informazioni Modulo"
+
+#~ msgid "Back to Tools"
+#~ msgstr "Torna agli Strumenti"
+
+#~ msgid "Rescan"
+#~ msgstr "Nuova scansione"
+
+#~ msgid "Scan failed or no networks found"
+#~ msgstr "Scansione non riuscita o nessuna rete trovata"
+
+#, python-format
+#~ msgid ""
+#~ "Available Channels:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Canali disponibili:\n"
+#~ "%s"
+
+#~ msgid "Channel information not available"
+#~ msgstr "Informazione canale non disponibile"
+
+#, python-format
+#~ msgid ""
+#~ "Current Connection:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Connessione attuale:\n"
+#~ "%s"
+
+#~ msgid "Current rate information not available"
+#~ msgstr "Informazioni sulla tariffa attuale non disponibili"
+
+#, python-format
+#~ msgid ""
+#~ "Encryption Keys:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Chiavi di crittografia:\n"
+#~ "%s"
+
+#~ msgid "Key information not available"
+#~ msgstr "Informazioni chiave non disponibili"
+
+#, python-format
+#~ msgid "Try: iwconfig %s | grep -i power"
+#~ msgstr "Prova: iwconfig %s | grep -i power"
+
+#, python-format
+#~ msgid "Try: iwconfig %s | grep -i retry"
+#~ msgstr "Prova: iwconfig %s | grep -i retry"
+
+#~ msgid "Interface may not be in AP mode"
+#~ msgstr "L'interfaccia potrebbe non essere in modalità AP"
+
+#~ msgid "Test in progress. Please wait..."
+#~ msgstr "Test in corso. Attendi..."
+
+#, python-format
+#~ msgid "Connecting to %s..."
+#~ msgstr "Connessione a %s..."
+
+#~ msgid "Configuration file not found"
+#~ msgstr "File di configurazione non trovato"
+
+#~ msgid "Connection failed - check configuration"
+#~ msgstr "Connessione fallita - controlla la configurazione"
+
+#, python-format
+#~ msgid "Connected to %s"
+#~ msgstr "Connesso a %s"
+
+#, python-format
+#~ msgid "Successfully connected to %s"
+#~ msgstr "Connessione riuscita a %s"
+
+#~ msgid "Connected but no IP - check DHCP"
+#~ msgstr "Connesso ma nessun IP - controlla DHCP"
+
+#~ msgid "Connected to network but failed to get IP address"
+#~ msgstr "Connesso alla Rete ma non è riuscito a ottenere l'indirizzo IP"
+
+#, python-format
+#~ msgid "Connection error: %s"
+#~ msgstr "Errore di Connessione :  %s"
+
+#~ msgid "Select an advanced WiFi tool"
+#~ msgstr "Seleziona uno strumento WiFi avanzato"
+
+#~ msgid "Save"
+#~ msgstr "Salva"
+
+#~ msgid ""
+#~ "WiFi settings applied successfully\n"
+#~ "\n"
+#~ "Some changes may require interface restart."
+#~ msgstr ""
+#~ "Impostazioni WiFi applicate correttamente\n"
+#~ "\n"
+#~ "Alcune modifiche potrebbero richiedere il riavvio dell'interfaccia."
+
+#~ msgid ""
+#~ "No settings were applied\n"
+#~ "\n"
+#~ "Check interface availability and permissions."
+#~ msgstr ""
+#~ "Nessuna impostazione applicata.\n"
+#~ "\n"
+#~ "Verifica la disponibilità e le autorizzazioni dell'interfaccia."
+
+#~ msgid "Error applying settings: "
+#~ msgstr "Errore durante l'applicazione delle impostazioni: "
+
+#, fuzzy, python-brace-format
+#~| msgid "Connection failed to {}"
+#~ msgid "Configuration saved for {}"
+#~ msgstr "Connessione fallita a: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Error starting import: {}"
+#~ msgid "Error saving configuration: {}"
+#~ msgstr "Errore durante l'avvio dell'importazione: {}"
+
+#~ msgid "Forget"
+#~ msgstr "Dimenticare"
+
+#, fuzzy
+#~| msgid "No WiFi interface found"
+#~ msgid "❌ No WiFi interface found"
+#~ msgstr "Nessuna interfaccia WiFi trovata"
+
+#, fuzzy
+#~| msgid "Error deleting items"
+#~ msgid "❌ Error detecting interface"
+#~ msgstr "Errore durante l'eliminazione degli elementi"
+
+#, fuzzy
+#~| msgid "Scanning for networks..."
+#~ msgid "🔄 Scanning for networks..."
+#~ msgstr "Scansione delle reti..."
+
+#, fuzzy
+#~| msgid "Scanning..."
+#~ msgid "Scanning... Please wait"
+#~ msgstr "Scansione..."
+
+#, fuzzy, python-brace-format
+#~| msgid "Backup failed: {}"
+#~ msgid "❌ Scan failed: {}"
+#~ msgstr "Backup non riuscito: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Selected: {} - Press OK to connect"
+#~ msgid "✅ CONNECTED to: {} - Press YELLOW to disconnect"
+#~ msgstr "Selezionato: {} - Premi OK per connetterti"
+
+#, fuzzy
+#~| msgid "Connected to {}"
+#~ msgid "Connected ✓"
+#~ msgstr "Connesso a: {}"
+
+#, fuzzy
+#~| msgid "Connection failed"
+#~ msgid "Connect (saved)"
+#~ msgstr "Connessione  fallita: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Found {} networks - Select one"
+#~ msgid "🌐 Found {} networks - Select with OK"
+#~ msgstr "Trovate {} reti - Selezionane una"
+
+#, python-brace-format
+#~ msgid "Found {} networks - Select one"
+#~ msgstr "Trovate {} reti - Selezionane una"
+
+#, fuzzy
+#~| msgid "Please select a channel first"
+#~ msgid "Please select a network first"
+#~ msgstr "Seleziona prima un canale"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connecting to {}..."
+#~ msgid "🔄 Connecting to {}..."
+#~ msgstr "Connessione a {}..."
+
+#, fuzzy, python-brace-format
+#~| msgid "Connected to {}"
+#~ msgid "✅ Connected to {}"
+#~ msgstr "Connesso a: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connection failed"
+#~ msgid "❌ Connection to {} failed"
+#~ msgstr "Connessione  fallita: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Ready to convert to M3U"
+#~ msgid "❌ Failed to connect to {}"
+#~ msgstr "Pronto per la conversione M3U"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connection error: {}"
+#~ msgid "❌ Connection error: {}"
+#~ msgstr "Errore di Connessione :  {}"
+
+#, fuzzy
+#~| msgid "Please enter password"
+#~ msgid "Please enter the password"
+#~ msgstr "Inserisci la password"
+
+#, fuzzy
+#~| msgid "Connection failed"
+#~ msgid "❌ Authentication failed"
+#~ msgstr "Connessione  fallita: {}"
+
+#, fuzzy
+#~| msgid "Connection failed"
+#~ msgid "❌ Connection failed"
+#~ msgstr "Connessione  fallita: {}"
+
+#, python-brace-format
+#~ msgid "Connection failed: {}"
+#~ msgstr "Connessione fallita: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "No matches found for: {}"
+#~ msgid "No saved password for {}"
+#~ msgstr "Nessuna corrispondenza trovata per: {}"
+
+#, fuzzy
+#~| msgid "Connect to WiFi networks"
+#~ msgid "❌ Not connected to any network"
+#~ msgstr "Connettiti alle reti WiFi"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connected to {}"
+#~ msgid ""
+#~ "Connected:\n"
+#~ "{}"
+#~ msgstr "Connesso a: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Password"
+#~ msgid "Password for {}"
+#~ msgstr "Password"
+
+#, fuzzy, python-brace-format
+#~| msgid "Please enter password"
+#~ msgid "Enter password for {}"
+#~ msgstr "Inserisci la password"
+
+#, fuzzy
+#~| msgid "No WiFi interface available"
+#~ msgid "WiFi interface is down. Enabling..."
+#~ msgstr "Nessuna interfaccia WiFi disponibile"
+
+#, fuzzy
+#~| msgid "Error deleting items"
+#~ msgid "Error detecting interface"
+#~ msgstr "Errore durante l'eliminazione degli elementi"
+
+#, fuzzy, python-brace-format
+#~| msgid "Backup failed: {}"
+#~ msgid "Scan failed: {}"
+#~ msgstr "Backup non riuscito: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connected to {}"
+#~ msgid "Already connected to: {}"
+#~ msgstr "Connesso a: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connected to {}"
+#~ msgid "Connect to {}"
+#~ msgstr "Connesso a: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Network Share"
+#~ msgid "Network: {}"
+#~ msgstr "Condivisione di rete"
+
+#, fuzzy
+#~| msgid "Connection failed"
+#~ msgid "Authentication failed"
+#~ msgstr "Connessione  fallita: {}"
+
+#~ msgid "Connection failed"
+#~ msgstr "Connessione  fallita: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Please enter password"
+#~ msgid "Enter password for: {}"
+#~ msgstr "Inserisci la password"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connection failed: {}"
+#~ msgid ""
+#~ "Connection Details:\n"
+#~ "\n"
+#~ "{}"
+#~ msgstr "Connessione fallita: {}"
+
+#, fuzzy, python-brace-format
+#~| msgid "Error getting cache statistics"
+#~ msgid "Error getting connection details: {}"
+#~ msgstr "Errore durante l'acquisizione delle statistiche della cache"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connected to {} (no IP)"
+#~ msgid ""
+#~ "Connected to: {}\n"
+#~ "Signal: {} dBm | IP: {}"
+#~ msgstr "Connesso a {} (nessun IP)"
+
+#, fuzzy, python-format
+#~| msgid "Error opening plugin information: %s"
+#~ msgid "Error opening password dialog: %s"
+#~ msgstr "Errore durante l'apertura delle informazioni del plugin: %s"
+
+#, fuzzy, python-format
+#~| msgid ""
+#~| "Error opening file browser:\n"
+#~| "%s"
+#~ msgid "Error forgetting network: %s"
+#~ msgstr ""
+#~ "Impossibile aprire il file browser\n"
+#~ "%s"
+
+#, fuzzy, python-format
+#~| msgid "Connection error: {}"
+#~ msgid "Disconnect error: %s"
+#~ msgstr "Errore di Connessione :  {}"
+
+#, fuzzy, python-format
+#~| msgid "Error opening plugin information: %s"
+#~ msgid "Error showing connection info: %s"
+#~ msgstr "Errore durante l'apertura delle informazioni del plugin: %s"
+
+#, python-format
+#~ msgid "Error: %s"
+#~ msgstr "Errore: %s"
+
+#, fuzzy, python-brace-format
+#~| msgid "Selected: {} - Press OK to connect"
+#~ msgid "✅ Connected to {} - Press YELLOW to disconnect"
+#~ msgstr "Selezionato: {} - Premi OK per connetterti"
+
+#, fuzzy
+#~| msgid "Connect"
+#~ msgid "Connected"
+#~ msgstr "Connetti"
+
+#~ msgid "System Tools"
+#~ msgstr "Strumenti di sistema"
+
+#~ msgid "System-level WiFi tools"
+#~ msgstr "Strumenti WiFi a livello di sistema"
+
+#, fuzzy
+#~| msgid "Quick Test"
+#~ msgid "Quick Speed Test"
+#~ msgstr "Test rapido"
+
+#~ msgid "Test WiFi Connectivity"
+#~ msgstr "Testare la connettività WiFi"
+
+#~ msgid "Select a system tool to run"
+#~ msgstr "Seleziona uno strumento di sistema da eseguire"
+
+#~ msgid "System WiFi Tools"
+#~ msgstr "Strumenti di sistema WiFi"
+
+#~ msgid "Restarting WiFi interface..."
+#~ msgstr "Riavvio dell'interfaccia WiFi..."
+
+#~ msgid "Reloading WiFi modules..."
+#~ msgstr "Ricarica Modulo WiFi..."
+
+#~ msgid "No WiFi modules found"
+#~ msgstr "Nessun modulo WiFi trovato"
+
+#~ msgid "Connectivity Test"
+#~ msgstr "Test di connettività"
+
+#, fuzzy, python-brace-format
+#~| msgid "Backup failed: {}"
+#~ msgid "Speed test failed: {}"
+#~ msgstr "Backup non riuscito: {}"
+
+#, fuzzy
+#~| msgid "Error: %s"
+#~ msgid "Error"
+#~ msgstr "Errore: %s"
+
+#~ msgid "Kernel WiFi Logs"
+#~ msgstr "Registri WiFi del kernel"
+
+#~ msgid "No WiFi-related kernel messages found"
+#~ msgstr "Nessun messaggio kernel relativo al WiFi trovato"
+
+#, fuzzy
+#~| msgid "Quick Test"
+#~ msgid "Quick Test Results"
+#~ msgstr "Test rapido"
+
+#, fuzzy, python-brace-format
+#~| msgid "Backup failed: {}"
+#~ msgid "Quick test failed: {}"
+#~ msgstr "Backup non riuscito: {}"
+
+#, fuzzy, python-format
+#~| msgid "Scan error: "
+#~ msgid "Scan error: %s"
+#~ msgstr "Errore scansione: "
+
+#, fuzzy, python-format
+#~| msgid "Connection error: {}"
+#~ msgid "Channel info error: %s"
+#~ msgstr "Errore di Connessione :  {}"
+
+#, fuzzy, python-format
+#~| msgid "File write error: %s"
+#~ msgid "Bitrate info error: %s"
+#~ msgstr "Errore di scrittura del file: %s"
+
+#, fuzzy, python-format
+#~| msgid "Encryption Info"
+#~ msgid "Encryption info error: %s"
+#~ msgstr "Informazioni sulla crittografia"
+
+#, fuzzy, python-format
+#~| msgid "XSPF conversion error: %s"
+#~ msgid "AP info error: %s"
+#~ msgstr "Errore di conversione XSPF: %s"
+
+#, fuzzy, python-format
+#~| msgid "Conversion failed: %s"
+#~ msgid "Restart failed: %s"
+#~ msgstr "Esportazione fallita: %s"
+
+#, fuzzy, python-format
+#~| msgid "Conversion failed: %s"
+#~ msgid "Module operation failed: %s"
+#~ msgstr "Esportazione fallita: %s"
+
+#~ msgid "Please wait..."
+#~ msgstr "Attendi prego..."
+
+#~ msgid "No WiFi interfaces"
+#~ msgstr "Nessuna interfaccia WiFi"
+
+#~ msgid "Error running tool"
+#~ msgstr "Errore durante l'esecuzione dello strumento"
+
+#, fuzzy
+#~| msgid "Tool not available"
+#~ msgid "Speedtest module not available"
+#~ msgstr "Strumento non disponibile"
+
+#, fuzzy
+#~| msgid "Select Bouquet file to convert"
+#~ msgid "❌ Speedtest failed to complete"
+#~ msgstr "Seleziona il file Bouquet da convertire"
+
+#, fuzzy, python-brace-format
+#~| msgid "Connection error: {}"
+#~ msgid "❌ Download error: {}\n"
+#~ msgstr "Errore di Connessione :  {}"
+
+#, fuzzy
+#~| msgid "Testing connectivity..."
+#~ msgid "🌐 Testing connectivity...\n"
+#~ msgstr "Test di connettività..."
+
+#, python-brace-format
+#~ msgid "Scan error: {}"
+#~ msgstr "Errore di scansione: {}"
+
+#~ msgid "Encrypted"
+#~ msgstr "Criptato"
+
+#, python-brace-format
+#~ msgid "Selected: {} | {} | {} dBm"
+#~ msgstr "Selezionato: {} | {} | {} dBm"
+
+#~ msgid "Select a network to connect"
+#~ msgstr "Seleziona una rete a cui connetterti"
+
+#~ msgid "Temporary"
+#~ msgstr "Temp"
+
+#~ msgid "Single Bouquet"
+#~ msgstr "Bouquet Singolo"
+
+#~ msgid "Multiple Bouquets"
+#~ msgstr "Bouquets Multipli"
+
+#~ msgid "Top"
+#~ msgstr "In Alto"
+
+#~ msgid "Bottom"
+#~ msgstr "In Basso"
+
+#~ msgid "EPGShare Mode"
+#~ msgstr "Modalità EPGShare"
+
+#~ msgid "Standard Mode"
+#~ msgstr "Modalità Standard"
+
+#~ msgid "Only DVB"
+#~ msgstr "Solo  DVB"
+
+#~ msgid "Only Rytec"
+#~ msgstr "Solo Rytec"
+
+#~ msgid "Only DTT"
+#~ msgstr "Solo DTT"
+
+#~ msgid "M3U ➔ Enigma2 Bouquets"
+#~ msgstr "M3U ➔ Bouquets Enigma2"
+
+#~ msgid "Enigma2 Bouquets ➔ M3U"
+#~ msgstr "Bouquet Enigma2 ➔ M3U"
+
+#~ msgid "JSON ➔ Enigma2 Bouquets"
+#~ msgstr "JSON ➔ Bouquets Enigma2"
+
+#~ msgid "XSPF ➔ M3U Playlist"
+#~ msgstr "XSPF ➔ Playlist M3U"
+
+#~ msgid "Remove M3U Bouquets"
+#~ msgstr "Rimuovere Bouquets M3U"
+
+#~ msgid "Plugin Information"
+#~ msgstr "Informazioni sul Plugin"
+
+#~ msgid "We're ready: what do you want to do?"
+#~ msgstr "Siamo pronti: cosa vuoi fare?"
+
+#~ msgid "Remove Bouquets"
+#~ msgstr "Rimuovere Bouquet"
+
+#~ msgid "Press RED to select file"
+#~ msgstr "Premere ROSSO per selezionare il file"
+
+#~ msgid "EPGImport plugin not found"
+#~ msgstr "Plugin EPGImport non trovato"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Removed {count} bouquet(s):\n"
+#~ "{files}"
+#~ msgstr ""
+#~ "Rimossi {count} bouquet:\n"
+#~ "{files}"
+
+#~ msgid "No M3UConverter bouquets found to remove."
+#~ msgstr "Nessun bouquet M3UConverter trovato da rimuovere."
+
+#~ msgid "M3U to Enigma2 Bouquet Conversion"
+#~ msgstr "Conversione da M3U in Enigma2 Bouquet"
+
+#~ msgid "Enigma2 Bouquet to M3U Conversion"
+#~ msgstr "Conversione da Enigma2 Bouquet in M3U"
+
+#~ msgid "JSON to Enigma2 Bouquet Conversion"
+#~ msgstr "Conversione da JSON in Enigma2 Bouquet"
+
+#~ msgid "JSON to M3U Conversion"
+#~ msgstr "Conversione da JSON a M3U"
+
+#~ msgid "XSPF to M3U Playlist Conversion"
+#~ msgstr "Conversione da XSPF in M3U"
+
+#~ msgid "M3U to JSON Conversion"
+#~ msgstr "Conversione da M3U in JSON"
+
+#~ msgid "Ready"
+#~ msgstr "Pronto"
+
+#, python-format
+#~ msgid "Ready: Select the file from the %s you configured in settings."
+#~ msgstr "Pronto: seleziona il file dal %s configurato nelle impostazioni."
+
+#~ msgid "No file selected for conversion"
+#~ msgstr "Nessun file selezionato per la conversione %s"
+
+#~ msgid "Convert M3U to TV"
+#~ msgstr "Converti M3U in TV"
+
+#~ msgid "Convert TV to M3U"
+#~ msgstr "Converti TV in M3U"
+
+#~ msgid "Convert JSON to TV"
+#~ msgstr "Converti JSON in TV"
+
+#~ msgid "Convert JSON to M3U"
+#~ msgstr "Converti JSON in M3U"
+
+#~ msgid "Convert XSPF to M3U"
+#~ msgstr "Converti XSPF in M3U"
+
+#~ msgid "Convert M3U to JSON"
+#~ msgstr "Converti M3U in JSON"
+
+#~ msgid "Convert"
+#~ msgstr "Converti"
+
+#~ msgid "Conversion in progress..."
+#~ msgstr "Conversione in corso..."
+
+#~ msgid "Unsupported conversion type"
+#~ msgstr "Tipo di conversione non supportato"
+
+#~ msgid "Manual editing completed - ready for conversion"
+#~ msgstr "Modifica manuale completata - pronto per la conversione"
+
+#~ msgid "Invalid .tv item format"
+#~ msgstr "Formato file .tv non valido"
+
+#~ msgid "Invalid .m3u item format"
+#~ msgstr "Formato file .m3u non valido"
+
+#, python-format
+#~ msgid "Playing: %s"
+#~ msgstr "Riproduzione: %s"
+
+#~ msgid "📋 Plugin Info"
+#~ msgstr "📋 Informazioni sul plugin"
+
+#~ msgid "📊 EPG Cache Statistics"
+#~ msgstr "📊 Statistiche della cache EPG"
+
+#~ msgid "💾 Create Backup"
+#~ msgstr "💾 Crea backup"
+
+#~ msgid "🔄 Reload EPG Database"
+#~ msgstr "🔄 Ricarica il database EPG"
+
+#~ msgid "🔄 Reload Services"
+#~ msgstr "🔄 Ricarica Servizi"
+
+#~ msgid "🧹 Clear EPG Cache"
+#~ msgstr "🧹 Cancella la cache EPG"
+
+#~ msgid "🗑️ Clear Log File"
+#~ msgstr "🗑️ Cancella file di registro"
+
+#~ msgid "🗃️ === Manual Database Management ==="
+#~ msgstr "🗃️ === Gestione manuale del database ==="
+
+#~ msgid "✏️ Open Database Editor"
+#~ msgstr "✏️ Apri l'editor del database"
+
+#~ msgid "👁️ View Manual Database"
+#~ msgstr "👁️ Visualizza il database manuale"
+
+#~ msgid "📝 Manual Match Editing"
+#~ msgstr "📝 Modifica manuale delle Corrispondenze"
+
+#~ msgid "📤 Export Manual Database"
+#~ msgstr "📤 Esporta database manuale"
+
+#~ msgid "📥 Import Manual Database"
+#~ msgstr "📥 Importa database manuale"
+
+#~ msgid "🧹 Clean Manual Database"
+#~ msgstr "🧹 Pulisci database manuale"
+
+#~ msgid ""
+#~ "No conversion statistics available.\n"
+#~ "Run a conversion first to see statistics."
+#~ msgstr ""
+#~ "Nessuna statistica di conversione disponibile.\n"
+#~ "Esegui prima una conversione per visualizzare le statistiche."
+
+#, python-brace-format
+#~ msgid "📊 EPG STATISTICS - {}"
+#~ msgstr "📊 STATISTICHE EPG - {}"
+
+#~ msgid "No conversion statistics available."
+#~ msgstr "Nessuna statistica di conversione disponibile."
+
+#~ msgid "Run a conversion first to see statistics."
+#~ msgstr "Esegui prima una conversione per visualizzare le statistiche."
+
+#, python-brace-format
+#~ msgid "🎯 TOTAL CHANNELS: {}"
+#~ msgstr "🎯 CANALI TOTALI: {}"
+
+#, python-brace-format
+#~ msgid "📈 EPG COVERAGE: {:.1f}%"
+#~ msgstr "📈 COPERTURA EPG: {:.1f}%"
+
+#~ msgid "🔧 MATCH BREAKDOWN:"
+#~ msgstr "🔧 ANALISI CORRISPONDENZE::"
+
+#, python-brace-format
+#~ msgid "• 🛰️ Rytec: {} ({:.1f}%)"
+#~ msgstr "• 🛰️ Rytec: {} ({:.1f}%)"
+
+#, python-brace-format
+#~ msgid "• 📡 DVB-S: {} ({:.1f}%)"
+#~ msgstr "• 📡 DVB-S: {} ({:.1f}%)"
+
+#, python-brace-format
+#~ msgid "• 📺 DVB-T: {} ({:.1f}%)"
+#~ msgstr "• 📺 DVB-T: {} ({:.1f}%)"
+
+#, python-brace-format
+#~ msgid "• 💾 Manual DB: {} ({:.1f}%)"
+#~ msgstr "• 💾 DB manuale: {} ({:.1f}%)"
+
+#, python-brace-format
+#~ msgid "• 🔌 IPTV Fallback: {} ({:.1f}%)"
+#~ msgstr "• 🔌 IPTV Fallback: {} ({:.1f}%)"
+
+#~ msgid "💾 CACHE PERFORMANCE:"
+#~ msgstr "💾 PRESTAZIONI DELLA CACHE:"
+
+#, python-brace-format
+#~ msgid "• Hit: {} ({:.1f}%)"
+#~ msgstr "• Risultato: {} ({:.1f}%)"
+
+#, python-brace-format
+#~ msgid "• Miss: {}"
+#~ msgstr "• Mancanti: {}"
+
+#, python-brace-format
+#~ msgid "• Size: {} entries"
+#~ msgstr "• Dimensione: {} voci"
+
+#~ msgid "🗄️ DATABASE INFO:"
+#~ msgstr "🗄️ INFO DATABASE:"
+
+#, python-brace-format
+#~ msgid "• Rytec: {} channels"
+#~ msgstr "• Rytec: {} canali"
+
+#, python-brace-format
+#~ msgid "• DVB: {} channels"
+#~ msgstr "• DVB: {} canali"
+
+#~ msgid "EPG database reloaded successfully!"
+#~ msgstr "Database EPG ricaricato con successo!"
+
+#~ msgid "Failed to initialize EPG mapper - check logs"
+#~ msgstr "Impossibile inizializzare il mapper EPG: controllare i registri"
+
+#, python-brace-format
+#~ msgid "Error reloading EPG database: {}"
+#~ msgstr "Errore durante il ricaricamento del database EPG: {}"
+
+#, python-brace-format
+#~ msgid "EPG cache cleared! {} entries removed"
+#~ msgstr "Cache EPG cancellata! {} voci rimosse"
+
+#~ msgid "Error clearing EPG cache"
+#~ msgstr "Errore durante la cancellazione della cache EPG"
+
+#~ msgid "EPG mapper not initialized"
+#~ msgstr "EPG mapper non inizializzato"
+
+#~ msgid "Service reload initiated"
+#~ msgstr "Ricaricamento del servizio avviato"
+
+#~ msgid ""
+#~ "Service reload command sent successfully.\n"
+#~ "Bouquets should appear shortly."
+#~ msgstr ""
+#~ "Comando di ricarica del servizio inviato con successo.\n"
+#~ "I bouquet dovrebbero apparire a breve."
+
+#~ msgid "Error initiating service reload"
+#~ msgstr "Errore durante l'avvio del ricaricamento del servizio"
+
+#~ msgid "✏️ Edit this mapping"
+#~ msgstr "✏️ Modifica questa mappatura"
+
+#~ msgid "🗑️ Delete this mapping"
+#~ msgstr "🗑️ Elimina questa mappatura"
+
+#~ msgid "🔙 Back"
+#~ msgstr "🔙 Torna"
+
+#, python-brace-format
+#~ msgid "Action for: {}"
+#~ msgstr "Azione per: {}"
+
+#, python-brace-format
+#~ msgid "Manual Corrections ({} total)"
+#~ msgstr "Correzioni manuali ({} totali)"
+
+#, python-brace-format
+#~ msgid ""
+#~ "This will delete ALL manual corrections.\n"
+#~ "\n"
+#~ "Total corrections: {}\n"
+#~ "This action cannot be undone.\n"
+#~ "\n"
+#~ "Are you sure?"
+#~ msgstr ""
+#~ "Questa operazione eliminerà TUTTE le correzioni manuali.\n"
+#~ "\n"
+#~ "Correzioni totali: {}\n"
+#~ "Questa azione non può essere annullata.\n"
+#~ "\n"
+#~ "Sei sicuro?"
+
+#~ msgid "Manual database cleared"
+#~ msgstr "Database manuale cancellato"
+
+#~ msgid "Error clearing database"
+#~ msgstr "Errore durante la cancellazione del database"
+
+#~ msgid "No manual corrections to export"
+#~ msgstr "Nessuna correzione manuale da esportare"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Manual database exported successfully!\n"
+#~ "\n"
+#~ "File: {}\n"
+#~ "Location: {}\n"
+#~ "Corrections: {}\n"
+#~ "Size: {} bytes"
+#~ msgstr ""
+#~ "Database manuale esportato correttamente!\n"
+#~ "\n"
+#~ "File: {}\n"
+#~ "Posizione: {}\n"
+#~ "Correzioni: {}\n"
+#~ "Dimensione: {} byte"
+
+#~ msgid "Error exporting database"
+#~ msgstr "Errore durante l'esportazione del database"
+
+#~ msgid "Database Directory"
+#~ msgstr "Elenco dei database"
+
+#~ msgid "Temporary Files"
+#~ msgstr "File temporanei"
+
+#, python-brace-format
+#~ msgid ""
+#~ "No database files found in:\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Nessun file database trovato in:\n"
+#~ "{}"
+
+#~ msgid "🔙 Back to locations"
+#~ msgstr "🔙 Torna alle posizioni"
+
+#, python-brace-format
+#~ msgid "Select file to import from {}"
+#~ msgstr "Seleziona il file da importare da {}"
+
+#~ msgid "Log file cleared successfully"
+#~ msgstr "File di registro cancellato correttamente"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Delete manual correction for:\n"
+#~ "{}\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgstr ""
+#~ "Elimina correzione manuale per:\n"
+#~ "{}\n"
+#~ "\n"
+#~ "Questa azione non può essere annullata."
+
+#~ msgid "Invalid database file structure"
+#~ msgstr "Struttura del file di database non valida"
+
+#~ msgid "replaced"
+#~ msgstr "sostituito"
+
+#~ msgid "merged"
+#~ msgstr "unito"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Database import successful!\n"
+#~ "\n"
+#~ "{} mappings {}.\n"
+#~ "Total mappings now: {}\n"
+#~ "Mode: {}"
+#~ msgstr ""
+#~ "Importazione del database riuscita!\n"
+#~ "\n"
+#~ "{} mappature {}.\n"
+#~ "Totale mappature ora: {}\n"
+#~ "Modalità: {}"
+
+#~ msgid "Error saving imported database"
+#~ msgstr "Errore durante il salvataggio del database importato"
+
+#, python-brace-format
+#~ msgid "Error finalizing import: {}"
+#~ msgstr "Errore durante la finalizzazione dell'importazione: {}"
+
+#~ msgid "📊 IMPORT PREVIEW"
+#~ msgstr "📊 ANTEPRIMA IMPORTAZIONE"
+
+#, python-brace-format
+#~ msgid "File: {}"
+#~ msgstr "File: {}"
+
+#~ msgid "📈 Statistics:"
+#~ msgstr "📈 Statistiche:"
+
+#, python-brace-format
+#~ msgid "• Total in import file: {}"
+#~ msgstr "• Totale nel file di importazione: {}"
+
+#, python-brace-format
+#~ msgid "• New mappings: {}"
+#~ msgstr "• Nuove mappature: {}"
+
+#, python-brace-format
+#~ msgid "• Duplicate mappings: {}"
+#~ msgstr "• Mappature duplicate: {}"
+
+#, python-brace-format
+#~ msgid "• Current total: {}"
+#~ msgstr "• Totale attuale: {}"
+
+#, python-brace-format
+#~ msgid "🆕 New mappings ({}):"
+#~ msgstr "🆕 Nuove mappature ({}):"
+
+#, python-brace-format
+#~ msgid "🔄 Duplicates ({}):"
+#~ msgstr "🔄 Duplicati ({}):"
+
+#, python-brace-format
+#~ msgid "🔄 Replace All ({} mappings)"
+#~ msgstr "🔄 Sostituisci tutto ({} mappature)"
+
+#~ msgid "➕ Merge (keep both)"
+#~ msgstr "➕ Unisci (mantieni entrambi)"
+
+#~ msgid "📊 Preview Changes"
+#~ msgstr "📊 Anteprima delle modifiche"
+
+#, python-brace-format
+#~ msgid "Import {} mappings from {}"
+#~ msgstr "Importa {} mappature da {}"
+
+#~ msgid "Invalid selection"
+#~ msgstr "Selezione non valida"
+
+#~ msgid "Processing selection..."
+#~ msgstr "Elaborazione della selezione..."
+
+#~ msgid "File not found"
+#~ msgstr "File non trovato"
+
+#~ msgid "Ready to convert"
+#~ msgstr "Pronto per la conversione"
+
+#, python-format
+#~ msgid "Loaded first %d channels. Press Green to convert."
+#~ msgstr "Caricati i primi %d canali. Premi Verde per convertire."
+
+#, python-brace-format
+#~ msgid "Large file detected: {:.1f}MB. Processing first {} channels..."
+#~ msgstr ""
+#~ "Rilevato file di grandi dimensioni: {:.1f}MB. Elaborazione dei primi {} "
+#~ "canali..."
+
+#~ msgid "No IPTV channels found in the bouquet"
+#~ msgstr "Nessun canale IPTV trovato nel bouquet"
+
+#, python-format
+#~ msgid ""
+#~ "Error parsing JSON file. Please check the format.\n"
+#~ "\n"
+#~ "Error: %s"
+#~ msgstr ""
+#~ "Errore durante l'analisi del file JSON. Controllare il formato.\n"
+#~ "\n"
+#~ "Errore: %s"
+
+#~ msgid "Conversion already in progress"
+#~ msgstr "Conversione già in corso"
+
+#, python-brace-format
+#~ msgid "Exporting: {name} ({percent}%)"
+#~ msgstr "Esportazione: {name} ({percent}%)"
+
+#, python-format
+#~ msgid "tv_to_m3u Conversion error: %s"
+#~ msgstr "errore di conversione TVM3U: %s"
+
+#, python-brace-format
+#~ msgid "Converting: {title} ({percent}%)"
+#~ msgstr "Conversione: {title} ({percent}%)"
+
+#~ msgid "No valid channels found in the JSON file"
+#~ msgstr "Nessun canale valido trovato nel file JSON"
+
+#, python-brace-format
+#~ msgid "Exporting: {title} ({percent}%)"
+#~ msgstr "Esportazione: {title} ({percent}%)"
+
+#~ msgid "Invalid XSPF file"
+#~ msgstr "File XSPF non valido"
+
+#~ msgid "Match"
+#~ msgstr "Affinità"
+
+#~ msgid "Error processing conversion result"
+#~ msgstr "Errore durante l'avvio della conversione"
+
+#, python-brace-format
+#~ msgid ""
+#~ "✅ CONVERSION COMPLETED SUCCESSFULLY\n"
+#~ "\n"
+#~ "📁 Bouquet: {}\n"
+#~ "🕒 Completed at: {}\n"
+#~ "📍 Location: /etc/enigma2/userbouquet.*.tv\n"
+#~ "\n"
+#~ "Press OK to continue"
+#~ msgstr ""
+#~ "✅ CONVERSIONE COMPLETATA CON SUCCESSO\n"
+#~ "\n"
+#~ "📁 Bouquet: {}\n"
+#~ "🕒 Completato alle: {}\n"
+#~ "📍 Posizione: /etc/enigma2/userbouquet.*.tv\n"
+#~ "\n"
+#~ "Premi OK per continuare"
+
+#~ msgid "🎯 CONVERSION COMPLETE"
+#~ msgstr "🎯 CONVERSIONE COMPLETATA"
+
+#, python-brace-format
+#~ msgid "📊 Total channels in file: {}"
+#~ msgstr "📊 Numero totale di canali nel file: {}"
+
+#, python-brace-format
+#~ msgid "✅ Valid channels processed: {}"
+#~ msgstr "✅ Canali validi elaborati: {}"
+
+#, python-brace-format
+#~ msgid "🚫 Skipped channels: {}"
+#~ msgstr "🚫 Canali saltati: {}"
+
+#, python-brace-format
+#~ msgid "🎯 Effective EPG matches: {}"
+#~ msgstr "🎯 Corrispondenze EPG efficaci: {}"
+
+#, python-brace-format
+#~ msgid "📈 EFFECTIVE EPG coverage: {}"
+#~ msgstr "📈 Copertura EPG EFFICACE: {}"
+
+#, python-brace-format
+#~ msgid "✏️ Manual edits applied: {}"
+#~ msgstr "✏️ Modifiche manuali applicate: {}"
+
+#, python-brace-format
+#~ msgid "🕒 Edited at: {}"
+#~ msgstr "🕒 Modificato alle: {}"
+
+#, python-brace-format
+#~ msgid "🗄️ Database mode: {}"
+#~ msgstr "🗄️ Modalità database: {}"
+
+#, python-brace-format
+#~ msgid "🛰️ Rytec EPG matches: {}"
+#~ msgstr "🛰️ Corrispondenze Rytec EPG: {}"
+
+#, python-brace-format
+#~ msgid "📺 DVB EPG matches: {}"
+#~ msgstr "📺 Corrispondenze EPG DVB: {}"
+
+#, python-brace-format
+#~ msgid "📡 DVB-T EPG matches: {}"
+#~ msgstr "📡 Corrispondenze EPG DVB-T: {}"
+
+#, python-brace-format
+#~ msgid "🔌 Fallback (no EPG): {}"
+#~ msgstr "🔌 Fallback (senza EPG): {}"
+
+#, python-brace-format
+#~ msgid "   (Based on selected database mode: {})"
+#~ msgstr " (In base alla modalità di database selezionata: {})"
+
+#, python-brace-format
+#~ msgid "💾 Cache efficiency: {}"
+#~ msgstr "💾 Efficienza della cache: {}"
+
+#, python-brace-format
+#~ msgid "🔍 Cache size: {} entries"
+#~ msgstr "🔍 Dimensione cache: {} voci"
+
+#, python-brace-format
+#~ msgid "🗄️ Rytec channels in DB: {}"
+#~ msgstr "🗄️ Canali Rytec nel DB: {}"
+
+#, python-brace-format
+#~ msgid "📡 DVB channels in DB: {}"
+#~ msgstr "📡 Canali DVB nel DB: {}"
+
+#, python-brace-format
+#~ msgid "💾 Output file: {}"
+#~ msgstr "💾 File di output:  {}"
+
+#, python-brace-format
+#~ msgid "📁 File size: {}"
+#~ msgstr "📁 Dimensione del file: {}"
+
+#, python-brace-format
+#~ msgid "💾 Manual DB matches: {}"
+#~ msgstr "💾 Corrispondenze manuali del DB: {}"
+
+#~ msgid "   (Reused previous manual corrections)"
+#~ msgstr " (Riutilizzate le precedenti correzioni manuali)"
+
+#, python-brace-format
+#~ msgid "⏱️ Conversion type: {}"
+#~ msgstr "⏱️Tipo di Conversione: {}"
+
+#~ msgid "✅ Status: Completed successfully"
+#~ msgstr "✅ Stato: Completato con successo"
+
+#~ msgid "❌ Error generating statistics"
+#~ msgstr "❌ Errore durante la generazione delle statistiche"
+
+#~ msgid "Conversion cancelled"
+#~ msgstr "Conversione fallita"
+
+#~ msgid "Playback error"
+#~ msgstr "Errore di riproduzione"
+
+#~ msgid "No conversion data available. Please run a conversion first."
+#~ msgstr ""
+#~ "Nessun dato di conversione disponibile. Eseguire prima una conversione."
+
+#~ msgid "Ready for next operation"
+#~ msgstr "Pronto per la prossima operazione"
+
+#~ msgid "Manual EPG Match Editor"
+#~ msgstr "Editor Corrispondenze EPG manuale"
+
+#~ msgid "Select a channel to correct the match"
+#~ msgstr "Seleziona un canale per correggere la corrispondenza"
+
+#~ msgid "Undo"
+#~ msgstr "Annulla"
+
+#~ msgid "Reset"
+#~ msgstr "Ripristina"
+
+#~ msgid "No MANUAL changes to save"
+#~ msgstr "Nessuna modifica MANUALE da salvare"
+
+#, python-brace-format
+#~ msgid "Saved {} MANUAL corrections"
+#~ msgstr "Salvate {} correzioni manuali"
+
+#~ msgid "No MANUAL corrections saved"
+#~ msgstr "Nessuna correzione MANUALE salvata"
+
+#~ msgid ""
+#~ "You have unsaved manual changes.\n"
+#~ "\n"
+#~ "Do you want to save before closing?"
+#~ msgstr ""
+#~ "Hai modifiche manuali non salvate.\n"
+#~ "\n"
+#~ "Vuoi salvare prima di chiudere?"
+
+#, python-brace-format
+#~ msgid "EPG Coverage: {}/{} channels ({:.1f}%)"
+#~ msgstr "Copertura EPG: {}/{} canali ({:.1f}%)"
+
+#, python-brace-format
+#~ msgid "Channel: {} | {} | Match: {} | Press RIGHT for matches"
+#~ msgstr ""
+#~ "Canale: {} | {} | Corrispondenza: {} | Premi DESTRA per le corrispondenze"
+
+#, python-brace-format
+#~ msgid "Searching matches for: {}..."
+#~ msgstr "Ricerca corrispondenze per: {}..."
+
+#, python-brace-format
+#~ msgid "Found {} matches so far for: {} | Searching..."
+#~ msgstr "Trovate finora {} corrispondenze per: {} | Ricerca in corso..."
+
+#~ msgid "First select a match from the right list (use RIGHT arrow)"
+#~ msgstr ""
+#~ "Per prima cosa seleziona una corrispondenza dall'elenco a destra (usa la "
+#~ "freccia DESTRA)"
+
+#~ msgid "Please select a valid match from the right list"
+#~ msgstr "Seleziona una corrispondenza valida dall'elenco a destra"
+
+#, python-brace-format
+#~ msgid "EPG assigned: {} | {}"
+#~ msgstr "EPG assegnato: {} | {}"
+
+#~ msgid "No actions to undo"
+#~ msgstr "Nessuna azione da annullare"
+
+#, python-brace-format
+#~ msgid "Undo: Restored previous state for {}"
+#~ msgstr "Annulla: ripristinato lo stato precedente per {}"
+
+#~ msgid "Error: Channel index out of range"
+#~ msgstr "Errore: indice del canale fuori intervallo"
+
+#, python-brace-format
+#~ msgid "Match reset for: {}"
+#~ msgstr "Reimpostazione della corrispondenza per: {}"
+
+#~ msgid "Select a channel to edit (use OK or RIGHT to go to matches)"
+#~ msgstr ""
+#~ "Seleziona un canale da modificare (usa OK o DESTRA per andare alle "
+#~ "corrispondenze)"
+
+#~ msgid "No channels available"
+#~ msgstr "Nessun canale disponibile"
+
+#~ msgid "Select a match and press OK to assign"
+#~ msgstr "Seleziona una corrispondenza e premi OK per assegnarla"
+
+#~ msgid "No matches found - try different search"
+#~ msgstr "Nessuna corrispondenza trovata - prova una ricerca diversa"
+
+#~ msgid "Manual Database Editor"
+#~ msgstr "Editor Database Manuale"
+
+#~ msgid "Loading database..."
+#~ msgstr "Caricamento database..."
+
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgid "Duplicates"
+#~ msgstr "Duplicati"
+
+#~ msgid "Done"
+#~ msgstr "Fatto"
+
+#~ msgid "Selection mode active. Select items with OK"
+#~ msgstr "Modalità di selezione attiva. Selezionare gli elementi con OK"
+
+#~ msgid "Selection mode: Select items with OK"
+#~ msgstr "Modalità di selezione: selezionare gli elementi con OK"
+
+#~ msgid "Selection mode off"
+#~ msgstr "Modalità di selezione disattivata"
+
+#~ msgid "No mappings available"
+#~ msgstr "Nessuna mappatura disponibile"
+
+#~ msgid "No duplicates found in the database"
+#~ msgstr "Nessun duplicato nel database"
+
+#~ msgid ">>> SELECTION MODE - Select items with OK"
+#~ msgstr ">>> MODALITÀ DI SELEZIONE - Seleziona gli elementi con OK"
+
+#, python-brace-format
+#~ msgid ">>> {} duplicate groups, {} total mappings"
+#~ msgstr ">>> {} gruppi duplicati, {} mappature totali"
+
+#~ msgid ">>> DUPLICATES VIEW"
+#~ msgstr ">>> VISUALIZZAZIONE DUPLICATI"
+
+#, python-brace-format
+#~ msgid ">>> {} groups, {} mappings total"
+#~ msgstr ">>> {} gruppi, {} mappature totali"
+
+#, python-brace-format
+#~ msgid "--- {} ({} duplicates) ---"
+#~ msgstr "--- {} ({} duplicati) ---"
+
+#~ msgid "All Mappings"
+#~ msgstr "Mappature"
+
+#, python-brace-format
+#~ msgid "SELECTION MODE: {} items selected"
+#~ msgstr "MODALITÀ DI SELEZIONE: {} elementi selezionati"
+
+#, python-brace-format
+#~ msgid " - {} duplicate groups"
+#~ msgstr " - {} gruppi duplicati"
+
+#, python-brace-format
+#~ msgid "DUPLICATES: {} groups, {} mappings"
+#~ msgstr "DUPLICATI: {} gruppi, {} mappature"
+
+#, python-brace-format
+#~ msgid "ALL MAPPINGS: {} total"
+#~ msgstr "TUTTE LE MAPPATURA: {} totale"
+
+#~ msgid "No items selected for deletion"
+#~ msgstr "Nessun file selezionato per l'eliminazione"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Delete {} selected items?\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgstr ""
+#~ "Eliminare {} elementi selezionati?\n"
+#~ "\n"
+#~ "Questa azione non può essere annullata."
+
+#, python-brace-format
+#~ msgid "Deleted {} items. Still in selection mode."
+#~ msgstr "{} elementi eliminati. Ancora in modalità selezione."
+
+#, python-brace-format
+#~ msgid "Deleted {} items. No more duplicates."
+#~ msgstr "Eliminati {} elementi. Non ci sono più duplicati."
+
+#, python-brace-format
+#~ msgid "Deleted {} items"
+#~ msgstr "{} elementi eliminati"
+
+#~ msgid "Please select a mapping (not a group header)"
+#~ msgstr "Seleziona una mappatura (non un'intestazione di gruppo)"
+
+#~ msgid "Please select a mapping to delete"
+#~ msgstr "Seleziona una mappatura da eliminare"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Delete manual mapping?\n"
+#~ "\n"
+#~ "Channel: {}\n"
+#~ "Type: {}\n"
+#~ "\n"
+#~ "This action cannot be undone."
+#~ msgstr ""
+#~ "Eliminare la mappatura manuale?\n"
+#~ "\n"
+#~ "Canale: {}\n"
+#~ "Tipo: {}\n"
+#~ "\n"
+#~ "Questa azione non può essere annullata."
+
+#~ msgid "Mapping deleted successfully"
+#~ msgstr "Mappatura cancellata con successo"
+
+#~ msgid "Error deleting mapping"
+#~ msgstr "Errore durante l'eliminazione della mappatura"
+
+#~ msgid ""
+#~ "You have unsaved changes in the database.\n"
+#~ "\n"
+#~ "Do you want to save before closing?"
+#~ msgstr ""
+#~ "Ci sono modifiche non salvate nel database.\n"
+#~ "\n"
+#~ "Vuoi salvare prima di chiudere?"
+
+#, python-format
+#~ msgid "Archimede Universal Converter v.%s"
+#~ msgstr "Archimede Universal Converter v.%s"
+
+#~ msgid "Prev"
+#~ msgstr "Precedente"
+
+#~ msgid "Next"
+#~ msgstr "Successivo"
+
+#, python-brace-format
+#~ msgid "Archimede Universal Converter by Lululla v.{version} - {page}"
+#~ msgstr "Archimede Universal Converter by Lululla v.{version} - {page}"
+
+#~ msgid "Universal Converter"
+#~ msgstr "Convertitore Universale"
+
+#~ msgid "Convert between M3U and Enigma2 bouquets"
+#~ msgstr "Convertire tra bouquet M3U ed Enigma2"
+
+#~ msgid "Edit"
+#~ msgstr "Modifica"
+
+#, python-brace-format
+#~ msgid "Loaded {} mappings"
+#~ msgstr "Mappature {} caricate"
+
+#, python-format
+#~ msgid "Processing: %d/%d (%d%%)"
+#~ msgstr "Elaborazione: %d/%d (%d%%)"
+
+#, python-format
+#~ msgid "Processing: %(current)d/%(total)d (%(percent)d%%)"
+#~ msgstr "Elaborazione: %(corrente)d/%(totale)d (%(percentuale)d%%)"
+
+#~ msgid "Converting to TV"
+#~ msgstr "Converti in TV"
+
+#~ msgid "Converting to M3U"
+#~ msgstr "Converti in M3U"
+
+#~ msgid "Converting JSON to TV"
+#~ msgstr "Converti JSON in TV"
+
+#~ msgid "Converting JSON to M3U"
+#~ msgstr "Converti JSON in M3U"
+
+#~ msgid "Converting XSPF to M3U"
+#~ msgstr "Converti XSPF in M3U"
+
+#~ msgid "Converting M3U to JSON"
+#~ msgstr "Converti in JSON"
+
+#~ msgid "Error saving bouquet"
+#~ msgstr "Errore durante il salvataggio del bouquet"
+
+#~ msgid "🔙 Cancel"
+#~ msgstr "🔙 Annulla"
+
+#~ msgid "❌ Cancel"
+#~ msgstr "❌ Annulla"
+
+#~ msgid "Press RED to open file browser first"
+#~ msgstr "Premere ROSSO per aprire prima il file browser"
+
+#~ msgid "No file specified"
+#~ msgstr "Nessun file specificato"
+
+#, python-brace-format
+#~ msgid "Searching matches for: {}"
+#~ msgstr "Ricerca corrispondenze per: {}"
+
+#~ msgid "Error parsing file. File may be too large or corrupt."
+#~ msgstr ""
+#~ "Errore durante l'analisi del file. Il file potrebbe essere troppo grande "
+#~ "o danneggiato."
+
+#~ msgid "Mapping updated successfully"
+#~ msgstr "Mappatura aggiornata con successo"
+
+#~ msgid "Plugin Directory"
+#~ msgstr "Cartella del Plugin"
+
+#~ msgid "Converting"
+#~ msgstr "Conversione"
+
+#~ msgid "Select a mapping to edit or delete"
+#~ msgstr "Seleziona una mappatura da modificare o eliminare"
+
+#~ msgid "Use LEFT/RIGHT to change focus"
+#~ msgstr "Usa SINISTRA/DESTRA per cambiare"
+
+#~ msgid "Error accessing manual database"
+#~ msgstr "Errore durante l'accesso al database manuale"
+
+#~ msgid "✅ MANUAL BOUQUET CREATED SUCCESSFULLY"
+#~ msgstr "✅ BOUQUET MANUALE CREATO CON SUCCESSO"
+
+#, python-brace-format
+#~ msgid "📁 Bouquet name: {}"
+#~ msgstr "📁 Nome del bouquet: {}"
+
+#, python-brace-format
+#~ msgid "📊 Manual changes applied: {} channels"
+#~ msgstr "📊 Modifiche manuali applicate: {} canali"
+
+#~ msgid "📍 Location: /etc/enigma2/userbouquet.*.tv"
+#~ msgstr "📍 Posizione: /etc/enigma2/userbouquet.*.tv"
+
+#~ msgid "🎯 The original bouquet remains unchanged."
+#~ msgstr "🎯 Il bouquet originale rimane invariato."
+
+#~ msgid "You can compare both versions and keep the preferred one."
+#~ msgstr "Puoi confrontare entrambe le versioni e mantenere quella preferita."
+
+#, python-brace-format
+#~ msgid "✅ Manual bouquet saved with {} changes"
+#~ msgstr "✅ Bouquet manuale salvato con {} modifiche"
+
+#~ msgid "✅ Changes saved successfully"
+#~ msgstr "✅ Modifiche salvate con successo"
+
+#~ msgid "Database is empty - No manual mappings found"
+#~ msgstr "Il database è vuoto - Nessuna mappatura manuale trovata"
+
+#~ msgid "No manual mappings in database"
+#~ msgstr "Nessuna mappatura manuale nel database"
+
+#, python-brace-format
+#~ msgid "Loaded {} manual mappings"
+#~ msgstr "Caricate {} mappature manuali"
+
+#~ msgid "Error loading manual database"
+#~ msgstr "Errore durante il caricamento del database manuale"
+
+#~ msgid "Please select a mapping to edit"
+#~ msgstr "Seleziona una mappatura da modificare"
+
+#~ msgid "✅ Changes saved!"
+#~ msgstr "✅ Modifiche salvate!"
+
+#~ msgid "❌ Error saving"
+#~ msgstr "❌ Errore durante il salvataggio"
+
+#, python-brace-format
+#~ msgid "Mapping deleted: {}"
+#~ msgstr "Mappatura eliminata: {}"
+
+#~ msgid "Assign Match"
+#~ msgstr "Assegna Match"
+
+#~ msgid "Error saving database after deletion"
+#~ msgstr "Errore durante il salvataggio del database dopo l'eliminazione"
+
+#~ msgid "Error: Mapping not found in database"
+#~ msgstr "Errore: mappatura non trovata nel database"
+
+#~ msgid "Manual Match"
+#~ msgstr "Corrispondenza manuale"
+
+#, python-brace-format
+#~ msgid "• Incompatible Matches: {}"
+#~ msgstr "• Corrispondenze incompatibili: {}"
+
+#~ msgid "⚙️ System Tools - System Utilities"
+#~ msgstr "⚙️ Strumenti di sistema - Utilità di sistema"
+
+#~ msgid "Conversion completed with unknown result"
+#~ msgstr "Conversione completata con risultato sconosciuto"
+
+#, python-brace-format
+#~ msgid "📞 Total requests: {}"
+#~ msgstr "📞 Richieste totali: {}"
+
+#, python-brace-format
+#~ msgid "📊 Channels converted: {}"
+#~ msgstr "📊 Canali convertiti: {}"
+
+#, python-brace-format
+#~ msgid "🎯 JSON structure: {}"
+#~ msgstr "🎯 Struttura JSON: {}"
+
+#~ msgid "Developed for Enigma2"
+#~ msgstr "Sviluppato per Enigma2"
+
+#~ msgid "------- Features -------"
+#~ msgstr "------- Caratteristiche -------"
+
+#~ msgid " • Convert M3U playlists to bouquets"
+#~ msgstr " • Conversione M3U in Bouquet"
+
+#~ msgid " • M3U ➔ Enigma2 Bouquets"
+#~ msgstr " • M3U ➔ Bouquets Enigma2"
+
+#~ msgid " • Enigma2 Bouquets ➔ M3U"
+#~ msgstr " • Bouquet Enigma2 ➔ M3U"
+
+#~ msgid " • JSON ➔ Enigma2 Bouquets"
+#~ msgstr " • JSON ➔ Bouquets Enigma2"
+
+#~ msgid " • XSPF ➔ M3U Playlist"
+#~ msgstr " • XSPF ➔ Playlist M3U"
+
+#~ msgid " • Remove M3U Bouquets"
+#~ msgstr " • Rimuovere Bouquets M3U"
+
+#~ msgid " • Auto mapping IPTV/DVB-S/C/T"
+#~ msgstr " • Mappatura automatica IPTV/DVB-S/C/T"
+
+#~ msgid " • Add EPG refs where available"
+#~ msgstr " • Aggiungere riferimenti EPG dove disponibili"
+
+#~ msgid " • Simple and lightweight"
+#~ msgstr " • Semplice e leggero"
+
+#~ msgid "------- Usage -------"
+#~ msgstr "------- Utilizzo -------"
+
+#~ msgid " • Press Green to convert selection"
+#~ msgstr " • Premere Verde per convertire la selezione"
+
+#~ msgid " • Press OK to play a stream"
+#~ msgstr " • Premere OK per riprodurre"
+
+#~ msgid " • Press Back to return"
+#~ msgstr " • Premere Indietro per tornare indietro"
+
+#~ msgid "Enjoy your enhanced playlists!"
+#~ msgstr "Goditi le tue playlist migliorate!"
+
+#~ msgid "If you like this plugin, consider"
+#~ msgstr "Se ti piace questo plugin, considera"
+
+#~ msgid "buying me a coffee ☕"
+#~ msgstr "offrimi un caffè ☕"
+
+#~ msgid "Scan the QR code to support development"
+#~ msgstr "Scansiona il codice QR per supportare lo sviluppo"
+
+#~ msgid "It helps keep the plugin alive"
+#~ msgstr "Aiuta a mantenere attivo il plugin"
+
+#~ msgid "and updated. Thank you!"
+#~ msgstr "e aggiornato. Grazie!"
+
+#~ msgid "File processing error"
+#~ msgstr "Errore di elaborazione del file"
+
+#~ msgid "Filter"
+#~ msgstr "Filtro"
+
+#~ msgid "No file loaded to filter"
+#~ msgstr "Nessun file caricato da filtrare"
+
+#, python-format
+#~ msgid "Filter: %s"
+#~ msgstr "Filtro: %s"
+
+#, python-format
+#~ msgid "Successfully converted %d channels to TV bouquets"
+#~ msgstr "Convertiti con successo %d canali in bouquet TV"
+
+#, python-format
+#~ msgid "Successfully converted %d channels to M3U playlist"
+#~ msgstr "Conversione riuscita di %d canali in playlist M3U"
+
+#, python-format
+#~ msgid "Successfully converted %d JSON channels to TV bouquets"
+#~ msgstr "Convertiti con successo %d canali JSON in bouquet TV"
+
+#, python-format
+#~ msgid "Successfully converted %d JSON channels to M3U playlist"
+#~ msgstr "Conversione riuscita di %d canali JSON in playlist M3U"
+
+#~ msgid "Successfully converted XSPF to M3U playlist"
+#~ msgstr "Conversione riuscita della playlist XSPF in M3U"
+
+#, python-format
+#~ msgid "Successfully converted %d M3U channels to JSON"
+#~ msgstr "Conversione riuscita di %d canali M3U in JSON"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "EPG mapped for %d channels"
+#~ msgstr ""
+#~ "\n"
+#~ "EPG mappato per %d canali"
+
+#~ msgid ""
+#~ "\n"
+#~ "EPG files generated in /etc/epgimport/"
+#~ msgstr ""
+#~ "\n"
+#~ "File EPG generati in /etc/epgimport/"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "Saved to: %s"
+#~ msgstr ""
+#~ "\n"
+#~ "Salva in: %s"
+
+#, python-brace-format
+#~ msgid "✅ Compatible in cache: {}"
+#~ msgstr "✅ Compatibile nella cache: {}"
+
+#, python-brace-format
+#~ msgid "❌ Incompatible Matches: {}"
+#~ msgstr "❌ Corrispondenze incompatibili: {}"
+
+#~ msgid "Create Backup"
+#~ msgstr "Crea backup"
+
+#~ msgid "Tools Menu"
+#~ msgstr "Menu Strumenti"
+
+#~ msgid "Ready to convert JSON to TV"
+#~ msgstr "Pronto per la conversione JSON to TV"
+
+#~ msgid "Ready to convert JSON to M3U"
+#~ msgstr "Pronto per la conversione JSON to M3U"
+
+#~ msgid "Ready to convert XSPF to M3U"
+#~ msgstr "Pronto per convertire XSPF in M3U"
+
+#~ msgid "Ready to convert M3U to JSON"
+#~ msgstr "Pronto per la conversione M3U to JSON"
+
+#, python-format
+#~ msgid "Creating single bouquet: %s"
+#~ msgstr "Creazione singolo bouquet: %s"
+
+#, python-format
+#~ msgid "Creating bouquet: %s"
+#~ msgstr "Creazione bouquet: %s"
+
+#, python-format
+#~ msgid "📊 Total channels processed: %d"
+#~ msgstr "📊 Totale Canali processati: %d"
+
+#, python-format
+#~ msgid "📡 EPG mapped channels: %d"
+#~ msgstr "📡 EPG mappato per %d canali"
+
+#, python-format
+#~ msgid "💾 Cache efficiency: %s"
+#~ msgstr "💾 Efficienza della cache: %s"
+
+#, python-format
+#~ msgid "🔍 Cache size: %d"
+#~ msgstr "🔍 Dimensione cache: %d"
+
+#, python-format
+#~ msgid "🔍 Compatible in cache: %d"
+#~ msgstr "🔍 Compatibile nella cache: %d"
+
+#, python-format
+#~ msgid "🔍 Incompatible Matches: %d"
+#~ msgstr "🔍 Corrispondenze incompatibili: %d"
+
+#, python-format
+#~ msgid "📊 Rytec channels: %d"
+#~ msgstr "📊 Totale Canali: %d"
+
+#, python-format
+#~ msgid "📊 Channels converted: %d"
+#~ msgstr "📊 Canali convertiti: %d"
+
+#, python-format
+#~ msgid "💾 Output file: %s"
+#~ msgstr "💾 File di output: %s"
+
+#, python-format
+#~ msgid "📁 File size: %s"
+#~ msgstr "File dimensioni: %s"
+
+#, python-format
+#~ msgid "🎯 JSON structure: %s"
+#~ msgstr "🎯 Struttura JSON: %s"
+
+#, python-format
+#~ msgid "⏱️ Conversion type: %s"
+#~ msgstr "⏱️Tipo di Conversione: %s"
+
+#, python-format
+#~ msgid "Processing: %s"
+#~ msgstr "Elaborazione: %s"
+
+#, python-format
+#~ msgid "Successfully converted %d channels"
+#~ msgstr "Convertiti con successo %d canali"
+
+#~ msgid "No channels loaded!"
+#~ msgstr "Nessun canale caricato!"
+
+#, python-format
+#~ msgid ""
+#~ "Error preparing summary:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Errore durante la preparazione del riepilogo:\n"
+#~ "%s"
+
+#~ msgid "=== Conversion Summary ==="
+#~ msgstr "=== Riepilogo della conversione ==="
+
+#, python-format
+#~ msgid "Valid channels: %d"
+#~ msgstr "Canali validi: %d"
+
+#, python-format
+#~ msgid "Groups detected: %d"
+#~ msgstr "Gruppi rilevati: %d"
+
+#~ msgid "Press OK to confirm or Cancel to abort."
+#~ msgstr "Premere OK per confermare o Annulla per annullare."
+
+#~ msgid "Sample channels:"
+#~ msgstr "Canali campione:"
+
+#, python-format
+#~ msgid "Summary generation error: %s"
+#~ msgstr "Errore di generazione del riepilogo: %s"
+
+#, python-format
+#~ msgid ""
+#~ "Loaded %d channels. Are you ready to convert? Press Green to proceed."
+#~ msgstr ""
+#~ "Caricati %d canali. Pronti per la conversione? Premi Verde per procedere."
+
+#, python-format
+#~ msgid ""
+#~ "Invalid file format:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Formato file non valido:\n"
+#~ "%s"
+
+#, python-format
+#~ msgid "Loaded %d channels. Ready to convert to TV bouquets."
+#~ msgstr "Caricati %d canali. Pronti per la conversione in bouquet TV."
+
+#, python-format
+#~ msgid "Loaded %d channels. Ready to convert to M3U playlist."
+#~ msgstr "Caricati %d canali. Pronti per la conversione in playlist M3U."
+
+#, python-format
+#~ msgid ""
+#~ "Successfully converted %d channels to JSON\n"
+#~ "Saved to: %s"
+#~ msgstr ""
+#~ "Conversione di %d canali in JSON completata con successo\n"
+#~ "Salvato in: %s"
+
+#~ msgid "Select XSPF playlist to convert"
+#~ msgstr "Seleziona la playlist XSPF da convertire"
+
+#~ msgid "Select file"
+#~ msgstr "Seleziona file"
+
+#~ msgid "Proceed to file selection"
+#~ msgstr "Procedi alla selezione del file"
+
+#~ msgid "Show conversion info"
+#~ msgstr "Mostra informazioni sulla conversione"
+
+#~ msgid "How do you want to proceed?"
+#~ msgstr "How do you want to proceed?"
+
+#~ msgid "Are you sure you want to convert this file?"
+#~ msgstr "Sei sicuro di voler convertire questo file?"
+
+#~ msgid "Convert to Bouquet"
+#~ msgstr "Converti in BOUQUET"
+
+#~ msgid "Convert to XSPF"
+#~ msgstr "Converti in XSPF"
+
+#~ msgid "Invalid JSON file"
+#~ msgstr "File JSON non valido"
+
+#~ msgid "Storage"
+#~ msgstr "Archivio"
+
+#~ msgid "Disk"
+#~ msgstr "Disco"
+
+#~ msgid "Temporary Storage"
+#~ msgstr "Memoria Temporanea"
+
+#~ msgid "M3U file loaded. Press Green to convert to bouquet"
+#~ msgstr "File M3U caricato. Premi Verde per convertire in bouquet"
+
+#~ msgid "Convert JSON to Bouquet"
+#~ msgstr "Converti JSON in Bouquet"
+
+#~ msgid "XSPF playlist loaded. Ready to convert"
+#~ msgstr "Playlist XSPF caricata. Pronta per la conversione"
+
+#, python-format
+#~ msgid ""
+#~ "Error browser file:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Errore ricerca file:\n"
+#~ "%s"
+
+#~ msgid "No files selected"
+#~ msgstr "Nessun file selezionato"
+
+#~ msgid "Selected file does not exist"
+#~ msgstr "Il file selezionato non esiste"
+
+#, python-format
+#~ msgid "Error parsing JSON: %s"
+#~ msgstr "Errore di parsing JSON: %s"
+
+#, python-format
+#~ msgid "Error parsing XSPF: %s"
+#~ msgstr "Errore di parsing XSPF: %s"
+
+#~ msgid "Convert Enigma2 Bouquets to M3U"
+#~ msgstr "Conversione Bouquet E2 in M3U"
+
+#~ msgid "Remove Enigma2 Bouquets Created with M3UConverter"
+#~ msgstr "Rimuove i Bouquet creati con M3UConverter"
+
+#~ msgid "Settings"
+#~ msgstr "Configura"
+
+#~ msgid "Select a valid M3U file"
+#~ msgstr "Seleziona un file M3u valido"
+
+#~ msgid "Select a valid TV bouquet"
+#~ msgstr "Seleziona un bouquet Tv valido"
+
+#, python-format
+#~ msgid "Exporting: %s"
+#~ msgstr "Convertendo: %s"
+
+#~ msgid "TV to M3U conversion ready"
+#~ msgstr "Conversione da TV a M3U pronta"
+
+#~ msgid "M3U to Bouquet conversion ready"
+#~ msgstr "Conversione da M3U a Bouquet pronta"
+
+#~ msgid "JSON to Bouquet conversion ready"
+#~ msgstr "Conversione da JSON a Bouquet pronta"
+
+#~ msgid "Last modified: 2025-07-09"
+#~ msgstr "Utlima modifica:"
+
+#, python-format
+#~ msgid "Selected file: %s. Are you ready to convert? Press Green to proceed."
+#~ msgstr ""
+#~ "File selezionato: %s. Pronto per la conversione? Premi il tasto verde per "
+#~ "procedere."

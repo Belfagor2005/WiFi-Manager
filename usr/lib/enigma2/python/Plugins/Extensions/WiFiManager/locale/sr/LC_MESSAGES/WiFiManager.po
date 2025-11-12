@@ -1,0 +1,2692 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WiFiManager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-12 12:37+0100\n"
+"PO-Revision-Date: 2025-11-12 12:37+0100\n"
+"Last-Translator: milan58 <milan58>\n"
+"Language-Team: <ekekaz@gmail.com>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: modules\n"
+"X-Poedit-SearchPath-1: plugin.py\n"
+"X-Poedit-SearchPath-2: WiFiManager.py\n"
+
+#: WiFiManager.py:101
+#, fuzzy
+#| msgid "WiFi Manager"
+msgid "WiFi Manager v."
+msgstr "Wi-Fi menadžer"
+
+#: WiFiManager.py:102
+msgid "Select an option"
+msgstr "Izaberite opciju"
+
+#: WiFiManager.py:105
+msgid "Scanner"
+msgstr "Skener"
+
+#: WiFiManager.py:109
+msgid "Monitor"
+msgstr "Monitor"
+
+#: WiFiManager.py:113 WiFiManager.py:190 ⁨modules/connect - Copia.py⁩:1079
+#: modules/connect.py:1063
+msgid "Connect"
+msgstr "Povezivanje"
+
+#: WiFiManager.py:117
+msgid "Diagnostics"
+msgstr "Dijagnostika"
+
+#: WiFiManager.py:121
+msgid "Details Info"
+msgstr "Detalji Info"
+
+#: WiFiManager.py:125
+msgid "Tools"
+msgstr "Alat"
+
+#: WiFiManager.py:129
+msgid "Config"
+msgstr "Konfiguracija"
+
+#: WiFiManager.py:133 WiFiManager.py:152
+msgid "Speedtest"
+msgstr "Brzina test"
+
+#: WiFiManager.py:137
+msgid "Info"
+msgstr "Info"
+
+#: WiFiManager.py:143
+msgid "Scan for available networks"
+msgstr "Skeniranje dostupnih mreža"
+
+#: WiFiManager.py:144
+msgid "Real-time signal quality monitor"
+msgstr "Monitor kvaliteta signala u realnom vremenu"
+
+#: WiFiManager.py:145
+msgid "Connect to WiFi networks"
+msgstr "Povežite se sa WiFi mrežama"
+
+#: WiFiManager.py:147
+msgid "WiFi diagnostics and tests"
+msgstr "WiFi dijagnostika i testovi"
+
+#: WiFiManager.py:148
+msgid "Complete iwconfig-like information"
+msgstr "Kompletne informacije slične iwconfig-u"
+
+#: WiFiManager.py:149
+msgid "Advanced Tools"
+msgstr "Napredni Alati"
+
+#: WiFiManager.py:151
+msgid "Advanced WiFi configuration"
+msgstr "Napredna WiFi konfiguracija"
+
+#: WiFiManager.py:153
+msgid "About"
+msgstr ""
+
+#: WiFiManager.py:172
+msgid "WiFi Manager"
+msgstr "Wi-Fi menadžer"
+
+#: WiFiManager.py:185 modules/config.py:395
+msgid "Password"
+msgstr "Lozinka"
+
+#: WiFiManager.py:186
+msgid "Remember password"
+msgstr "Zapamti lozinku"
+
+#: WiFiManager.py:293
+msgid ""
+"Need help or have questions about WiFi Manager?\n"
+"\n"
+msgstr ""
+
+#: WiFiManager.py:294
+msgid "For troubleshooting, detailed guidance, or community support, visit:\n"
+msgstr ""
+
+#: WiFiManager.py:297
+msgid "These forums are great places to get help,\n"
+msgstr ""
+
+#: WiFiManager.py:298
+msgid "share experiences,and connect with other users."
+msgstr ""
+
+#: WiFiManager.py:324 modules/iwlist.py:107
+msgid "No WiFi interfaces found"
+msgstr "Nije pronađen WiFi interfejs"
+
+#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:59
+#: modules/iwlist_tools.py:68
+msgid "Advanced Scan"
+msgstr "Napredno Skeniranje"
+
+#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:60
+#: modules/iwlist_tools.py:69 modules/iwlist_tools.py:229
+msgid "Channel Info"
+msgstr "Kanal info"
+
+#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:61
+#: modules/iwlist_tools.py:70 modules/iwlist_tools.py:255
+msgid "Bitrate Info"
+msgstr "Bitrate Info"
+
+#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:62
+#: modules/iwlist_tools.py:71 modules/iwlist_tools.py:281
+msgid "Encryption Info"
+msgstr "Informacije o Kodiranju"
+
+#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:63
+#: modules/iwlist_tools.py:72 modules/iwlist_tools.py:307
+msgid "Power Management"
+msgstr "Upravljanje Napajanjem"
+
+#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:64
+#: modules/iwlist_tools.py:73 modules/iwlist_tools.py:333
+msgid "Retry Limits"
+msgstr "Ograničenja ponovnog pokušaja"
+
+#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist.py:65
+#: modules/iwlist_tools.py:74 modules/iwlist_tools.py:359
+msgid "Access Points"
+msgstr "Pristupne Tačke"
+
+#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:75
+msgid "Advanced Config"
+msgstr "Napredno Podešavanje"
+
+#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:76
+msgid "Restart WiFi Interface"
+msgstr "Ponovo pokreni WiFi interfejs"
+
+#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:77
+msgid "Reload WiFi Modules"
+msgstr "Ponovo učitaj WiFi Module"
+
+#: WiFiManager.py:353 WiFiManager.py:408 modules/iwlist_tools.py:78
+msgid "Check System Logs"
+msgstr "Proveri Sistemske Zapise"
+
+#: WiFiManager.py:359 WiFiManager.py:426 modules/iwlist_tools.py:87
+msgid "WiFi Advanced Tools"
+msgstr "Napredni Alati za WiFi"
+
+#: WiFiManager.py:398
+msgid "Detailed network scanning with signal strength and encryption info"
+msgstr ""
+
+#: WiFiManager.py:399
+#, fuzzy
+#| msgid "Available frequencies/channels"
+msgid "Available frequencies and channels for your region"
+msgstr "Dostupne frekvencije/kanali"
+
+#: WiFiManager.py:400
+msgid "Supported bitrates and current transmission rates"
+msgstr ""
+
+#: WiFiManager.py:401
+#, fuzzy
+#| msgid "Encryption keys and security"
+msgid "Encryption keys and security protocols"
+msgstr "Ključevi za kodiranje i bezbednost"
+
+#: WiFiManager.py:402
+#, fuzzy
+#| msgid "Power management settings"
+msgid "Power management settings and power saving modes"
+msgstr "Postavke upravljanja napajanjem"
+
+#: WiFiManager.py:403
+#, fuzzy
+#| msgid "Retry limits and lifetime"
+msgid "Packet retry limits and frame lifetime settings"
+msgstr "Ograničenja ponavljanja i životni vek"
+
+#: WiFiManager.py:404
+#, fuzzy
+#| msgid "List of access points/peers"
+msgid "List of access points and connected peer stations"
+msgstr "Spisak pristupnih tačaka/vršnjaka"
+
+#: WiFiManager.py:405
+#, fuzzy
+#| msgid "Advanced WiFi configuration"
+msgid "Advanced WiFi interface configuration"
+msgstr "Napredna WiFi konfiguracija"
+
+#: WiFiManager.py:406
+#, fuzzy
+#| msgid "Restart wireless interface"
+msgid "Restart wireless interface to reset connectivity"
+msgstr "Ponovo pokreni bežični interfejs"
+
+#: WiFiManager.py:407
+#, fuzzy
+#| msgid "Reload kernel WiFi modules"
+msgid "Reload kernel WiFi modules to fix driver issues"
+msgstr "Ponovo učitaj WiFi module kernela"
+
+#: WiFiManager.py:408
+#, fuzzy
+#| msgid "Check system logs for WiFi errors"
+msgid "Check system logs for WiFi errors and connection issues"
+msgstr "Proverite sistemske zapise za WiFi greške"
+
+#: WiFiManager.py:412 WiFiManager.py:454
+#, fuzzy
+#| msgid "Select a tool to view detailed information"
+msgid "Select a tool to see description"
+msgstr "Izaberite alat za prikaz detaljnih informacija"
+
+#: WiFiManager.py:413 modules/detailed_info.py:59 modules/iwlist.py:149
+#: modules/iwlist_tools.py:63 modules/speedtest_manager.py:73
+msgid "Close"
+msgstr "Zatvori"
+
+#: WiFiManager.py:414
+msgid "Select"
+msgstr ""
+
+#: WiFiManager.py:432
+msgid ""
+"Performs a detailed scan of available WiFi networks showing:\n"
+"- Signal strength\n"
+"- Encryption type\n"
+"- Channels\n"
+"- Frequency bands\n"
+"- MAC addresses"
+msgstr ""
+"Izvodi detaljno skeniranje dostupnih WiFi mreža prikazujući:\n"
+"- Snagu signala\n"
+"- Tip enkripcije\n"
+"- Kanale\n"
+"- Frekventne opsege\n"
+"- MAC adrese"
+
+#: WiFiManager.py:433
+msgid ""
+"Shows available channels and frequencies for your region:\n"
+"- 2.4GHz channels (1-14)\n"
+"- 5GHz channels\n"
+"- Regulatory domain info\n"
+"- Channel widths"
+msgstr ""
+"Prikazuje dostupne kanale i frekvencije za vaš region:\n"
+"- 2.4GHz kanali (1-14)\n"
+"- 5GHz kanali\n"
+"- Informacije o regulatornoj oblasti\n"
+"- Širine kanala"
+
+#: WiFiManager.py:434
+msgid ""
+"Displays supported bitrates and current transmission rates:\n"
+"- Available bitrates\n"
+"- Current bitrate\n"
+"- MCS indexes (for 802.11n/ac)\n"
+"- HT/VHT capabilities"
+msgstr ""
+"Prikazuje podržane brzine prenosa i trenutne stope prenosa:\n"
+"- Dostupne brzine prenosa\n"
+"- Trenutna brzina prenosa\n"
+"- MCS indeksi (za 802.11n/ac)\n"
+"- HT/VHT mogućnosti"
+
+#: WiFiManager.py:435
+msgid ""
+"Shows encryption and security information:\n"
+"- Supported encryption types\n"
+"- Current encryption\n"
+"- Key management\n"
+"- Security protocols"
+msgstr ""
+"Prikazuje informacije o enkripciji i bezbednosti:\n"
+"- Podržani tipovi enkripcije\n"
+"- Trenutna enkripcija\n"
+"- Upravljanje ključevima\n"
+"- Bezbednosni protokoli"
+
+#: WiFiManager.py:436
+msgid ""
+"Displays power management settings:\n"
+"- Current power state\n"
+"- Power saving mode\n"
+"- Transmission power\n"
+"- Power management features"
+msgstr ""
+"Prikazuje postavke upravljanja napajanjem:\n"
+"- Trenutno stanje napajanja\n"
+"- Režim uštede energije\n"
+"- Snaga prenosa\n"
+"- Funkcije upravljanja napajanjem"
+
+#: WiFiManager.py:437
+msgid ""
+"Shows packet retry limits and settings:\n"
+"- Retry short limit\n"
+"- Retry long limit\n"
+"- Frame lifetime\n"
+"- Retry statistics"
+msgstr ""
+"Prikazuje limite i postavke ponovnog slanja paketa:\n"
+"- Kratki limit ponovnog slanja\n"
+"- Dugi limit ponovnog slanja\n"
+"- Vek trajanja okvira\n"
+"- Statistika ponovnog slanja"
+
+#: WiFiManager.py:438
+msgid ""
+"Lists access points and peer stations:\n"
+"- Connected stations\n"
+"- AP information\n"
+"- Peer statistics\n"
+"- Connection quality"
+msgstr ""
+"Prikazuje pristupne tačke i peer stanice:\n"
+"- Povezane stanice\n"
+"- Informacije o AP\n"
+"- Statistika peer-a\n"
+"- Kvalitet veze"
+
+#: WiFiManager.py:439
+msgid ""
+"Advanced WiFi interface configuration:\n"
+"- Operation mode (Managed/AP/Monitor)\n"
+"- Channel selection\n"
+"- TX power control\n"
+"- Basic interface settings"
+msgstr ""
+"Napredna konfiguracija WiFi interfejsa:\n"
+"- Režim rada (Managed/AP/Monitor)\n"
+"- Izbor kanala\n"
+"- Kontrola TX snage\n"
+"- Osnovna podešavanja interfejsa"
+
+#: WiFiManager.py:440
+msgid ""
+"Restarts the WiFi interface:\n"
+"- Brings interface down/up\n"
+"- Reinitializes driver\n"
+"- Preserves configuration\n"
+"- Quick connectivity reset"
+msgstr ""
+"Ponovo pokreće WiFi interfejs:\n"
+"- Isključuje i uključuje interfejs\n"
+"- Ponovno inicijalizuje drajver\n"
+"- Čuva konfiguraciju\n"
+"- Brz reset konekcije"
+
+#: WiFiManager.py:441
+msgid ""
+"Reloads WiFi kernel modules:\n"
+"- Unloads/loads drivers\n"
+"- Resets hardware\n"
+"- Fixes driver issues\n"
+"- Requires root access"
+msgstr ""
+"Ponovo učitava WiFi kernel module:\n"
+"- Isključuje/učitava drajvere\n"
+"- Resetuje hardver\n"
+"- Popravlja probleme sa drajverima\n"
+"- Zahteva root pristup"
+
+#: WiFiManager.py:442
+msgid ""
+"Checks system logs for WiFi errors:\n"
+"- Kernel messages (dmesg)\n"
+"- System logs\n"
+"- Driver errors\n"
+"- Connection issues"
+msgstr ""
+"Proverava sistemske logove za WiFi greške:\n"
+"- Kernel poruke (dmesg)\n"
+"- Sistemski logovi\n"
+"- Greške drajvera\n"
+"- Problemi sa povezivanjem"
+
+#: WiFiManager.py:444
+msgid "No help available for this tool."
+msgstr "Nema dostupne pomoći za ovaj alat."
+
+#: WiFiManager.py:457
+#, fuzzy
+#| msgid "Error running tool"
+msgid "Error loading help"
+msgstr "Greška pokretanja alata"
+
+#: modules/config.py:153 modules/iwlist_tools.py:511
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: modules/config.py:154 modules/config.py:192
+msgid "Save & Connect"
+msgstr "Sačuvaj & Poveži"
+
+#: modules/config.py:155 modules/config.py:419
+msgid "Advanced"
+msgstr "Napredno"
+
+#: modules/config.py:156 modules/iwlist_tools.py:513
+msgid "Defaults"
+msgstr "Zadani"
+
+#: modules/config.py:168
+#, python-brace-format
+msgid "Configure {}"
+msgstr "Konfigurišite {}"
+
+#: modules/config.py:367
+msgid ""
+"WiFi settings applied successfully\n"
+"\n"
+msgstr ""
+"WiFi podešavanja uspešno primenjena\n"
+"\n"
+
+#: modules/config.py:368
+#, python-brace-format
+msgid "Applied: {} commands\n"
+msgstr "Primenjene: {} komande\n"
+
+#: modules/config.py:370
+#, python-brace-format
+msgid "Failed: {} commands"
+msgstr "Greška: {} komande"
+
+#: modules/config.py:373
+msgid ""
+"No settings were applied\n"
+"\n"
+"Failed commands:\n"
+msgstr ""
+"Nijedna podešavanja nisu primenjena\n"
+"\n"
+"Neuspele komande:\n"
+
+#: modules/config.py:387
+msgid "Interface"
+msgstr "Interfejs"
+
+#: modules/config.py:389
+msgid "Network Name (SSID)"
+msgstr "Naziv mreže (SSID)"
+
+#: modules/config.py:390
+msgid "Hidden Network"
+msgstr "Skrivena mreža"
+
+#: modules/config.py:391
+msgid "Encryption"
+msgstr "Kodiranje"
+
+#: modules/config.py:399
+msgid "WEP Key Type"
+msgstr "WEP Ključ Tip"
+
+#: modules/config.py:405 modules/iwlist_tools.py:504
+msgid "Operation Mode"
+msgstr "Režim Rada"
+
+#: modules/config.py:406 modules/iwlist_tools.py:505
+msgid "Channel"
+msgstr "Kanal"
+
+#: modules/config.py:407 modules/iwlist_tools.py:506
+msgid "TX Power"
+msgstr "TX Snaga"
+
+#: modules/config.py:408
+msgid "RTS Threshold"
+msgstr "RTS prag"
+
+#: modules/config.py:409
+msgid "Fragmentation"
+msgstr "Fragmentacija"
+
+#: modules/config.py:410
+msgid "Country Code"
+msgstr "Šifra države"
+
+#: modules/config.py:411
+msgid "Data Rate"
+msgstr "Brzina prenosa podataka"
+
+#: modules/config.py:419
+msgid "Basic"
+msgstr "Osnovno"
+
+#: modules/config.py:435
+msgid "Please enter a network name"
+msgstr "Molimo Vas da unesete ime mreže"
+
+#: modules/config.py:439
+msgid "Please enter a password"
+msgstr "Molimo Vas da unesete lozinku"
+
+#: modules/config.py:526
+msgid "All settings reset to defaults"
+msgstr "Sva podešavanja se vraćaju na zadano"
+
+#: ⁨modules/connect - Copia.py⁩:97 modules/connect.py:97
+msgid "Initializing WiFi..."
+msgstr "Inicijalizacija WiFi-a..."
+
+#: ⁨modules/connect - Copia.py⁩:98 modules/connect.py:98 modules/diagnostics.py:56
+#: modules/monitor.py:80 modules/scanner.py:73
+msgid "Exit"
+msgstr "Izlaz"
+
+#: ⁨modules/connect - Copia.py⁩:101 ⁨modules/connect - Copia.py⁩:226
+#: ⁨modules/connect - Copia.py⁩:232 modules/connect.py:101 modules/connect.py:226
+#: modules/connect.py:232 modules/scanner.py:70
+msgid "Scan"
+msgstr "Skan"
+
+#: ⁨modules/connect - Copia.py⁩:119 modules/connect.py:119
+msgid "WiFi Connection Manager"
+msgstr "Menadžer WiFi Veze"
+
+#: ⁨modules/connect - Copia.py⁩:138 ⁨modules/connect - Copia.py⁩:183
+#: ⁨modules/connect - Copia.py⁩:210 modules/connect.py:138 modules/connect.py:183
+#: modules/connect.py:210 modules/iwlist_tools.py:383
+msgid "No WiFi interface available"
+msgstr "Nema dostupnog WiFi interfejsa"
+
+#: ⁨modules/connect - Copia.py⁩:142 modules/connect.py:142
+msgid "Performing initial scan..."
+msgstr "Izvršavanje početnog skeniranja..."
+
+#: ⁨modules/connect - Copia.py⁩:154 modules/connect.py:154
+#, python-brace-format
+msgid "Interface found: {}"
+msgstr "Interfejs pronađen: {}"
+
+#: ⁨modules/connect - Copia.py⁩:157 modules/connect.py:157
+msgid "No WiFi interface found"
+msgstr "Nije pronađen WiFi interfejs"
+
+#: ⁨modules/connect - Copia.py⁩:158 modules/connect.py:158
+msgid "No WiFi interface detected. Please check your hardware."
+msgstr "Nije otkriven WiFi interfejs. Molimo proverite svoj hardver."
+
+#: ⁨modules/connect - Copia.py⁩:214 modules/connect.py:214
+msgid "Scanning..."
+msgstr "Pretraga..."
+
+#: ⁨modules/connect - Copia.py⁩:215 modules/connect.py:215
+msgid "Scanning for networks..."
+msgstr "Pretraga mreža..."
+
+#: ⁨modules/connect - Copia.py⁩:233 modules/connect.py:233
+msgid "Scan failed"
+msgstr "Skeniranje nije uspelo"
+
+#: ⁨modules/connect - Copia.py⁩:252 modules/connect.py:252
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ⁨modules/connect - Copia.py⁩:265 modules/connect.py:265
+msgid "Secured"
+msgstr "Obezbeđeno"
+
+#: ⁨modules/connect - Copia.py⁩:268 modules/connect.py:268
+msgid "Open"
+msgstr "Otvori"
+
+#: ⁨modules/connect - Copia.py⁩:306 modules/connect.py:306
+#, python-brace-format
+msgid "CONNECTED to: {} - Press OK for options"
+msgstr "POVEZANO sa: {} - Pritisnite OK za opcije"
+
+#: ⁨modules/connect - Copia.py⁩:310 modules/connect.py:310
+#, python-brace-format
+msgid "{} - Password saved - Press OK for options"
+msgstr "{} - Lozinka sačuvana - Pritisnite OK za opcije"
+
+#: ⁨modules/connect - Copia.py⁩:312 modules/connect.py:312
+#, python-brace-format
+msgid "{} - Password required - Press OK for options"
+msgstr "{} - Potrebna lozinka - Pritisnite OK za opcije"
+
+#: ⁨modules/connect - Copia.py⁩:315 modules/connect.py:315
+#, python-brace-format
+msgid "{} - Open network - Press OK for options"
+msgstr "{} - Otvorena mreža - Pritisnite OK za opcije"
+
+#: ⁨modules/connect - Copia.py⁩:346 modules/connect.py:346
+#, fuzzy, python-format
+#| msgid ""
+#| "CONNECTED to: %s\n"
+#| "IP: %s | Signal: %s (%s dBm)\n"
+#| "Press OK for options"
+msgid ""
+"CONNECTED to: %(essid)s\n"
+"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK for options"
+msgstr ""
+"POVEZANO sa: %s\n"
+"IP: %s | Signal: %s (%s dBm)\n"
+"Pritisnite OK za opcije"
+
+#: ⁨modules/connect - Copia.py⁩:356 modules/connect.py:356
+#, fuzzy, python-format
+#| msgid ""
+#| "%s - Password saved\n"
+#| "Signal: %s (%s dBm)\n"
+#| "Press OK to connect or edit"
+msgid ""
+"%(essid)s - Password saved\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to connect or edit"
+msgstr ""
+"%s - Lozinka sačuvana\n"
+"Signal: %s (%s dBm)\n"
+"Pritisnite OK za povezivanje ili uredi"
+
+#: ⁨modules/connect - Copia.py⁩:365 modules/connect.py:365
+#, fuzzy, python-format
+#| msgid ""
+#| "%s - Password required\n"
+#| "Signal: %s (%s dBm)\n"
+#| "Press OK to enter password"
+msgid ""
+"%(essid)s - Password required\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to enter password"
+msgstr ""
+"%s - Potrebna lozinka\n"
+"Signal: %s (%s dBm)\n"
+"Pritisnite OK da unesete lozinku"
+
+#: ⁨modules/connect - Copia.py⁩:374 modules/connect.py:374
+#, fuzzy, python-format
+#| msgid ""
+#| "%s - Open network\n"
+#| "Signal: %s (%s dBm)\n"
+#| "Press OK to connect"
+msgid ""
+"%(essid)s - Open network\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
+"Press OK to connect"
+msgstr ""
+"%s - Otvorena mreža\n"
+"Signal: %s (%s dBm)\n"
+"Pritisnite OK za povezivanje"
+
+#: ⁨modules/connect - Copia.py⁩:440 modules/connect.py:440
+msgid "No networks found - Press BLUE to rescan"
+msgstr "Nema pronađenih mreža - Pritisnite PLAVO za ponovni pregled"
+
+#: ⁨modules/connect - Copia.py⁩:441 modules/connect.py:441
+#: modules/iwlist_tools.py:185 modules/iwlist_tools.py:199
+msgid "No networks found"
+msgstr "Mreže nisu pronađene"
+
+#: ⁨modules/connect - Copia.py⁩:504 modules/connect.py:504
+msgid "Configuration saved"
+msgstr "Konfiguracija sačuvana"
+
+#: ⁨modules/connect - Copia.py⁩:561 modules/connect.py:555
+#, python-brace-format
+msgid "Connecting to {}..."
+msgstr "Povezivanje sa {}..."
+
+#: ⁨modules/connect - Copia.py⁩:579 modules/connect.py:573
+#, python-brace-format
+msgid "Connected to {}"
+msgstr "Povezano sa {}"
+
+#: ⁨modules/connect - Copia.py⁩:580 modules/connect.py:574
+#, python-brace-format
+msgid "Successfully connected to {}"
+msgstr "Uspešno povezano sa {}"
+
+#: ⁨modules/connect - Copia.py⁩:584 modules/connect.py:578
+#, python-brace-format
+msgid "Connection to {} failed"
+msgstr "Veza sa {} nije uspela"
+
+#: ⁨modules/connect - Copia.py⁩:586 modules/connect.py:580
+#, python-brace-format
+msgid "Failed to connect to {}"
+msgstr "Neuspešno povezivanje sa {}"
+
+#: ⁨modules/connect - Copia.py⁩:589 modules/connect.py:583
+#, python-brace-format
+msgid "Connection error: {}"
+msgstr "Greška u vezi: {}"
+
+#: ⁨modules/connect - Copia.py⁩:689 modules/connect.py:683
+msgid "Connecting..."
+msgstr "Povezivanje..."
+
+#: ⁨modules/connect - Copia.py⁩:706 ⁨modules/connect - Copia.py⁩:721
+#: modules/connect.py:700 modules/connect.py:712
+msgid "Connected successfully!"
+msgstr "Uspešno povezano!"
+
+#: ⁨modules/connect - Copia.py⁩:709 ⁨modules/connect - Copia.py⁩:729
+#: modules/connect.py:703 modules/connect.py:714
+msgid "Connection failed!"
+msgstr "Veza nije uspela!"
+
+#: ⁨modules/connect - Copia.py⁩:777 ⁨modules/connect - Copia.py⁩:1193
+#: modules/connect.py:761 modules/connect.py:1181
+#, python-format
+msgid ""
+"Configuration saved for %s\n"
+"\n"
+"Connect now?"
+msgstr ""
+"Konfiguracija sačuvana za %s\n"
+"\n"
+"Povezati se sada?"
+
+#: ⁨modules/connect - Copia.py⁩:818 modules/connect.py:802
+#, python-format
+msgid "Error opening configuration: %s"
+msgstr "Greška pri otvaranju konfiguracije: %s"
+
+#: ⁨modules/connect - Copia.py⁩:830 modules/connect.py:814
+#, python-format
+msgid ""
+"Password saved for %s\n"
+"\n"
+"Connect now?"
+msgstr ""
+"Lozinka sačuvana za %s\n"
+"\n"
+"Povezati se sada?"
+
+#: ⁨modules/connect - Copia.py⁩:840 modules/connect.py:824
+#, python-format
+msgid "Enter password for: %s"
+msgstr "Unesite lozinku za: %s"
+
+#: ⁨modules/connect - Copia.py⁩:841 modules/connect.py:825
+msgid "WiFi Password"
+msgstr "WiFi Lozinka"
+
+#: ⁨modules/connect - Copia.py⁩:850 modules/connect.py:834
+msgid "Disconnected successfully!"
+msgstr "Uspešno je prekinuta veza!"
+
+#: ⁨modules/connect - Copia.py⁩:877 modules/connect.py:861
+msgid "Disconnected from network"
+msgstr "Isključeno sa mreže"
+
+#: ⁨modules/connect - Copia.py⁩:880 modules/connect.py:864
+msgid "Error disconnecting"
+msgstr "Greška pri prekidanju veze"
+
+#: ⁨modules/connect - Copia.py⁩:891 modules/connect.py:875
+msgid "Network forgotten!"
+msgstr "Mreža zaboravljena!"
+
+#: ⁨modules/connect - Copia.py⁩:910 modules/connect.py:894
+#, python-brace-format
+msgid "Forgotten network: {}"
+msgstr "Zaboravljena mreža: {}"
+
+#: ⁨modules/connect - Copia.py⁩:913 modules/connect.py:897
+#, python-brace-format
+msgid "Error: {}"
+msgstr "Greška: {}"
+
+#: ⁨modules/connect - Copia.py⁩:929 modules/connect.py:913
+msgid "No IP"
+msgstr "Nema IP"
+
+#: ⁨modules/connect - Copia.py⁩:931 modules/connect.py:915
+#, python-brace-format
+msgid "Connected: {} | Signal: {} dBm | IP: {}"
+msgstr "Povezano: {} | Signal: {} dBm | IP: {}"
+
+#: ⁨modules/connect - Copia.py⁩:934 ⁨modules/connect - Copia.py⁩:1162
+#: ⁨modules/connect - Copia.py⁩:1175 modules/connect.py:918 modules/connect.py:1150
+#: modules/connect.py:1163
+msgid "Not connected to any network"
+msgstr "Nije povezano ni na jednu mrežu"
+
+#: ⁨modules/connect - Copia.py⁩:937 modules/connect.py:921
+#, python-brace-format
+msgid "Status check failed: {}"
+msgstr "Provera statusa nije uspela: {}"
+
+#: ⁨modules/connect - Copia.py⁩:1006 modules/connect.py:990
+#, python-format
+msgid ""
+"Connection Details:\n"
+"\n"
+"%s"
+msgstr ""
+"Detalji Veze:\n"
+"\n"
+"%s"
+
+#: ⁨modules/connect - Copia.py⁩:1020 modules/connect.py:1004
+msgid "No connection details available"
+msgstr "Nema dostupnih detalja o konekciji"
+
+#: ⁨modules/connect - Copia.py⁩:1028 modules/connect.py:1012
+#, python-format
+msgid "Error getting connection details: %s"
+msgstr "Greška pri dobijanju detalja konekcije: %s"
+
+#: ⁨modules/connect - Copia.py⁩:1069 modules/connect.py:1053
+msgid "Disconnect"
+msgstr "Isključi"
+
+#: ⁨modules/connect - Copia.py⁩:1070 ⁨modules/connect - Copia.py⁩:1089
+#: modules/connect.py:1054 modules/connect.py:1073
+msgid "Connection Info"
+msgstr "Informacije o vezi"
+
+#: ⁨modules/connect - Copia.py⁩:1071 ⁨modules/connect - Copia.py⁩:1087
+#: modules/connect.py:1055 modules/connect.py:1071
+msgid "Edit Configuration"
+msgstr "Uredi konfiguraciju"
+
+#: ⁨modules/connect - Copia.py⁩:1072 ⁨modules/connect - Copia.py⁩:1090
+#: modules/connect.py:1056 modules/connect.py:1074 modules/iwlist_tools.py:635
+msgid "Back"
+msgstr "Nazad"
+
+#: ⁨modules/connect - Copia.py⁩:1074 modules/connect.py:1058
+#, python-format
+msgid "Connected to: %s"
+msgstr "Povezano sa: %s"
+
+#: ⁨modules/connect - Copia.py⁩:1083 modules/connect.py:1067
+msgid "Edit Password"
+msgstr "Uredi Lozinku"
+
+#: ⁨modules/connect - Copia.py⁩:1085 modules/connect.py:1069
+msgid "Enter Password"
+msgstr "Unesite Lozinku"
+
+#: ⁨modules/connect - Copia.py⁩:1088 modules/connect.py:1072
+msgid "Forget Network"
+msgstr "Zaboravi Mrežu"
+
+#: ⁨modules/connect - Copia.py⁩:1092 modules/connect.py:1076
+#, python-format
+msgid "Network: %s"
+msgstr "Mreža: %s"
+
+#: ⁨modules/connect - Copia.py⁩:1152 modules/connect.py:1140
+msgid "No network selected"
+msgstr "Nema odabrane mreže"
+
+#: ⁨modules/connect - Copia.py⁩:1173 modules/connect.py:1161
+#, python-brace-format
+msgid ""
+"Connected to: {}\n"
+"Signal: {} | IP: {}"
+msgstr ""
+"Povezano sa: {}\n"
+"Signal: {} | IP: {}"
+
+#: modules/connect.py:1100
+#, fuzzy, python-format
+#| msgid "Connected successfully!"
+msgid "Connected successfully to %s"
+msgstr "Uspešno povezano!"
+
+#: modules/connect.py:1111
+#, fuzzy, python-format
+#| msgid "Disconnect from {}"
+msgid "Disconnected from %s"
+msgstr "Isključi sa {}"
+
+#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
+msgid "Refresh"
+msgstr "Osveži"
+
+#: modules/detailed_info.py:74
+#, python-brace-format
+msgid "Detailed Info - {}"
+msgstr "Detaljne informacije - {}"
+
+#: modules/diagnostics.py:53 modules/speedtest_manager.py:75
+#: modules/speedtest_manager.py:106
+msgid "Full Test"
+msgstr "Puni Test"
+
+#: modules/diagnostics.py:54 modules/speedtest_manager.py:74
+#: modules/speedtest_manager.py:105
+msgid "Quick Test"
+msgstr "Brzi Test"
+
+#: modules/diagnostics.py:55
+msgid "Clear"
+msgstr "Obriši"
+
+#: modules/diagnostics.py:73
+msgid "WiFi Diagnostics"
+msgstr "WiFi Dijagnostika"
+
+#: modules/iwlist.py:59 modules/iwlist_tools.py:68
+msgid "Detailed network scanning"
+msgstr "Detaljno skeniranje mreže"
+
+#: modules/iwlist.py:60 modules/iwlist_tools.py:69
+msgid "Available frequencies/channels"
+msgstr "Dostupne frekvencije/kanali"
+
+#: modules/iwlist.py:61 modules/iwlist_tools.py:70
+msgid "Supported bit rates"
+msgstr "Podržane brzine prenosa"
+
+#: modules/iwlist.py:62 modules/iwlist_tools.py:71
+msgid "Encryption keys and security"
+msgstr "Ključevi za kodiranje i bezbednost"
+
+#: modules/iwlist.py:63 modules/iwlist_tools.py:72
+msgid "Power management settings"
+msgstr "Postavke upravljanja napajanjem"
+
+#: modules/iwlist.py:64 modules/iwlist_tools.py:73
+msgid "Retry limits and lifetime"
+msgstr "Ograničenja ponavljanja i životni vek"
+
+#: modules/iwlist.py:65 modules/iwlist_tools.py:74
+msgid "List of access points/peers"
+msgstr "Spisak pristupnih tačaka/vršnjaka"
+
+#: modules/iwlist.py:69
+msgid "Select a tool to view detailed information"
+msgstr "Izaberite alat za prikaz detaljnih informacija"
+
+#: modules/iwlist.py:84
+msgid "Advanced WiFi Tools"
+msgstr "Napredni WiFi Alati"
+
+#: modules/iwlist.py:130
+msgid "Tool not available"
+msgstr "Alat nije dostupan"
+
+#: modules/iwlist_tools.py:62
+#, fuzzy
+#| msgid "Connecting to {}..."
+msgid "Executing tool..."
+msgstr "Povezivanje sa {}..."
+
+#: modules/iwlist_tools.py:75
+msgid "Advanced WiFi Configuration"
+msgstr "Napredna WiFi konfiguracija"
+
+#: modules/iwlist_tools.py:76
+msgid "Restart wireless interface"
+msgstr "Ponovo pokreni bežični interfejs"
+
+#: modules/iwlist_tools.py:77
+msgid "Reload kernel WiFi modules"
+msgstr "Ponovo učitaj WiFi module kernela"
+
+#: modules/iwlist_tools.py:78
+msgid "Check system logs for WiFi errors"
+msgstr "Proverite sistemske zapise za WiFi greške"
+
+#: modules/iwlist_tools.py:132
+#, fuzzy, python-brace-format
+#| msgid "Tool not implemented yet"
+msgid "Tool not implemented: {}"
+msgstr "Alat još nije implementiran"
+
+#: modules/iwlist_tools.py:151
+#, fuzzy
+#| msgid "Tool completed"
+msgid "Scan completed."
+msgstr "Alat završen"
+
+#: modules/iwlist_tools.py:152
+#, fuzzy
+#| msgid "Channel Info"
+msgid "Channel info displayed."
+msgstr "Kanal info"
+
+#: modules/iwlist_tools.py:153
+#, fuzzy
+#| msgid "Bitrate Info"
+msgid "Bitrate info displayed."
+msgstr "Bitrate Info"
+
+#: modules/iwlist_tools.py:154
+#, fuzzy
+#| msgid "Encryption Info"
+msgid "Encryption info displayed."
+msgstr "Informacije o Kodiranju"
+
+#: modules/iwlist_tools.py:155
+#, fuzzy
+#| msgid "Power management settings"
+msgid "Power management info displayed."
+msgstr "Postavke upravljanja napajanjem"
+
+#: modules/iwlist_tools.py:156
+#, fuzzy
+#| msgid "Retry limits and lifetime"
+msgid "Retry limits info displayed."
+msgstr "Ograničenja ponavljanja i životni vek"
+
+#: modules/iwlist_tools.py:157
+msgid "Access points info displayed."
+msgstr ""
+
+#: modules/iwlist_tools.py:158
+#, fuzzy
+#| msgid "Advanced WiFi configuration"
+msgid "Advanced configuration completed."
+msgstr "Napredna WiFi konfiguracija"
+
+#: modules/iwlist_tools.py:159
+#, fuzzy
+#| msgid "WiFi interfaces restarted: {}"
+msgid "Interface restarted."
+msgstr "WiFi interfejsi su ponovo pokrenuti: {}"
+
+#: modules/iwlist_tools.py:160
+#, fuzzy
+#| msgid "Modules reloaded: {}"
+msgid "Modules reloaded."
+msgstr "Moduli ponovo učitani: {}"
+
+#: modules/iwlist_tools.py:161
+#, fuzzy
+#| msgid "Log check error: %s"
+msgid "Logs checked."
+msgstr "Greška provere zapisnika: %s"
+
+#: modules/iwlist_tools.py:164
+#, fuzzy
+#| msgid "Operation Mode"
+msgid "Operation completed."
+msgstr "Režim Rada"
+
+#: modules/iwlist_tools.py:178
+msgid "Advanced Scan Results"
+msgstr "Rezultati Naprednog Skeniranja"
+
+#: modules/iwlist_tools.py:200
+msgid ""
+"=== ADVANCED SCAN RESULTS ===\n"
+"\n"
+msgstr ""
+"=== REZULTATI NAPREDNOG SKENIRANJA ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:201
+#, python-format
+msgid ""
+"Found %d networks\n"
+"\n"
+msgstr ""
+"Pronađeno %d mreža\n"
+"\n"
+
+#: modules/iwlist_tools.py:203
+#, python-format
+msgid "Network %d:\n"
+msgstr "Mreža %d:\n"
+
+#: modules/iwlist_tools.py:204
+#, python-format
+msgid "  ESSID: %s\n"
+msgstr "  ESSID: %s\n"
+
+#: modules/iwlist_tools.py:205
+#, python-format
+msgid "  MAC: %s\n"
+msgstr "  MAC: %s\n"
+
+#: modules/iwlist_tools.py:206
+#, python-format
+msgid "  Channel: %s\n"
+msgstr "  Kanal: %s\n"
+
+#: modules/iwlist_tools.py:207
+#, python-format
+msgid "  Frequency: %s\n"
+msgstr "  Frekvencija: %s\n"
+
+#: modules/iwlist_tools.py:208
+#, python-format
+msgid "  Quality: %s\n"
+msgstr "  Kvalitet: %s\n"
+
+#: modules/iwlist_tools.py:209
+#, python-format
+msgid "  Signal: %s\n"
+msgstr "  Signal: %s\n"
+
+#: modules/iwlist_tools.py:210
+#, python-format
+msgid "  Encryption: %s\n"
+msgstr "  Enkripcija: %s\n"
+
+#: modules/iwlist_tools.py:216
+msgid "Getting channel information..."
+msgstr "Učitavanje informacija o kanalu..."
+
+#: modules/iwlist_tools.py:220
+msgid ""
+"=== CHANNEL INFORMATION ===\n"
+"\n"
+msgstr ""
+"=== INFORMACIJE O KANALU ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:222
+#, fuzzy, python-format
+#| msgid ""
+#| "Frequency Bands:\n"
+#| "%s\n"
+#| "\n"
+msgid ""
+"Frequency Bands:\n"
+"%s\n"
+msgstr ""
+"Frekventni Opseg:\n"
+"%s\n"
+"\n"
+
+#: modules/iwlist_tools.py:224
+#, fuzzy
+#| msgid ""
+#| "Frequency information not available\n"
+#| "\n"
+msgid "Frequency information not available\n"
+msgstr ""
+"Informacije o frekvenciji nisu dostupni\n"
+"\n"
+
+#: modules/iwlist_tools.py:242
+msgid "Getting bitrate information..."
+msgstr "Učitavanje informacija o bitreјtu..."
+
+#: modules/iwlist_tools.py:246
+msgid ""
+"=== BITRATE INFORMATION ===\n"
+"\n"
+msgstr ""
+"=== INFORMACIJE O BITREJTU ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:248
+#, fuzzy, python-format
+#| msgid ""
+#| "Supported Bitrates:\n"
+#| "%s\n"
+#| "\n"
+msgid ""
+"Supported Bitrates:\n"
+"%s\n"
+msgstr ""
+"Podržani Bitrejt:\n"
+"%s\n"
+"\n"
+
+#: modules/iwlist_tools.py:250
+#, fuzzy
+#| msgid ""
+#| "Bitrate information not available\n"
+#| "\n"
+msgid "Bitrate information not available\n"
+msgstr ""
+"Informacije o bitrate-u nisu dostupne\n"
+"\n"
+
+#: modules/iwlist_tools.py:268
+msgid "Getting encryption information..."
+msgstr "Učitavanje informacija o enkripciji..."
+
+#: modules/iwlist_tools.py:272
+msgid ""
+"=== ENCRYPTION INFORMATION ===\n"
+"\n"
+msgstr ""
+"=== INFORMACIJE O ŠIFROVANJU ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:274
+#, fuzzy, python-format
+#| msgid ""
+#| "Authentication:\n"
+#| "%s\n"
+#| "\n"
+msgid ""
+"Authentication:\n"
+"%s\n"
+msgstr ""
+"Autentifikacija:\n"
+"%s\n"
+"\n"
+
+#: modules/iwlist_tools.py:276
+#, fuzzy
+#| msgid ""
+#| "Authentication information not available\n"
+#| "\n"
+msgid "Encryption information not available\n"
+msgstr ""
+"Informacije za autentifikaciju nisu dostupne\n"
+"\n"
+
+#: modules/iwlist_tools.py:294
+msgid "Getting power management information..."
+msgstr "Dobijanje informacija o upravljanju napajanjem..."
+
+#: modules/iwlist_tools.py:298
+msgid ""
+"=== POWER MANAGEMENT ===\n"
+"\n"
+msgstr ""
+"=== UPRAVLJANJE NAPAJANJEM ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:302
+msgid "Power management information not available\n"
+msgstr "Informacije o upravljanju napajanjem nisu dostupne\n"
+
+#: modules/iwlist_tools.py:320
+msgid "Getting retry information..."
+msgstr "Učitavanje informacija o ponovnom pokušaju..."
+
+#: modules/iwlist_tools.py:324
+msgid ""
+"=== RETRY LIMITS ===\n"
+"\n"
+msgstr ""
+"=== OGRANIČENJA PONOVNOG POKUŠAJA ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:328
+msgid "Retry limit information not available\n"
+msgstr "Informacija o ograničenju ponovljenih pokušaja nije dostupna\n"
+
+#: modules/iwlist_tools.py:346
+msgid "Getting access point information..."
+msgstr "Dobijanje informacija o pristupnoj tački..."
+
+#: modules/iwlist_tools.py:350
+msgid ""
+"=== ACCESS POINTS / PEERS ===\n"
+"\n"
+msgstr "=== PRISTUPNE TAČKE / VRŠNJAKA ===\n"
+
+#: modules/iwlist_tools.py:354
+msgid "No station/peer information available\n"
+msgstr "Nema dostupnih informacija o stanici/vršnjaku\n"
+
+#: modules/iwlist_tools.py:387
+msgid ""
+"Select a tool from the menu to get detailed information about WiFi "
+"configuration and status."
+msgstr ""
+"Izaberite alat iz menija da biste dobili detaljne informacije o WiFi "
+"konfiguraciji i statusu."
+
+#: modules/iwlist_tools.py:395
+#, python-format
+msgid "Restart WiFi interface %s?"
+msgstr "Da li želite da restartujete WiFi interfejs %s?"
+
+#: modules/iwlist_tools.py:402
+msgid "Restarting interface..."
+msgstr "Ponovo pokretanje interfejsa..."
+
+#: modules/iwlist_tools.py:409
+msgid "Interface restarted successfully"
+msgstr "Interfejs je uspešno restartovan"
+
+#: modules/iwlist_tools.py:425
+msgid ""
+"Reload WiFi kernel modules?\n"
+"This will temporarily disconnect all WiFi."
+msgstr ""
+"Ponovo učitati WiFi kernel module?\n"
+"Ovo će privremeno isključiti sve WiFi veze."
+
+#: modules/iwlist_tools.py:431
+msgid "Checking system logs..."
+msgstr "Provera sistemskih zapisa..."
+
+#: modules/iwlist_tools.py:437
+msgid ""
+"=== SYSTEM LOGS - WIFI ERRORS ===\n"
+"\n"
+msgstr ""
+"=== SISTEMSKE EVIDENCIJE - WIFI GREŠKE ===\n"
+"\n"
+
+#: modules/iwlist_tools.py:439
+msgid "Kernel Messages (dmesg):\n"
+msgstr "Kernel Poruke (dmesg):\n"
+
+#: modules/iwlist_tools.py:443
+msgid ""
+"No WiFi messages in dmesg\n"
+"\n"
+msgstr ""
+"Nema WiFi poruka u dmesg\n"
+"\n"
+
+#: modules/iwlist_tools.py:444
+msgid "System Logs:\n"
+msgstr "Dnevnici Sistema:\n"
+
+#: modules/iwlist_tools.py:448
+msgid "No WiFi messages in system logs"
+msgstr "Nema WiFi poruka u sistemskim zapisima"
+
+#: modules/iwlist_tools.py:452
+msgid "System Logs"
+msgstr "Sistemski Zapisi"
+
+#: modules/iwlist_tools.py:510
+msgid "Advanced WiFi configuration settings"
+msgstr "Napredna podešavanja WiFi-a"
+
+#: modules/iwlist_tools.py:512
+msgid "Apply"
+msgstr "Primeni"
+
+#: modules/iwlist_tools.py:514
+msgid "Help"
+msgstr "Pomoć"
+
+#: modules/iwlist_tools.py:526
+#, python-brace-format
+msgid "Advanced Config - {}"
+msgstr "Napredna Konfiguracija - {}"
+
+#: modules/iwlist_tools.py:567
+msgid "Settings applied successfully"
+msgstr "Postavke su uspešno primenjene"
+
+#: modules/iwlist_tools.py:612
+msgid ""
+"Advanced WiFi Configuration:\n"
+"\n"
+"RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
+"Fragmentation: Max frame size before fragmentation\n"
+"Beacon Interval: Time between beacon signals (ms)\n"
+"DTIM Period: Delivery Traffic Indication Message interval\n"
+"\n"
+"Warning: Incorrect settings may degrade performance!"
+msgstr ""
+"Napredna WiFi konfiguracija:\n"
+"RTS prag: Kontroliše RTS/CTS rukovanje (2347=isključeno)\n"
+"Fragmentacija: Maksimalna veličina okvira pre fragmentacije\n"
+"Interval beacona: Vreme između beacon signala (ms)\n"
+"DTIM period: Interval poruka za indikaciju saobraćaja\n"
+"\n"
+"Upozorenje: Neispravna podešavanja mogu smanjiti performanse!"
+
+#: modules/monitor.py:77 modules/monitor.py:111
+msgid "Start"
+msgstr "Start"
+
+#: modules/monitor.py:78
+msgid "Stop"
+msgstr "Stop"
+
+#: modules/monitor.py:94
+msgid "WiFi Signal Monitor"
+msgstr "Monitor WiFi Signala"
+
+#: modules/monitor.py:106
+msgid "Pause"
+msgstr "Pauza"
+
+#: modules/scanner.py:72 modules/speedtest_manager.py:76
+#: modules/speedtest_manager.py:107
+msgid "Details"
+msgstr "Detalji"
+
+#: modules/scanner.py:95
+msgid "WiFi Scanner"
+msgstr "WiFi Skener"
+
+#: modules/scanner.py:105
+msgid "Scanning for WiFi networks..."
+msgstr "Skeniranje WiFi mreža..."
+
+#: modules/scanner.py:251
+msgid "Scan error: "
+msgstr "Greška pri skeniranju: "
+
+#: modules/scanner.py:568
+msgid "Detailed view enabled - rescan to see details"
+msgstr "Detaljan prikaz omogućen - skenirajte ponovo da vidite detalje"
+
+#: modules/scanner.py:570
+msgid "Basic view enabled - rescan to see basic info"
+msgstr ""
+"Osnovni prikaz omogućen - ponovo skenirajte da biste videli osnovne informacije"
+
+#: modules/speedtest_manager.py:69
+msgid "Select a speed test type"
+msgstr "Izaberite tip testa brzine"
+
+#: modules/speedtest_manager.py:94
+msgid "WiFi Speed Test Manager"
+msgstr "Menadžer Test Brzine WiFi"
+
+#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:511
+#, fuzzy
+#| msgid "Test failed"
+msgid "Test cancelled"
+msgstr "Test nije uspeo"
+
+#: modules/speedtest_manager.py:147 modules/speedtest_manager.py:159
+#: modules/speedtest_manager.py:172
+msgid "wait..."
+msgstr "sačekaj..."
+
+#: modules/speedtest_manager.py:148
+msgid "Running quick speed test..."
+msgstr "Pokreće se brzi test brzine..."
+
+#: modules/speedtest_manager.py:160
+msgid "Running full speed test..."
+msgstr "Pokretanje testa pune brzine..."
+
+#: modules/speedtest_manager.py:173
+msgid "Running detailed speed test..."
+msgstr "Pokreće se detaljan test brzine..."
+
+#: modules/speedtest_manager.py:189
+#, python-brace-format
+msgid "Hostname: {hostname}"
+msgstr ""
+
+#: modules/speedtest_manager.py:195
+#, fuzzy, python-brace-format
+#| msgid "🌐 IP: {ip}\n"
+msgid "Public IP: {ip}"
+msgstr "🌐 IP: {ip}\n"
+
+#: modules/speedtest_manager.py:196
+#, python-brace-format
+msgid "Location: {city}, {country}"
+msgstr ""
+
+#: modules/speedtest_manager.py:200
+#, fuzzy, python-brace-format
+#| msgid "🌐 IP: {ip}\n"
+msgid "ISP: {isp}"
+msgstr "🌐 IP: {ip}\n"
+
+#: modules/speedtest_manager.py:202
+msgid "Public IP: Unable to determine"
+msgstr ""
+
+#: modules/speedtest_manager.py:206
+#, fuzzy, python-brace-format
+#| msgid "Full test error: {error}"
+msgid "Client info error: {error}"
+msgstr "Puna greška testa: {error}"
+
+#: modules/speedtest_manager.py:224
+#, fuzzy, python-brace-format
+#| msgid "Detailed test error: {error}"
+msgid "Server info error: {error}"
+msgstr "Detaljna greška testa: {error}"
+
+#: modules/speedtest_manager.py:234
+#, python-brace-format
+msgid "Network Interface: {interface}"
+msgstr ""
+
+#: modules/speedtest_manager.py:242
+#, python-brace-format
+msgid "Gateway: {gateway}"
+msgstr ""
+
+#: modules/speedtest_manager.py:247
+#, fuzzy
+#| msgid "Key information not available"
+msgid "Network information unavailable"
+msgstr "Ključne informacije nisu dostupne"
+
+#: modules/speedtest_manager.py:249
+#, fuzzy, python-brace-format
+#| msgid "Retry info error: %s"
+msgid "Network info error: {error}"
+msgstr "Greška u informacijama o ponovnom pokušaju: %s"
+
+#: modules/speedtest_manager.py:256
+msgid "Testing connectivity..."
+msgstr "Testiranje konekcije..."
+
+#: modules/speedtest_manager.py:259 modules/speedtest_manager.py:366
+msgid "Testing download speed..."
+msgstr "Provera brzine preuzimanja..."
+
+#: modules/speedtest_manager.py:262 modules/speedtest_manager.py:316
+msgid "Testing upload speed..."
+msgstr "Provera brzine učitavanja..."
+
+#: modules/speedtest_manager.py:265
+msgid "Quick test completed"
+msgstr "Brzi test završen"
+
+#: modules/speedtest_manager.py:268
+msgid ""
+"=== QUICK SPEED TEST RESULTS ===\n"
+"\n"
+msgstr ""
+"=== REZULTATI BRZOG TESTA ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:269
+#, python-brace-format
+msgid "Ping/Latency: {ping}\n"
+msgstr "Ping/Latencija: {ping}\n"
+
+#: modules/speedtest_manager.py:270
+#, python-brace-format
+msgid "Download Speed: {download}\n"
+msgstr "Brzina preuzimanja: {download}\n"
+
+#: modules/speedtest_manager.py:271
+#, python-brace-format
+msgid "Upload Speed: {upload}\n"
+msgstr "Brzina slanja: {upload}\n"
+
+#: modules/speedtest_manager.py:277
+#, python-brace-format
+msgid "Quick test error: {error}"
+msgstr "Brza greška testa: {error}"
+
+#: modules/speedtest_manager.py:283
+msgid ""
+"=== COMPREHENSIVE SPEED TEST ===\n"
+"\n"
+msgstr ""
+"=== SVEOBUHVATNI TEST BRZINE ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:288
+#, fuzzy
+#| msgid "Getting retry information..."
+msgid "Gathering client information..."
+msgstr "Učitavanje informacija o ponovnom pokušaju..."
+
+#: modules/speedtest_manager.py:290
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "=== CHANNEL INFORMATION ===\n"
+#| "\n"
+msgid ""
+"=== CLIENT INFORMATION ===\n"
+"{info}\n"
+"\n"
+msgstr ""
+"=== INFORMACIJE O KANALU ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:295
+msgid "Testing latency to multiple hosts..."
+msgstr "Testiranje latencije na više hostova..."
+
+#: modules/speedtest_manager.py:297
+#, python-brace-format
+msgid ""
+"=== LATENCY TEST ===\n"
+"{ping}\n"
+"\n"
+msgstr ""
+"=== TEST KAŠNJENJA ===\n"
+"{ping}\n"
+"\n"
+
+#: modules/speedtest_manager.py:302 modules/speedtest_manager.py:364
+msgid "Finding best server..."
+msgstr "Pronalaženje najboljeg servera..."
+
+#: modules/speedtest_manager.py:304
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "=== BITRATE INFORMATION ===\n"
+#| "\n"
+msgid ""
+"=== SERVER INFORMATION ===\n"
+"{server}\n"
+"\n"
+msgstr ""
+"=== INFORMACIJE O BITREJTU ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:309
+msgid "Testing download speed (multiple servers)..."
+msgstr "Testiranje brzine preuzimanja (višestruki serveri) ..."
+
+#: modules/speedtest_manager.py:311
+#, python-brace-format
+msgid ""
+"=== DOWNLOAD SPEED TEST ===\n"
+"{download}\n"
+"\n"
+msgstr ""
+"=== TEST BRZINE PREUZIMANJA ===\n"
+"{download}\n"
+"\n"
+
+#: modules/speedtest_manager.py:318
+#, python-brace-format
+msgid ""
+"=== UPLOAD SPEED TEST ===\n"
+"{upload}\n"
+"\n"
+msgstr ""
+"=== TEST BRZINE OTPREMANJA ===\n"
+"{upload}\n"
+"\n"
+
+#: modules/speedtest_manager.py:323
+msgid "Testing connection stability..."
+msgstr "Provera stabilnosti veze..."
+
+#: modules/speedtest_manager.py:325
+#, python-brace-format
+msgid ""
+"=== CONNECTION STABILITY ===\n"
+"{stability}\n"
+"\n"
+msgstr ""
+"=== STABILNOST VEZE ===\n"
+"{stability}\n"
+"\n"
+
+#: modules/speedtest_manager.py:330
+#, fuzzy
+#| msgid "Scanning for networks..."
+msgid "Gathering network details..."
+msgstr "Pretraga mreža..."
+
+#: modules/speedtest_manager.py:332
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "=== CHANNEL INFORMATION ===\n"
+#| "\n"
+msgid ""
+"=== NETWORK INFORMATION ===\n"
+"{network}\n"
+"\n"
+msgstr ""
+"=== INFORMACIJE O KANALU ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:337
+msgid "Final connectivity check..."
+msgstr "Provera konačne konektivnosti..."
+
+#: modules/speedtest_manager.py:339
+#, python-brace-format
+msgid ""
+"=== FINAL CHECK ===\n"
+"Connectivity: {conn}\n"
+msgstr ""
+"=== ZAVRŠNA PROVERA ===\n"
+"Povezivanje: {conn}\n"
+
+#: modules/speedtest_manager.py:342
+msgid "Full test completed"
+msgstr "Puni test završen"
+
+#: modules/speedtest_manager.py:346
+#, python-brace-format
+msgid "Full test error: {error}"
+msgstr "Puna greška testa: {error}"
+
+#: modules/speedtest_manager.py:354
+msgid "SpeedtestSimple not available"
+msgstr "Jednostavan test Brzine nije dostupan"
+
+#: modules/speedtest_manager.py:359
+#, fuzzy
+#| msgid "Checking kernel logs..."
+msgid "Checking internet connection..."
+msgstr "Provera dnevnika jezgra..."
+
+#: modules/speedtest_manager.py:360
+#, fuzzy
+#| msgid "Getting retry information..."
+msgid "Getting client information..."
+msgstr "Učitavanje informacija o ponovnom pokušaju..."
+
+#: modules/speedtest_manager.py:361
+#, fuzzy
+#| msgid "Test completed!"
+msgid "Client info completed"
+msgstr "Test završen!"
+
+#: modules/speedtest_manager.py:362
+msgid "Testing latency..."
+msgstr "Testiranje latencije..."
+
+#: modules/speedtest_manager.py:363
+msgid "Latency test completed"
+msgstr "Test latencije završen"
+
+#: modules/speedtest_manager.py:365
+msgid "Server found"
+msgstr "Server pronađen"
+
+#: modules/speedtest_manager.py:367
+msgid "Download test completed"
+msgstr "Test preuzimanja završen"
+
+#: modules/speedtest_manager.py:368
+#, fuzzy
+#| msgid "Testing upload speed..."
+msgid "Estimating upload speed..."
+msgstr "Provera brzine učitavanja..."
+
+#: modules/speedtest_manager.py:369
+#, fuzzy
+#| msgid "Upload test completed"
+msgid "Upload estimation completed"
+msgstr "Test učitavanja završen"
+
+#: modules/speedtest_manager.py:370 modules/speedtest_manager.py:481
+msgid "Test failed"
+msgstr "Test nije uspeo"
+
+#: modules/speedtest_manager.py:377
+msgid "Initializing detailed speed test..."
+msgstr "Pokreće se detaljno testiranje brzine..."
+
+#: modules/speedtest_manager.py:383
+msgid "Detailed test completed"
+msgstr "Detaljan test završen"
+
+#: modules/speedtest_manager.py:387
+#, fuzzy
+#| msgid "Detailed speed test failed"
+msgid "Detailed speed test failed - Check internet connection"
+msgstr "Detaljan test brzine nije uspeo"
+
+#: modules/speedtest_manager.py:390
+#, python-brace-format
+msgid "Detailed test error: {error}"
+msgstr "Detaljna greška testa: {error}"
+
+#: modules/speedtest_manager.py:394
+msgid ""
+"\n"
+"=== CONNECTION QUALITY ===\n"
+msgstr ""
+"\n"
+"=== KVALITET VEZE ===\n"
+
+#: modules/speedtest_manager.py:401 modules/speedtest_manager.py:448
+msgid "Excellent download speed\n"
+msgstr "Odlična brzina preuzimanja\n"
+
+#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
+msgid "Good download speed\n"
+msgstr "Dobra brzina preuzimanja\n"
+
+#: modules/speedtest_manager.py:405
+msgid "Average download speed\n"
+msgstr "Prosečna brzina preuzimanja\n"
+
+#: modules/speedtest_manager.py:407 modules/speedtest_manager.py:452
+msgid "Poor download speed\n"
+msgstr "Loša brzina preuzimanja\n"
+
+#: modules/speedtest_manager.py:409
+msgid "Download speed unavailable\n"
+msgstr "Brzina preuzimanja nije dostupna\n"
+
+#: modules/speedtest_manager.py:415
+msgid "Excellent latency\n"
+msgstr "Odlična latencija\n"
+
+#: modules/speedtest_manager.py:417
+msgid "Good latency\n"
+msgstr "Dobra latencija\n"
+
+#: modules/speedtest_manager.py:419
+msgid "Average latency\n"
+msgstr "Prosečna latencija\n"
+
+#: modules/speedtest_manager.py:421
+msgid "Poor latency\n"
+msgstr "Loša latencija\n"
+
+#: modules/speedtest_manager.py:423
+msgid "Latency unavailable\n"
+msgstr "Latencija nije dostupna\n"
+
+#: modules/speedtest_manager.py:426
+msgid "Quality assessment unavailable\n"
+msgstr "Provera kvaliteta nije dostupna\n"
+
+#: modules/speedtest_manager.py:437
+msgid ""
+"=== SPEED TEST RESULTS ===\n"
+"\n"
+msgstr ""
+"=== REZULTATI TESTA BRZINE ===\n"
+"\n"
+
+#: modules/speedtest_manager.py:438
+#, python-format
+msgid "Download Speed: %s\n"
+msgstr "Brzina Preuzimanja: %s\n"
+
+#: modules/speedtest_manager.py:438 modules/speedtest_manager.py:439
+#: modules/speedtest_manager.py:440
+msgid "Failed"
+msgstr "Nije uspelo"
+
+#: modules/speedtest_manager.py:439
+#, python-format
+msgid "Upload Speed: %s\n"
+msgstr "Brzina otpremanja: %s\n"
+
+#: modules/speedtest_manager.py:440
+#, python-format
+msgid "Latency: %s\n"
+msgstr "Latencija: %s\n"
+
+#: modules/speedtest_manager.py:443
+msgid ""
+"\n"
+"=== QUALITY ASSESSMENT ===\n"
+msgstr ""
+"\n"
+"=== PROCENA KVALITETA ===\n"
+
+#: modules/speedtest_manager.py:454 modules/speedtest_manager.py:456
+msgid "Unable to assess download quality\n"
+msgstr "Nije moguće proceniti kvalitet preuzimanja\n"
+
+#: modules/speedtest_manager.py:464
+msgid "Test completed - See results below"
+msgstr "Test završen - Pogledajte rezultate ispod"
+
+#: modules/speedtest_manager.py:471
+msgid "Test completed!"
+msgstr "Test završen!"
+
+#: modules/speedtest_manager.py:502
+#, fuzzy
+#| msgid "Connecting to %s..."
+msgid "Cancelling test..."
+msgstr "Povezivanje sa %s..."
+
+#: ⁨modules/tools - Copia.py⁩:302 modules/tools.py:618
+#, fuzzy
+#| msgid "Excellent latency\n"
+msgid "Excellent"
+msgstr "Odlična latencija\n"
+
+#: ⁨modules/tools - Copia.py⁩:303 modules/tools.py:619
+msgid "Good"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:304 modules/tools.py:620
+msgid "Fair"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:305 modules/tools.py:621
+msgid "Poor"
+msgstr ""
+
+#: ⁨modules/tools - Copia.py⁩:306 ⁨modules/tools - Copia.py⁩:313 modules/tools.py:622
+#: modules/tools.py:629
+msgid "Very Poor"
+msgstr ""
+
+#~ msgid "Execute"
+#~ msgstr "Izvrši"
+
+#~ msgid "Menu"
+#~ msgstr "Meni"
+
+#~ msgid "Select Advanced WiFi Tool"
+#~ msgstr "Izaberi Napredni WiFi Alat"
+
+#~ msgid "No WiFi interface found!"
+#~ msgstr "Nije pronađen WiFi interfejs!"
+
+#, fuzzy
+#~| msgid "No networks found - Press BLUE to rescan"
+#~ msgid "No networks found. Press GREEN to rescan"
+#~ msgstr "Nema pronađenih mreža - Pritisnite PLAVO za ponovni pregled"
+
+#, fuzzy
+#~| msgid "Scan error: "
+#~ msgid "Scan error"
+#~ msgstr "Greška pri skeniranju: "
+
+#, python-format
+#~ msgid "  Mode: %s\n"
+#~ msgstr "  Režim: %s\n"
+
+#, python-format
+#~ msgid ""
+#~ "Frequency Bands:\n"
+#~ "%s\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Frekventni Opseg:\n"
+#~ "%s\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "Frequency information not available\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Informacije o frekvenciji nisu dostupni\n"
+#~ "\n"
+
+#, python-format
+#~ msgid ""
+#~ "Available Channels:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Dostupni Kanali:\n"
+#~ "%s"
+
+#~ msgid "Channel information not available"
+#~ msgstr "Informacije o kanalu nisu dostupne"
+
+#, python-format
+#~ msgid ""
+#~ "Supported Bitrates:\n"
+#~ "%s\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Podržani Bitrejt:\n"
+#~ "%s\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "Bitrate information not available\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Informacije o bitrate-u nisu dostupne\n"
+#~ "\n"
+
+#, python-format
+#~ msgid ""
+#~ "Current Connection:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Trenutna Veza:\n"
+#~ "%s"
+
+#~ msgid "Current rate information not available"
+#~ msgstr "Trenutne informacije o stopi nisu dostupne"
+
+#, python-format
+#~ msgid ""
+#~ "Authentication:\n"
+#~ "%s\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Autentifikacija:\n"
+#~ "%s\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "Authentication information not available\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Informacije za autentifikaciju nisu dostupne\n"
+#~ "\n"
+
+#, python-format
+#~ msgid ""
+#~ "Encryption Keys:\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Ključevi za šifrovanje:\n"
+#~ "%s"
+
+#~ msgid "Key information not available"
+#~ msgstr "Ključne informacije nisu dostupne"
+
+#, python-format
+#~ msgid "Try: iwconfig %s | grep -i power"
+#~ msgstr "Probajte: iwconfig %s | grep -i power"
+
+#, python-format
+#~ msgid "Try: iwconfig %s | grep -i retry"
+#~ msgstr "Probaj: iwconfig %s | grep -i retry"
+
+#~ msgid "Interface may not be in AP mode"
+#~ msgstr "Interfejs možda nije u AP režimu"
+
+#~ msgid "Reloading modules..."
+#~ msgstr "Ponovo učitavanje modula..."
+
+#~ msgid ""
+#~ "=== MODULE RELOAD ===\n"
+#~ "\n"
+#~ msgstr ""
+#~ "=== PONOVNO UČITAVANJE MODULA ===\n"
+#~ "\n"
+
+#, python-format
+#~ msgid ""
+#~ "Loaded WiFi modules:\n"
+#~ "%s\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Učitani WiFi moduli:\n"
+#~ "%s\n"
+#~ "\n"
+
+#~ msgid "None found"
+#~ msgstr "Nije pronađeno"
+
+#~ msgid ""
+#~ "Module reload functionality requires custom implementation for your system."
+#~ msgstr ""
+#~ "Funkcionalnost ponovnog učitavanja modula zahteva prilagođenu "
+#~ "implementaciju za vaš sistem."
+
+#~ msgid "Module Info"
+#~ msgstr "Informacije o Modulu"
+
+#~ msgid "Scan failed or no networks found"
+#~ msgstr "Skeniranje nije uspelo ili nisu pronađene mreže"
+
+#~ msgid "BY LULULLA"
+#~ msgstr "OD LULULLA"
+
+#~ msgid "Save"
+#~ msgstr "Sačuvaj"
+
+#~ msgid ""
+#~ "WiFi settings applied successfully\n"
+#~ "\n"
+#~ "Some changes may require interface restart."
+#~ msgstr ""
+#~ "WiFi podešavanja uspešno primenjena\n"
+#~ "\n"
+#~ "Neke promene mogu zahtevati ponovno pokretanje interfejsa."
+
+#~ msgid ""
+#~ "No settings were applied\n"
+#~ "\n"
+#~ "Check interface availability and permissions."
+#~ msgstr ""
+#~ "Nijedna podešavanja nisu primenjena\n"
+#~ "\n"
+#~ "Proverite dostupnost interfejsa i dozvole."
+
+#~ msgid "Error applying settings: "
+#~ msgstr "Greška pri primeni podešavanja: "
+
+#~ msgid "=== BASIC SETTINGS ==="
+#~ msgstr "=== OSNOVNA PODEŠAVANJA ==="
+
+#~ msgid "=== ADVANCED SETTINGS ==="
+#~ msgstr "=== NAPREDNA PODEŠAVANJA ==="
+
+#, python-brace-format
+#~ msgid "Configuration saved for {}"
+#~ msgstr "Konfiguracija sačuvana za {}"
+
+#, python-brace-format
+#~ msgid "Error saving configuration: {}"
+#~ msgstr "Greška pri čuvanju konfiguracije: {}"
+
+#~ msgid "Inserisci il nome della rete WiFi."
+#~ msgstr "Unesite naziv WiFi mreže."
+
+#~ msgid "Inserisci la password della rete WiFi."
+#~ msgstr "Unesite lozinku za WiFi mrežu."
+
+#~ msgid "Forget"
+#~ msgstr "Zaboravi"
+
+#~ msgid "❌ No WiFi interface found"
+#~ msgstr "❌ Nije pronađen WiFi interfejs"
+
+#~ msgid "❌ Error detecting interface"
+#~ msgstr "❌ Greška pri otkrivanju interfejsa"
+
+#~ msgid "🔄 Scanning for networks..."
+#~ msgstr "🔄 Pretraga mreža..."
+
+#~ msgid "Scanning... Please wait"
+#~ msgstr "Skeniranje... Molimo sačekajte"
+
+#, python-brace-format
+#~ msgid "❌ Scan failed: {}"
+#~ msgstr "❌ Skeniranje nije uspelo: {}"
+
+#, python-brace-format
+#~ msgid "✅ CONNECTED to: {} - Press YELLOW to disconnect"
+#~ msgstr "✅ POVEZANO sa: {} - Pritisnite ŽUTO za prekid veze"
+
+#, python-brace-format
+#~ msgid "🔒 {} - Password saved - Press GREEN to connect"
+#~ msgstr "🔒 {} - Lozinka sačuvana - Pritisnite ZELENO za povezivanje"
+
+#, python-brace-format
+#~ msgid "🔒 {} - Password required - Press GREEN to enter"
+#~ msgstr "🔒 {} - Potrebna lozinka - Pritisnite ZELENO za ulazak"
+
+#, python-brace-format
+#~ msgid "🔓 {} - Open network - Press GREEN to connect"
+#~ msgstr "🔓 {} - Otvorena mreža - Pritisnite ZELENO da se povežete"
+
+#~ msgid "Connected ✓"
+#~ msgstr "Povezano ✓"
+
+#~ msgid "Connect (saved)"
+#~ msgstr "Poveži (sačuvano)"
+
+#, python-brace-format
+#~ msgid "🌐 Found {} networks - Select with OK"
+#~ msgstr "🌐 Pronađeno {} mreža - Izaberite sa OK"
+
+#, python-brace-format
+#~ msgid "✅ Connected to: {} | 📶 Networks: {}"
+#~ msgstr "✅ Povezano sa: {} | 📶 Mreže: {}"
+
+#~ msgid "❌ No networks found - Press BLUE to rescan"
+#~ msgstr "❌ Nema pronađenih mreža - Pritisnite PLAVO da ponovo skenirate"
+
+#, python-brace-format
+#~ msgid "Found {} networks - Select one"
+#~ msgstr "Pronađeno {} mreža - Izaberite jednu"
+
+#~ msgid "Please select a network first"
+#~ msgstr "Molimo prvo izaberite mrežu"
+
+#, python-brace-format
+#~ msgid "🔄 Connecting to {}..."
+#~ msgstr "🔄 Povezivanje sa {}..."
+
+#, python-brace-format
+#~ msgid "✅ Connected to {}"
+#~ msgstr "✅ Povezano sa {}"
+
+#, python-brace-format
+#~ msgid "❌ Connection to {} failed"
+#~ msgstr "❌ Veza sa {} nije uspela"
+
+#, python-brace-format
+#~ msgid "❌ Failed to connect to {}"
+#~ msgstr "❌ Nije uspelo povezivanje sa {}"
+
+#, python-brace-format
+#~ msgid "❌ Connection error: {}"
+#~ msgstr "❌ Greška u konekciji: {}"
+
+#~ msgid "Please enter the password"
+#~ msgstr "Molimo unesite lozinku"
+
+#~ msgid "❌ Authentication failed"
+#~ msgstr "❌ Potvrda indetiteta nije uspela"
+
+#~ msgid "❌ Connection failed"
+#~ msgstr "❌ Povezivanje nije uspelo"
+
+#, python-brace-format
+#~ msgid "Connection failed: {}"
+#~ msgstr "Veza nije uspela: {}"
+
+#, python-brace-format
+#~ msgid "Error disconnecting: {}"
+#~ msgstr "Greška prekida veze: {}"
+
+#, python-brace-format
+#~ msgid "No saved password for {}"
+#~ msgstr "Nema sačuvane lozinke za {}"
+
+#, python-brace-format
+#~ msgid "✅ Connected: {} | 📶 {} dBm | 🌐 {}"
+#~ msgstr "✅ Povezano: {} | 📶 {} dBm | 🌐 {}"
+
+#~ msgid "❌ Not connected to any network"
+#~ msgstr "❌ Nije povezano ni na jednu mrežu"
+
+#, python-brace-format
+#~ msgid ""
+#~ "❌ Status check failed\n"
+#~ "{}"
+#~ msgstr ""
+#~ "❌ Provera statusa nije uspela\n"
+#~ "{}"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Connected:\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Povezano:\n"
+#~ "{}"
+
+#, python-brace-format
+#~ msgid "Password for {}"
+#~ msgstr ""
+#~ "Lozinka za\n"
+#~ "{}"
+
+#, python-brace-format
+#~ msgid "Enter password for {}"
+#~ msgstr "Unesite lozinku za {}"
+
+#, python-brace-format
+#~ msgid ""
+#~ "✅ Connected to: {}\n"
+#~ "📶 Signal: {} dBm | 🌐 IP: {}"
+#~ msgstr ""
+#~ "✅ Povezano sa: {}\n"
+#~ "📶 Signal: {} dBm | 🌐 IP: {}"
+
+#~ msgid "WiFi interface is down. Enabling..."
+#~ msgstr "WiFi interfejs je isključen. Uključivanje..."
+
+#~ msgid "Interface is in monitor mode. Switching to managed..."
+#~ msgstr "Interfejs je u monitor režimu. Prebacivanje na upravljani režim..."
+
+#~ msgid "Error detecting interface"
+#~ msgstr "Greška pri otkrivanju interfejsa"
+
+#, python-brace-format
+#~ msgid "Scan failed: {}"
+#~ msgstr "Skeniranje nije uspelo: {}"
+
+#, python-brace-format
+#~ msgid "Already connected to: {}"
+#~ msgstr "Već povezano sa: {}"
+
+#, python-brace-format
+#~ msgid "Connect to {}"
+#~ msgstr "Povezano sa {}"
+
+#, python-brace-format
+#~ msgid "Network: {}"
+#~ msgstr "Mreža: {}"
+
+#~ msgid "Authentication failed"
+#~ msgstr "Potvrda identiteta nije uspela"
+
+#~ msgid "Connection failed"
+#~ msgstr "Veza nije uspela"
+
+#~ msgid "Configuration file not found"
+#~ msgstr "Konfiguracioni fajl nije pronađen"
+
+#~ msgid "Connection failed - check configuration"
+#~ msgstr "Veza nije uspela - proverite konfiguraciju"
+
+#, python-format
+#~ msgid "Connected to %s"
+#~ msgstr "Povezano sa %s"
+
+#, python-format
+#~ msgid "Successfully connected to %s"
+#~ msgstr "Uspešno povezano na %s"
+
+#~ msgid "Connected but no IP - check DHCP"
+#~ msgstr "Povezano, ali nema IP adrese - proverite DHCP"
+
+#~ msgid "Connected to network but failed to get IP address"
+#~ msgstr "Povezano na mrežu, ali nije uspelo da dobije IP adresu"
+
+#, python-format
+#~ msgid "Connection error: %s"
+#~ msgstr "Greška u vezi: %s"
+
+#, python-brace-format
+#~ msgid "Enter password for: {}"
+#~ msgstr "Unesite lozinku za: {}"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Connection Details:\n"
+#~ "\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Detalji Veze:\n"
+#~ "\n"
+#~ "{}"
+
+#, python-brace-format
+#~ msgid "Error getting connection details: {}"
+#~ msgstr "Greška pri dobijanju detalja veze: {}"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Connected to: {}\n"
+#~ "Signal: {} dBm | IP: {}"
+#~ msgstr ""
+#~ "Povezano sa: {}\n"
+#~ "Signal: {} dBm | IP: {}"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Configuration saved for {}\n"
+#~ "\n"
+#~ "Connect now?"
+#~ msgstr ""
+#~ "Konfiguracija je sačuvana za {}\n"
+#~ "\n"
+#~ "Povezati se sada?"
+
+#, python-format
+#~ msgid "Error opening password dialog: %s"
+#~ msgstr "Greška pri otvaranju dijaloga za lozinku: %s"
+
+#, python-format
+#~ msgid "Error forgetting network: %s"
+#~ msgstr "Greška u zaboravljanju mreže: %s"
+
+#, python-format
+#~ msgid "Disconnect error: %s"
+#~ msgstr "Greška u prekidu veze: %s"
+
+#, python-format
+#~ msgid "Error showing connection info: %s"
+#~ msgstr "Greška pri prikazivanju informacija o vezi: %s"
+
+#, python-format
+#~ msgid "Error: %s"
+#~ msgstr "Greška: %s"
+
+#, python-brace-format
+#~ msgid "✅ Connected to {} - Press YELLOW to disconnect"
+#~ msgstr "✅ Povezano sa {} - Pritisnite ŽUTO za prekid veze"
+
+#~ msgid "Connected"
+#~ msgstr "Povezano"
+
+#~ msgid "System Tools"
+#~ msgstr "Sistemski Alati"
+
+#~ msgid "System-level WiFi tools"
+#~ msgstr "Alati za WiFi nivoa sistema"
+
+#~ msgid "Quick Speed Test"
+#~ msgstr "Brzi Test Brzine"
+
+#~ msgid "Speed Test"
+#~ msgstr "Test Brzine"
+
+#~ msgid "Test WiFi Connectivity"
+#~ msgstr "Proveri WiFi Povezivanje"
+
+#~ msgid "Select a system tool to run"
+#~ msgstr "Izaberite sistemski alat za pokretanje"
+
+#~ msgid "System WiFi Tools"
+#~ msgstr "WiFi Alati Sistema"
+
+#~ msgid "Restarting WiFi interface..."
+#~ msgstr "Restartovanje WiFi interfejsa..."
+
+#~ msgid "Reloading WiFi modules..."
+#~ msgstr "Ponovo učitavanje WiFi modula..."
+
+#~ msgid "No WiFi modules found"
+#~ msgstr "Nema pronađenih WiFi modula"
+
+#~ msgid "📊 Running speed test..."
+#~ msgstr "📊 Pokretanje testa brzine..."
+
+#~ msgid "Running speed test..."
+#~ msgstr "Pokretanje testa brzine..."
+
+#~ msgid "Connectivity Test"
+#~ msgstr "Test Povezanosti"
+
+#~ msgid "Speed Test Results"
+#~ msgstr "Rezultat Testa Brzine"
+
+#, python-brace-format
+#~ msgid "Speed test failed: {}"
+#~ msgstr "Test brzine nije uspeo: {}"
+
+#~ msgid "Running quick test..."
+#~ msgstr "Pokretanje brzog testa..."
+
+#~ msgid "Test Results"
+#~ msgstr "Rezultati Testa"
+
+#~ msgid "Error"
+#~ msgstr "Greška"
+
+#~ msgid "SpeedTest Status"
+#~ msgstr "Status Testiranja Brzine"
+
+#~ msgid "Kernel WiFi Logs"
+#~ msgstr "Kernel WiFi Dnevnici"
+
+#~ msgid "No WiFi-related kernel messages found"
+#~ msgstr "Nisu pronađene poruke kernela vezane za WiFi"
+
+#~ msgid "Speed Test Detailed"
+#~ msgstr "Detaljan Test Brzine"
+
+#~ msgid "Quick Test Results"
+#~ msgstr "Brzi Rezultat Testa"
+
+#, python-brace-format
+#~ msgid "Quick test failed: {}"
+#~ msgstr "Brzi test nije prošao: {}"
+
+#~ msgid "Select an advanced WiFi tool"
+#~ msgstr "Izaberite napredni WiFi alat"
+
+#, python-format
+#~ msgid "Scan error: %s"
+#~ msgstr "Greška pri skeniranju: %s"
+
+#, python-format
+#~ msgid "Channel info error: %s"
+#~ msgstr "Greška u informacijama o kanalu: %s"
+
+#, python-format
+#~ msgid "Bitrate info error: %s"
+#~ msgstr "Greška u informaciji o bitrejtu: %s"
+
+#, python-format
+#~ msgid "Encryption info error: %s"
+#~ msgstr "Greška u informacijama o enkripciji: %s"
+
+#, python-format
+#~ msgid "Power info error: %s"
+#~ msgstr "Greška u informacijama o napajanju: %s"
+
+#, python-format
+#~ msgid "AP info error: %s"
+#~ msgstr "AP info greška: %s"
+
+#, python-format
+#~ msgid "Restart failed: %s"
+#~ msgstr "Restartovanje nije uspelo: %s"
+
+#, python-format
+#~ msgid "Module operation failed: %s"
+#~ msgstr "Rad modula nije uspeo: %s"
+
+#~ msgid "Please wait..."
+#~ msgstr "Molim sačekajte..."
+
+#~ msgid "No WiFi interfaces"
+#~ msgstr "Nema WiFi interfejsa"
+
+#~ msgid "Test in progress. Please wait..."
+#~ msgstr "Test u toku. Molimo sačekajte..."
+
+#~ msgid "Speedtest module not available"
+#~ msgstr "Modul za test brzine nije dostupan"
+
+#~ msgid "📊 SPEEDTEST RESULTS\n"
+#~ msgstr "📊 REZULTATI TESTA BRZINE\n"
+
+#~ msgid "===================\n"
+#~ msgstr "===================\n"
+
+#, python-brace-format
+#~ msgid "🏢 Server: {sponsor} ({name})\n"
+#~ msgstr "🏢 Server: {sponsor} ({name})\n"
+
+#, python-brace-format
+#~ msgid "📍 Distance: {distance:.2f} km\n"
+#~ msgstr "📍 Udaljenost: {distance:.2f} km\n"
+
+#, python-brace-format
+#~ msgid "📶 Ping: {ping:.1f} ms\n"
+#~ msgstr "📶 Ping: {ping:.1f} ms\n"
+
+#, python-brace-format
+#~ msgid "⬇️ Download: {download:.2f} Mbps\n"
+#~ msgstr "⬇️ Preuzimanje: {download:.2f} Mbps\n"
+
+#, python-brace-format
+#~ msgid "⬆️ Upload: {upload:.2f} Mbps\n"
+#~ msgstr "⬆️ Otpremanje: {upload:.2f} Mbps\n"
+
+#~ msgid "SpeedTest Results"
+#~ msgstr "Rezultati Testa Brzine"
+
+#, python-brace-format
+#~ msgid "❌ Speedtest failed: {}"
+#~ msgstr "❌ Test brzine nije uspeo: {}"
+
+#, python-brace-format
+#~ msgid "💥 Speedtest error: {}"
+#~ msgstr "💥 Greška testa brzine: {}"
+
+#~ msgid "⚡ QUICK CONNECTIVITY TEST\n"
+#~ msgstr "⚡ BRZI TEST POVEZIVOSTI\n"
+
+#~ msgid "========================\n"
+#~ msgstr "========================\n"
+
+#, python-brace-format
+#~ msgid "✅ Ping {host}: {time} ms\n"
+#~ msgstr "✅ Ping {host}: {time} ms\n"
+
+#~ msgid "❌ Ping: All hosts unreachable\n"
+#~ msgstr "❌ Ping: Svi hostovi nedostupni\n"
+
+#~ msgid "✅ DNS: Working\n"
+#~ msgstr "✅ DNS: Radni\n"
+
+#~ msgid "❌ DNS: Failed\n"
+#~ msgstr "❌ DNS: Neuspešno\n"
+
+#, python-brace-format
+#~ msgid "✅ HTTP: Connected ({:.2f}s)\n"
+#~ msgstr "✅ HTTP: Povezano ({:.2f}s)\n"
+
+#~ msgid "❌ HTTP: No connection\n"
+#~ msgstr "❌ HTTP: Nema konekcije\n"
+
+#~ msgid "❌ HTTP: Timeout\n"
+#~ msgstr "❌ HTTP: Isteklo vreme\n"
+
+#, python-brace-format
+#~ msgid "💥 Quick test error: {}"
+#~ msgstr "💥 Brza greška testa: {}"
+
+#~ msgid "Starting speedtest..."
+#~ msgstr "Pokretanje testa brzine..."
+
+#~ msgid "❌ Speedtest failed to complete"
+#~ msgstr "❌ Test brzine nije mogao da se završi"
+
+#~ msgid "Starting speedtest... This may take a minute."
+#~ msgstr "Pokretanje testa brzine... Ovo može potrajati minut."
+
+#, python-brace-format
+#~ msgid "📶 Ping: {} ms\n"
+#~ msgstr "📶 Ping: {} ms\n"
+
+#, python-brace-format
+#~ msgid "⬇️ Download: {} Mbps\n"
+#~ msgstr "⬇️ Preuzimanje: {} Mbps\n"
+
+#, python-brace-format
+#~ msgid "⬆️ Upload: {} Mbps\n"
+#~ msgstr "⬆️ Otpremanje: {} Mbps\n"
+
+#~ msgid "❌ Could not parse speedtest results\n"
+#~ msgstr "❌ Nije bilo moguće analizirati rezultate testa brzine\n"
+
+#, python-brace-format
+#~ msgid ""
+#~ "Raw output:\n"
+#~ "{}"
+#~ msgstr ""
+#~ "Neobrađeni izlaz:\n"
+#~ "{}"
+
+#, python-brace-format
+#~ msgid ""
+#~ "❌ Speedtest failed (code: {})\n"
+#~ "{}"
+#~ msgstr ""
+#~ "❌ Test brzine nije uspeo (kod: {})\n"
+#~ "{}"
+
+#~ msgid "⏰ Speedtest timeout - test took too long"
+#~ msgstr "⏰ Test brzine je istekao - test je trajao predugo"
+
+#~ msgid "📊 BASIC SPEED TEST\n"
+#~ msgstr "📊 OSNOVNI TEST BRZINE\n"
+
+#~ msgid "==================\n"
+#~ msgstr "==================\n"
+
+#~ msgid ""
+#~ "Note: Install 'speedtest-cli' for accurate results\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Napomena: Instalirajte 'speedtest-cli' za tačne rezultate\n"
+#~ "\n"
+
+#~ msgid "📶 Testing latency...\n"
+#~ msgstr "📶 Testiranje latencije...\n"
+
+#, python-brace-format
+#~ msgid "✅ Best ping: {:.1f} ms\n"
+#~ msgstr "✅ Najbolji ping: {:.1f} ms\n"
+
+#~ msgid "⬇️ Testing download...\n"
+#~ msgstr "⬇️ Testiranje preuzimanja...\n"
+
+#, python-brace-format
+#~ msgid "✅ Approx. download: {:.1f} Mbps\n"
+#~ msgstr "✅ Približna brzina preuzimanja: {:.1f} Mbps\n"
+
+#~ msgid "❌ Download test failed\n"
+#~ msgstr "❌ Preuzimanje testa nije uspelo\n"
+
+#~ msgid "❌ Download test timeout\n"
+#~ msgstr "❌ Prekoračeno vreme za preuzimanje testa\n"
+
+#, python-brace-format
+#~ msgid "❌ Download error: {}\n"
+#~ msgstr "❌ Greška pri preuzimanju: {}\n"
+
+#~ msgid "🌐 Testing connectivity...\n"
+#~ msgstr "🌐 Testiranje povezanosti...\n"
+
+#~ msgid "✅ Internet: Connected\n"
+#~ msgstr "✅ Internet: Povezan\n"
+
+#~ msgid "❌ Internet: No connection\n"
+#~ msgstr "❌ Internet: Nije povezan\n"
+
+#~ msgid "❌ Internet: Test failed\n"
+#~ msgstr "❌ Internet: Test nije uspeo\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "💡 For accurate results, install: opkg install speedtest-cli"
+#~ msgstr ""
+#~ "\n"
+#~ "💡 Za tačne rezultate, instalirajte: opkg install speedtest-cli"
+
+#~ msgid "Basic Speed Test"
+#~ msgstr "Osnovni Test Brzine"
+
+#, python-brace-format
+#~ msgid "💥 Speed test error: {}"
+#~ msgstr "💥 Greška pri testu brzine: {}"
+
+#~ msgid "✅ speedtest-cli is available"
+#~ msgstr "✅ speedtest-cli je dostupan"
+
+#~ msgid ""
+#~ "❌ speedtest-cli not installed\n"
+#~ "💡 Run: opkg install speedtest-cli"
+#~ msgstr ""
+#~ "❌ speedtest-cli nije instaliran\n"
+#~ "💡 Pokreni: opkg install speedtest-cli"
+
+#~ msgid "Timeout"
+#~ msgstr "Vreme isteklo"
