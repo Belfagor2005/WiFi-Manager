@@ -8,7 +8,7 @@
 #  Created by Lululla (https://github.com/Belfagor2005) #
 #  License: Gnu Gpl v2                                  #
 #  https://creativecommons.org/licenses/by-nc-sa/4.0    #
-#  Last Modified: "00:00 - 20250101"                    #
+#  Last Modified: "00:00 - 20251110"                    #
 #                                                       #
 #  Credits:                                             #
 #  - Original concept by Lululla                        #
@@ -41,14 +41,14 @@ from Components.config import ConfigPassword, ConfigYesNo
 
 from . import _
 from .tools import (
-    ensure_interface_up,
+    # ensure_interface_up,
     format_signal_quality,
     get_current_connected_essid,
     get_interface_info,
     get_ip_address,
     get_wifi_interfaces,
     load_saved_networks,
-    parse_iwlist_detailed,
+    # parse_iwlist_detailed,
     scan_networks as tools_scan,
     # scan_networks_simple,
     verify_connection,
@@ -173,34 +173,6 @@ class WiFiConnectZ(Screen):
         else:
             print(f"[DEBUG] NO NETWORK SELECTED - index: {index}")
 
-    def direct_scan(self):
-        """Direct scan using the detailed parser from tools.py"""
-        try:
-            if self.is_scanning:
-                return
-
-            if not self.interface:
-                self["status"].setText(_("No WiFi interface available"))
-                return
-
-            print(f"[DEBUG] Starting scan on interface: {self.interface}")
-
-            cmd = f"iwlist {self.interface} scan"
-            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
-
-            if result.returncode == 0:
-                self.networks = parse_iwlist_detailed(result.stdout)
-                print(f"[DEBUG] DIRECT SCAN SUCCESS - {len(self.networks)} networks")
-
-                for i, net in enumerate(self.networks[:3]):  # Firt 3 reti
-                    print(f"[DEBUG] Network {i}: {net.get('essid')} - {net.get('signal')}dBm")
-
-            else:
-                raise Exception(f"Direct scan failed: {result.stderr.strip()}")
-
-        except Exception as e:
-            raise e
-
     def scan_networks(self):
         """Scan for available WiFi networks - NON-BLOCKING"""
         if self.is_scanning:
@@ -233,7 +205,6 @@ class WiFiConnectZ(Screen):
             self["status"].setText(_("Scan failed"))
             print(f"[DEBUG] Scan error: {failure}")
 
-        # Esegui lo scan in un thread separato
         deferred = threads.deferToThread(do_scan)
         deferred.addCallback(scan_completed)
         deferred.addErrback(scan_failed)
@@ -497,14 +468,14 @@ class WiFiConnectZ(Screen):
         except Exception as e:
             print("[DEBUG] Error saving network: " + str(e))
 
-    def simple_config_callback(self, result):
-        """Simple callback for configuration"""
-        if result:
-            # Configuration was saved successfully
-            self.show_message(_("Configuration saved"))
-            # Optionally refresh the list
-            self.scan_networks()
-        # If result is None/False, user cancelled - do nothing
+    # def simple_config_callback(self, result):
+        # """Simple callback for configuration"""
+        # if result:
+            # # Configuration was saved successfully
+            # self.show_message(_("Configuration saved"))
+            # # Optionally refresh the list
+            # self.scan_networks()
+        # # If result is None/False, user cancelled - do nothing
 
     def get_saved_password(self, essid):
         """Get saved password for network"""
@@ -517,17 +488,17 @@ class WiFiConnectZ(Screen):
         """Semplificato - usa tools.py"""
         return get_current_connected_essid(self.interface)
 
-    def get_ip_addressp(self):
-        """Semplificato - usa tools.py"""
-        return get_ip_address(self.interface)
+    # def get_ip_addressp(self):
+        # """Semplificato - usa tools.py"""
+        # return get_ip_address(self.interface)
 
     def verify_connectionp(self, essid):
         """Semplificato - usa tools.py"""
         return verify_connection(self.interface, essid)
 
-    def ensure_interface_upp(self):
-        """Semplificato - usa tools.py"""
-        return ensure_interface_up(self.interface)
+    # def ensure_interface_upp(self):
+        # """Semplificato - usa tools.py"""
+        # return ensure_interface_up(self.interface)
 
     def handle_connect_after_password(self, answer, callback):
         """Handle connection after password entry"""
@@ -539,15 +510,15 @@ class WiFiConnectZ(Screen):
         if answer:
             self.execute_connection_with_callback(None)
 
-    def connect_edit_callback(self, choice):
-        """Callback for Connect/Edit"""
-        if choice is None:
-            return
+    # def connect_edit_callback(self, choice):
+        # """Callback for Connect/Edit"""
+        # if choice is None:
+            # return
 
-        if choice[1] == "connect":
-            self.execute_connection()
-        elif choice[1] == "edit":
-            self.open_advanced_configuration()
+        # if choice[1] == "connect":
+            # self.execute_connection()
+        # elif choice[1] == "edit":
+            # self.open_advanced_configuration()
 
     def connect_to_open_network(self):
         """Connect to open network - REFRESH"""
@@ -780,27 +751,27 @@ class WiFiConnectZ(Screen):
             if callback:
                 callback()
 
-    def open_advanced_configuration(self):
-        """Open config with pre-filled values"""
-        try:
-            essid = self.current_network.get('essid')
-            saved_config = self.saved_networks.get(essid, {})
+    # def open_advanced_configuration(self):
+        # """Open config with pre-filled values"""
+        # try:
+            # essid = self.current_network.get('essid')
+            # saved_config = self.saved_networks.get(essid, {})
 
-            network_info = {
-                'essid': essid,
-                'encryption': saved_config.get('encryption', 'WPA/WPA2'),
-                'password': saved_config.get('password', '')
-            }
+            # network_info = {
+                # 'essid': essid,
+                # 'encryption': saved_config.get('encryption', 'WPA/WPA2'),
+                # 'password': saved_config.get('password', '')
+            # }
 
-            self.session.openWithCallback(
-                self.configuration_finished,
-                WiFiConfigScreen,
-                self.interface,
-                network_info
-            )
-        except Exception as e:
-            print("[DEBUG] Error opening config: " + str(e))
-            self.show_message(_("Error opening configuration: %s") % str(e))
+            # self.session.openWithCallback(
+                # self.configuration_finished,
+                # WiFiConfigScreen,
+                # self.interface,
+                # network_info
+            # )
+        # except Exception as e:
+            # print("[DEBUG] Error opening config: " + str(e))
+            # self.show_message(_("Error opening configuration: %s") % str(e))
 
     def open_password_dialog_with_callback(self, callback):
         """Open password dialog and return to callback - FIXED"""
@@ -825,20 +796,6 @@ class WiFiConnectZ(Screen):
             title=_("Enter password for: %s") % self.current_network.get('essid'),
             windowTitle=_("WiFi Password")
         )
-
-    def disconnect_with_callback(self, callback):
-        """Disconnect and return to callback - FIXED"""
-        def disconnect_finished():
-            self.session.openWithCallback(
-                lambda result: callback() if callback else None,
-                MessageBox,
-                _("Disconnected successfully!"),
-                MessageBox.TYPE_INFO,
-                timeout=3
-            )
-
-        self.disconnect_from_network()
-        reactor.callLater(1, disconnect_finished)
 
     def disconnect_from_network(self):
         """Disconnect from current network - IN THREAD"""
@@ -1161,29 +1118,6 @@ class WiFiConnectZ(Screen):
             self["status"].setText(_("Connected to: {}\nSignal: {} | IP: {}").format(essid, quality, ip_addr))
         else:
             self["status"].setText(_("Not connected to any network"))
-
-    def configuration_finished(self, result):
-        """Callback when configuration is finished - RETURN TO OPTIONS"""
-        if result:
-            # Configuration saved, offer to connect
-            essid = self.current_network.get('essid')
-
-            def connect_callback(answer):
-                if answer:
-                    self.connect_with_saved_config_thread(essid)
-                else:
-                    # Return to options if user doesn't want to connect now
-                    self.show_network_options()
-
-            self.session.openWithCallback(
-                connect_callback,
-                MessageBox,
-                _("Configuration saved for %s\n\nConnect now?") % essid,
-                MessageBox.TYPE_YESNO
-            )
-        else:
-            # Return to options if configuration was cancelled
-            self.show_network_options()
 
     def keyUp(self):
         """Handle UP key - navigate and auto-select"""
