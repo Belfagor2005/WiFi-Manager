@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 15:01+0100\n"
+"POT-Creation-Date: 2025-11-14 14:24+0100\n"
 "PO-Revision-Date: 2024-08-31 20:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1077
+#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1016
 msgid "Connect"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "WiFi Manager"
 msgstr ""
 
-#: WiFiManager.py:185 modules/config.py:395
+#: WiFiManager.py:185 modules/config.py:415
 msgid "Password"
 msgstr ""
 
@@ -348,207 +348,239 @@ msgstr ""
 msgid "Error loading help"
 msgstr ""
 
-#: modules/config.py:153 modules/iwlist_tools.py:511
+#: modules/config.py:45
+msgid "Automatic (DHCP)"
+msgstr ""
+
+#: modules/config.py:46
+msgid "Manual (Static IP)"
+msgstr ""
+
+#: modules/config.py:169 modules/iwlist_tools.py:511
 msgid "Cancel"
 msgstr ""
 
-#: modules/config.py:154 modules/config.py:192
+#: modules/config.py:170 modules/config.py:212
 msgid "Save & Connect"
 msgstr ""
 
-#: modules/config.py:155 modules/config.py:419
+#: modules/config.py:171 modules/config.py:452
 msgid "Advanced"
 msgstr ""
 
-#: modules/config.py:156 modules/iwlist_tools.py:513
+#: modules/config.py:172 modules/iwlist_tools.py:513
 msgid "Defaults"
 msgstr ""
 
-#: modules/config.py:168
+#: modules/config.py:184
 #, python-brace-format
 msgid "Configure {}"
 msgstr ""
 
-#: modules/config.py:367
+#: modules/config.py:387
 msgid ""
 "WiFi settings applied successfully\n"
 "\n"
 msgstr ""
 
-#: modules/config.py:368
+#: modules/config.py:388
 #, python-brace-format
 msgid "Applied: {} commands\n"
 msgstr ""
 
-#: modules/config.py:370
+#: modules/config.py:390
 #, python-brace-format
 msgid "Failed: {} commands"
 msgstr ""
 
-#: modules/config.py:373
+#: modules/config.py:393
 msgid ""
 "No settings were applied\n"
 "\n"
 "Failed commands:\n"
 msgstr ""
 
-#: modules/config.py:387
+#: modules/config.py:407
 msgid "Interface"
 msgstr ""
 
-#: modules/config.py:389
+#: modules/config.py:409
 msgid "Network Name (SSID)"
 msgstr ""
 
-#: modules/config.py:390
+#: modules/config.py:410
 msgid "Hidden Network"
 msgstr ""
 
-#: modules/config.py:391
+#: modules/config.py:411
 msgid "Encryption"
 msgstr ""
 
-#: modules/config.py:399
+#: modules/config.py:419
 msgid "WEP Key Type"
 msgstr ""
 
-#: modules/config.py:405 modules/iwlist_tools.py:504
+#: modules/config.py:424
+msgid "IP Configuration"
+msgstr ""
+
+#: modules/config.py:428
+msgid "IP Address"
+msgstr ""
+
+#: modules/config.py:429
+msgid "Netmask"
+msgstr ""
+
+#: modules/config.py:430
+msgid "Gateway"
+msgstr ""
+
+#: modules/config.py:431
+msgid "DNS Server 1"
+msgstr ""
+
+#: modules/config.py:432
+msgid "DNS Server 2"
+msgstr ""
+
+#: modules/config.py:438 modules/iwlist_tools.py:504
 msgid "Operation Mode"
 msgstr ""
 
-#: modules/config.py:406 modules/iwlist_tools.py:505
+#: modules/config.py:439 modules/iwlist_tools.py:505
 msgid "Channel"
 msgstr ""
 
-#: modules/config.py:407 modules/iwlist_tools.py:506
+#: modules/config.py:440 modules/iwlist_tools.py:506
 msgid "TX Power"
 msgstr ""
 
-#: modules/config.py:408
+#: modules/config.py:441
 msgid "RTS Threshold"
 msgstr ""
 
-#: modules/config.py:409
+#: modules/config.py:442
 msgid "Fragmentation"
 msgstr ""
 
-#: modules/config.py:410
+#: modules/config.py:443
 msgid "Country Code"
 msgstr ""
 
-#: modules/config.py:411
+#: modules/config.py:444
 msgid "Data Rate"
 msgstr ""
 
-#: modules/config.py:419
+#: modules/config.py:452
 msgid "Basic"
 msgstr ""
 
-#: modules/config.py:435
+#: modules/config.py:468
 msgid "Please enter a network name"
 msgstr ""
 
-#: modules/config.py:439
+#: modules/config.py:472
 msgid "Please enter a password"
 msgstr ""
 
-#: modules/config.py:526
+#: modules/config.py:600
 msgid "All settings reset to defaults"
 msgstr ""
 
-#: modules/connect.py:97
+#: modules/connect.py:96
 msgid "Initializing WiFi..."
 msgstr ""
 
-#: modules/connect.py:98 modules/diagnostics.py:56 modules/monitor.py:80
+#: modules/connect.py:97 modules/diagnostics.py:56 modules/monitor.py:80
 #: modules/scanner.py:73
 msgid "Exit"
 msgstr ""
 
-#: modules/connect.py:101 modules/connect.py:226 modules/connect.py:232
+#: modules/connect.py:100 modules/connect.py:197 modules/connect.py:203
 #: modules/scanner.py:70
 msgid "Scan"
 msgstr ""
 
-#: modules/connect.py:119
+#: modules/connect.py:118
 msgid "WiFi Connection Manager"
 msgstr ""
 
-#: modules/connect.py:138 modules/connect.py:183 modules/connect.py:210
-#: modules/iwlist_tools.py:383
+#: modules/connect.py:137 modules/connect.py:181 modules/iwlist_tools.py:383
 msgid "No WiFi interface available"
 msgstr ""
 
-#: modules/connect.py:142
+#: modules/connect.py:141
 msgid "Performing initial scan..."
 msgstr ""
 
-#: modules/connect.py:154
+#: modules/connect.py:153
 #, python-brace-format
 msgid "Interface found: {}"
 msgstr ""
 
-#: modules/connect.py:157
+#: modules/connect.py:156
 msgid "No WiFi interface found"
 msgstr ""
 
-#: modules/connect.py:158
+#: modules/connect.py:157
 msgid "No WiFi interface detected. Please check your hardware."
 msgstr ""
 
-#: modules/connect.py:214
+#: modules/connect.py:185
 msgid "Scanning..."
 msgstr ""
 
-#: modules/connect.py:215
+#: modules/connect.py:186
 msgid "Scanning for networks..."
 msgstr ""
 
-#: modules/connect.py:233
+#: modules/connect.py:204
 msgid "Scan failed"
 msgstr ""
 
-#: modules/connect.py:252
+#: modules/connect.py:222
 msgid "Unknown"
 msgstr ""
 
-#: modules/connect.py:265
+#: modules/connect.py:235
 msgid "Secured"
 msgstr ""
 
-#: modules/connect.py:268
+#: modules/connect.py:238
 msgid "Open"
 msgstr ""
 
-#: modules/connect.py:306
+#: modules/connect.py:276
 #, python-brace-format
 msgid "CONNECTED to: {} - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:310
+#: modules/connect.py:280
 #, python-brace-format
 msgid "{} - Password saved - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:312
+#: modules/connect.py:282
 #, python-brace-format
 msgid "{} - Password required - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:315
+#: modules/connect.py:285
 #, python-brace-format
 msgid "{} - Open network - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:346
+#: modules/connect.py:326
 #, python-format
 msgid ""
 "CONNECTED to: %(essid)s\n"
-"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
+"IP: %(ip)s | Network: %(network_type)s\n"
+"Signal: %(quality)s (%(strength)s dBm)\n"
 "Press OK for options"
 msgstr ""
 
-#: modules/connect.py:356
+#: modules/connect.py:337
 #, python-format
 msgid ""
 "%(essid)s - Password saved\n"
@@ -556,7 +588,7 @@ msgid ""
 "Press OK to connect or edit"
 msgstr ""
 
-#: modules/connect.py:365
+#: modules/connect.py:346
 #, python-format
 msgid ""
 "%(essid)s - Password required\n"
@@ -564,7 +596,7 @@ msgid ""
 "Press OK to enter password"
 msgstr ""
 
-#: modules/connect.py:374
+#: modules/connect.py:355
 #, python-format
 msgid ""
 "%(essid)s - Open network\n"
@@ -572,86 +604,47 @@ msgid ""
 "Press OK to connect"
 msgstr ""
 
-#: modules/connect.py:440
+#: modules/connect.py:421
 msgid "No networks found - Press BLUE to rescan"
 msgstr ""
 
-#: modules/connect.py:441 modules/iwlist_tools.py:185
+#: modules/connect.py:422 modules/iwlist_tools.py:185
 #: modules/iwlist_tools.py:199
 msgid "No networks found"
 msgstr ""
 
-#: modules/connect.py:504
-msgid "Configuration saved"
-msgstr ""
-
-#: modules/connect.py:555
-#, python-brace-format
-msgid "Connecting to {}..."
-msgstr ""
-
-#: modules/connect.py:573
-#, python-brace-format
-msgid "Connected to {}"
-msgstr ""
-
-#: modules/connect.py:574
-#, python-brace-format
-msgid "Successfully connected to {}"
-msgstr ""
-
-#: modules/connect.py:578
-#, python-brace-format
-msgid "Connection to {} failed"
-msgstr ""
-
-#: modules/connect.py:580
-#, python-brace-format
-msgid "Failed to connect to {}"
-msgstr ""
-
-#: modules/connect.py:583
-#, python-brace-format
-msgid "Connection error: {}"
-msgstr ""
-
-#: modules/connect.py:684 modules/connect.py:1111
+#: modules/connect.py:603 modules/connect.py:1050
 #, python-format
 msgid "Connecting to %s..."
 msgstr ""
 
-#: modules/connect.py:701
+#: modules/connect.py:620
 #, python-format
 msgid "Connected to %s"
 msgstr ""
 
-#: modules/connect.py:704
+#: modules/connect.py:623
 #, python-format
 msgid "Failed to connect to %s"
 msgstr ""
 
-#: modules/connect.py:713
+#: modules/connect.py:634
 msgid "Connected successfully!"
 msgstr ""
 
-#: modules/connect.py:715
+#: modules/connect.py:636
 msgid "Connection failed!"
 msgstr ""
 
-#: modules/connect.py:762 modules/connect.py:1181
+#: modules/connect.py:684
 #, python-format
 msgid ""
-"Configuration saved for %s\n"
+"WiFi and network configuration saved for %s\n"
 "\n"
 "Connect now?"
 msgstr ""
 
-#: modules/connect.py:803
-#, python-format
-msgid "Error opening configuration: %s"
-msgstr ""
-
-#: modules/connect.py:815
+#: modules/connect.py:715
 #, python-format
 msgid ""
 "Password saved for %s\n"
@@ -659,60 +652,56 @@ msgid ""
 "Connect now?"
 msgstr ""
 
-#: modules/connect.py:825
+#: modules/connect.py:725
 #, python-format
 msgid "Enter password for: %s"
 msgstr ""
 
-#: modules/connect.py:826
+#: modules/connect.py:726
 msgid "WiFi Password"
 msgstr ""
 
-#: modules/connect.py:835
-msgid "Disconnected successfully!"
-msgstr ""
-
-#: modules/connect.py:862
+#: modules/connect.py:801
 msgid "Disconnected"
 msgstr ""
 
-#: modules/connect.py:865
+#: modules/connect.py:804
 msgid "Error disconnecting"
 msgstr ""
 
-#: modules/connect.py:876
+#: modules/connect.py:815
 msgid "Network forgotten!"
 msgstr ""
 
-#: modules/connect.py:895
+#: modules/connect.py:834
 #, python-brace-format
 msgid "Forgotten network: {}"
 msgstr ""
 
-#: modules/connect.py:898
+#: modules/connect.py:837
 #, python-brace-format
 msgid "Error: {}"
 msgstr ""
 
-#: modules/connect.py:914
+#: modules/connect.py:853
 msgid "No IP"
 msgstr ""
 
-#: modules/connect.py:916
+#: modules/connect.py:855
 #, python-brace-format
 msgid "Connected: {} | Signal: {} dBm | IP: {}"
 msgstr ""
 
-#: modules/connect.py:919 modules/connect.py:1150 modules/connect.py:1163
+#: modules/connect.py:858 modules/connect.py:1089 modules/connect.py:1102
 msgid "Not connected to any network"
 msgstr ""
 
-#: modules/connect.py:922
+#: modules/connect.py:861
 #, python-brace-format
 msgid "Status check failed: {}"
 msgstr ""
 
-#: modules/connect.py:991
+#: modules/connect.py:930
 #, python-format
 msgid ""
 "Connection Details:\n"
@@ -720,62 +709,62 @@ msgid ""
 "%s"
 msgstr ""
 
-#: modules/connect.py:1005
+#: modules/connect.py:944
 msgid "No connection details available"
 msgstr ""
 
-#: modules/connect.py:1013
+#: modules/connect.py:952
 #, python-format
 msgid "Error getting connection details: %s"
 msgstr ""
 
-#: modules/connect.py:1067
+#: modules/connect.py:1006
 msgid "Disconnect"
 msgstr ""
 
-#: modules/connect.py:1068 modules/connect.py:1087
+#: modules/connect.py:1007 modules/connect.py:1026
 msgid "Connection Info"
 msgstr ""
 
-#: modules/connect.py:1069 modules/connect.py:1085
+#: modules/connect.py:1008 modules/connect.py:1024
 msgid "Edit Configuration"
 msgstr ""
 
-#: modules/connect.py:1070 modules/connect.py:1088 modules/iwlist_tools.py:635
+#: modules/connect.py:1009 modules/connect.py:1027 modules/iwlist_tools.py:635
 msgid "Back"
 msgstr ""
 
-#: modules/connect.py:1072
+#: modules/connect.py:1011
 #, python-format
 msgid "Connected to: %s"
 msgstr ""
 
-#: modules/connect.py:1081
+#: modules/connect.py:1020
 msgid "Edit Password"
 msgstr ""
 
-#: modules/connect.py:1083
+#: modules/connect.py:1022
 msgid "Enter Password"
 msgstr ""
 
-#: modules/connect.py:1086
+#: modules/connect.py:1025
 msgid "Forget Network"
 msgstr ""
 
-#: modules/connect.py:1090
+#: modules/connect.py:1029
 #, python-format
 msgid "Network: %s"
 msgstr ""
 
-#: modules/connect.py:1117
+#: modules/connect.py:1056
 msgid "Disconnecting..."
 msgstr ""
 
-#: modules/connect.py:1140
+#: modules/connect.py:1079
 msgid "No network selected"
 msgstr ""
 
-#: modules/connect.py:1161
+#: modules/connect.py:1100
 #, python-brace-format
 msgid ""
 "Connected to: {}\n"

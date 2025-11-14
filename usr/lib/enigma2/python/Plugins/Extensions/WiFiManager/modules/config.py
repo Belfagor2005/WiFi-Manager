@@ -28,13 +28,23 @@ from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigListScreen
 from Components.Pixmap import Pixmap
 from Components.Label import Label
-from Components.config import ConfigSubsection, ConfigText, ConfigYesNo, ConfigPassword, ConfigSelection, getConfigListEntry, ConfigEnableDisable
+from Components.config import ConfigIP, ConfigSubsection, ConfigText, ConfigYesNo, ConfigPassword, ConfigSelection, getConfigListEntry, ConfigEnableDisable
 
 from . import _
 
 
-MODE_LIST = ["WPA/WPA2", "WPA2", "WPA", "WEP", "Unencrypted"]
 WEP_LIST = ["ASCII", "HEX"]
+MODE_LIST = [
+    "WPA/WPA2",
+    "WPA2",
+    "WPA",
+    "WEP",
+    "Unencrypted"
+]
+NETWORK_CONFIGS = [
+    ("dhcp", _("Automatic (DHCP)")),
+    ("static", _("Manual (Static IP)"))
+]
 
 
 class WiFiConfigScreen(Screen, ConfigListScreen):
@@ -66,14 +76,20 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         self.advanced_mode = False
 
         ConfigListScreen.__init__(self, self.list, session=session, on_change=self.onSelectionChanged)
-
+        self.network_config = ConfigSubsection()
         self.wifi_config = ConfigSubsection()
-
         self.wifi_config.essid = ConfigText(default=self.network_info.get('essid', ''), fixed_size=False)
         self.wifi_config.hiddenessid = ConfigYesNo(default=False)
         self.wifi_config.encryption = ConfigSelection(MODE_LIST, default=self.network_info.get('encryption', 'WPA/WPA2'))
         self.wifi_config.wepkeytype = ConfigSelection(WEP_LIST, default="ASCII")
         self.wifi_config.psk = ConfigPassword(default=self.network_info.get('password', ''), fixed_size=False)
+
+        self.wifi_config.connection_type = ConfigSelection(NETWORK_CONFIGS, default="dhcp")
+        self.wifi_config.ip = ConfigIP(default=[192, 168, 1, 100])
+        self.wifi_config.netmask = ConfigIP(default=[255, 255, 255, 0])
+        self.wifi_config.gateway = ConfigIP(default=[192, 168, 1, 1])
+        self.wifi_config.dns1 = ConfigIP(default=[8, 8, 8, 8])
+        self.wifi_config.dns2 = ConfigIP(default=[8, 8, 4, 4])
 
         # ADVANCED SETTINGS (dalla classe WiFiConfig originale)
         self.wifi_config.interface = ConfigSelection(choices=self.get_interfaces(), default=iface)
@@ -163,12 +179,16 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             "cancel": self.cancel,
             "ok": self.keyOK,
         })
-
+        self.wifi_config.connection_type.addNotifier(self.configChanged, initial_call=False)
         self.buildConfigList()
         self.setTitle(_("Configure {}").format(self.network_info.get('essid', 'WiFi Network')))
 
         if not network_info:
             self.load_current_settings()
+
+    def configChanged(self, configElement=None):
+        """Handle configuration changes"""
+        self.buildConfigList()
 
     def changedEntry(self):
         self.item = self["config"].getCurrent()
@@ -378,7 +398,7 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             print("Error applying settings: " + str(e))
 
     def buildConfigList(self):
-        """Build configuration list with basic/advanced sections"""
+        """Build configuration list with basic/advanced/network sections"""
         self.list = []
 
         # BASIC SECTION (always shown)
@@ -397,6 +417,19 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             # Show WEP key type for WEP encryption
             if self.wifi_config.encryption.value == "WEP":
                 self.list.append(getConfigListEntry(_("WEP Key Type"), self.wifi_config.wepkeytype))
+
+        # NETWORK SECTION (sempre visibile)
+        section = '--------------------------( NETWORK SETTINGS )-----------------------'
+        self.list.append(getConfigListEntry(section))
+        self.list.append(getConfigListEntry(_("IP Configuration"), self.wifi_config.connection_type))
+
+        # Mostra configurazione IP solo se manuale
+        if self.wifi_config.connection_type.value == "static":
+            self.list.append(getConfigListEntry(_("IP Address"), self.wifi_config.ip))
+            self.list.append(getConfigListEntry(_("Netmask"), self.wifi_config.netmask))
+            self.list.append(getConfigListEntry(_("Gateway"), self.wifi_config.gateway))
+            self.list.append(getConfigListEntry(_("DNS Server 1"), self.wifi_config.dns1))
+            self.list.append(getConfigListEntry(_("DNS Server 2"), self.wifi_config.dns2))
 
         # ADVANCED SECTION (conditional)
         if self.advanced_mode:
@@ -442,6 +475,9 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             # Write wpa_supplicant configuration
             self.write_wpa_supplicant_config()
 
+            # Write network configuration
+            self.write_network_config()
+
             # Apply advanced settings if in advanced mode
             if self.advanced_mode:
                 self.apply_advanced_settings()
@@ -451,6 +487,36 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
 
         except Exception as e:
             print("Error saving configuration: " + str(e))
+
+    def write_network_config(self):
+        """Scrive configurazione network autonoma per Enigma2"""
+        try:
+            config_file = "/etc/enigma2/network.conf"
+
+            config_lines = [
+                "# Network configuration for {}".format(self.wifi_config.essid.value),
+                "[network]",
+                "connection_type={}".format(self.wifi_config.connection_type.value),
+            ]
+
+            if self.wifi_config.connection_type.value == "static":
+                config_lines.extend([
+                    "ip={}".format(".".join(str(x) for x in self.wifi_config.ip.value)),
+                    "netmask={}".format(".".join(str(x) for x in self.wifi_config.netmask.value)),
+                    "gateway={}".format(".".join(str(x) for x in self.wifi_config.gateway.value)),
+                    "dns1={}".format(".".join(str(x) for x in self.wifi_config.dns1.value)),
+                    "dns2={}".format(".".join(str(x) for x in self.wifi_config.dns2.value))
+                ])
+
+            with open(config_file, "w") as f:
+                f.write("\n".join(config_lines))
+
+            print(f"[WiFiConfig] Network configuration saved to {config_file}")
+            return True
+
+        except Exception as e:
+            print(f"[WiFiConfig] Error writing network config: {e}")
+            return False
 
     def write_wpa_supplicant_config(self):
         """Write wpa_supplicant configuration like Enigma2"""
@@ -510,6 +576,14 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         self.wifi_config.encryption.value = "WPA/WPA2"
         self.wifi_config.wepkeytype.value = "ASCII"
         self.wifi_config.psk.value = ""
+
+        # Network defaults
+        self.wifi_config.connection_type.value = "dhcp"
+        self.wifi_config.ip.value = [192, 168, 1, 100]
+        self.wifi_config.netmask.value = [255, 255, 255, 0]
+        self.wifi_config.gateway.value = [192, 168, 1, 1]
+        self.wifi_config.dns1.value = [8, 8, 8, 8]
+        self.wifi_config.dns2.value = [8, 8, 4, 4]
 
         # Advanced defaults
         self.wifi_config.mode.value = "managed"
