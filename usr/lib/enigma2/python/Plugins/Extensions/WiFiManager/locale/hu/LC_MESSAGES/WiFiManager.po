@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-14 14:27+0100\n"
-"PO-Revision-Date: 2025-11-14 14:27+0100\n"
+"POT-Creation-Date: 2025-11-12 12:36+0100\n"
+"PO-Revision-Date: 2025-11-12 12:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: hu\n"
@@ -34,7 +34,8 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1016
+#: WiFiManager.py:113 WiFiManager.py:190 ⁨modules/connect - Copia.py⁩:1079
+#: modules/connect.py:1063
 msgid "Connect"
 msgstr ""
 
@@ -98,7 +99,7 @@ msgstr ""
 msgid "WiFi Manager"
 msgstr ""
 
-#: WiFiManager.py:185 modules/config.py:415
+#: WiFiManager.py:185 modules/config.py:395
 msgid "Password"
 msgstr ""
 
@@ -348,239 +349,209 @@ msgstr ""
 msgid "Error loading help"
 msgstr ""
 
-#: modules/config.py:45
-msgid "Automatic (DHCP)"
-msgstr ""
-
-#: modules/config.py:46
-msgid "Manual (Static IP)"
-msgstr ""
-
-#: modules/config.py:169 modules/iwlist_tools.py:511
+#: modules/config.py:153 modules/iwlist_tools.py:511
 msgid "Cancel"
 msgstr ""
 
-#: modules/config.py:170 modules/config.py:212
+#: modules/config.py:154 modules/config.py:192
 msgid "Save & Connect"
 msgstr ""
 
-#: modules/config.py:171 modules/config.py:452
+#: modules/config.py:155 modules/config.py:419
 msgid "Advanced"
 msgstr ""
 
-#: modules/config.py:172 modules/iwlist_tools.py:513
+#: modules/config.py:156 modules/iwlist_tools.py:513
 msgid "Defaults"
 msgstr ""
 
-#: modules/config.py:184
+#: modules/config.py:168
 #, python-brace-format
 msgid "Configure {}"
 msgstr ""
 
-#: modules/config.py:387
+#: modules/config.py:367
 msgid ""
 "WiFi settings applied successfully\n"
 "\n"
 msgstr ""
 
-#: modules/config.py:388
+#: modules/config.py:368
 #, python-brace-format
 msgid "Applied: {} commands\n"
 msgstr ""
 
-#: modules/config.py:390
+#: modules/config.py:370
 #, python-brace-format
 msgid "Failed: {} commands"
 msgstr ""
 
-#: modules/config.py:393
+#: modules/config.py:373
 msgid ""
 "No settings were applied\n"
 "\n"
 "Failed commands:\n"
 msgstr ""
 
-#: modules/config.py:407
+#: modules/config.py:387
 msgid "Interface"
 msgstr ""
 
-#: modules/config.py:409
+#: modules/config.py:389
 msgid "Network Name (SSID)"
 msgstr ""
 
-#: modules/config.py:410
+#: modules/config.py:390
 msgid "Hidden Network"
 msgstr ""
 
-#: modules/config.py:411
+#: modules/config.py:391
 msgid "Encryption"
 msgstr ""
 
-#: modules/config.py:419
+#: modules/config.py:399
 msgid "WEP Key Type"
 msgstr ""
 
-#: modules/config.py:424
-msgid "IP Configuration"
-msgstr ""
-
-#: modules/config.py:428
-msgid "IP Address"
-msgstr ""
-
-#: modules/config.py:429
-msgid "Netmask"
-msgstr ""
-
-#: modules/config.py:430
-msgid "Gateway"
-msgstr ""
-
-#: modules/config.py:431
-msgid "DNS Server 1"
-msgstr ""
-
-#: modules/config.py:432
-msgid "DNS Server 2"
-msgstr ""
-
-#: modules/config.py:438 modules/iwlist_tools.py:504
+#: modules/config.py:405 modules/iwlist_tools.py:504
 msgid "Operation Mode"
 msgstr ""
 
-#: modules/config.py:439 modules/iwlist_tools.py:505
+#: modules/config.py:406 modules/iwlist_tools.py:505
 msgid "Channel"
 msgstr ""
 
-#: modules/config.py:440 modules/iwlist_tools.py:506
+#: modules/config.py:407 modules/iwlist_tools.py:506
 msgid "TX Power"
 msgstr ""
 
-#: modules/config.py:441
+#: modules/config.py:408
 msgid "RTS Threshold"
 msgstr ""
 
-#: modules/config.py:442
+#: modules/config.py:409
 msgid "Fragmentation"
 msgstr ""
 
-#: modules/config.py:443
+#: modules/config.py:410
 msgid "Country Code"
 msgstr ""
 
-#: modules/config.py:444
+#: modules/config.py:411
 msgid "Data Rate"
 msgstr ""
 
-#: modules/config.py:452
+#: modules/config.py:419
 msgid "Basic"
 msgstr ""
 
-#: modules/config.py:468
+#: modules/config.py:435
 msgid "Please enter a network name"
 msgstr ""
 
-#: modules/config.py:472
+#: modules/config.py:439
 msgid "Please enter a password"
 msgstr ""
 
-#: modules/config.py:600
+#: modules/config.py:526
 msgid "All settings reset to defaults"
 msgstr ""
 
-#: modules/connect.py:96
+#: ⁨modules/connect - Copia.py⁩:97 modules/connect.py:97
 msgid "Initializing WiFi..."
 msgstr ""
 
-#: modules/connect.py:97 modules/diagnostics.py:56 modules/monitor.py:80
-#: modules/scanner.py:73
+#: ⁨modules/connect - Copia.py⁩:98 modules/connect.py:98 modules/diagnostics.py:56
+#: modules/monitor.py:80 modules/scanner.py:73
 msgid "Exit"
 msgstr ""
 
-#: modules/connect.py:100 modules/connect.py:197 modules/connect.py:203
-#: modules/scanner.py:70
+#: ⁨modules/connect - Copia.py⁩:101 ⁨modules/connect - Copia.py⁩:226
+#: ⁨modules/connect - Copia.py⁩:232 modules/connect.py:101 modules/connect.py:226
+#: modules/connect.py:232 modules/scanner.py:70
 msgid "Scan"
 msgstr ""
 
-#: modules/connect.py:118
+#: ⁨modules/connect - Copia.py⁩:119 modules/connect.py:119
 msgid "WiFi Connection Manager"
 msgstr ""
 
-#: modules/connect.py:137 modules/connect.py:181 modules/iwlist_tools.py:383
+#: ⁨modules/connect - Copia.py⁩:138 ⁨modules/connect - Copia.py⁩:183
+#: ⁨modules/connect - Copia.py⁩:210 modules/connect.py:138 modules/connect.py:183
+#: modules/connect.py:210 modules/iwlist_tools.py:383
 msgid "No WiFi interface available"
 msgstr ""
 
-#: modules/connect.py:141
+#: ⁨modules/connect - Copia.py⁩:142 modules/connect.py:142
 msgid "Performing initial scan..."
 msgstr ""
 
-#: modules/connect.py:153
+#: ⁨modules/connect - Copia.py⁩:154 modules/connect.py:154
 #, python-brace-format
 msgid "Interface found: {}"
 msgstr ""
 
-#: modules/connect.py:156
+#: ⁨modules/connect - Copia.py⁩:157 modules/connect.py:157
 msgid "No WiFi interface found"
 msgstr ""
 
-#: modules/connect.py:157
+#: ⁨modules/connect - Copia.py⁩:158 modules/connect.py:158
 msgid "No WiFi interface detected. Please check your hardware."
 msgstr ""
 
-#: modules/connect.py:185
+#: ⁨modules/connect - Copia.py⁩:214 modules/connect.py:214
 msgid "Scanning..."
 msgstr ""
 
-#: modules/connect.py:186
+#: ⁨modules/connect - Copia.py⁩:215 modules/connect.py:215
 msgid "Scanning for networks..."
 msgstr ""
 
-#: modules/connect.py:204
+#: ⁨modules/connect - Copia.py⁩:233 modules/connect.py:233
 msgid "Scan failed"
 msgstr ""
 
-#: modules/connect.py:222
+#: ⁨modules/connect - Copia.py⁩:252 modules/connect.py:252
 msgid "Unknown"
 msgstr ""
 
-#: modules/connect.py:235
+#: ⁨modules/connect - Copia.py⁩:265 modules/connect.py:265
 msgid "Secured"
 msgstr ""
 
-#: modules/connect.py:238
+#: ⁨modules/connect - Copia.py⁩:268 modules/connect.py:268
 msgid "Open"
 msgstr ""
 
-#: modules/connect.py:276
+#: ⁨modules/connect - Copia.py⁩:306 modules/connect.py:306
 #, python-brace-format
 msgid "CONNECTED to: {} - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:280
+#: ⁨modules/connect - Copia.py⁩:310 modules/connect.py:310
 #, python-brace-format
 msgid "{} - Password saved - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:282
+#: ⁨modules/connect - Copia.py⁩:312 modules/connect.py:312
 #, python-brace-format
 msgid "{} - Password required - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:285
+#: ⁨modules/connect - Copia.py⁩:315 modules/connect.py:315
 #, python-brace-format
 msgid "{} - Open network - Press OK for options"
 msgstr ""
 
-#: modules/connect.py:326
+#: ⁨modules/connect - Copia.py⁩:346 modules/connect.py:346
 #, python-format
 msgid ""
 "CONNECTED to: %(essid)s\n"
-"IP: %(ip)s | Network: %(network_type)s\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
 "Press OK for options"
 msgstr ""
 
-#: modules/connect.py:337
+#: ⁨modules/connect - Copia.py⁩:356 modules/connect.py:356
 #, python-format
 msgid ""
 "%(essid)s - Password saved\n"
@@ -588,7 +559,7 @@ msgid ""
 "Press OK to connect or edit"
 msgstr ""
 
-#: modules/connect.py:346
+#: ⁨modules/connect - Copia.py⁩:365 modules/connect.py:365
 #, python-format
 msgid ""
 "%(essid)s - Password required\n"
@@ -596,7 +567,7 @@ msgid ""
 "Press OK to enter password"
 msgstr ""
 
-#: modules/connect.py:355
+#: ⁨modules/connect - Copia.py⁩:374 modules/connect.py:374
 #, python-format
 msgid ""
 "%(essid)s - Open network\n"
@@ -604,47 +575,78 @@ msgid ""
 "Press OK to connect"
 msgstr ""
 
-#: modules/connect.py:421
+#: ⁨modules/connect - Copia.py⁩:440 modules/connect.py:440
 msgid "No networks found - Press BLUE to rescan"
 msgstr ""
 
-#: modules/connect.py:422 modules/iwlist_tools.py:185
-#: modules/iwlist_tools.py:199
+#: ⁨modules/connect - Copia.py⁩:441 modules/connect.py:441
+#: modules/iwlist_tools.py:185 modules/iwlist_tools.py:199
 msgid "No networks found"
 msgstr ""
 
-#: modules/connect.py:603 modules/connect.py:1050
-#, python-format
-msgid "Connecting to %s..."
+#: ⁨modules/connect - Copia.py⁩:504 modules/connect.py:504
+msgid "Configuration saved"
 msgstr ""
 
-#: modules/connect.py:620
-#, python-format
-msgid "Connected to %s"
+#: ⁨modules/connect - Copia.py⁩:561 modules/connect.py:555
+#, python-brace-format
+msgid "Connecting to {}..."
 msgstr ""
 
-#: modules/connect.py:623
-#, python-format
-msgid "Failed to connect to %s"
+#: ⁨modules/connect - Copia.py⁩:579 modules/connect.py:573
+#, python-brace-format
+msgid "Connected to {}"
 msgstr ""
 
-#: modules/connect.py:634
+#: ⁨modules/connect - Copia.py⁩:580 modules/connect.py:574
+#, python-brace-format
+msgid "Successfully connected to {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:584 modules/connect.py:578
+#, python-brace-format
+msgid "Connection to {} failed"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:586 modules/connect.py:580
+#, python-brace-format
+msgid "Failed to connect to {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:589 modules/connect.py:583
+#, python-brace-format
+msgid "Connection error: {}"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:689 modules/connect.py:683
+msgid "Connecting..."
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:706 ⁨modules/connect - Copia.py⁩:721
+#: modules/connect.py:700 modules/connect.py:712
 msgid "Connected successfully!"
 msgstr ""
 
-#: modules/connect.py:636
+#: ⁨modules/connect - Copia.py⁩:709 ⁨modules/connect - Copia.py⁩:729
+#: modules/connect.py:703 modules/connect.py:714
 msgid "Connection failed!"
 msgstr ""
 
-#: modules/connect.py:684
+#: ⁨modules/connect - Copia.py⁩:777 ⁨modules/connect - Copia.py⁩:1193
+#: modules/connect.py:761 modules/connect.py:1181
 #, python-format
 msgid ""
-"WiFi and network configuration saved for %s\n"
+"Configuration saved for %s\n"
 "\n"
 "Connect now?"
 msgstr ""
 
-#: modules/connect.py:715
+#: ⁨modules/connect - Copia.py⁩:818 modules/connect.py:802
+#, python-format
+msgid "Error opening configuration: %s"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:830 modules/connect.py:814
 #, python-format
 msgid ""
 "Password saved for %s\n"
@@ -652,56 +654,62 @@ msgid ""
 "Connect now?"
 msgstr ""
 
-#: modules/connect.py:725
+#: ⁨modules/connect - Copia.py⁩:840 modules/connect.py:824
 #, python-format
 msgid "Enter password for: %s"
 msgstr ""
 
-#: modules/connect.py:726
+#: ⁨modules/connect - Copia.py⁩:841 modules/connect.py:825
 msgid "WiFi Password"
 msgstr ""
 
-#: modules/connect.py:801
-msgid "Disconnected"
+#: ⁨modules/connect - Copia.py⁩:850 modules/connect.py:834
+msgid "Disconnected successfully!"
 msgstr ""
 
-#: modules/connect.py:804
+#: ⁨modules/connect - Copia.py⁩:877 modules/connect.py:861
+msgid "Disconnected from network"
+msgstr ""
+
+#: ⁨modules/connect - Copia.py⁩:880 modules/connect.py:864
 msgid "Error disconnecting"
 msgstr ""
 
-#: modules/connect.py:815
+#: ⁨modules/connect - Copia.py⁩:891 modules/connect.py:875
 msgid "Network forgotten!"
 msgstr ""
 
-#: modules/connect.py:834
+#: ⁨modules/connect - Copia.py⁩:910 modules/connect.py:894
 #, python-brace-format
 msgid "Forgotten network: {}"
 msgstr ""
 
-#: modules/connect.py:837
+#: ⁨modules/connect - Copia.py⁩:913 modules/connect.py:897
 #, python-brace-format
 msgid "Error: {}"
 msgstr ""
 
-#: modules/connect.py:853
+#: ⁨modules/connect - Copia.py⁩:929 modules/connect.py:913
 msgid "No IP"
 msgstr ""
 
-#: modules/connect.py:855
+#: ⁨modules/connect - Copia.py⁩:931 modules/connect.py:915
 #, python-brace-format
 msgid "Connected: {} | Signal: {} dBm | IP: {}"
 msgstr ""
 
-#: modules/connect.py:858 modules/connect.py:1089 modules/connect.py:1102
+#: ⁨modules/connect - Copia.py⁩:934 ⁨modules/connect - Copia.py⁩:1162
+#: ⁨modules/connect - Copia.py⁩:1175 modules/connect.py:918 modules/connect.py:1150
+#: modules/connect.py:1163
 msgid "Not connected to any network"
 msgstr ""
 
-#: modules/connect.py:861
+#: ⁨modules/connect - Copia.py⁩:937 modules/connect.py:921
 #, python-brace-format
 msgid "Status check failed: {}"
 msgstr ""
 
-#: modules/connect.py:930
+#: ⁨modules/connect - Copia.py⁩:1006 modules/connect.py:990
 #, python-format
 msgid ""
 "Connection Details:\n"
@@ -709,66 +717,75 @@ msgid ""
 "%s"
 msgstr ""
 
-#: modules/connect.py:944
+#: ⁨modules/connect - Copia.py⁩:1020 modules/connect.py:1004
 msgid "No connection details available"
 msgstr ""
 
-#: modules/connect.py:952
+#: ⁨modules/connect - Copia.py⁩:1028 modules/connect.py:1012
 #, python-format
 msgid "Error getting connection details: %s"
 msgstr ""
 
-#: modules/connect.py:1006
+#: ⁨modules/connect - Copia.py⁩:1069 modules/connect.py:1053
 msgid "Disconnect"
 msgstr ""
 
-#: modules/connect.py:1007 modules/connect.py:1026
+#: ⁨modules/connect - Copia.py⁩:1070 ⁨modules/connect - Copia.py⁩:1089
+#: modules/connect.py:1054 modules/connect.py:1073
 msgid "Connection Info"
 msgstr ""
 
-#: modules/connect.py:1008 modules/connect.py:1024
+#: ⁨modules/connect - Copia.py⁩:1071 ⁨modules/connect - Copia.py⁩:1087
+#: modules/connect.py:1055 modules/connect.py:1071
 msgid "Edit Configuration"
 msgstr ""
 
-#: modules/connect.py:1009 modules/connect.py:1027 modules/iwlist_tools.py:635
+#: ⁨modules/connect - Copia.py⁩:1072 ⁨modules/connect - Copia.py⁩:1090
+#: modules/connect.py:1056 modules/connect.py:1074 modules/iwlist_tools.py:635
 msgid "Back"
 msgstr ""
 
-#: modules/connect.py:1011
+#: ⁨modules/connect - Copia.py⁩:1074 modules/connect.py:1058
 #, python-format
 msgid "Connected to: %s"
 msgstr ""
 
-#: modules/connect.py:1020
+#: ⁨modules/connect - Copia.py⁩:1083 modules/connect.py:1067
 msgid "Edit Password"
 msgstr ""
 
-#: modules/connect.py:1022
+#: ⁨modules/connect - Copia.py⁩:1085 modules/connect.py:1069
 msgid "Enter Password"
 msgstr ""
 
-#: modules/connect.py:1025
+#: ⁨modules/connect - Copia.py⁩:1088 modules/connect.py:1072
 msgid "Forget Network"
 msgstr ""
 
-#: modules/connect.py:1029
+#: ⁨modules/connect - Copia.py⁩:1092 modules/connect.py:1076
 #, python-format
 msgid "Network: %s"
 msgstr ""
 
-#: modules/connect.py:1056
-msgid "Disconnecting..."
-msgstr ""
-
-#: modules/connect.py:1079
+#: ⁨modules/connect - Copia.py⁩:1152 modules/connect.py:1140
 msgid "No network selected"
 msgstr ""
 
-#: modules/connect.py:1100
+#: ⁨modules/connect - Copia.py⁩:1173 modules/connect.py:1161
 #, python-brace-format
 msgid ""
 "Connected to: {}\n"
 "Signal: {} | IP: {}"
+msgstr ""
+
+#: modules/connect.py:1100
+#, python-format
+msgid "Connected successfully to %s"
+msgstr ""
+
+#: modules/connect.py:1111
+#, python-format
+msgid "Disconnected from %s"
 msgstr ""
 
 #: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
@@ -1593,22 +1610,23 @@ msgstr ""
 msgid "Cancelling test..."
 msgstr ""
 
-#: modules/tools.py:618
+#: ⁨modules/tools - Copia.py⁩:302 modules/tools.py:618
 msgid "Excellent"
 msgstr ""
 
-#: modules/tools.py:619
+#: ⁨modules/tools - Copia.py⁩:303 modules/tools.py:619
 msgid "Good"
 msgstr ""
 
-#: modules/tools.py:620
+#: ⁨modules/tools - Copia.py⁩:304 modules/tools.py:620
 msgid "Fair"
 msgstr ""
 
-#: modules/tools.py:621
+#: ⁨modules/tools - Copia.py⁩:305 modules/tools.py:621
 msgid "Poor"
 msgstr ""
 
-#: modules/tools.py:622 modules/tools.py:629
+#: ⁨modules/tools - Copia.py⁩:306 ⁨modules/tools - Copia.py⁩:313 modules/tools.py:622
+#: modules/tools.py:629
 msgid "Very Poor"
 msgstr ""

@@ -28,9 +28,8 @@ from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.ScrollLabel import ScrollLabel
 
-from wifi.scan import Cell
-
 from . import _
+# from .iwlibs import getWNICnames, Wireless
 from .tools import (
     get_wifi_interfaces,
     is_interface_up,
@@ -40,6 +39,20 @@ from .tools import (
     get_interface_info
 )
 
+# Attempt to import pythonwifi with fallback
+try:
+    from wifi.scan import Cell
+    PYTHONWIFI_AVAILABLE = True
+    print("[WiFiScanner] pythonwifi module available")
+except ImportError as e:
+    PYTHONWIFI_AVAILABLE = False
+    print(f"[WiFiScanner] pythonwifi not available: {e}")
+    # Define fallback for Cell
+    
+    class Cell:
+        @staticmethod
+        def all(interface, timeout=5):
+            return []
 
 IW_ENCODE_DISABLED = 0x8000  # Encoding disabled
 IW_ENCODE_ENABLED = 0x0000  # Encoding enabled
@@ -124,118 +137,17 @@ class WiFiScanner(Screen):
                 self.display_networks(networks)
                 return
 
-            # TRY WITH WIFI.SCAN MODULE (more reliable)
-            try:
-                # First activate interface if needed - use wifi_ifaces
-                for iface in wifi_ifaces:
-                    try:
-                        print(f"[WiFiScanner] Testing interface: {iface}")
+            # FIRST ATTEMPT: use pythonwifi if available
+            if PYTHONWIFI_AVAILABLE:
+                networks.extend(self.scan_with_pythonwifi(wifi_ifaces))
+            else:
+                networks.append("\n[INFO] pythonwifi not available, using iwlist\n")
 
-                        # Check if interface exists and is up
-                        if not is_interface_up(iface):
-                            print(f"[WiFiScanner] Activating interface {iface}")
-                            # Bring interface up using tools function
-                            ensure_interface_up(iface)
+            # SECOND ATTEMPT: use iwlist as fallback
+            if not networks or len(networks) <= 2:
+                networks.extend(self.scan_with_iwlist(wifi_ifaces))
 
-                        networks.append(f"\n=== SCAN with wifi.scan on {iface} ===\n")
-                        print(f"[WiFiScanner] Starting Cell.all() on {iface}...")
-
-                        # Use Cell.all() for scanning
-                        scan_results = list(Cell.all(iface, timeout=10))
-                        print(f"[WiFiScanner] Cell.all() returned {len(scan_results)} results")
-
-                        if scan_results:
-                            for i, cell in enumerate(scan_results):
-                                essid = cell.ssid if cell.ssid else "Hidden"
-
-                                # DEBUG: Print all cell attributes
-                                print(f"[WiFiScanner] Cell {i}: {essid}")
-                                print(f"[WiFiScanner]   Cell quality: {cell.quality}")
-                                if hasattr(cell, 'signal'):
-                                    print(f"[WiFiScanner]   Cell signal: {cell.signal}")
-
-                                # Parse quality string
-                                quality = 0
-                                if isinstance(cell.quality, str) and '/' in cell.quality:
-                                    parts = cell.quality.split('/')
-                                    if len(parts) == 2:
-                                        try:
-                                            current = int(parts[0])
-                                            max_val = int(parts[1])
-                                            if max_val > 0:
-                                                quality = int((current / max_val) * 100)
-                                                print(f"[WiFiScanner]   Parsed quality: {current}/{max_val} = {quality}%")
-                                            else:
-                                                quality = 0
-                                                print("[WiFiScanner]   Max quality is 0, setting quality to 0")
-                                        except (ValueError, ZeroDivisionError) as e:
-                                            quality = 0
-                                            print(f"[WiFiScanner]   Error parsing quality: {e}")
-
-                                # Parse signal
-                                signal = self.extract_signal_from_cell(cell, debug=True)
-
-                                # # Parse signal - try multiple methods
-                                # signal = 0
-
-                                # # Method 1: Try cell.signal attribute
-                                # if hasattr(cell, 'signal') and cell.signal:
-                                    # if isinstance(cell.signal, str):
-                                        # # Parse signal string like "-61 dBm" or "signal=-61"
-                                        # signal_match = search(r'(-?\d+)\s*dBm?', cell.signal)
-                                        # if signal_match:
-                                            # signal = int(signal_match.group(1))
-                                            # print(f"[WiFiScanner]   Signal from cell.signal: {signal} dBm")
-                                    # else:
-                                        # signal = cell.signal
-                                        # print(f"[WiFiScanner]   Signal from cell.signal (direct): {signal} dBm")
-
-                                # # Method 2: If signal is still 0, try to get from cell string representation
-                                # if signal == 0:
-                                    # cell_str = str(cell)
-                                    # signal_match = search(r'Signal level=(-?\d+)', cell_str)
-                                    # if signal_match:
-                                        # signal = int(signal_match.group(1))
-                                        # print(f"[WiFiScanner]   Signal from cell string: {signal} dBm")
-
-                                # # Method 3: Fallback - estimate from quality (only if quality is valid)
-                                # if signal == 0 and quality > 0:
-                                    # # Rough estimation: -30dBm (excellent) to -90dBm (poor)
-                                    # signal = -90 + (quality * 0.6)
-                                    # signal = int(signal)
-                                    # print(f"[WiFiScanner]   Signal estimated from quality: {signal} dBm")
-
-                                channel = getattr(cell, 'channel', 0)
-                                encrypted = "Yes" if cell.encrypted else "No"
-                                frequency = getattr(cell, 'frequency', 0)
-                                print(f"[WiFiScanner] Final values\nQuality: {quality}%,\nSignal: {signal}dBm,\nChannel: {channel}\nFrequency: {frequency}")
-
-                                # Use format_signal_quality for a better description
-                                signal_quality = format_signal_quality(quality)
-
-                                networks.append(
-                                    f"{i + 1:2d}. {essid:20} | "
-                                    f"Quality: {quality:3}% ({signal_quality}) | "
-                                    f"Signal: {signal:4} dBm | "
-                                    f"Channel: {channel:2} | "
-                                    f"Encrypted: {encrypted}\n"
-                                )
-                            break  # Stop at first working interface
-                        else:
-                            networks.append(f"   No networks found on {iface}\n")
-                            print(f"[WiFiScanner] No networks found on {iface}")
-
-                    except Exception as e:
-                        error_msg = f"   Error on {iface}: {str(e)}\n"
-                        networks.append(error_msg)
-                        print(f"[WiFiScanner] {error_msg}")
-                        continue
-
-            except ImportError as e:
-                error_msg = "wifi.scan library not available\n"
-                networks.append(error_msg)
-                print(f"[WiFiScanner] {error_msg} {e}")
-                networks.extend(self.fallback_iwlist_scan())
+            # THIRD ATTEMPT: if everything fails, show diagnostics
 
             # If no scan worked, show diagnostic info
             if len(networks) <= 3:  # Only headers and few results
@@ -246,152 +158,163 @@ class WiFiScanner(Screen):
             self.display_networks(networks)
 
         except Exception as e:
-            error_msg = f"Scan error: {str(e)}"
+            error_msg = f"Scan error: {str(e)}\n"
             print(f"[WiFiScanner] {error_msg}")
             self["scan_output"].setText(_("Scan error: ") + str(e))
 
-    def extract_signal_from_cell(self, cell, debug=False):
-        """Extract signal strength from cell object with multiple methods"""
-        signal = 0
-        
-        # Method 1: Try cell.signal attribute directly
-        if hasattr(cell, 'signal') and cell.signal is not None:
-            if isinstance(cell.signal, (int, float)):
-                signal = int(cell.signal)
-                if debug:
-                    print(f"[SIGNAL] From cell.signal (direct): {signal} dBm")
-                return signal
-            elif isinstance(cell.signal, str):
-                # Parse signal string like "-61 dBm" or "signal=-61"
-                signal_match = search(r'(-?\d+)\s*dBm?', cell.signal)
-                if signal_match:
-                    signal = int(signal_match.group(1))
-                    if debug:
-                        print(f"[SIGNAL] From cell.signal string: {signal} dBm")
-                    return signal
-
-        # Method 2: Try cell.get('signal')
-        try:
-            if hasattr(cell, 'get') and callable(cell.get):
-                cell_signal = cell.get('signal')
-                if cell_signal:
-                    if isinstance(cell_signal, (int, float)):
-                        signal = int(cell_signal)
-                        if debug:
-                            print(f"[SIGNAL] From cell.get('signal'): {signal} dBm")
-                        return signal
-        except:
-            pass
-
-        # Method 3: Parse from cell string representation
-        cell_str = str(cell)
-        if debug:
-            print(f"[SIGNAL] Cell string: {cell_str}")
-        
-        # Try multiple signal patterns
-        signal_patterns = [
-            r'Signal level=(-?\d+)',
-            r'signal[=:](-?\d+)',
-            r'dBm[=:](-?\d+)',
-            r'signal[=\s]*(-?\d+)\s*dBm',
-            r'level[=\s]*(-?\d+)\s*dBm'
-        ]
-        
-        for pattern in signal_patterns:
-            signal_match = search(pattern, cell_str, search.IGNORECASE)
-            if signal_match:
-                try:
-                    signal = int(signal_match.group(1))
-                    if debug:
-                        print(f"[SIGNAL] From cell string pattern '{pattern}': {signal} dBm")
-                    return signal
-                except ValueError:
-                    continue
-
-        # Method 4: Estimate from quality if available
-        if hasattr(cell, 'quality') and cell.quality:
-            if isinstance(cell.quality, str) and '/' in cell.quality:
-                parts = cell.quality.split('/')
-                if len(parts) == 2:
-                    try:
-                        current = int(parts[0])
-                        max_val = int(parts[1])
-                        if max_val > 0:
-                            quality_percent = (current / max_val) * 100
-                            # Rough estimation: -30dBm (excellent) to -90dBm (poor)
-                            signal = int(-90 + (quality_percent * 0.6))
-                            if debug:
-                                print(f"[SIGNAL] Estimated from quality {quality_percent}%: {signal} dBm")
-                            return signal
-                    except (ValueError, ZeroDivisionError):
-                        pass
-
-        if debug:
-            print("[SIGNAL] No signal found, using 0 dBm")
-        return signal
-
-    def fallback_iwlist_scan(self):
-        """Fallback scan with iwlist using tools.py"""
-        print("[WiFiScanner] Starting fallback iwlist scan")
+    def scan_with_iwlist(self, wifi_ifaces):
+        """Scan using iwlist as fallback"""
+        print("[WiFiScanner] Starting iwlist fallback scan")
         networks = []
-        networks.append("\n=== FALLBACK SCAN with iwlist ===\n")
+        networks.append("\n=== SCAN WITH IWLIST ===\n")
 
-        try:
-            wifi_ifaces = get_wifi_interfaces()
+        for iface in wifi_ifaces:
+            try:
+                print(f"[WiFiScanner] iwlist scan on {iface}")
+                result = subprocess.check_output(
+                    ['iwlist', iface, 'scan'],
+                    stderr=subprocess.STDOUT,
+                    text=True,
+                    timeout=15
+                )
 
-            for iface in wifi_ifaces:
-                try:
-                    print(f"[WiFiScanner] iwlist scan on {iface}")
-                    result = subprocess.check_output(['iwlist', iface, 'scan'],
-                                                     stderr=subprocess.STDOUT,
-                                                     text=True,
-                                                     timeout=15)
-                    print(f"[WiFiScanner] iwlist output length: {len(result)}")
+                parsed_networks = parse_iwlist_detailed(result)
+                if parsed_networks:
+                    for i, net in enumerate(parsed_networks):
+                        essid = net.get('essid', 'Unknown')
+                        signal = net.get('signal', 0)
+                        quality_percent = net.get('quality_percent', 0)
+                        channel = net.get('channel', '?')
+                        encrypted = "Yes" if net.get('encryption') else "No"
 
-                    # DEBUG: Show sample of iwlist output for signal parsing
-                    lines = result.split('\n')
-                    signal_lines = [line for line in lines if 'Signal level' in line or 'Quality' in line]
-                    for i, line in enumerate(signal_lines[:3]):
-                        print(f"[SIGNAL] iwlist signal line {i}: {line.strip()}")
+                        signal_quality = format_signal_quality(quality_percent)
 
-                    # Use parse_iwlist_detailed da tools.py
-                    parsed_networks = parse_iwlist_detailed(result)
-                    if parsed_networks:
-                        for i, net in enumerate(parsed_networks):
-                            essid = net.get('essid', 'Unknown')
-                            signal = net.get('signal', 0)
-                            quality_percent = net.get('quality_percent', 0)
-                            channel = net.get('channel', '?')
-                            encrypted = "Yes" if net.get('encryption') else "No"
+                        networks.append(
+                            f"{i + 1:2d}. {essid:20} | "
+                            f"Quality: {quality_percent:3}% ({signal_quality}) | "
+                            f"Signal: {signal:4} dBm | "
+                            f"Channel: {channel} | "
+                            f"Encrypted: {encrypted}\n"
+                        )
+                    print(f"[WiFiScanner] iwlist found {len(parsed_networks)} networks")
+                    break
 
-                            # Use format_signal_quality
-                            signal_quality = format_signal_quality(quality_percent)
+            except subprocess.TimeoutExpired:
+                networks.append(f"   iwlist timeout on {iface}\n")
+            except subprocess.CalledProcessError as e:
+                networks.append(f"   iwlist error on {iface}: {e}\n")
+            except Exception as e:
+                networks.append(f"   iwlist exception on {iface}: {e}\n")
 
-                            networks.append(
-                                f"{i + 1:2d}. {essid:20} | "
-                                f"Quality: {quality_percent:3}% ({signal_quality}) | "
-                                f"Signal: {signal:4} dBm | "
-                                f"Channel: {channel} | "
-                                f"Encrypted: {encrypted}\n"
-                            )
-                        print(f"[WiFiScanner] iwlist found {len(parsed_networks)} networks")
-                        break
-                    else:
-                        print("[WiFiScanner] No networks parsed from iwlist output")
-                except Exception as e:
-                    print(f"[WiFiScanner] iwlist error on {iface}: {e}")
-                    continue
-
-            if len(networks) <= 2:  # Only header
-                networks.append("   No results with iwlist\n")
-                print("[WiFiScanner] iwlist found no networks")
-
-        except Exception as e:
-            error_msg = f"   iwlist error: {e}\n"
-            networks.append(error_msg)
-            print(f"[WiFiScanner] {error_msg}")
+        if len(networks) <= 2:  # Only header
+            networks.append("   No networks found with iwlist\n")
 
         return networks
+
+    def scan_with_pythonwifi(self, wifi_ifaces):
+        """Scan using pythonwifi and Cell.all()"""
+        networks = []
+        networks.append("\n=== SCAN WITH PYTHONWIFI ===\n")
+
+        for iface in wifi_ifaces:
+            try:
+                print(f"[WiFiScanner] Scanning with pythonwifi on {iface}")
+
+                # Ensure interface is up
+                if not is_interface_up(iface):
+                    print(f"[WiFiScanner] Activating interface {iface}")
+                    ensure_interface_up(iface)
+
+                # Perform scan with Cell.all()
+                scan_results = list(Cell.all(iface, timeout=10))
+                print(f"[WiFiScanner] Found {len(scan_results)} networks on {iface}")
+
+                if scan_results:
+                    for i, cell in enumerate(scan_results):
+                        network_info = self.parse_cell(cell, i)
+                        if network_info:
+                            networks.append(network_info)
+                    break  # Use first working interface
+                else:
+                    networks.append(f"   No networks found on {iface}\n")
+
+            except Exception as e:
+                error_msg = f"   Error on {iface}: {str(e)}\n"
+                networks.append(error_msg)
+                print(f"[WiFiScanner] pythonwifi error: {error_msg}")
+                continue
+
+        return networks
+
+    def parse_cell(self, cell, index):
+        """Parse a pythonwifi Cell object"""
+        try:
+            # ESSID
+            essid = cell.ssid if cell.ssid else "Hidden"
+
+            # Quality
+            quality = self.parse_quality(cell.quality)
+
+            # Signal
+            signal = self.extract_signal_from_cell(cell)
+
+            # Channel and Frequency
+            channel = getattr(cell, 'channel', 0)
+            frequency = getattr(cell, 'frequency', 0)
+            print(f"[WiFiScanner] frequency cell: {frequency}")
+
+            # Encryption
+            encrypted = "Yes" if cell.encrypted else "No"
+
+            # Format signal quality
+            signal_quality = format_signal_quality(quality)
+
+            return (
+                f"{index + 1:2d}. {essid:20} | "
+                f"Quality: {quality:3}% ({signal_quality}) | "
+                f"Signal: {signal:4} dBm | "
+                f"Channel: {channel:2} | "
+                f"Encrypted: {encrypted}\n"
+            )
+
+        except Exception as e:
+            print(f"[WiFiScanner] Error parsing cell: {e}")
+            return None
+
+    def parse_quality(self, quality_str):
+        """Parse quality string (e.g., '39/70')"""
+        try:
+            if isinstance(quality_str, str) and '/' in quality_str:
+                parts = quality_str.split('/')
+                if len(parts) == 2:
+                    current = int(parts[0])
+                    max_val = int(parts[1])
+                    if max_val > 0:
+                        return int((current / max_val) * 100)
+            return 0
+        except (ValueError, ZeroDivisionError):
+            return 0
+
+    def extract_signal_from_cell(self, cell, debug=False):
+        """Extract signal strength from a Cell object"""
+        signal = 0
+
+        # Method 1: direct signal attribute
+        if hasattr(cell, 'signal') and cell.signal is not None:
+            if isinstance(cell.signal, (int, float)):
+                return int(cell.signal)
+            elif isinstance(cell.signal, str):
+                match = search(r'(-?\d+)\s*dBm?', cell.signal)
+                if match:
+                    return int(match.group(1))
+
+        # Method 2: estimate from quality
+        quality = self.parse_quality(getattr(cell, 'quality', '0/100'))
+        if quality > 0:
+            # Rough estimation: -30dBm (excellent) to -90dBm (poor)
+            return int(-90 + (quality * 0.6))
+
+        return signal
 
     def parse_iwlist_output(self, output):
         """Parse iwlist output with debug"""
@@ -470,6 +393,69 @@ class WiFiScanner(Screen):
         print(f"[WiFiScanner] Total networks parsed: {len(networks)}")
         return networks if networks else ["iwlist: No networks found\n"]
 
+    def fallback_iwlist_scan(self):
+        """Fallback scan with iwlist using tools.py"""
+        print("[WiFiScanner] Starting fallback iwlist scan")
+        networks = []
+        networks.append("\n=== FALLBACK SCAN with iwlist ===\n")
+
+        try:
+            wifi_ifaces = get_wifi_interfaces()
+
+            for iface in wifi_ifaces:
+                try:
+                    print(f"[WiFiScanner] iwlist scan on {iface}")
+                    result = subprocess.check_output(['iwlist', iface, 'scan'],
+                                                     stderr=subprocess.STDOUT,
+                                                     text=True,
+                                                     timeout=15)
+                    print(f"[WiFiScanner] iwlist output length: {len(result)}")
+
+                    # DEBUG: Show sample of iwlist output for signal parsing
+                    lines = result.split('\n')
+                    signal_lines = [line for line in lines if 'Signal level' in line or 'Quality' in line]
+                    for i, line in enumerate(signal_lines[:3]):
+                        print(f"[SIGNAL] iwlist signal line {i}: {line.strip()}")
+
+                    # Use parse_iwlist_detailed da tools.py
+                    parsed_networks = parse_iwlist_detailed(result)
+                    if parsed_networks:
+                        for i, net in enumerate(parsed_networks):
+                            essid = net.get('essid', 'Unknown')
+                            signal = net.get('signal', 0)
+                            quality_percent = net.get('quality_percent', 0)
+                            channel = net.get('channel', '?')
+                            encrypted = "Yes" if net.get('encryption') else "No"
+
+                            # Use format_signal_quality
+                            signal_quality = format_signal_quality(quality_percent)
+
+                            networks.append(
+                                f"{i + 1:2d}. {essid:20} | "
+                                f"Quality: {quality_percent:3}% ({signal_quality}) | "
+                                f"Signal: {signal:4} dBm | "
+                                f"Channel: {channel} | "
+                                f"Encrypted: {encrypted}\n"
+                            )
+                        print(f"[WiFiScanner] iwlist found {len(parsed_networks)} networks")
+                        break
+                    else:
+                        print("[WiFiScanner] No networks parsed from iwlist output")
+                except Exception as e:
+                    print(f"[WiFiScanner] iwlist error on {iface}: {e}")
+                    continue
+
+            if len(networks) <= 2:  # Only header
+                networks.append("   No results with iwlist\n")
+                print("[WiFiScanner] iwlist found no networks")
+
+        except Exception as e:
+            error_msg = f"   iwlist error: {e}\n"
+            networks.append(error_msg)
+            print(f"[WiFiScanner] {error_msg}")
+
+        return networks
+
     def process_pythonwifi_scan(self, scan_results):
         """Process pythonwifi results"""
         networks = []
@@ -510,29 +496,29 @@ class WiFiScanner(Screen):
         return f"{index:2d}. {essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm\n"
 
     def get_detailed_network_status(self):
-        """Detailed diagnostics using tools.py functions"""
+        """Detailed network diagnostics"""
         info = []
         info.append("\n" + "=" * 50)
         info.append("\nDETAILED DIAGNOSTICS")
         info.append("\n" + "=" * 50 + "\n")
 
         try:
-            # 1. AVAILABLE WIFI INTERFACES - use get_wifi_interfaces
-            info.append("\n📡 WIFI INTERFACES:\n")
+            # WiFi Interfaces
+            info.append("\nWIFI INTERFACES:\n")
             wifi_ifaces = get_wifi_interfaces()
             if wifi_ifaces:
                 info.append(f"   Found: {', '.join(wifi_ifaces)}\n")
             else:
                 info.append("   No WiFi interfaces found\n")
 
-            # 2. INTERFACE STATUS - use is_interface_up
-            info.append("\n🔧 INTERFACE STATUS:\n")
+            # Interface status
+            info.append("\nINTERFACE STATUS:\n")
             for iface in wifi_ifaces:
                 status = "ACTIVE" if is_interface_up(iface) else "INACTIVE"
                 icon = "V" if is_interface_up(iface) else "X"
                 info.append(f"   {icon} {iface}: {status}\n")
 
-            # 3. ACTIVE CONNECTIONS - use get_interface_info
+            # Active connections
             info.append("\nACTIVE CONNECTIONS:\n")
             for iface in wifi_ifaces:
                 interface_info = get_interface_info(iface)
@@ -543,7 +529,7 @@ class WiFiScanner(Screen):
                 else:
                     info.append(f"   {iface}: Not connected\n")
 
-            # 4. SOLUTIONS
+            # Solutions
             info.append("\nPOSSIBLE SOLUTIONS:\n")
             info.append("   1. Disconnect from current WiFi network\n")
             info.append("   2. Restart WiFi adapter\n")

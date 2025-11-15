@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-14 14:25+0100\n"
-"PO-Revision-Date: 2025-11-14 14:26+0100\n"
+"POT-Creation-Date: 2025-11-15 18:29+0100\n"
+"PO-Revision-Date: 2025-11-15 18:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -429,7 +429,7 @@ msgstr "Errore durante il caricamento della guida"
 
 #: modules/config.py:45
 msgid "Automatic (DHCP)"
-msgstr "Automatico (DHCP)"
+msgstr ""
 
 #: modules/config.py:46
 msgid "Manual (Static IP)"
@@ -510,7 +510,7 @@ msgstr "Configurazione IP"
 
 #: modules/config.py:428
 msgid "IP Address"
-msgstr "Indirizzo IP"
+msgstr ""
 
 #: modules/config.py:429
 msgid "Netmask"
@@ -522,11 +522,11 @@ msgstr ""
 
 #: modules/config.py:431
 msgid "DNS Server 1"
-msgstr "Server DNS 1"
+msgstr ""
 
 #: modules/config.py:432
 msgid "DNS Server 2"
-msgstr "Server DNS 2"
+msgstr ""
 
 #: modules/config.py:438 modules/iwlist_tools.py:504
 msgid "Operation Mode"
@@ -577,12 +577,12 @@ msgid "Initializing WiFi..."
 msgstr "Inizializzazione WiFi in corso..."
 
 #: modules/connect.py:97 modules/diagnostics.py:56 modules/monitor.py:80
-#: modules/scanner.py:73
+#: modules/scanner.py:86
 msgid "Exit"
 msgstr "Esci"
 
 #: modules/connect.py:100 modules/connect.py:197 modules/connect.py:203
-#: modules/scanner.py:70
+#: modules/scanner.py:83
 msgid "Scan"
 msgstr "Scansione"
 
@@ -879,7 +879,7 @@ msgstr ""
 "Connesso a: {}\n"
 "Segnale: {} | IP: {}"
 
-#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
+#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:84
 msgid "Refresh"
 msgstr "Aggiorna"
 
@@ -1326,30 +1326,30 @@ msgstr "Monitor del segnale WiFi"
 msgid "Pause"
 msgstr "Pausa"
 
-#: modules/scanner.py:72 modules/speedtest_manager.py:76
+#: modules/scanner.py:85 modules/speedtest_manager.py:76
 #: modules/speedtest_manager.py:107
 msgid "Details"
 msgstr "Dettagli"
 
-#: modules/scanner.py:95
+#: modules/scanner.py:108
 msgid "WiFi Scanner"
 msgstr "Scanner WiFi"
 
-#: modules/scanner.py:105
+#: modules/scanner.py:118
 msgid "Scanning for WiFi networks..."
 msgstr "Scansione delle reti WiFi in corso..."
 
-#: modules/scanner.py:251
+#: modules/scanner.py:163
 msgid "Scan error: "
 msgstr "Errore scansione: "
 
-#: modules/scanner.py:568
+#: modules/scanner.py:554
 msgid "Detailed view enabled - rescan to see details"
 msgstr ""
 "Visualizzazione dettagliata abilitata: esegui una nuova scansione per vedere "
 "i dettagli"
 
-#: modules/scanner.py:570
+#: modules/scanner.py:556
 msgid "Basic view enabled - rescan to see basic info"
 msgstr ""
 "Visualizzazione di base abilitata: esegui una nuova scansione per "

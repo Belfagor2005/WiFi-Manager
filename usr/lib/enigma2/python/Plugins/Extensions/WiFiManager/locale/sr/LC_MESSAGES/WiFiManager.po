@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-14 14:27+0100\n"
-"PO-Revision-Date: 2025-11-14 14:27+0100\n"
+"POT-Creation-Date: 2025-11-12 12:37+0100\n"
+"PO-Revision-Date: 2025-11-12 12:37+0100\n"
 "Last-Translator: milan58 <milan58>\n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: sr@latin\n"
@@ -36,7 +36,8 @@ msgstr "Skener"
 msgid "Monitor"
 msgstr "Monitor"
 
-#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1016
+#: WiFiManager.py:113 WiFiManager.py:190 ⁨modules/connect - Copia.py⁩:1079
+#: modules/connect.py:1063
 msgid "Connect"
 msgstr "Povezivanje"
 
@@ -100,7 +101,7 @@ msgstr ""
 msgid "WiFi Manager"
 msgstr "Wi-Fi menadžer"
 
-#: WiFiManager.py:185 modules/config.py:415
+#: WiFiManager.py:185 modules/config.py:395
 msgid "Password"
 msgstr "Lozinka"
 
@@ -428,36 +429,28 @@ msgstr "Nema dostupne pomoći za ovaj alat."
 msgid "Error loading help"
 msgstr "Greška pokretanja alata"
 
-#: modules/config.py:45
-msgid "Automatic (DHCP)"
-msgstr ""
-
-#: modules/config.py:46
-msgid "Manual (Static IP)"
-msgstr ""
-
-#: modules/config.py:169 modules/iwlist_tools.py:511
+#: modules/config.py:153 modules/iwlist_tools.py:511
 msgid "Cancel"
 msgstr "Otkaži"
 
-#: modules/config.py:170 modules/config.py:212
+#: modules/config.py:154 modules/config.py:192
 msgid "Save & Connect"
 msgstr "Sačuvaj & Poveži"
 
-#: modules/config.py:171 modules/config.py:452
+#: modules/config.py:155 modules/config.py:419
 msgid "Advanced"
 msgstr "Napredno"
 
-#: modules/config.py:172 modules/iwlist_tools.py:513
+#: modules/config.py:156 modules/iwlist_tools.py:513
 msgid "Defaults"
 msgstr "Zadani"
 
-#: modules/config.py:184
+#: modules/config.py:168
 #, python-brace-format
 msgid "Configure {}"
 msgstr "Konfigurišite {}"
 
-#: modules/config.py:387
+#: modules/config.py:367
 msgid ""
 "WiFi settings applied successfully\n"
 "\n"
@@ -465,17 +458,17 @@ msgstr ""
 "WiFi podešavanja uspešno primenjena\n"
 "\n"
 
-#: modules/config.py:388
+#: modules/config.py:368
 #, python-brace-format
 msgid "Applied: {} commands\n"
 msgstr "Primenjene: {} komande\n"
 
-#: modules/config.py:390
+#: modules/config.py:370
 #, python-brace-format
 msgid "Failed: {} commands"
 msgstr "Greška: {} komande"
 
-#: modules/config.py:393
+#: modules/config.py:373
 msgid ""
 "No settings were applied\n"
 "\n"
@@ -485,180 +478,157 @@ msgstr ""
 "\n"
 "Neuspele komande:\n"
 
-#: modules/config.py:407
+#: modules/config.py:387
 msgid "Interface"
 msgstr "Interfejs"
 
-#: modules/config.py:409
+#: modules/config.py:389
 msgid "Network Name (SSID)"
 msgstr "Naziv mreže (SSID)"
 
-#: modules/config.py:410
+#: modules/config.py:390
 msgid "Hidden Network"
 msgstr "Skrivena mreža"
 
-#: modules/config.py:411
+#: modules/config.py:391
 msgid "Encryption"
 msgstr "Kodiranje"
 
-#: modules/config.py:419
+#: modules/config.py:399
 msgid "WEP Key Type"
 msgstr "WEP Ključ Tip"
 
-#: modules/config.py:424
-#, fuzzy
-#| msgid "Edit Configuration"
-msgid "IP Configuration"
-msgstr "Uredi konfiguraciju"
-
-#: modules/config.py:428
-msgid "IP Address"
-msgstr ""
-
-#: modules/config.py:429
-msgid "Netmask"
-msgstr ""
-
-#: modules/config.py:430
-msgid "Gateway"
-msgstr ""
-
-#: modules/config.py:431
-msgid "DNS Server 1"
-msgstr ""
-
-#: modules/config.py:432
-msgid "DNS Server 2"
-msgstr ""
-
-#: modules/config.py:438 modules/iwlist_tools.py:504
+#: modules/config.py:405 modules/iwlist_tools.py:504
 msgid "Operation Mode"
 msgstr "Režim Rada"
 
-#: modules/config.py:439 modules/iwlist_tools.py:505
+#: modules/config.py:406 modules/iwlist_tools.py:505
 msgid "Channel"
 msgstr "Kanal"
 
-#: modules/config.py:440 modules/iwlist_tools.py:506
+#: modules/config.py:407 modules/iwlist_tools.py:506
 msgid "TX Power"
 msgstr "TX Snaga"
 
-#: modules/config.py:441
+#: modules/config.py:408
 msgid "RTS Threshold"
 msgstr "RTS prag"
 
-#: modules/config.py:442
+#: modules/config.py:409
 msgid "Fragmentation"
 msgstr "Fragmentacija"
 
-#: modules/config.py:443
+#: modules/config.py:410
 msgid "Country Code"
 msgstr "Šifra države"
 
-#: modules/config.py:444
+#: modules/config.py:411
 msgid "Data Rate"
 msgstr "Brzina prenosa podataka"
 
-#: modules/config.py:452
+#: modules/config.py:419
 msgid "Basic"
 msgstr "Osnovno"
 
-#: modules/config.py:468
+#: modules/config.py:435
 msgid "Please enter a network name"
 msgstr "Molimo Vas da unesete ime mreže"
 
-#: modules/config.py:472
+#: modules/config.py:439
 msgid "Please enter a password"
 msgstr "Molimo Vas da unesete lozinku"
 
-#: modules/config.py:600
+#: modules/config.py:526
 msgid "All settings reset to defaults"
 msgstr "Sva podešavanja se vraćaju na zadano"
 
-#: modules/connect.py:96
+#: ⁨modules/connect - Copia.py⁩:97 modules/connect.py:97
 msgid "Initializing WiFi..."
 msgstr "Inicijalizacija WiFi-a..."
 
-#: modules/connect.py:97 modules/diagnostics.py:56 modules/monitor.py:80
-#: modules/scanner.py:73
+#: ⁨modules/connect - Copia.py⁩:98 modules/connect.py:98 modules/diagnostics.py:56
+#: modules/monitor.py:80 modules/scanner.py:73
 msgid "Exit"
 msgstr "Izlaz"
 
-#: modules/connect.py:100 modules/connect.py:197 modules/connect.py:203
-#: modules/scanner.py:70
+#: ⁨modules/connect - Copia.py⁩:101 ⁨modules/connect - Copia.py⁩:226
+#: ⁨modules/connect - Copia.py⁩:232 modules/connect.py:101 modules/connect.py:226
+#: modules/connect.py:232 modules/scanner.py:70
 msgid "Scan"
 msgstr "Skan"
 
-#: modules/connect.py:118
+#: ⁨modules/connect - Copia.py⁩:119 modules/connect.py:119
 msgid "WiFi Connection Manager"
 msgstr "Menadžer WiFi Veze"
 
-#: modules/connect.py:137 modules/connect.py:181 modules/iwlist_tools.py:383
+#: ⁨modules/connect - Copia.py⁩:138 ⁨modules/connect - Copia.py⁩:183
+#: ⁨modules/connect - Copia.py⁩:210 modules/connect.py:138 modules/connect.py:183
+#: modules/connect.py:210 modules/iwlist_tools.py:383
 msgid "No WiFi interface available"
 msgstr "Nema dostupnog WiFi interfejsa"
 
-#: modules/connect.py:141
+#: ⁨modules/connect - Copia.py⁩:142 modules/connect.py:142
 msgid "Performing initial scan..."
 msgstr "Izvršavanje početnog skeniranja..."
 
-#: modules/connect.py:153
+#: ⁨modules/connect - Copia.py⁩:154 modules/connect.py:154
 #, python-brace-format
 msgid "Interface found: {}"
 msgstr "Interfejs pronađen: {}"
 
-#: modules/connect.py:156
+#: ⁨modules/connect - Copia.py⁩:157 modules/connect.py:157
 msgid "No WiFi interface found"
 msgstr "Nije pronađen WiFi interfejs"
 
-#: modules/connect.py:157
+#: ⁨modules/connect - Copia.py⁩:158 modules/connect.py:158
 msgid "No WiFi interface detected. Please check your hardware."
 msgstr "Nije otkriven WiFi interfejs. Molimo proverite svoj hardver."
 
-#: modules/connect.py:185
+#: ⁨modules/connect - Copia.py⁩:214 modules/connect.py:214
 msgid "Scanning..."
 msgstr "Pretraga..."
 
-#: modules/connect.py:186
+#: ⁨modules/connect - Copia.py⁩:215 modules/connect.py:215
 msgid "Scanning for networks..."
 msgstr "Pretraga mreža..."
 
-#: modules/connect.py:204
+#: ⁨modules/connect - Copia.py⁩:233 modules/connect.py:233
 msgid "Scan failed"
 msgstr "Skeniranje nije uspelo"
 
-#: modules/connect.py:222
+#: ⁨modules/connect - Copia.py⁩:252 modules/connect.py:252
 msgid "Unknown"
 msgstr "Nepoznato"
 
-#: modules/connect.py:235
+#: ⁨modules/connect - Copia.py⁩:265 modules/connect.py:265
 msgid "Secured"
 msgstr "Obezbeđeno"
 
-#: modules/connect.py:238
+#: ⁨modules/connect - Copia.py⁩:268 modules/connect.py:268
 msgid "Open"
 msgstr "Otvori"
 
-#: modules/connect.py:276
+#: ⁨modules/connect - Copia.py⁩:306 modules/connect.py:306
 #, python-brace-format
 msgid "CONNECTED to: {} - Press OK for options"
 msgstr "POVEZANO sa: {} - Pritisnite OK za opcije"
 
-#: modules/connect.py:280
+#: ⁨modules/connect - Copia.py⁩:310 modules/connect.py:310
 #, python-brace-format
 msgid "{} - Password saved - Press OK for options"
 msgstr "{} - Lozinka sačuvana - Pritisnite OK za opcije"
 
-#: modules/connect.py:282
+#: ⁨modules/connect - Copia.py⁩:312 modules/connect.py:312
 #, python-brace-format
 msgid "{} - Password required - Press OK for options"
 msgstr "{} - Potrebna lozinka - Pritisnite OK za opcije"
 
-#: modules/connect.py:285
+#: ⁨modules/connect - Copia.py⁩:315 modules/connect.py:315
 #, python-brace-format
 msgid "{} - Open network - Press OK for options"
 msgstr "{} - Otvorena mreža - Pritisnite OK za opcije"
 
-#: modules/connect.py:326
+#: ⁨modules/connect - Copia.py⁩:346 modules/connect.py:346
 #, fuzzy, python-format
 #| msgid ""
 #| "CONNECTED to: %s\n"
@@ -666,15 +636,14 @@ msgstr "{} - Otvorena mreža - Pritisnite OK za opcije"
 #| "Press OK for options"
 msgid ""
 "CONNECTED to: %(essid)s\n"
-"IP: %(ip)s | Network: %(network_type)s\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
 "Press OK for options"
 msgstr ""
 "POVEZANO sa: %s\n"
 "IP: %s | Signal: %s (%s dBm)\n"
 "Pritisnite OK za opcije"
 
-#: modules/connect.py:337
+#: ⁨modules/connect - Copia.py⁩:356 modules/connect.py:356
 #, fuzzy, python-format
 #| msgid ""
 #| "%s - Password saved\n"
@@ -689,7 +658,7 @@ msgstr ""
 "Signal: %s (%s dBm)\n"
 "Pritisnite OK za povezivanje ili uredi"
 
-#: modules/connect.py:346
+#: ⁨modules/connect - Copia.py⁩:365 modules/connect.py:365
 #, fuzzy, python-format
 #| msgid ""
 #| "%s - Password required\n"
@@ -704,7 +673,7 @@ msgstr ""
 "Signal: %s (%s dBm)\n"
 "Pritisnite OK da unesete lozinku"
 
-#: modules/connect.py:355
+#: ⁨modules/connect - Copia.py⁩:374 modules/connect.py:374
 #, fuzzy, python-format
 #| msgid ""
 #| "%s - Open network\n"
@@ -719,48 +688,68 @@ msgstr ""
 "Signal: %s (%s dBm)\n"
 "Pritisnite OK za povezivanje"
 
-#: modules/connect.py:421
+#: ⁨modules/connect - Copia.py⁩:440 modules/connect.py:440
 msgid "No networks found - Press BLUE to rescan"
 msgstr "Nema pronađenih mreža - Pritisnite PLAVO za ponovni pregled"
 
-#: modules/connect.py:422 modules/iwlist_tools.py:185
-#: modules/iwlist_tools.py:199
+#: ⁨modules/connect - Copia.py⁩:441 modules/connect.py:441
+#: modules/iwlist_tools.py:185 modules/iwlist_tools.py:199
 msgid "No networks found"
 msgstr "Mreže nisu pronađene"
 
-#: modules/connect.py:603 modules/connect.py:1050
-#, fuzzy, python-format
-#| msgid "Connecting to {}..."
-msgid "Connecting to %s..."
+#: ⁨modules/connect - Copia.py⁩:504 modules/connect.py:504
+msgid "Configuration saved"
+msgstr "Konfiguracija sačuvana"
+
+#: ⁨modules/connect - Copia.py⁩:561 modules/connect.py:555
+#, python-brace-format
+msgid "Connecting to {}..."
 msgstr "Povezivanje sa {}..."
 
-#: modules/connect.py:620
-#, python-format
-msgid "Connected to %s"
-msgstr "Povezano sa %s"
+#: ⁨modules/connect - Copia.py⁩:579 modules/connect.py:573
+#, python-brace-format
+msgid "Connected to {}"
+msgstr "Povezano sa {}"
 
-#: modules/connect.py:623
-#, fuzzy, python-format
-#| msgid "Failed to connect to {}"
-msgid "Failed to connect to %s"
+#: ⁨modules/connect - Copia.py⁩:580 modules/connect.py:574
+#, python-brace-format
+msgid "Successfully connected to {}"
+msgstr "Uspešno povezano sa {}"
+
+#: ⁨modules/connect - Copia.py⁩:584 modules/connect.py:578
+#, python-brace-format
+msgid "Connection to {} failed"
+msgstr "Veza sa {} nije uspela"
+
+#: ⁨modules/connect - Copia.py⁩:586 modules/connect.py:580
+#, python-brace-format
+msgid "Failed to connect to {}"
 msgstr "Neuspešno povezivanje sa {}"
 
-#: modules/connect.py:634
+#: ⁨modules/connect - Copia.py⁩:589 modules/connect.py:583
+#, python-brace-format
+msgid "Connection error: {}"
+msgstr "Greška u vezi: {}"
+
+#: ⁨modules/connect - Copia.py⁩:689 modules/connect.py:683
+msgid "Connecting..."
+msgstr "Povezivanje..."
+
+#: ⁨modules/connect - Copia.py⁩:706 ⁨modules/connect - Copia.py⁩:721
+#: modules/connect.py:700 modules/connect.py:712
 msgid "Connected successfully!"
 msgstr "Uspešno povezano!"
 
-#: modules/connect.py:636
+#: ⁨modules/connect - Copia.py⁩:709 ⁨modules/connect - Copia.py⁩:729
+#: modules/connect.py:703 modules/connect.py:714
 msgid "Connection failed!"
 msgstr "Veza nije uspela!"
 
-#: modules/connect.py:684
-#, fuzzy, python-format
-#| msgid ""
-#| "Configuration saved for %s\n"
-#| "\n"
-#| "Connect now?"
+#: ⁨modules/connect - Copia.py⁩:777 ⁨modules/connect - Copia.py⁩:1193
+#: modules/connect.py:761 modules/connect.py:1181
+#, python-format
 msgid ""
-"WiFi and network configuration saved for %s\n"
+"Configuration saved for %s\n"
 "\n"
 "Connect now?"
 msgstr ""
@@ -768,7 +757,12 @@ msgstr ""
 "\n"
 "Povezati se sada?"
 
-#: modules/connect.py:715
+#: ⁨modules/connect - Copia.py⁩:818 modules/connect.py:802
+#, python-format
+msgid "Error opening configuration: %s"
+msgstr "Greška pri otvaranju konfiguracije: %s"
+
+#: ⁨modules/connect - Copia.py⁩:830 modules/connect.py:814
 #, python-format
 msgid ""
 "Password saved for %s\n"
@@ -779,58 +773,62 @@ msgstr ""
 "\n"
 "Povezati se sada?"
 
-#: modules/connect.py:725
+#: ⁨modules/connect - Copia.py⁩:840 modules/connect.py:824
 #, python-format
 msgid "Enter password for: %s"
 msgstr "Unesite lozinku za: %s"
 
-#: modules/connect.py:726
+#: ⁨modules/connect - Copia.py⁩:841 modules/connect.py:825
 msgid "WiFi Password"
 msgstr "WiFi Lozinka"
 
-#: modules/connect.py:801
-#, fuzzy
-#| msgid "Disconnect"
-msgid "Disconnected"
-msgstr "Isključi"
+#: ⁨modules/connect - Copia.py⁩:850 modules/connect.py:834
+msgid "Disconnected successfully!"
+msgstr "Uspešno je prekinuta veza!"
 
-#: modules/connect.py:804
+#: ⁨modules/connect - Copia.py⁩:877 modules/connect.py:861
+msgid "Disconnected from network"
+msgstr "Isključeno sa mreže"
+
+#: ⁨modules/connect - Copia.py⁩:880 modules/connect.py:864
 msgid "Error disconnecting"
 msgstr "Greška pri prekidanju veze"
 
-#: modules/connect.py:815
+#: ⁨modules/connect - Copia.py⁩:891 modules/connect.py:875
 msgid "Network forgotten!"
 msgstr "Mreža zaboravljena!"
 
-#: modules/connect.py:834
+#: ⁨modules/connect - Copia.py⁩:910 modules/connect.py:894
 #, python-brace-format
 msgid "Forgotten network: {}"
 msgstr "Zaboravljena mreža: {}"
 
-#: modules/connect.py:837
+#: ⁨modules/connect - Copia.py⁩:913 modules/connect.py:897
 #, python-brace-format
 msgid "Error: {}"
 msgstr "Greška: {}"
 
-#: modules/connect.py:853
+#: ⁨modules/connect - Copia.py⁩:929 modules/connect.py:913
 msgid "No IP"
 msgstr "Nema IP"
 
-#: modules/connect.py:855
+#: ⁨modules/connect - Copia.py⁩:931 modules/connect.py:915
 #, python-brace-format
 msgid "Connected: {} | Signal: {} dBm | IP: {}"
 msgstr "Povezano: {} | Signal: {} dBm | IP: {}"
 
-#: modules/connect.py:858 modules/connect.py:1089 modules/connect.py:1102
+#: ⁨modules/connect - Copia.py⁩:934 ⁨modules/connect - Copia.py⁩:1162
+#: ⁨modules/connect - Copia.py⁩:1175 modules/connect.py:918 modules/connect.py:1150
+#: modules/connect.py:1163
 msgid "Not connected to any network"
 msgstr "Nije povezano ni na jednu mrežu"
 
-#: modules/connect.py:861
+#: ⁨modules/connect - Copia.py⁩:937 modules/connect.py:921
 #, python-brace-format
 msgid "Status check failed: {}"
 msgstr "Provera statusa nije uspela: {}"
 
-#: modules/connect.py:930
+#: ⁨modules/connect - Copia.py⁩:1006 modules/connect.py:990
 #, python-format
 msgid ""
 "Connection Details:\n"
@@ -841,64 +839,61 @@ msgstr ""
 "\n"
 "%s"
 
-#: modules/connect.py:944
+#: ⁨modules/connect - Copia.py⁩:1020 modules/connect.py:1004
 msgid "No connection details available"
 msgstr "Nema dostupnih detalja o konekciji"
 
-#: modules/connect.py:952
+#: ⁨modules/connect - Copia.py⁩:1028 modules/connect.py:1012
 #, python-format
 msgid "Error getting connection details: %s"
 msgstr "Greška pri dobijanju detalja konekcije: %s"
 
-#: modules/connect.py:1006
+#: ⁨modules/connect - Copia.py⁩:1069 modules/connect.py:1053
 msgid "Disconnect"
 msgstr "Isključi"
 
-#: modules/connect.py:1007 modules/connect.py:1026
+#: ⁨modules/connect - Copia.py⁩:1070 ⁨modules/connect - Copia.py⁩:1089
+#: modules/connect.py:1054 modules/connect.py:1073
 msgid "Connection Info"
 msgstr "Informacije o vezi"
 
-#: modules/connect.py:1008 modules/connect.py:1024
+#: ⁨modules/connect - Copia.py⁩:1071 ⁨modules/connect - Copia.py⁩:1087
+#: modules/connect.py:1055 modules/connect.py:1071
 msgid "Edit Configuration"
 msgstr "Uredi konfiguraciju"
 
-#: modules/connect.py:1009 modules/connect.py:1027 modules/iwlist_tools.py:635
+#: ⁨modules/connect - Copia.py⁩:1072 ⁨modules/connect - Copia.py⁩:1090
+#: modules/connect.py:1056 modules/connect.py:1074 modules/iwlist_tools.py:635
 msgid "Back"
 msgstr "Nazad"
 
-#: modules/connect.py:1011
+#: ⁨modules/connect - Copia.py⁩:1074 modules/connect.py:1058
 #, python-format
 msgid "Connected to: %s"
 msgstr "Povezano sa: %s"
 
-#: modules/connect.py:1020
+#: ⁨modules/connect - Copia.py⁩:1083 modules/connect.py:1067
 msgid "Edit Password"
 msgstr "Uredi Lozinku"
 
-#: modules/connect.py:1022
+#: ⁨modules/connect - Copia.py⁩:1085 modules/connect.py:1069
 msgid "Enter Password"
 msgstr "Unesite Lozinku"
 
-#: modules/connect.py:1025
+#: ⁨modules/connect - Copia.py⁩:1088 modules/connect.py:1072
 msgid "Forget Network"
 msgstr "Zaboravi Mrežu"
 
-#: modules/connect.py:1029
+#: ⁨modules/connect - Copia.py⁩:1092 modules/connect.py:1076
 #, python-format
 msgid "Network: %s"
 msgstr "Mreža: %s"
 
-#: modules/connect.py:1056
-#, fuzzy
-#| msgid "Connecting..."
-msgid "Disconnecting..."
-msgstr "Povezivanje..."
-
-#: modules/connect.py:1079
+#: ⁨modules/connect - Copia.py⁩:1152 modules/connect.py:1140
 msgid "No network selected"
 msgstr "Nema odabrane mreže"
 
-#: modules/connect.py:1100
+#: ⁨modules/connect - Copia.py⁩:1173 modules/connect.py:1161
 #, python-brace-format
 msgid ""
 "Connected to: {}\n"
@@ -906,6 +901,18 @@ msgid ""
 msgstr ""
 "Povezano sa: {}\n"
 "Signal: {} | IP: {}"
+
+#: modules/connect.py:1100
+#, fuzzy, python-format
+#| msgid "Connected successfully!"
+msgid "Connected successfully to %s"
+msgstr "Uspešno povezano!"
+
+#: modules/connect.py:1111
+#, fuzzy, python-format
+#| msgid "Disconnect from {}"
+msgid "Disconnected from %s"
+msgstr "Isključi sa {}"
 
 #: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
 msgid "Refresh"
@@ -1432,8 +1439,7 @@ msgstr "Detaljan prikaz omogućen - skenirajte ponovo da vidite detalje"
 #: modules/scanner.py:570
 msgid "Basic view enabled - rescan to see basic info"
 msgstr ""
-"Osnovni prikaz omogućen - ponovo skenirajte da biste videli osnovne "
-"informacije"
+"Osnovni prikaz omogućen - ponovo skenirajte da biste videli osnovne informacije"
 
 #: modules/speedtest_manager.py:69
 msgid "Select a speed test type"
@@ -1890,66 +1896,28 @@ msgstr "Test završen!"
 msgid "Cancelling test..."
 msgstr "Povezivanje sa %s..."
 
-#: modules/tools.py:618
+#: ⁨modules/tools - Copia.py⁩:302 modules/tools.py:618
 #, fuzzy
 #| msgid "Excellent latency\n"
 msgid "Excellent"
 msgstr "Odlična latencija\n"
 
-#: modules/tools.py:619
+#: ⁨modules/tools - Copia.py⁩:303 modules/tools.py:619
 msgid "Good"
 msgstr ""
 
-#: modules/tools.py:620
+#: ⁨modules/tools - Copia.py⁩:304 modules/tools.py:620
 msgid "Fair"
 msgstr ""
 
-#: modules/tools.py:621
+#: ⁨modules/tools - Copia.py⁩:305 modules/tools.py:621
 msgid "Poor"
 msgstr ""
 
-#: modules/tools.py:622 modules/tools.py:629
+#: ⁨modules/tools - Copia.py⁩:306 ⁨modules/tools - Copia.py⁩:313 modules/tools.py:622
+#: modules/tools.py:629
 msgid "Very Poor"
 msgstr ""
-
-#~ msgid "Configuration saved"
-#~ msgstr "Konfiguracija sačuvana"
-
-#, python-brace-format
-#~ msgid "Connected to {}"
-#~ msgstr "Povezano sa {}"
-
-#, python-brace-format
-#~ msgid "Successfully connected to {}"
-#~ msgstr "Uspešno povezano sa {}"
-
-#, python-brace-format
-#~ msgid "Connection to {} failed"
-#~ msgstr "Veza sa {} nije uspela"
-
-#, python-brace-format
-#~ msgid "Connection error: {}"
-#~ msgstr "Greška u vezi: {}"
-
-#, python-format
-#~ msgid "Error opening configuration: %s"
-#~ msgstr "Greška pri otvaranju konfiguracije: %s"
-
-#~ msgid "Disconnected successfully!"
-#~ msgstr "Uspešno je prekinuta veza!"
-
-#~ msgid "Disconnected from network"
-#~ msgstr "Isključeno sa mreže"
-
-#, fuzzy, python-format
-#~| msgid "Connected successfully!"
-#~ msgid "Connected successfully to %s"
-#~ msgstr "Uspešno povezano!"
-
-#, fuzzy, python-format
-#~| msgid "Disconnect from {}"
-#~ msgid "Disconnected from %s"
-#~ msgstr "Isključi sa {}"
 
 #~ msgid "Execute"
 #~ msgstr "Izvrši"
@@ -2096,8 +2064,7 @@ msgstr ""
 #~ msgstr "Nije pronađeno"
 
 #~ msgid ""
-#~ "Module reload functionality requires custom implementation for your "
-#~ "system."
+#~ "Module reload functionality requires custom implementation for your system."
 #~ msgstr ""
 #~ "Funkcionalnost ponovnog učitavanja modula zahteva prilagođenu "
 #~ "implementaciju za vaš sistem."
@@ -2332,6 +2299,10 @@ msgstr ""
 
 #~ msgid "Connection failed - check configuration"
 #~ msgstr "Veza nije uspela - proverite konfiguraciju"
+
+#, python-format
+#~ msgid "Connected to %s"
+#~ msgstr "Povezano sa %s"
 
 #, python-format
 #~ msgid "Successfully connected to %s"
