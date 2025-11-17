@@ -192,12 +192,12 @@ class WiFiSpeedtestManager(Screen):
             try:
                 ip_response = urlopen('http://ipinfo.io/json', timeout=5)
                 ip_data = json.loads(ip_response.read().decode())
-                info.append(_("Public IP: {ip}").format(ip=ip_data.get('ip', 'Unknown')))
+                info.append(_("Public IP: {ip}").format(ip=ip_data.get('ip', _('Unknown'))))
                 info.append(_("Location: {city}, {country}").format(
-                    city=ip_data.get('city', 'Unknown'),
-                    country=ip_data.get('country', 'Unknown')
+                    city=ip_data.get('city', _('Unknown')),
+                    country=ip_data.get('country', _('Unknown'))
                 ))
-                info.append(_("ISP: {isp}").format(isp=ip_data.get('org', 'Unknown')))
+                info.append(_("ISP: {isp}").format(isp=ip_data.get('org', _('Unknown'))))
             except:
                 info.append(_("Public IP: Unable to determine"))
 
@@ -209,15 +209,17 @@ class WiFiSpeedtestManager(Screen):
         """Get server information"""
         try:
             servers = [
-                ("Primary DNS", "8.8.8.8", "Google"),
-                ("Secondary DNS", "1.1.1.1", "Cloudflare"),
-                ("Tertiary DNS", "208.67.222.222", "OpenDNS")
+                (_("Primary DNS"), "8.8.8.8", _("Google")),
+                (_("Secondary DNS"), "1.1.1.1", _("Cloudflare")),
+                (_("Tertiary DNS"), "208.67.222.222", _("OpenDNS"))
             ]
 
             server_info = []
             for name, host, sponsor in servers:
                 ping_result = speedtest.test_ping(host, 1)
-                server_info.append(f"{name} ({sponsor}): {ping_result}")
+                server_info.append(_("{name} ({sponsor}): {ping}").format(
+                    name=name, sponsor=sponsor, ping=ping_result
+                ))
 
             return "\n".join(server_info)
         except Exception as e:

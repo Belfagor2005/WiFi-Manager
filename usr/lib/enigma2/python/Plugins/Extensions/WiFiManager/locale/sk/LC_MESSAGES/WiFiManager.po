@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-12 12:37+0100\n"
-"PO-Revision-Date: 2025-11-12 12:37+0100\n"
+"PO-Revision-Date: 2025-11-17 01:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: sk\n"
@@ -579,8 +579,8 @@ msgstr ""
 msgid "No networks found - Press BLUE to rescan"
 msgstr ""
 
-#: ⁨modules/connect - Copia.py⁩:441 modules/connect.py:441
-#: modules/iwlist_tools.py:185 modules/iwlist_tools.py:199
+#: ⁨modules/connect - Copia.py⁩:441 modules/connect.py:441 modules/iwlist_tools.py:185
+#: modules/iwlist_tools.py:199
 msgid "No networks found"
 msgstr ""
 
@@ -1092,8 +1092,8 @@ msgstr ""
 
 #: modules/iwlist_tools.py:387
 msgid ""
-"Select a tool from the menu to get detailed information about WiFi "
-"configuration and status."
+"Select a tool from the menu to get detailed information about WiFi configuration "
+"and status."
 msgstr ""
 
 #: modules/iwlist_tools.py:395

@@ -102,20 +102,20 @@ class WiFiDetailedInfo(Screen):
         print(f"[WiFiDetailedInfo] Starting refresh for {self.ifname}")
         wifi_ifaces = get_wifi_interfaces()
         if self.ifname not in wifi_ifaces:
-            error_msg = f"❌ Interface {self.ifname} not found or not a WiFi interface\n"
-            error_msg += f"Available interfaces: {', '.join(wifi_ifaces) if wifi_ifaces else 'None'}"
+            error_msg = _("❌ Interface {} not found or not a WiFi interface\n").format(self.ifname)
+            error_msg += _("Available interfaces: {}").format(', '.join(wifi_ifaces) if wifi_ifaces else _('None'))
             self._write_debug(f"Interface not found: {self.ifname}", error=True)
             self["info_output"].setText(error_msg)
             return
 
         try:
-            info_text = f"📡 DETAILED WIFI INFORMATION - {self.ifname.upper()}\n"
+            info_text = _("📡 DETAILED WIFI INFORMATION - {}\n").format(self.ifname.upper())
             info_text += "=" * 60 + "\n\n"
 
             # 1. BASIC INTERFACE INFORMATION
             self._write_debug("Getting basic interface info...")
             print("[WiFiDetailedInfo] Getting basic interface info...")
-            info_text += "🔧 BASIC INTERFACE INFO\n"
+            info_text += _("🔧 BASIC INTERFACE INFO\n")
             info_text += "-" * 40 + "\n"
             basic_info = self.get_basic_interface_info()
             info_text += basic_info
@@ -124,7 +124,7 @@ class WiFiDetailedInfo(Screen):
             # 2. WIRELESS INFORMATION
             self._write_debug("Getting wireless info...")
             print("[WiFiDetailedInfo] Getting wireless info...")
-            info_text += "📶 WIRELESS INFORMATION\n"
+            info_text += _("📶 WIRELESS INFORMATION\n")
             info_text += "-" * 40 + "\n"
             wireless_info = self.get_wireless_info()
             info_text += wireless_info
@@ -133,7 +133,7 @@ class WiFiDetailedInfo(Screen):
             # 3. DRIVER AND HARDWARE INFO
             self._write_debug("Getting driver info...")
             print("[WiFiDetailedInfo] Getting driver info...")
-            info_text += "🔌 DRIVER & HARDWARE\n"
+            info_text += _("🔌 DRIVER & HARDWARE\n")
             info_text += "-" * 40 + "\n"
             driver_info = self.get_driver_info()
             info_text += driver_info
@@ -142,7 +142,7 @@ class WiFiDetailedInfo(Screen):
             # 4. NETWORK STATISTICS
             self._write_debug("Getting network statistics...")
             print("[WiFiDetailedInfo] Getting network statistics...")
-            info_text += "📊 NETWORK STATISTICS\n"
+            info_text += _("📊 NETWORK STATISTICS\n")
             info_text += "-" * 40 + "\n"
             stats_info = self.get_network_statistics()
             info_text += stats_info
@@ -151,7 +151,7 @@ class WiFiDetailedInfo(Screen):
             # 5. AVAILABLE NETWORKS (scan results)
             self._write_debug("Scanning for available networks...")
             print("[WiFiDetailedInfo] Scanning for available networks...")
-            info_text += "🌐 AVAILABLE NETWORKS\n"
+            info_text += _("🌐 AVAILABLE NETWORKS\n")
             info_text += "-" * 40 + "\n"
             networks_info = self.get_available_networks()
             info_text += networks_info
@@ -173,7 +173,7 @@ class WiFiDetailedInfo(Screen):
             self["info_output"].setText(info_text)
 
         except Exception as e:
-            error_msg = f"❌ Error getting detailed info:\n{str(e)}\n\n"
+            error_msg = _("❌ Error getting detailed info:\n{}\n\n").format(str(e))
             stack_trace = traceback.format_exc()
             self._write_debug(f"CRITICAL ERROR during refresh: {error_msg}", error=True)
             self._write_debug(f"STACK TRACE: {stack_trace}", error=True)
@@ -191,51 +191,51 @@ class WiFiDetailedInfo(Screen):
             interface_info = get_interface_info(self.ifname)
 
             if 'error' in interface_info:
-                info += f"❌ Error: {interface_info['error']}\n"
+                info += _("❌ Error: {}\n").format(interface_info['error'])
                 self._write_debug(f"Error getting wireless info: {interface_info['error']}", error=True)
                 return info
 
-            info += "📡 Interface Type: WIRELESS\n"
+            info += _("📡 Interface Type: WIRELESS\n")
             self._write_debug("Interface is WIRELESS")
 
             # ESSID
-            essid = interface_info.get('essid', 'Not connected')
-            info += f"📡 ESSID: {essid}\n"
+            essid = interface_info.get('essid', _('Not connected'))
+            info += _("📡 ESSID: {}\n").format(essid)
             self._write_debug(f"ESSID: {essid}")
 
             # Mode
-            mode = interface_info.get('mode', 'Unknown')
-            info += f"🔧 Mode: {mode}\n"
+            mode = interface_info.get('mode', _('Unknown'))
+            info += _("🔧 Mode: {}\n").format(mode)
             self._write_debug(f"Mode: {mode}")
 
             # Frequency/Channel
-            frequency = interface_info.get('frequency', 'Unknown')
-            info += f"📶 Frequency: {frequency}\n"
+            frequency = interface_info.get('frequency', _('Unknown'))
+            info += _("📶 Frequency: {}\n").format(frequency)
             self._write_debug(f"Frequency: {frequency}")
 
             # Quality and Signal
-            quality = interface_info.get('quality', 'Unknown')
-            info += f"📊 Quality: {quality}\n"
+            quality = interface_info.get('quality', _('Unknown'))
+            info += _("📊 Quality: {}\n").format(quality)
             self._write_debug(f"Quality: {quality}")
 
             # Bit Rate
-            bitrate = interface_info.get('bitrate', 'Unknown')
-            info += f"🚀 Bit Rate: {bitrate}\n"
+            bitrate = interface_info.get('bitrate', _('Unknown'))
+            info += _("🚀 Bit Rate: {}\n").format(bitrate)
             self._write_debug(f"Bit Rate: {bitrate}")
 
             # TX Power
-            txpower = interface_info.get('txpower', 'Unknown')
-            info += f"⚡ TX Power: {txpower}\n"
+            txpower = interface_info.get('txpower', _('Unknown'))
+            info += _("⚡ TX Power: {}\n").format(txpower)
             self._write_debug(f"TX Power: {txpower}")
 
             # Protocol/Driver
-            protocol = interface_info.get('protocol', 'Unknown')
-            info += f"💾 Protocol: {protocol}\n"
+            protocol = interface_info.get('protocol', _('Unknown'))
+            info += _("💾 Protocol: {}\n").format(protocol)
             self._write_debug(f"Protocol: {protocol}")
 
         except Exception as e:
-            error_msg = f"Wireless info error: {str(e)}"
-            info += f"❌ {error_msg}\n"
+            error_msg = _("Wireless info error: {}").format(str(e))
+            info += _("❌ {}\n").format(error_msg)
             self._write_debug(error_msg, error=True)
             print(f"[WiFiDetailedInfo] {error_msg}")
 
@@ -251,33 +251,33 @@ class WiFiDetailedInfo(Screen):
         try:
             interface_info = get_interface_info(self.ifname)
             if 'error' in interface_info:
-                info += f"❌ Error: {interface_info['error']}\n"
+                info += _("❌ Error: {}\n").format(interface_info['error'])
                 self._write_debug(f"Error getting interface info: {interface_info['error']}", error=True)
                 return info
 
             # Status
-            status = "UP and active" if is_interface_up(self.ifname) else "DOWN"
+            status = _("UP and active") if is_interface_up(self.ifname) else _("DOWN")
             icon = "✅" if is_interface_up(self.ifname) else "🔌"
-            info += f"{icon} Status: {status}\n"
+            info += _("{} Status: {}\n").format(icon, status)
             self._write_debug(f"Status: {status}")
 
             # Interface name
-            info += f"🔧 Interface: {interface_info.get('name', self.ifname)}\n"
+            info += _("🔧 Interface: {}\n").format(interface_info.get('name', self.ifname))
 
             # MAC Address
-            if 'ap_addr' in interface_info and interface_info['ap_addr'] != "Unknown":
-                info += f"📟 MAC: {interface_info['ap_addr']}\n"
+            if 'ap_addr' in interface_info and interface_info['ap_addr'] != _("Unknown"):
+                info += _("📟 MAC: {}\n").format(interface_info['ap_addr'])
                 self._write_debug(f"MAC: {interface_info['ap_addr']}")
 
             # Type
-            interface_type = "Wireless" if self.ifname in get_wifi_interfaces() else "Wired"
-            icon = "📡" if interface_type == "Wireless" else "🔌"
-            info += f"{icon} Type: {interface_type} interface\n"
+            interface_type = _("Wireless") if self.ifname in get_wifi_interfaces() else _("Wired")
+            icon = "📡" if interface_type == _("Wireless") else "🔌"
+            info += _("{} Type: {} interface\n").format(icon, interface_type)
             self._write_debug(f"Type: {interface_type}")
 
         except Exception as e:
-            error_msg = f"Basic info error: {str(e)}"
-            info += f"❌ {error_msg}\n"
+            error_msg = _("Basic info error: {}").format(str(e))
+            info += _("❌ {}\n").format(error_msg)
             self._write_debug(error_msg, error=True)
             print(f"[WiFiDetailedInfo] {error_msg}")
 
@@ -295,27 +295,27 @@ class WiFiDetailedInfo(Screen):
 
             if subprocess.run(["test", "-d", driver_path], capture_output=True).returncode == 0:
                 driver_name = subprocess.check_output(["basename", driver_path], text=True).strip()
-                info += f"💾 Driver: {driver_name}\n"
+                info += _("💾 Driver: {}\n").format(driver_name)
                 self._write_debug(f"Driver found: {driver_name}")
             else:
-                info += "💾 Driver: Unknown\n"
+                info += _("💾 Driver: Unknown\n")
                 self._write_debug("Driver: Unknown")
 
             interface_info = get_interface_info(self.ifname)
-            if 'protocol' in interface_info and interface_info['protocol'] != "Unknown":
-                info += f"🔧 Module: {interface_info['protocol']}\n"
+            if 'protocol' in interface_info and interface_info['protocol'] != _("Unknown"):
+                info += _("🔧 Module: {}\n").format(interface_info['protocol'])
                 self._write_debug(f"Module: {interface_info['protocol']}")
 
             if self.ifname in get_wifi_interfaces():
-                info += "📡 Type: Wireless interface\n"
+                info += _("📡 Type: Wireless interface\n")
                 self._write_debug("Type: Wireless interface")
             else:
-                info += "🔌 Type: Wired interface\n"
+                info += _("🔌 Type: Wired interface\n")
                 self._write_debug("Type: Wired interface")
 
         except Exception as e:
-            error_msg = f"Driver info error: {str(e)}"
-            info += f"❌ {error_msg}\n"
+            error_msg = _("Driver info error: {}").format(str(e))
+            info += _("❌ {}\n").format(error_msg)
             self._write_debug(error_msg, error=True)
 
         self._write_debug(f"Driver info completed, length: {len(info)}")
@@ -336,7 +336,7 @@ class WiFiDetailedInfo(Screen):
             if result.returncode == 0:
                 rx_bytes = int(result.stdout.strip())
                 formatted_rx = self.format_bytes(rx_bytes)
-                info += f"⬇️  Received: {formatted_rx}\n"
+                info += _("⬇️  Received: {}\n").format(formatted_rx)
                 self._write_debug(f"RX bytes: {rx_bytes} ({formatted_rx})")
             else:
                 self._write_debug(f"Failed to read RX bytes: {result.stderr}")
@@ -347,14 +347,14 @@ class WiFiDetailedInfo(Screen):
             if result.returncode == 0:
                 tx_bytes = int(result.stdout.strip())
                 formatted_tx = self.format_bytes(tx_bytes)
-                info += f"⬆️  Transmitted: {formatted_tx}\n"
+                info += _("⬆️  Transmitted: {}\n").format(formatted_tx)
                 self._write_debug(f"TX bytes: {tx_bytes} ({formatted_tx})")
             else:
                 self._write_debug(f"Failed to read TX bytes: {result.stderr}")
 
         except Exception as e:
-            error_msg = f"Statistics error: {str(e)}"
-            info += f"❌ {error_msg}\n"
+            error_msg = _("Statistics error: {}").format(str(e))
+            info += _("❌ {}\n").format(error_msg)
             self._write_debug(error_msg, error=True)
 
         self._write_debug(f"Network statistics completed, length: {len(info)}")
@@ -373,31 +373,31 @@ class WiFiDetailedInfo(Screen):
             self._write_debug(f"Scan completed, found {len(networks)} networks")
 
             if networks:
-                info += f"Found {len(networks)} networks:\n"
+                info += _("Found {} networks:\n").format(len(networks))
                 self._write_debug(f"Found {len(networks)} networks")
 
                 for i, net in enumerate(networks[:8]):
-                    essid = net.get('essid', 'Unknown')
-                    signal = net.get('signal', 'N/A')
+                    essid = net.get('essid', _('Unknown'))
+                    signal = net.get('signal', _('N/A'))
                     quality_percent = net.get('quality_percent', 0)
                     channel = net.get('channel', '?')
                     encrypted = "🔒" if net.get('encryption') else "🔓"
 
                     signal_quality = format_signal_quality(quality_percent)
 
-                    info += f"  {i + 1:2d}. {encrypted} {essid:20} | "
-                    info += f"Signal: {signal:4} dBm ({signal_quality}) | "
-                    info += f"Channel: {channel}\n"
+                    info += _("  {:2d}. {} {:20} | Signal: {:4} dBm ({}) | Channel: {}\n").format(
+                        i + 1, encrypted, essid, signal, signal_quality, channel
+                    )
 
                 if len(networks) > 8:
-                    info += f"  ... and {len(networks) - 8} more networks\n"
+                    info += _("  ... and {} more networks\n").format(len(networks) - 8)
             else:
-                info += "No networks found or scan not supported\n"
+                info += _("No networks found or scan not supported\n")
                 self._write_debug("No networks found in scan")
 
         except Exception as e:
-            error_msg = f"Scan error: {str(e)}"
-            info += f"{error_msg}\n"
+            error_msg = _("Scan error: {}").format(str(e))
+            info += _("{}\n").format(error_msg)
             self._write_debug(error_msg, error=True)
 
         self._write_debug(f"Network scan completed, length: {len(info)}")

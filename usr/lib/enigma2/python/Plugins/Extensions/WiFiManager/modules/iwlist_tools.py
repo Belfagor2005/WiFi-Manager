@@ -201,13 +201,13 @@ class IWListTools(Screen):
         output += _("Found %d networks\n\n") % len(networks)
         for i, net in enumerate(networks, 1):
             output += _("Network %d:\n") % i
-            output += _("  ESSID: %s\n") % net.get('essid', 'N/A')
-            output += _("  MAC: %s\n") % net.get('bssid', net.get('mac', 'N/A'))
-            output += _("  Channel: %s\n") % net.get('channel', 'N/A')
-            output += _("  Frequency: %s\n") % net.get('frequency', 'N/A')
-            output += _("  Quality: %s\n") % net.get('quality', 'N/A')
-            output += _("  Signal: %s\n") % net.get('signal', 'N/A')
-            output += _("  Encryption: %s\n") % ('Yes' if net.get('encryption') else 'No')
+            output += _("  ESSID: %s\n") % net.get('essid', _('N/A'))
+            output += _("  MAC: %s\n") % net.get('bssid', net.get('mac', _('N/A')))
+            output += _("  Channel: %s\n") % net.get('channel', _('N/A'))
+            output += _("  Frequency: %s\n") % net.get('frequency', _('N/A'))
+            output += _("  Quality: %s\n") % net.get('quality', _('N/A'))
+            output += _("  Signal: %s\n") % net.get('signal', _('N/A'))
+            output += _("  Encryption: %s\n") % (_('Yes') if net.get('encryption') else _('No'))
             output += "\n"
         return output
 
@@ -233,7 +233,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Error getting channel information {e}"),
+                _("Error getting channel information: {}").format(e),
                 MessageBox.TYPE_ERROR
             )
 
@@ -259,7 +259,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Error getting bitrate information {e}"),
+                _("Error getting bitrate information: {}").format(e),
                 MessageBox.TYPE_ERROR
             )
 
@@ -285,7 +285,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Error getting encryption information {e}"),
+                _("Error getting encryption information: {}").format(e),
                 MessageBox.TYPE_ERROR
             )
 
@@ -311,7 +311,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Error getting power information {e}"),
+                _("Error getting power information: {}").format(e),
                 MessageBox.TYPE_ERROR
             )
 
@@ -337,7 +337,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Error getting retry information {e}"),
+                _("Error getting retry information: {}").format(e),
                 MessageBox.TYPE_ERROR
             )
 
@@ -363,7 +363,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Error getting AP information {e}"),
+                _("Error getting AP information: {}").format(e),
                 MessageBox.TYPE_ERROR
             )
 
@@ -479,26 +479,26 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
         self.wifi_config = ConfigSubsection()
         # Operation Mode
         self.wifi_config.mode = ConfigSelection(choices=[
-            ("managed", "Managed (Client)"),
-            ("ad-hoc", "Ad-Hoc"),
-            ("master", "Master (AP)"),
-            ("monitor", "Monitor"),
-            ("auto", "Auto")
+            ("managed", _("Managed (Client)")),
+            ("ad-hoc", _("Ad-Hoc")),
+            ("master", _("Master (AP)")),
+            ("monitor", _("Monitor")),
+            ("auto", _("Auto"))
         ], default="managed")
 
         # Channel Selection
-        channels = [("auto", "Auto")]
-        channels.extend([(str(i), f"Channel {i}") for i in range(1, 14)])
+        channels = [("auto", _("Auto"))]
+        channels.extend([(str(i), _("Channel {}").format(i)) for i in range(1, 14)])
         self.wifi_config.channel = ConfigSelection(choices=channels, default="auto")
 
         # TX Power
         self.wifi_config.txpower = ConfigSelection(choices=[
-            ("auto", "Auto"),
-            ("1", "1 dBm (Min)"),
-            ("5", "5 dBm"),
-            ("10", "10 dBm"),
-            ("15", "15 dBm"),
-            ("20", "20 dBm (Max)")
+            ("auto", _("Auto")),
+            ("1", _("1 dBm (Min)")),
+            ("5", _("5 dBm")),
+            ("10", _("10 dBm")),
+            ("15", _("15 dBm")),
+            ("20", _("20 dBm (Max)"))
         ], default="auto")
         self.list = [
             (_("Operation Mode"), self.wifi_config.mode),
@@ -610,10 +610,9 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
         """Mostra aiuto per la configurazione avanzata"""
         help_text = _(
             "Advanced WiFi Configuration:\n\n"
-            "RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
-            "Fragmentation: Max frame size before fragmentation\n"
-            "Beacon Interval: Time between beacon signals (ms)\n"
-            "DTIM Period: Delivery Traffic Indication Message interval\n\n"
+            "Operation Mode: Network operation mode\n"
+            "Channel: WiFi channel selection\n"
+            "TX Power: Transmission power level\n\n"
             "Warning: Incorrect settings may degrade performance!"
         )
         self.session.open(MessageBox, help_text, MessageBox.TYPE_INFO)

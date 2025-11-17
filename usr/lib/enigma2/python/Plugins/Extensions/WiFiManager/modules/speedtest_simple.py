@@ -25,7 +25,7 @@ import subprocess
 import socket
 from json import loads
 from re import search
-
+from .. import _
 
 try:
     from urllib.request import urlopen, Request
@@ -69,11 +69,11 @@ class Enigma2Speedtest:
                 ip_response = urlopen('http://ipinfo.io/json', timeout=10)
                 ip_data = loads(ip_response.read().decode())
                 self.results['client'] = {
-                    'ip': ip_data.get('ip', 'Unknown'),
-                    'city': ip_data.get('city', 'Unknown'),
-                    'region': ip_data.get('region', 'Unknown'),
-                    'country': ip_data.get('country', 'Unknown'),
-                    'isp': ip_data.get('org', 'Unknown')
+                    'ip': ip_data.get('ip', _('Unknown')),
+                    'city': ip_data.get('city', _('Unknown')),
+                    'region': ip_data.get('region', _('Unknown')),
+                    'country': ip_data.get('country', _('Unknown')),
+                    'isp': ip_data.get('org', _('Unknown'))
                 }
                 print("Client info obtained successfully")
                 return True
@@ -89,7 +89,7 @@ class Enigma2Speedtest:
                     return False
         except Exception as e:
             print(f"Client info error: {e}")
-            self.results['client'] = {'ip': 'Unknown'}
+            self.results['client'] = {'ip': _('Unknown')}
             return False
 
     def test_specific_ping(self, host):
@@ -135,7 +135,7 @@ class Enigma2Speedtest:
             for name, host in ping_hosts:
                 ping_time = self.test_specific_ping(host)
                 if ping_time < 999:
-                    ping_results.append(f"{name}: {ping_time:.1f} ms")
+                    ping_results.append(_("{}: {:.1f} ms").format(name, ping_time))
                     total_ping += ping_time
                     valid_pings += 1
 
@@ -288,8 +288,8 @@ class Enigma2Speedtest:
 
             if best_server:
                 self.results['server'] = best_server
-                self.results['sponsor'] = best_server.get('sponsor', 'Unknown')
-                self.results['host'] = best_server.get('host', 'Unknown')
+                self.results['sponsor'] = best_server.get('sponsor', _('Unknown'))
+                self.results['host'] = best_server.get('host', _('Unknown'))
                 print(f"Best server: {best_server['name']} ({best_ping} ms)")
                 return best_server
 
@@ -311,7 +311,7 @@ class Enigma2Speedtest:
                 callback('checking_connection')
 
             if not self._check_internet_connection():
-                error_msg = "No internet connection detected"
+                error_msg = _("No internet connection detected")
                 print(error_msg)
                 if callback:
                     callback('error', error_msg)
@@ -362,7 +362,7 @@ class Enigma2Speedtest:
             return self.results
 
         except Exception as e:
-            error_msg = f"Speedtest failed: {str(e)}"
+            error_msg = _("Speedtest failed: {}").format(str(e))
             print(error_msg)
             if callback:
                 callback('error', error_msg)
@@ -375,89 +375,95 @@ class Enigma2Speedtest:
         has_download = self.results.get('download', 0) > 0
 
         if not has_ping and not has_download:
-            return "Speedtest failed - No internet connection or all tests failed"
+            return _("Speedtest failed - No internet connection or all tests failed")
 
         download_mbps = self.results['download'] / 1000000 if has_download else 0
         upload_mbps = self.results['upload'] / 1000000 if self.results['upload'] > 0 else 0
         ping_ms = self.results.get('ping', 0) if has_ping else 999
 
-        result_text = (
-            f"📊 ENIGMA2 DETAILED SPEEDTEST\n"
-            f"============================\n"
-            f"🕐 Timestamp: {self.results['timestamp']}\n\n"
-        )
+        result_text = _(
+            "📊 ENIGMA2 DETAILED SPEEDTEST\n"
+            "============================\n"
+            "🕐 Timestamp: {timestamp}\n\n"
+        ).format(timestamp=self.results['timestamp'])
 
         # Client Information
         if self.results.get('client'):
-            result_text += "👤 CLIENT INFORMATION:\n"
-            result_text += f"IP: {self.results['client'].get('ip', 'Unknown')}\n"
+            result_text += _("👤 CLIENT INFORMATION:\n")
+            result_text += _("IP: {ip}\n").format(ip=self.results['client'].get('ip', _('Unknown')))
             if 'city' in self.results['client']:
-                result_text += f"Location: {self.results['client'].get('city', 'Unknown')}, "
-                result_text += f"{self.results['client'].get('country', 'Unknown')}\n"
+                result_text += _("Location: {city}, {country}\n").format(
+                    city=self.results['client'].get('city', _('Unknown')),
+                    country=self.results['client'].get('country', _('Unknown'))
+                )
             if 'isp' in self.results['client']:
-                result_text += f"ISP: {self.results['client'].get('isp', 'Unknown')}\n"
+                result_text += _("ISP: {isp}\n").format(isp=self.results['client'].get('isp', _('Unknown')))
             result_text += "\n"
 
         # Server Information
         if self.results.get('server'):
-            result_text += "🏢 SERVER INFORMATION:\n"
-            result_text += f"Name: {self.results['server'].get('name', 'Unknown')}\n"
-            result_text += f"Sponsor: {self.results['server'].get('sponsor', 'Unknown')}\n"
-            result_text += f"Host: {self.results['server'].get('host', 'Unknown')}\n\n"
+            result_text += _("🏢 SERVER INFORMATION:\n")
+            result_text += _("Name: {name}\n").format(name=self.results['server'].get('name', _('Unknown')))
+            result_text += _("Sponsor: {sponsor}\n").format(sponsor=self.results['server'].get('sponsor', _('Unknown')))
+            result_text += _("Host: {host}\n\n").format(host=self.results['server'].get('host', _('Unknown')))
 
         # Main Results
-        result_text += "📈 TEST RESULTS:\n"
+        result_text += _("📈 TEST RESULTS:\n")
         if has_ping:
-            result_text += f"Ping: {ping_ms:.1f} ms\n"
+            result_text += _("Ping: {:.1f} ms\n").format(ping_ms)
         else:
-            result_text += "Ping: Failed\n"
+            result_text += _("Ping: Failed\n")
 
         if has_download:
-            result_text += f"Download: {download_mbps:.2f} Mbps\n"
+            result_text += _("Download: {:.2f} Mbps\n").format(download_mbps)
         else:
-            result_text += "Download: Failed\n"
+            result_text += _("Download: Failed\n")
 
         if self.results['upload'] > 0:
-            result_text += f"Upload: {upload_mbps:.2f} Mbps (estimated)\n"
+            result_text += _("Upload: {:.2f} Mbps (estimated)\n").format(upload_mbps)
         else:
-            result_text += "Upload: Not available\n"
+            result_text += _("Upload: Not available\n")
 
         # Additional Details
         if 'ping_details' in self.results:
-            result_text += "\n📡 PING DETAILS:\n"
+            result_text += _("\n📡 PING DETAILS:\n")
             for ping_detail in self.results['ping_details']:
                 result_text += f"{ping_detail}\n"
 
         if 'download_details' in self.results and has_download:
-            result_text += "\n⬇️ DOWNLOAD DETAILS:\n"
+            result_text += _("\n⬇️ DOWNLOAD DETAILS:\n")
             for detail in self.results['download_details']:
-                result_text += f"{detail['server']}: {detail['speed_mbps']:.2f} Mbps "
-                result_text += f"({detail['data_mb']:.1f} MB in {detail['time_seconds']:.1f}s)\n"
+                result_text += _("{server}: {speed:.2f} Mbps ({data:.1f} MB in {time:.1f}s)\n").format(
+                    server=detail['server'],
+                    speed=detail['speed_mbps'],
+                    data=detail['data_mb'],
+                    time=detail['time_seconds']
+                )
 
         # Quality Assessment
-        result_text += "\n📊 QUALITY ASSESSMENT:\n"
+        result_text += _("\n📊 QUALITY ASSESSMENT:\n")
         if has_ping:
             if ping_ms < 50:
-                result_text += "✅ Excellent latency\n"
+                result_text += _("✅ Excellent latency\n")
             elif ping_ms < 100:
-                result_text += "⚠️ Good latency\n"
+                result_text += _("⚠️ Good latency\n")
             elif ping_ms < 200:
-                result_text += "⚠️ Average latency\n"
+                result_text += _("⚠️ Average latency\n")
             else:
-                result_text += "❌ Poor latency\n"
+                result_text += _("❌ Poor latency\n")
         else:
-            result_text += "❌ Latency test failed\n"
+            result_text += _("❌ Latency test failed\n")
 
         if has_download:
             if download_mbps > 50:
-                result_text += "✅ Excellent download speed\n"
+                result_text += _("✅ Excellent download speed\n")
             elif download_mbps > 20:
-                result_text += "⚠️ Good download speed\n"
+                result_text += _("⚠️ Good download speed\n")
             elif download_mbps > 5:
-                result_text += "⚠️ Average download speed\n"
+                result_text += _("⚠️ Average download speed\n")
             else:
-                result_text += "❌ Poor download speed\n"
+                result_text += _("❌ Poor download speed\n")
         else:
-            result_text += "❌ Download test failed\n"
+            result_text += _("❌ Download test failed\n")
 
         return result_text

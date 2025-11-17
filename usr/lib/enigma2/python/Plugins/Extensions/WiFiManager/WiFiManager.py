@@ -323,7 +323,6 @@ class WiFiManagerMain(Screen):
                 else:
                     self.session.open(MessageBox, _("No WiFi interfaces found"), MessageBox.TYPE_ERROR)
             elif module_name == "iwlist_tools":
-                # self.open_tools_direct()
                 self.session.open(ToolsMenuScreen)
             elif module_name == "config":
                 self.session.open(WiFiConfig)
@@ -333,7 +332,7 @@ class WiFiManagerMain(Screen):
                 self.contactSupport()
 
         except Exception as e:
-            self.session.open(MessageBox, f"Error opening {module_name}: {str(e)}", MessageBox.TYPE_ERROR)
+            self.session.open(MessageBox, _("Error opening {module}: {error}").format(module=module_name, error=str(e)), MessageBox.TYPE_ERROR)
 
     def open_tools_direct(self):
         """Directly opens the tools list from the main menu"""
@@ -426,7 +425,7 @@ class ToolsMenuScreen(Screen):
         self.setTitle(_("WiFi Advanced Tools"))
         self.update_help()
 
-    def get_tool_help(self, tool):  # on select ;)
+    def get_tool_help(self, tool):
         """Returns the help text for the specific tool"""
         help_texts = {
             "scanning": _("Performs a detailed scan of available WiFi networks showing:\n- Signal strength\n- Encryption type\n- Channels\n- Frequency bands\n- MAC addresses"),
@@ -453,7 +452,7 @@ class ToolsMenuScreen(Screen):
             else:
                 self["help_label"].setText(_("Select a tool to see description"))
         except Exception as e:
-            print(f"Error updating help: {e}")
+            print(f"Error loading help {e}")
             self["help_label"].setText(_("Error loading help"))
 
     def select_tool(self):

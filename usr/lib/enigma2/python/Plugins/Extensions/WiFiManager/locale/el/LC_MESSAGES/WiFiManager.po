@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 15:01+0100\n"
-"PO-Revision-Date: 2025-11-12 19:49+0200\n"
+"POT-Creation-Date: 2025-11-17 00:30+0100\n"
+"PO-Revision-Date: 2025-11-17 00:30+0100\n"
 "Last-Translator: \n"
 "Language-Team: giorbak\n"
 "Language: el\n"
@@ -13,10 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.8\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: plugin.py\n"
-"X-Poedit-SearchPath-1: WiFiManager.py\n"
-"X-Poedit-SearchPath-2: modules\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-SearchPath-0: WiFiManager.py\n"
+"X-Poedit-SearchPath-1: modules\n"
 
 #: WiFiManager.py:101
 msgid "WiFi Manager v."
@@ -30,11 +29,11 @@ msgstr "Επιλέξτε μια επιλογή"
 msgid "Scanner"
 msgstr "Σαρωτής"
 
-#: WiFiManager.py:109
+#: WiFiManager.py:109 modules/iwlist_tools.py:485
 msgid "Monitor"
 msgstr "Παρακολούθηση"
 
-#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1077
+#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1023
 msgid "Connect"
 msgstr "Σύνδεση"
 
@@ -98,7 +97,7 @@ msgstr "Σχετικά"
 msgid "WiFi Manager"
 msgstr "Διαχειριστής WiFi"
 
-#: WiFiManager.py:185 modules/config.py:395
+#: WiFiManager.py:185 modules/config.py:415
 msgid "Password"
 msgstr "Κωδικός πρόσβασης"
 
@@ -116,7 +115,9 @@ msgstr ""
 
 #: WiFiManager.py:294
 msgid "For troubleshooting, detailed guidance, or community support, visit:\n"
-msgstr "Για αντιμετώπιση προβλημάτων, αναλυτικές οδηγίες ή υποστήριξη από την κοινότητα, επισκεφθείτε:\n"
+msgstr ""
+"Για αντιμετώπιση προβλημάτων, αναλυτικές οδηγίες ή υποστήριξη από την "
+"κοινότητα, επισκεφθείτε:\n"
 
 #: WiFiManager.py:297
 msgid "These forums are great places to get help,\n"
@@ -126,115 +127,133 @@ msgstr "Αυτά τα φόρουμ είναι εξαιρετικά μέρη γι
 msgid "share experiences,and connect with other users."
 msgstr "να μοιραστείτε εμπειρίες και να συνδεθείτε με άλλους χρήστες."
 
-#: WiFiManager.py:324 modules/iwlist.py:107
+#: WiFiManager.py:324 modules/iwlist.py:107 modules/monitor.py:101
 msgid "No WiFi interfaces found"
 msgstr "Δεν βρέθηκαν διεπαφές WiFi"
 
-#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:59 modules/iwlist_tools.py:68
+#: WiFiManager.py:335
+#, python-brace-format
+msgid "Error opening {module}: {error}"
+msgstr ""
+
+#: WiFiManager.py:342 WiFiManager.py:397 modules/iwlist.py:59
+#: modules/iwlist_tools.py:68
 msgid "Advanced Scan"
 msgstr "Προηγμένη σάρωση"
 
-#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:60 modules/iwlist_tools.py:69 modules/iwlist_tools.py:229
+#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:60
+#: modules/iwlist_tools.py:69 modules/iwlist_tools.py:229
 msgid "Channel Info"
 msgstr "Πληροφορίες καναλιού"
 
-#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:61 modules/iwlist_tools.py:70 modules/iwlist_tools.py:255
+#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:61
+#: modules/iwlist_tools.py:70 modules/iwlist_tools.py:255
 msgid "Bitrate Info"
 msgstr "Πληροφορίες ρυθμού μετάδοσης"
 
-#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:62 modules/iwlist_tools.py:71 modules/iwlist_tools.py:281
+#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:62
+#: modules/iwlist_tools.py:71 modules/iwlist_tools.py:281
 msgid "Encryption Info"
 msgstr "Πληροφορίες κρυπτογράφησης"
 
-#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:63 modules/iwlist_tools.py:72 modules/iwlist_tools.py:307
+#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:63
+#: modules/iwlist_tools.py:72 modules/iwlist_tools.py:307
 msgid "Power Management"
 msgstr "Διαχείριση ενέργειας"
 
-#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:64 modules/iwlist_tools.py:73 modules/iwlist_tools.py:333
+#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:64
+#: modules/iwlist_tools.py:73 modules/iwlist_tools.py:333
 msgid "Retry Limits"
 msgstr "Όρια επαναπροσπάθειας"
 
-#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist.py:65 modules/iwlist_tools.py:74 modules/iwlist_tools.py:359
+#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:65
+#: modules/iwlist_tools.py:74 modules/iwlist_tools.py:359
 msgid "Access Points"
 msgstr "Σημεία πρόσβασης"
 
-#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:75
+#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist_tools.py:75
 msgid "Advanced Config"
 msgstr "Προηγμένες ρυθμίσεις"
 
-#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:76
+#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:76
 msgid "Restart WiFi Interface"
 msgstr "Επανεκκίνηση διεπαφής WiFi"
 
-#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:77
+#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:77
 msgid "Reload WiFi Modules"
 msgstr "Επαναφόρτωση μονάδων WiFi"
 
-#: WiFiManager.py:353 WiFiManager.py:408 modules/iwlist_tools.py:78
+#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:78
 msgid "Check System Logs"
 msgstr "Έλεγχος καταγραφών συστήματος"
 
-#: WiFiManager.py:359 WiFiManager.py:426 modules/iwlist_tools.py:87
+#: WiFiManager.py:358 WiFiManager.py:425 modules/iwlist_tools.py:87
 msgid "WiFi Advanced Tools"
 msgstr "Προηγμένα εργαλεία WiFi"
 
-#: WiFiManager.py:398
+#: WiFiManager.py:397
 msgid "Detailed network scanning with signal strength and encryption info"
-msgstr "Αναλυτική σάρωση δικτύου με πληροφορίες ισχύος σήματος και κρυπτογράφησης"
+msgstr ""
+"Αναλυτική σάρωση δικτύου με πληροφορίες ισχύος σήματος και κρυπτογράφησης"
 
-#: WiFiManager.py:399
+#: WiFiManager.py:398
 msgid "Available frequencies and channels for your region"
 msgstr "Διαθέσιμες συχνότητες και κανάλια για την περιοχή σας"
 
-#: WiFiManager.py:400
+#: WiFiManager.py:399
 msgid "Supported bitrates and current transmission rates"
-msgstr "Εμφανίζει τους υποστηριζόμενους ρυθμούς μετάδοσης και τους τρέχοντες ρυθμούς εκπομπής"
+msgstr ""
+"Εμφανίζει τους υποστηριζόμενους ρυθμούς μετάδοσης και τους τρέχοντες ρυθμούς "
+"εκπομπής"
 
-#: WiFiManager.py:401
+#: WiFiManager.py:400
 msgid "Encryption keys and security protocols"
 msgstr "Κλειδιά κρυπτογράφησης και πρωτόκολλα ασφαλείας"
 
-#: WiFiManager.py:402
+#: WiFiManager.py:401
 msgid "Power management settings and power saving modes"
 msgstr "Ρυθμίσεις διαχείρισης ενέργειας και λειτουργίες εξοικονόμησης"
 
-#: WiFiManager.py:403
+#: WiFiManager.py:402
 msgid "Packet retry limits and frame lifetime settings"
 msgstr "Όρια επαναπροσπάθειας πακέτων και ρυθμίσεις διάρκειας frame"
 
-#: WiFiManager.py:404
+#: WiFiManager.py:403
 msgid "List of access points and connected peer stations"
 msgstr "Λίστα σημείων πρόσβασης και συνδεδεμένων σταθμών peer"
 
-#: WiFiManager.py:405
+#: WiFiManager.py:404
 msgid "Advanced WiFi interface configuration"
 msgstr "Προηγμένη ρύθμιση διεπαφής WiFi"
 
-#: WiFiManager.py:406
+#: WiFiManager.py:405
 msgid "Restart wireless interface to reset connectivity"
 msgstr "Επανεκκίνηση της ασύρματης διεπαφής για επαναφορά συνδεσιμότητας"
 
-#: WiFiManager.py:407
+#: WiFiManager.py:406
 msgid "Reload kernel WiFi modules to fix driver issues"
 msgstr "Επαναφόρτωση των μονάδων kernel WiFi για διόρθωση προβλημάτων driver"
 
-#: WiFiManager.py:408
+#: WiFiManager.py:407
 msgid "Check system logs for WiFi errors and connection issues"
-msgstr "Έλεγχος αρχείων καταγραφής συστήματος για σφάλματα WiFi και προβλήματα σύνδεσης"
+msgstr ""
+"Έλεγχος αρχείων καταγραφής συστήματος για σφάλματα WiFi και προβλήματα "
+"σύνδεσης"
 
-#: WiFiManager.py:412 WiFiManager.py:454
+#: WiFiManager.py:411 WiFiManager.py:453
 msgid "Select a tool to see description"
 msgstr "Επιλέξτε ένα εργαλείο για να δείτε την περιγραφή"
 
-#: WiFiManager.py:413 modules/detailed_info.py:59 modules/iwlist.py:149 modules/iwlist_tools.py:63 modules/speedtest_manager.py:73
+#: WiFiManager.py:412 modules/detailed_info.py:59 modules/iwlist.py:149
+#: modules/iwlist_tools.py:63 modules/speedtest_manager.py:73
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: WiFiManager.py:414
+#: WiFiManager.py:413
 msgid "Select"
 msgstr "Επιλογή"
 
-#: WiFiManager.py:432
+#: WiFiManager.py:431
 msgid ""
 "Performs a detailed scan of available WiFi networks showing:\n"
 "- Signal strength\n"
@@ -250,7 +269,7 @@ msgstr ""
 "- Ζώνες συχνοτήτων\n"
 "- Διευθύνσεις MAC"
 
-#: WiFiManager.py:433
+#: WiFiManager.py:432
 msgid ""
 "Shows available channels and frequencies for your region:\n"
 "- 2.4GHz channels (1-14)\n"
@@ -264,7 +283,7 @@ msgstr ""
 "- Πληροφορίες ρυθμιστικής περιοχής\n"
 "- Πλάτη καναλιών"
 
-#: WiFiManager.py:434
+#: WiFiManager.py:433
 msgid ""
 "Displays supported bitrates and current transmission rates:\n"
 "- Available bitrates\n"
@@ -272,13 +291,14 @@ msgid ""
 "- MCS indexes (for 802.11n/ac)\n"
 "- HT/VHT capabilities"
 msgstr ""
-"Εμφανίζει τους υποστηριζόμενους ρυθμούς μετάδοσης και τους τρέχοντες ρυθμούς εκπομπής:\n"
+"Εμφανίζει τους υποστηριζόμενους ρυθμούς μετάδοσης και τους τρέχοντες ρυθμούς "
+"εκπομπής:\n"
 "- Διαθέσιμοι ρυθμοί μετάδοσης\n"
 "- Τρέχων ρυθμός μετάδοσης\n"
 "- Δείκτες MCS (για 802.11n/ac)\n"
 "- Δυνατότητες HT/VHT"
 
-#: WiFiManager.py:435
+#: WiFiManager.py:434
 msgid ""
 "Shows encryption and security information:\n"
 "- Supported encryption types\n"
@@ -292,7 +312,7 @@ msgstr ""
 "- Διαχείριση κλειδιών\n"
 "-Πρωτόκολλα ασφαλείας"
 
-#: WiFiManager.py:436
+#: WiFiManager.py:435
 msgid ""
 "Displays power management settings:\n"
 "- Current power state\n"
@@ -306,7 +326,7 @@ msgstr ""
 "- Ισχύς μετάδοσης\n"
 "- Χαρακτηριστικά διαχείρισης ενέργειας"
 
-#: WiFiManager.py:437
+#: WiFiManager.py:436
 msgid ""
 "Shows packet retry limits and settings:\n"
 "- Retry short limit\n"
@@ -320,7 +340,7 @@ msgstr ""
 "- Διάρκεια ζωής πακέτου\n"
 "- Στατιστικά επαναπροσπαθειών"
 
-#: WiFiManager.py:438
+#: WiFiManager.py:437
 msgid ""
 "Lists access points and peer stations:\n"
 "- Connected stations\n"
@@ -334,7 +354,7 @@ msgstr ""
 "- Στατιστικά peer\n"
 "- Ποιότητα σύνδεσης"
 
-#: WiFiManager.py:439
+#: WiFiManager.py:438
 msgid ""
 "Advanced WiFi interface configuration:\n"
 "- Operation mode (Managed/AP/Monitor)\n"
@@ -348,7 +368,7 @@ msgstr ""
 "- Έλεγχος ισχύος μετάδοσης\n"
 "- Βασικές ρυθμίσεις διεπαφής"
 
-#: WiFiManager.py:440
+#: WiFiManager.py:439
 msgid ""
 "Restarts the WiFi interface:\n"
 "- Brings interface down/up\n"
@@ -362,7 +382,7 @@ msgstr ""
 "- Διατηρεί τη ρύθμιση\n"
 "- Γρήγορη επαναφορά συνδεσιμότητας"
 
-#: WiFiManager.py:441
+#: WiFiManager.py:440
 msgid ""
 "Reloads WiFi kernel modules:\n"
 "- Unloads/loads drivers\n"
@@ -376,7 +396,7 @@ msgstr ""
 "- Επιδιόρθωση προβλημάτων driver\n"
 "- Απαιτεί δικαιώματα root"
 
-#: WiFiManager.py:442
+#: WiFiManager.py:441
 msgid ""
 "Checks system logs for WiFi errors:\n"
 "- Kernel messages (dmesg)\n"
@@ -390,36 +410,44 @@ msgstr ""
 "- Σφάλματα driver\n"
 "- Προβλήματα σύνδεσης"
 
-#: WiFiManager.py:444
+#: WiFiManager.py:443
 msgid "No help available for this tool."
 msgstr "Δεν υπάρχει διαθέσιμη βοήθεια για αυτό το εργαλείο."
 
-#: WiFiManager.py:457
+#: WiFiManager.py:456
 msgid "Error loading help"
 msgstr "Σφάλμα φόρτωσης βοήθειας"
 
-#: modules/config.py:153 modules/iwlist_tools.py:511
+#: modules/config.py:45
+msgid "Automatic (DHCP)"
+msgstr ""
+
+#: modules/config.py:46
+msgid "Manual (Static IP)"
+msgstr ""
+
+#: modules/config.py:169 modules/iwlist_tools.py:511
 msgid "Cancel"
 msgstr "Άκυρο"
 
-#: modules/config.py:154 modules/config.py:192
+#: modules/config.py:170 modules/config.py:212
 msgid "Save & Connect"
 msgstr "Αποθήκευση & Σύνδεση"
 
-#: modules/config.py:155 modules/config.py:419
+#: modules/config.py:171 modules/config.py:452
 msgid "Advanced"
 msgstr "Προηγμένα"
 
-#: modules/config.py:156 modules/iwlist_tools.py:513
+#: modules/config.py:172 modules/iwlist_tools.py:513
 msgid "Defaults"
 msgstr "Προεπιλογές"
 
-#: modules/config.py:168
+#: modules/config.py:184
 #, python-brace-format
 msgid "Configure {}"
 msgstr "Ρύθμιση {}"
 
-#: modules/config.py:367
+#: modules/config.py:387
 msgid ""
 "WiFi settings applied successfully\n"
 "\n"
@@ -427,17 +455,17 @@ msgstr ""
 "Οι ρυθμίσεις WiFi εφαρμόστηκαν με επιτυχία\n"
 "\n"
 
-#: modules/config.py:368
+#: modules/config.py:388
 #, python-brace-format
 msgid "Applied: {} commands\n"
 msgstr "Εφαρμόστηκαν: {} εντολές\n"
 
-#: modules/config.py:370
+#: modules/config.py:390
 #, python-brace-format
 msgid "Failed: {} commands"
 msgstr "Απέτυχαν: {} εντολές"
 
-#: modules/config.py:373
+#: modules/config.py:393
 msgid ""
 "No settings were applied\n"
 "\n"
@@ -447,264 +475,328 @@ msgstr ""
 "\n"
 "Απέτυχαν οι εντολές:\n"
 
-#: modules/config.py:387
+#: modules/config.py:407
 msgid "Interface"
 msgstr "Διεπαφή"
 
-#: modules/config.py:389
+#: modules/config.py:409
 msgid "Network Name (SSID)"
 msgstr "Όνομα δικτύου (SSID)"
 
-#: modules/config.py:390
+#: modules/config.py:410
 msgid "Hidden Network"
 msgstr "Κρυφό δίκτυο"
 
-#: modules/config.py:391
+#: modules/config.py:411 modules/diagnostics.py:378
 msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
-#: modules/config.py:399
+#: modules/config.py:419
 msgid "WEP Key Type"
 msgstr "Τύπος κλειδιού WEP"
 
-#: modules/config.py:405 modules/iwlist_tools.py:504
+#: modules/config.py:424
+#, fuzzy
+#| msgid "Edit Configuration"
+msgid "IP Configuration"
+msgstr "Επεξεργασία ρύθμισης"
+
+#: modules/config.py:428
+msgid "IP Address"
+msgstr ""
+
+#: modules/config.py:429
+msgid "Netmask"
+msgstr ""
+
+#: modules/config.py:430
+msgid "Gateway"
+msgstr ""
+
+#: modules/config.py:431
+msgid "DNS Server 1"
+msgstr ""
+
+#: modules/config.py:432
+msgid "DNS Server 2"
+msgstr ""
+
+#: modules/config.py:438 modules/iwlist_tools.py:504
 msgid "Operation Mode"
 msgstr "Τύπος λειτουργίας"
 
-#: modules/config.py:406 modules/iwlist_tools.py:505
+#: modules/config.py:439 modules/iwlist.py:270 modules/iwlist_tools.py:505
 msgid "Channel"
 msgstr "Κανάλι"
 
-#: modules/config.py:407 modules/iwlist_tools.py:506
+#: modules/config.py:440 modules/iwlist_tools.py:506
 msgid "TX Power"
 msgstr "Ισχύς μετάδοσης"
 
-#: modules/config.py:408
+#: modules/config.py:441
 msgid "RTS Threshold"
 msgstr "Όριο RTS"
 
-#: modules/config.py:409
+#: modules/config.py:442
 msgid "Fragmentation"
 msgstr "Κατακερματισμός"
 
-#: modules/config.py:410
+#: modules/config.py:443
 msgid "Country Code"
 msgstr "Κωδικός χώρας"
 
-#: modules/config.py:411
+#: modules/config.py:444
 msgid "Data Rate"
 msgstr "Ρυθμός δεδομένων"
 
-#: modules/config.py:419
+#: modules/config.py:452
 msgid "Basic"
 msgstr "Βασικά"
 
-#: modules/config.py:435
+#: modules/config.py:468
 msgid "Please enter a network name"
 msgstr "Παρακαλώ εισάγετε όνομα δικτύου"
 
-#: modules/config.py:439
+#: modules/config.py:472
 msgid "Please enter a password"
 msgstr "Παρακαλώ εισάγετε κωδικό πρόσβασης"
 
-#: modules/config.py:526
+#: modules/config.py:600
 msgid "All settings reset to defaults"
 msgstr "Όλες οι ρυθμίσεις επαναφέρθηκαν στις προεπιλογές"
 
-#: modules/connect.py:97
+#: modules/connect.py:96
 msgid "Initializing WiFi..."
 msgstr "Αρχικοποίηση WiFi..."
 
-#: modules/connect.py:98 modules/diagnostics.py:56 modules/monitor.py:80 modules/scanner.py:73
+#: modules/connect.py:97 modules/diagnostics.py:56 modules/monitor.py:80
+#: modules/scanner.py:86
 msgid "Exit"
 msgstr "Έξοδος"
 
-#: modules/connect.py:101 modules/connect.py:226 modules/connect.py:232 modules/scanner.py:70
+#: modules/connect.py:100 modules/connect.py:197 modules/connect.py:203
+#: modules/scanner.py:83
 msgid "Scan"
 msgstr "Σάρωση"
 
-#: modules/connect.py:119
+#: modules/connect.py:118
 msgid "WiFi Connection Manager"
 msgstr "Διαχειριστής σύνδεσης WiFi"
 
-#: modules/connect.py:138 modules/connect.py:183 modules/connect.py:210 modules/iwlist_tools.py:383
+#: modules/connect.py:137 modules/connect.py:181 modules/iwlist_tools.py:383
 msgid "No WiFi interface available"
 msgstr "Δεν υπάρχει διαθέσιμη διεπαφή WiFi"
 
-#: modules/connect.py:142
+#: modules/connect.py:141
 msgid "Performing initial scan..."
 msgstr "Εκτελείται αρχική σάρωση..."
 
-#: modules/connect.py:154
+#: modules/connect.py:153
 #, python-brace-format
 msgid "Interface found: {}"
 msgstr "Βρέθηκε διεπαφή: {}"
 
-#: modules/connect.py:157
+#: modules/connect.py:156
 msgid "No WiFi interface found"
 msgstr "Δεν βρέθηκε διεπαφή WiFi"
 
-#: modules/connect.py:158
+#: modules/connect.py:157
 msgid "No WiFi interface detected. Please check your hardware."
 msgstr "Δεν ανιχνεύθηκε διεπαφή WiFi. Παρακαλώ ελέγξτε το υλικό σας."
 
-#: modules/connect.py:214
+#: modules/connect.py:185
 msgid "Scanning..."
 msgstr "Σάρωση..."
 
-#: modules/connect.py:215
+#: modules/connect.py:186
 msgid "Scanning for networks..."
 msgstr "Σάρωση για δίκτυα..."
 
-#: modules/connect.py:233
+#: modules/connect.py:204
 msgid "Scan failed"
 msgstr "Αποτυχία σάρωσης"
 
-#: modules/connect.py:252
+#: modules/connect.py:222 modules/detailed_info.py:207
+#: modules/detailed_info.py:212 modules/detailed_info.py:217
+#: modules/detailed_info.py:222 modules/detailed_info.py:227
+#: modules/detailed_info.py:232 modules/detailed_info.py:268
+#: modules/detailed_info.py:305 modules/detailed_info.py:380
+#: modules/scanner.py:184 modules/scanner.py:432 modules/scanner.py:495
+#: modules/scanner.py:505 modules/scanner.py:506
+#: modules/speedtest_manager.py:195 modules/speedtest_manager.py:197
+#: modules/speedtest_manager.py:198 modules/speedtest_manager.py:200
+#: modules/speedtest_simple.py:72 modules/speedtest_simple.py:73
+#: modules/speedtest_simple.py:74 modules/speedtest_simple.py:75
+#: modules/speedtest_simple.py:76 modules/speedtest_simple.py:92
+#: modules/speedtest_simple.py:291 modules/speedtest_simple.py:292
+#: modules/speedtest_simple.py:393 modules/speedtest_simple.py:396
+#: modules/speedtest_simple.py:397 modules/speedtest_simple.py:400
+#: modules/speedtest_simple.py:406 modules/speedtest_simple.py:407
+#: modules/speedtest_simple.py:408 modules/tools.py:214 modules/tools.py:218
+#: modules/tools.py:228 modules/tools.py:232 modules/tools.py:267
+#: modules/tools.py:275 modules/tools.py:283 modules/tools.py:285
+#: modules/tools.py:287 modules/tools.py:615
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: modules/connect.py:265
+#: modules/connect.py:234
+msgid "[LOCK]"
+msgstr ""
+
+#: modules/connect.py:235
 msgid "Secured"
 msgstr "Ασφαλές"
 
-#: modules/connect.py:268
+#: modules/connect.py:237
+msgid "[OPEN]"
+msgstr ""
+
+#: modules/connect.py:238
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: modules/connect.py:306
+#: modules/connect.py:242
+msgid "[SAVED] "
+msgstr ""
+
+#: modules/connect.py:246
+#, python-brace-format
+msgid "{connection}{saved}{icon} {essid} | {security} | {signal} dBm"
+msgstr ""
+
+#: modules/connect.py:283
 #, python-brace-format
 msgid "CONNECTED to: {} - Press OK for options"
 msgstr "ΣΥΝΔΕΔΕΜΕΝΟ στο: {} - Πατήστε OK για επιλογές"
 
-#: modules/connect.py:310
+#: modules/connect.py:287
 #, python-brace-format
 msgid "{} - Password saved - Press OK for options"
 msgstr "{} - Ο κωδικός αποθηκεύτηκε - Πατήστε OK για επιλογές"
 
-#: modules/connect.py:312
+#: modules/connect.py:289
 #, python-brace-format
 msgid "{} - Password required - Press OK for options"
 msgstr "{} - Απαιτείται κωδικός - Πατήστε OK για επιλογές"
 
-#: modules/connect.py:315
+#: modules/connect.py:292
 #, python-brace-format
 msgid "{} - Open network - Press OK for options"
 msgstr "{} - Άνοιγμα δικτύου - Πατήστε OK για επιλογές"
 
-#: modules/connect.py:346
-#, python-format
+#: modules/connect.py:317 modules/connect.py:336 modules/connect.py:860
+msgid "No IP"
+msgstr "Χωρίς IP"
+
+#: modules/connect.py:322 modules/connect.py:328
+msgid "DHCP"
+msgstr ""
+
+#: modules/connect.py:328
+msgid "Static"
+msgstr ""
+
+#: modules/connect.py:333
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "CONNECTED to: %(essid)s\n"
+#| "IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
+#| "Press OK for options"
 msgid ""
-"CONNECTED to: %(essid)s\n"
-"IP: %(ip)s | Signal: %(quality)s (%(strength)s dBm)\n"
+"CONNECTED to: {essid}\n"
+"IP: {ip} | Network: {network_type}\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK for options"
 msgstr ""
 "ΣΥΝΔΕΘΗΚΕ στο: %(essid)s\n"
 "IP: %(ip)s | Σήμα: %(quality)s (%(strength)s dBm)\n"
 "Πατήστε ΟΚ για επιλογές"
 
-#: modules/connect.py:356
-#, python-format
+#: modules/connect.py:344
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "%(essid)s - Password saved\n"
+#| "Signal: %(quality)s (%(strength)s dBm)\n"
+#| "Press OK to connect or edit"
 msgid ""
-"%(essid)s - Password saved\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Password saved\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK to connect or edit"
 msgstr ""
 "%(essid)s - Ο κωδικός αποθηκεύτηκε\n"
 "Σήμα: %(quality)s (%(strength)s dBm)\n"
 "Πατήστε ΟΚ για σύνδεση ή επεξεργασία"
 
-#: modules/connect.py:365
-#, python-format
+#: modules/connect.py:353
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "%(essid)s - Password required\n"
+#| "Signal: %(quality)s (%(strength)s dBm)\n"
+#| "Press OK to enter password"
 msgid ""
-"%(essid)s - Password required\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Password required\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK to enter password"
 msgstr ""
 "%(essid)s - Απαιτείται κωδικός πρόσβασης\n"
 "Σήμα: %(quality)s (%(strength)s dBm)\n"
 "Πατήστε ΟΚ για εισαγωγή κωδικού"
 
-#: modules/connect.py:374
-#, python-format
+#: modules/connect.py:362
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "%(essid)s - Open network\n"
+#| "Signal: %(quality)s (%(strength)s dBm)\n"
+#| "Press OK to connect"
 msgid ""
-"%(essid)s - Open network\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Open network\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK to connect"
 msgstr ""
 "%(essid)s - Ανοικτό δίκτυο\n"
 "Σήμα: %(quality)s (%(strength)s dBm)\n"
 "Πατήστε ΟΚ για σύνδεση"
 
-#: modules/connect.py:440
+#: modules/connect.py:428
 msgid "No networks found - Press BLUE to rescan"
 msgstr "Δεν βρέθηκαν δίκτυα - Πατήστε ΜΠΛΕ για νέα σάρωση"
 
-#: modules/connect.py:441 modules/iwlist_tools.py:185 modules/iwlist_tools.py:199
+#: modules/connect.py:429 modules/iwlist_tools.py:185
+#: modules/iwlist_tools.py:199
 msgid "No networks found"
 msgstr "Δεν βρέθηκαν δίκτυα"
 
-#: modules/connect.py:504
-msgid "Configuration saved"
-msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
-
-#: modules/connect.py:555
-#, python-brace-format
-msgid "Connecting to {}..."
-msgstr "Σύνδεση με {}..."
-
-#: modules/connect.py:573
-#, python-brace-format
-msgid "Connected to {}"
-msgstr "Συνδέθηκε στο {}"
-
-#: modules/connect.py:574
-#, python-brace-format
-msgid "Successfully connected to {}"
-msgstr "Επιτυχής σύνδεση στο {}"
-
-#: modules/connect.py:578
-#, python-brace-format
-msgid "Connection to {} failed"
-msgstr "Η σύνδεση με {} απέτυχε"
-
-#: modules/connect.py:580
-#, python-brace-format
-msgid "Failed to connect to {}"
-msgstr "Αποτυχία σύνδεσης με {}"
-
-#: modules/connect.py:583
-#, python-brace-format
-msgid "Connection error: {}"
-msgstr "Σφάλμα σύνδεσης: {}"
-
-#: modules/connect.py:684 modules/connect.py:1111
+#: modules/connect.py:610 modules/connect.py:1057
 #, python-format
 msgid "Connecting to %s..."
 msgstr "Σύνδεση με %s..."
 
-#: modules/connect.py:701
+#: modules/connect.py:627
 #, python-format
 msgid "Connected to %s"
 msgstr "Συνδέθηκε στο %s"
 
-#: modules/connect.py:704
+#: modules/connect.py:630
 #, python-format
 msgid "Failed to connect to %s"
 msgstr "Αποτυχία σύνδεσης με %s"
 
-#: modules/connect.py:713
+#: modules/connect.py:641
 msgid "Connected successfully!"
 msgstr "Συνδέθηκε με επιτυχία!"
 
-#: modules/connect.py:715
+#: modules/connect.py:643
 msgid "Connection failed!"
 msgstr "Η σύνδεση απέτυχε!"
 
-#: modules/connect.py:762 modules/connect.py:1181
-#, python-format
+#: modules/connect.py:691
+#, fuzzy, python-format
+#| msgid ""
+#| "Configuration saved for %s\n"
+#| "\n"
+#| "Connect now?"
 msgid ""
-"Configuration saved for %s\n"
+"WiFi and network configuration saved for %s\n"
 "\n"
 "Connect now?"
 msgstr ""
@@ -712,12 +804,7 @@ msgstr ""
 "\n"
 "Να συνδεθεί τώρα;"
 
-#: modules/connect.py:803
-#, python-format
-msgid "Error opening configuration: %s"
-msgstr "Σφάλμα κατά το άνοιγμα των ρυθμίσεων: %s"
-
-#: modules/connect.py:815
+#: modules/connect.py:722
 #, python-format
 msgid ""
 "Password saved for %s\n"
@@ -728,135 +815,201 @@ msgstr ""
 "\n"
 "Να συνδεθεί τώρα;"
 
-#: modules/connect.py:825
+#: modules/connect.py:732
 #, python-format
 msgid "Enter password for: %s"
 msgstr "Εισάγετε κωδικό για: %s"
 
-#: modules/connect.py:826
+#: modules/connect.py:733
 msgid "WiFi Password"
 msgstr "Κωδικός WiFi"
 
-#: modules/connect.py:835
-msgid "Disconnected successfully!"
-msgstr "Αποσυνδέθηκε με επιτυχία!"
-
-#: modules/connect.py:862
+#: modules/connect.py:808
 msgid "Disconnected"
 msgstr "Αποσυνδέθηκε"
 
-#: modules/connect.py:865
+#: modules/connect.py:811
 msgid "Error disconnecting"
 msgstr "Σφάλμα κατά την αποσύνδεση"
 
-#: modules/connect.py:876
+#: modules/connect.py:822
 msgid "Network forgotten!"
 msgstr "Το δίκτυο ξεχάστηκε!"
 
-#: modules/connect.py:895
+#: modules/connect.py:841
 #, python-brace-format
 msgid "Forgotten network: {}"
 msgstr "Ξεχασμένο δίκτυο: {}"
 
-#: modules/connect.py:898
+#: modules/connect.py:844 modules/tools.py:763
 #, python-brace-format
 msgid "Error: {}"
 msgstr "Σφάλμα: {}"
 
-#: modules/connect.py:914
-msgid "No IP"
-msgstr "Χωρίς IP"
-
-#: modules/connect.py:916
+#: modules/connect.py:862
 #, python-brace-format
 msgid "Connected: {} | Signal: {} dBm | IP: {}"
 msgstr "Συνδεδεμένο: {} | Σήμα: {} dBm | IP: {}"
 
-#: modules/connect.py:919 modules/connect.py:1150 modules/connect.py:1163
+#: modules/connect.py:865 modules/connect.py:1096 modules/connect.py:1113
 msgid "Not connected to any network"
 msgstr "Δεν υπάρχει σύνδεση σε κανένα δίκτυο"
 
-#: modules/connect.py:922
+#: modules/connect.py:868
 #, python-brace-format
 msgid "Status check failed: {}"
 msgstr "Αποτυχία ελέγχου κατάστασης: {}"
 
-#: modules/connect.py:991
-#, python-format
+#: modules/connect.py:888
+#, fuzzy, python-brace-format
+#| msgid "Network: %s"
+msgid "Network: {essid}"
+msgstr "Δίκτυο: %s"
+
+#: modules/connect.py:893
+#, python-brace-format
+msgid "Frequency: {frequency}"
+msgstr ""
+
+#: modules/connect.py:898
+#, fuzzy, python-brace-format
+#| msgid "Access Points"
+msgid "Access Point: {ap}"
+msgstr "Σημεία πρόσβασης"
+
+#: modules/connect.py:903
+#, python-brace-format
+msgid "Bit Rate: {rate}"
+msgstr ""
+
+#: modules/connect.py:908
+#, python-brace-format
+msgid "Signal Level: {signal} dBm"
+msgstr ""
+
+#: modules/connect.py:913
+#, python-brace-format
+msgid "Link Quality: {quality}"
+msgstr ""
+
+#: modules/connect.py:918
+#, python-brace-format
+msgid "Mode: {mode}"
+msgstr ""
+
+#: modules/connect.py:925
+#, fuzzy, python-brace-format
+#| msgid "ISP: {isp}"
+msgid "IP Address: {ip}"
+msgstr "ISP: {isp}"
+
+#: modules/connect.py:930
+#, python-brace-format
+msgid "MAC Address: {mac}"
+msgstr ""
+
+#: modules/connect.py:937
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "Connection Details:\n"
+#| "\n"
+#| "%s"
 msgid ""
 "Connection Details:\n"
 "\n"
-"%s"
+"{details}"
 msgstr ""
 "Λεπτομέρειες σύνδεσης:\n"
 "\n"
 "%s"
 
-#: modules/connect.py:1005
+#: modules/connect.py:951
 msgid "No connection details available"
 msgstr "Δεν υπάρχουν διαθέσιμες λεπτομέρειες σύνδεσης"
 
-#: modules/connect.py:1013
-#, python-format
-msgid "Error getting connection details: %s"
+#: modules/connect.py:959
+#, fuzzy, python-brace-format
+#| msgid "Error getting connection details: %s"
+msgid "Error getting connection details: {error}"
 msgstr "Σφάλμα κατά τη λήψη λεπτομερειών σύνδεσης: %s"
 
-#: modules/connect.py:1067
+#: modules/connect.py:1013
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
-#: modules/connect.py:1068 modules/connect.py:1087
+#: modules/connect.py:1014 modules/connect.py:1033
 msgid "Connection Info"
 msgstr "Πληροφορίες σύνδεσης"
 
-#: modules/connect.py:1069 modules/connect.py:1085
+#: modules/connect.py:1015 modules/connect.py:1031
 msgid "Edit Configuration"
 msgstr "Επεξεργασία ρύθμισης"
 
-#: modules/connect.py:1070 modules/connect.py:1088 modules/iwlist_tools.py:635
+#: modules/connect.py:1016 modules/connect.py:1034 modules/iwlist_tools.py:634
 msgid "Back"
 msgstr "Πίσω"
 
-#: modules/connect.py:1072
+#: modules/connect.py:1018
 #, python-format
 msgid "Connected to: %s"
 msgstr "Συνδεδεμένο σε: %s"
 
-#: modules/connect.py:1081
+#: modules/connect.py:1027
 msgid "Edit Password"
 msgstr "Επεξεργασία κωδικού"
 
-#: modules/connect.py:1083
+#: modules/connect.py:1029
 msgid "Enter Password"
 msgstr "Εισάγετε κωδικό"
 
-#: modules/connect.py:1086
+#: modules/connect.py:1032
 msgid "Forget Network"
 msgstr "Ξεχάστε το δίκτυο"
 
-#: modules/connect.py:1090
+#: modules/connect.py:1036
 #, python-format
 msgid "Network: %s"
 msgstr "Δίκτυο: %s"
 
-#: modules/connect.py:1117
+#: modules/connect.py:1063
 msgid "Disconnecting..."
 msgstr "Αποσύνδεση..."
 
-#: modules/connect.py:1140
+#: modules/connect.py:1086
 msgid "No network selected"
 msgstr "Δεν επιλέχθηκε δίκτυο"
 
-#: modules/connect.py:1161
-#, python-brace-format
+#: modules/connect.py:1099 modules/detailed_info.py:202 modules/monitor.py:165
+#: modules/monitor.py:218 modules/monitor.py:292 modules/monitor.py:302
+#: modules/scanner.py:550 modules/tools.py:210
+#, fuzzy
+#| msgid "Disconnected"
+msgid "Not connected"
+msgstr "Αποσυνδέθηκε"
+
+#: modules/connect.py:1101
+msgid "?"
+msgstr ""
+
+#: modules/connect.py:1103
+#, fuzzy
+#| msgid "Interface"
+msgid "No interface"
+msgstr "Διεπαφή"
+
+#: modules/connect.py:1107
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "Connected to: {}\n"
+#| "Signal: {} | IP: {}"
 msgid ""
-"Connected to: {}\n"
-"Signal: {} | IP: {}"
+"Connected to: {essid}\n"
+"Signal: {quality} | IP: {ip}"
 msgstr ""
 "Συνδεδεμένο στο: {}\n"
 "Σήμα: {} | IP: {}"
 
-#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:71
+#: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:84
 msgid "Refresh"
 msgstr "Ανανέωση"
 
@@ -865,11 +1018,264 @@ msgstr "Ανανέωση"
 msgid "Detailed Info - {}"
 msgstr "Αναλυτικές πληροφορίες - {}"
 
-#: modules/diagnostics.py:53 modules/speedtest_manager.py:75 modules/speedtest_manager.py:106
+#: modules/detailed_info.py:105
+#, python-brace-format
+msgid "❌ Interface {} not found or not a WiFi interface\n"
+msgstr ""
+
+#: modules/detailed_info.py:106
+#, python-brace-format
+msgid "Available interfaces: {}"
+msgstr ""
+
+#: modules/detailed_info.py:106
+msgid "None"
+msgstr ""
+
+#: modules/detailed_info.py:112
+#, python-brace-format
+msgid "📡 DETAILED WIFI INFORMATION - {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:118
+msgid "🔧 BASIC INTERFACE INFO\n"
+msgstr ""
+
+#: modules/detailed_info.py:127
+#, fuzzy
+#| msgid ""
+#| "=== BITRATE INFORMATION ===\n"
+#| "\n"
+msgid "📶 WIRELESS INFORMATION\n"
+msgstr ""
+"=== ΠΛΗΡΟΦΟΡΙΕΣ ΡΥΘΜΟΥ ΜΕΤΑΔΟΣΗΣ ===\n"
+"\n"
+
+#: modules/detailed_info.py:136
+msgid "🔌 DRIVER & HARDWARE\n"
+msgstr ""
+
+#: modules/detailed_info.py:145
+msgid "📊 NETWORK STATISTICS\n"
+msgstr ""
+
+#: modules/detailed_info.py:154
+msgid "🌐 AVAILABLE NETWORKS\n"
+msgstr ""
+
+#: modules/detailed_info.py:176
+#, python-brace-format
+msgid ""
+"❌ Error getting detailed info:\n"
+"{}\n"
+"\n"
+msgstr ""
+
+#: modules/detailed_info.py:194 modules/detailed_info.py:254
+#, fuzzy, python-brace-format
+#| msgid "Error: {}"
+msgid "❌ Error: {}\n"
+msgstr "Σφάλμα: {}"
+
+#: modules/detailed_info.py:198
+msgid "📡 Interface Type: WIRELESS\n"
+msgstr ""
+
+#: modules/detailed_info.py:203
+#, fuzzy, python-brace-format
+#| msgid "  ESSID: %s\n"
+msgid "📡 ESSID: {}\n"
+msgstr "  ESSID: %s\n"
+
+#: modules/detailed_info.py:208
+#, python-brace-format
+msgid "🔧 Mode: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:213
+#, fuzzy, python-brace-format
+#| msgid "  Frequency: %s\n"
+msgid "📶 Frequency: {}\n"
+msgstr "  Συχνότητα: %s\n"
+
+#: modules/detailed_info.py:218
+#, fuzzy, python-brace-format
+#| msgid "  Quality: %s\n"
+msgid "📊 Quality: {}\n"
+msgstr "  Ποιότητα: %s\n"
+
+#: modules/detailed_info.py:223
+#, python-brace-format
+msgid "🚀 Bit Rate: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:228
+#, fuzzy, python-brace-format
+#| msgid "TX Power"
+msgid "⚡ TX Power: {}\n"
+msgstr "Ισχύς μετάδοσης"
+
+#: modules/detailed_info.py:233
+#, python-brace-format
+msgid "💾 Protocol: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:237
+#, fuzzy, python-brace-format
+#| msgid "Client info error: {error}"
+msgid "Wireless info error: {}"
+msgstr "Σφάλμα πληροφοριών πελάτη: {error}"
+
+#: modules/detailed_info.py:238 modules/detailed_info.py:280
+#: modules/detailed_info.py:318 modules/detailed_info.py:357
+#, python-brace-format
+msgid "❌ {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:259
+msgid "UP and active"
+msgstr ""
+
+#: modules/detailed_info.py:259
+msgid "DOWN"
+msgstr ""
+
+#: modules/detailed_info.py:261
+#, python-brace-format
+msgid "{} Status: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:265
+#, fuzzy, python-brace-format
+#| msgid "Interface found: {}"
+msgid "🔧 Interface: {}\n"
+msgstr "Βρέθηκε διεπαφή: {}"
+
+#: modules/detailed_info.py:269
+#, fuzzy, python-brace-format
+#| msgid "  MAC: %s\n"
+msgid "📟 MAC: {}\n"
+msgstr "  MAC: %s\n"
+
+#: modules/detailed_info.py:273 modules/detailed_info.py:274
+msgid "Wireless"
+msgstr ""
+
+#: modules/detailed_info.py:273
+msgid "Wired"
+msgstr ""
+
+#: modules/detailed_info.py:275
+#, python-brace-format
+msgid "{} Type: {} interface\n"
+msgstr ""
+
+#: modules/detailed_info.py:279
+#, fuzzy, python-brace-format
+#| msgid "Client info error: {error}"
+msgid "Basic info error: {}"
+msgstr "Σφάλμα πληροφοριών πελάτη: {error}"
+
+#: modules/detailed_info.py:298
+#, python-brace-format
+msgid "💾 Driver: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:301
+msgid "💾 Driver: Unknown\n"
+msgstr ""
+
+#: modules/detailed_info.py:306
+#, python-brace-format
+msgid "🔧 Module: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:310
+#, fuzzy
+#| msgid "Restart wireless interface"
+msgid "📡 Type: Wireless interface\n"
+msgstr "Επανεκκίνηση ασύρματης διεπαφής"
+
+#: modules/detailed_info.py:313
+msgid "🔌 Type: Wired interface\n"
+msgstr ""
+
+#: modules/detailed_info.py:317
+#, fuzzy, python-brace-format
+#| msgid "Server info error: {error}"
+msgid "Driver info error: {}"
+msgstr "Σφάλμα πληροφοριών διακομιστή: {error}"
+
+#: modules/detailed_info.py:339
+#, python-brace-format
+msgid "⬇️  Received: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:350
+#, python-brace-format
+msgid "⬆️  Transmitted: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:356
+#, fuzzy, python-brace-format
+#| msgid "Detailed test error: {error}"
+msgid "Statistics error: {}"
+msgstr "Σφάλμα αναλυτικού ελέγχου: {error}"
+
+#: modules/detailed_info.py:376
+#, fuzzy, python-brace-format
+#| msgid ""
+#| "Found %d networks\n"
+#| "\n"
+msgid "Found {} networks:\n"
+msgstr ""
+"Βρέθηκαν %d δίκτυα\n"
+"\n"
+
+#: modules/detailed_info.py:381 modules/diagnostics.py:349
+#: modules/iwlist_tools.py:204 modules/iwlist_tools.py:205
+#: modules/iwlist_tools.py:206 modules/iwlist_tools.py:207
+#: modules/iwlist_tools.py:208 modules/iwlist_tools.py:209
+#: modules/monitor.py:164 modules/monitor.py:166 modules/monitor.py:167
+#: modules/monitor.py:294 modules/monitor.py:306 modules/monitor.py:308
+#: modules/monitor.py:309 modules/monitor.py:322
+msgid "N/A"
+msgstr ""
+
+#: modules/detailed_info.py:388
+#, python-brace-format
+msgid "  {:2d}. {} {:20} | Signal: {:4} dBm ({}) | Channel: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:393
+#, python-brace-format
+msgid "  ... and {} more networks\n"
+msgstr ""
+
+#: modules/detailed_info.py:395
+#, fuzzy
+#| msgid "No networks found - Press BLUE to rescan"
+msgid "No networks found or scan not supported\n"
+msgstr "Δεν βρέθηκαν δίκτυα - Πατήστε ΜΠΛΕ για νέα σάρωση"
+
+#: modules/detailed_info.py:399
+#, fuzzy, python-brace-format
+#| msgid "Scan error: "
+msgid "Scan error: {}"
+msgstr "Σφάλμα σάρωσης: "
+
+#: modules/detailed_info.py:400
+#, python-brace-format
+msgid "{}\n"
+msgstr ""
+
+#: modules/diagnostics.py:53 modules/speedtest_manager.py:75
+#: modules/speedtest_manager.py:106
 msgid "Full Test"
 msgstr "Πλήρης έλεγχος"
 
-#: modules/diagnostics.py:54 modules/speedtest_manager.py:74 modules/speedtest_manager.py:105
+#: modules/diagnostics.py:54 modules/speedtest_manager.py:74
+#: modules/speedtest_manager.py:105
 msgid "Quick Test"
 msgstr "Γρήγορος έλεγχος"
 
@@ -880,6 +1286,438 @@ msgstr "Εκκαθάριση"
 #: modules/diagnostics.py:73
 msgid "WiFi Diagnostics"
 msgstr "Διαγνωστικά WiFi"
+
+#: modules/diagnostics.py:84
+msgid "=== WiFi Diagnostics (System Commands Only) ===\n"
+msgstr ""
+
+#: modules/diagnostics.py:85
+#, python-brace-format
+msgid ""
+"Test Type: {test_type}\n"
+"\n"
+msgstr ""
+
+#: modules/diagnostics.py:86
+msgid "Full Comprehensive Test"
+msgstr ""
+
+#: modules/diagnostics.py:86
+msgid "Quick System Check"
+msgstr ""
+
+#: modules/diagnostics.py:92
+msgid "🔧 SYSTEM LEVEL DIAGNOSTICS\n"
+msgstr ""
+
+#: modules/diagnostics.py:125
+#, fuzzy, python-brace-format
+#| msgid "Network Interface: {interface}"
+msgid "All Network Interfaces: {interfaces}\n"
+msgstr "Διεπαφή δικτύου: {interface}"
+
+#: modules/diagnostics.py:126 modules/diagnostics.py:128
+#, fuzzy
+#| msgid "No networks found"
+msgid "None found"
+msgstr "Δεν βρέθηκαν δίκτυα"
+
+#: modules/diagnostics.py:127
+#, fuzzy, python-brace-format
+#| msgid "Network Interface: {interface}"
+msgid ""
+"Wireless Interfaces: {interfaces}\n"
+"\n"
+msgstr "Διεπαφή δικτύου: {interface}"
+
+#: modules/diagnostics.py:133
+msgid "❌ CRITICAL: No WiFi interfaces detected!\n"
+msgstr ""
+
+#: modules/diagnostics.py:144
+#, python-brace-format
+msgid ""
+"\n"
+"🔍 DETAILED ANALYSIS: {interface}\n"
+msgstr ""
+
+#: modules/diagnostics.py:184
+msgid ""
+"\n"
+"💡 SUMMARY & RECOMMENDATIONS\n"
+msgstr ""
+
+#: modules/diagnostics.py:194
+#, python-brace-format
+msgid ""
+"\n"
+"❌ DIAGNOSTIC ERROR: {error}\n"
+msgstr ""
+
+#: modules/diagnostics.py:229
+#, python-brace-format
+msgid "✅ Loaded WiFi modules: {modules}\n"
+msgstr ""
+
+#: modules/diagnostics.py:231
+msgid "⚠️  No WiFi kernel modules detected\n"
+msgstr ""
+
+#: modules/diagnostics.py:233
+#, python-brace-format
+msgid "❌ Kernel module check failed: {error}\n"
+msgstr ""
+
+#: modules/diagnostics.py:248
+msgid "✅ USB WiFi adapters detected:\n"
+msgstr ""
+
+#: modules/diagnostics.py:250
+#, python-brace-format
+msgid "   - {adapter}\n"
+msgstr ""
+
+#: modules/diagnostics.py:252
+#, fuzzy
+#| msgid "No WiFi interfaces found"
+msgid "ℹ️  No USB WiFi adapters found\n"
+msgstr "Δεν βρέθηκαν διεπαφές WiFi"
+
+#: modules/diagnostics.py:254
+#, fuzzy, python-brace-format
+#| msgid "Status check failed: {}"
+msgid "❌ USB device check failed: {error}\n"
+msgstr "Αποτυχία ελέγχου κατάστασης: {}"
+
+#: modules/diagnostics.py:271
+#, python-brace-format
+msgid "✅ Available commands: {commands}\n"
+msgstr ""
+
+#: modules/diagnostics.py:273
+#, python-brace-format
+msgid "⚠️  Missing commands: {commands}\n"
+msgstr ""
+
+#: modules/diagnostics.py:284
+#, fuzzy, python-brace-format
+#| msgid "Network Interface: {interface}"
+msgid "✅ Interface {interface}: UP and active\n"
+msgstr "Διεπαφή δικτύου: {interface}"
+
+#: modules/diagnostics.py:286
+#, python-brace-format
+msgid "⚠️  Interface {interface}: DOWN (needs activation)\n"
+msgstr ""
+
+#: modules/diagnostics.py:288
+#, fuzzy, python-brace-format
+#| msgid "Network Interface: {interface}"
+msgid "❌ Interface {interface}: UNKNOWN STATE\n"
+msgstr "Διεπαφή δικτύου: {interface}"
+
+#: modules/diagnostics.py:293
+#, python-brace-format
+msgid "   MAC Address: {mac}\n"
+msgstr ""
+
+#: modules/diagnostics.py:296
+#, fuzzy, python-brace-format
+#| msgid "Network Interface: {interface}"
+msgid "❌ Interface {interface}: NOT FOUND\n"
+msgstr "Διεπαφή δικτύου: {interface}"
+
+#: modules/diagnostics.py:298
+#, fuzzy, python-brace-format
+#| msgid "Status check failed: {}"
+msgid "❌ Interface check failed: {error}\n"
+msgstr "Αποτυχία ελέγχου κατάστασης: {}"
+
+#: modules/diagnostics.py:309
+#, python-brace-format
+msgid "   Driver: {driver}\n"
+msgstr ""
+
+#: modules/diagnostics.py:311
+msgid "   Driver: Unknown\n"
+msgstr ""
+
+#: modules/diagnostics.py:313
+#, fuzzy, python-brace-format
+#| msgid "Status check failed: {}"
+msgid "   Driver check failed: {error}\n"
+msgstr "Αποτυχία ελέγχου κατάστασης: {}"
+
+#: modules/diagnostics.py:329
+#, fuzzy, python-brace-format
+#| msgid "  ESSID: %s\n"
+msgid "📶 ESSID: {essid}\n"
+msgstr "  ESSID: %s\n"
+
+#: modules/diagnostics.py:332
+msgid "📶 ESSID: Not connected\n"
+msgstr ""
+
+#: modules/diagnostics.py:335
+#, python-brace-format
+msgid "❌ ESSID check: {error}\n"
+msgstr ""
+
+#: modules/diagnostics.py:350
+#, python-brace-format
+msgid "📊 Signal: {quality}% quality, {signal} dBm\n"
+msgstr ""
+
+#: modules/diagnostics.py:353
+msgid "📊 Signal: No quality data available\n"
+msgstr ""
+
+#: modules/diagnostics.py:355
+#, python-brace-format
+msgid "❌ Signal check: {error}\n"
+msgstr ""
+
+#: modules/diagnostics.py:362
+#, python-brace-format
+msgid "🔧 Mode: {mode}\n"
+msgstr ""
+
+#: modules/diagnostics.py:364
+msgid "🔧 Mode: Unknown\n"
+msgstr ""
+
+#: modules/diagnostics.py:366
+#, python-brace-format
+msgid "❌ Mode check: {error}\n"
+msgstr ""
+
+#: modules/diagnostics.py:373
+msgid ""
+"\n"
+"   🔬 ADVANCED TESTS:\n"
+msgstr ""
+
+#: modules/diagnostics.py:376
+msgid "Frequency/Channel"
+msgstr ""
+
+#: modules/diagnostics.py:377
+#, fuzzy
+#| msgid "Bitrate Info"
+msgid "Bitrate"
+msgstr "Πληροφορίες ρυθμού μετάδοσης"
+
+#: modules/diagnostics.py:379 modules/iwconfig.py:263
+#, fuzzy
+#| msgid "Access Points"
+msgid "Access Point"
+msgstr "Σημεία πρόσβασης"
+
+#: modules/diagnostics.py:386
+#, python-brace-format
+msgid "   ✅ {test}: {output}\n"
+msgstr ""
+
+#: modules/diagnostics.py:388
+#, python-brace-format
+msgid "   ⚠️  {test}: No data\n"
+msgstr ""
+
+#: modules/diagnostics.py:390
+#, fuzzy, python-brace-format
+#| msgid "Full test error: {error}"
+msgid ""
+"   ❌ {test}: Failed\n"
+"Error: {error}"
+msgstr "Σφάλμα πλήρους ελέγχου: {error}"
+
+#: modules/diagnostics.py:397
+msgid ""
+"\n"
+"   🚀 PERFORMANCE TESTS:\n"
+msgstr ""
+
+#: modules/diagnostics.py:405
+#, python-brace-format
+msgid "   📡 Scan: Found {count} networks\n"
+msgstr ""
+
+#: modules/diagnostics.py:408
+msgid "   ⚠️  Scan: Interface busy (connected to network)\n"
+msgstr ""
+
+#: modules/diagnostics.py:410 modules/diagnostics.py:412
+#, python-brace-format
+msgid "   ❌ Scan test: {error}\n"
+msgstr ""
+
+#: modules/diagnostics.py:419
+#, python-brace-format
+msgid "   🌐 Connectivity: IP {ip} - ONLINE\n"
+msgstr ""
+
+#: modules/diagnostics.py:421
+msgid "   🌐 Connectivity: No IP address - OFFLINE\n"
+msgstr ""
+
+#: modules/diagnostics.py:423
+msgid "   🌐 Connectivity: Unknown status\n"
+msgstr ""
+
+#: modules/diagnostics.py:430
+msgid ""
+"\n"
+"🔧 POSSIBLE SOLUTIONS:\n"
+msgstr ""
+
+#: modules/diagnostics.py:433
+msgid "1. Check if WiFi adapter is properly connected\n"
+msgstr ""
+
+#: modules/diagnostics.py:434
+msgid "2. Verify WiFi adapter is supported by your receiver\n"
+msgstr ""
+
+#: modules/diagnostics.py:435
+msgid "3. Try different USB port for USB WiFi adapters\n"
+msgstr ""
+
+#: modules/diagnostics.py:436
+msgid "4. Check if WiFi drivers are installed\n"
+msgstr ""
+
+#: modules/diagnostics.py:437
+msgid "5. Restart the receiver and try again\n"
+msgstr ""
+
+#: modules/diagnostics.py:440
+msgid "✅ All systems operational\n"
+msgstr ""
+
+#: modules/diagnostics.py:441
+msgid "💡 Tips:\n"
+msgstr ""
+
+#: modules/diagnostics.py:442
+msgid "   • Monitor signal strength for best performance\n"
+msgstr ""
+
+#: modules/diagnostics.py:443
+msgid "   • Keep drivers updated\n"
+msgstr ""
+
+#: modules/diagnostics.py:444
+msgid "   • Use 5GHz band for less interference\n"
+msgstr ""
+
+#: modules/diagnostics.py:452
+msgid "✅ SYSTEM STATUS: WiFi hardware detected and functional\n"
+msgstr ""
+
+#: modules/diagnostics.py:453
+msgid "🔧 METHOD: Using system commands (no root required)\n"
+msgstr ""
+
+#: modules/diagnostics.py:454
+msgid "💡 All basic diagnostics available\n"
+msgstr ""
+
+#: modules/diagnostics.py:456
+msgid "❌ SYSTEM STATUS: No WiFi interfaces detected\n"
+msgstr ""
+
+#: modules/diagnostics.py:457
+msgid "🚨 Check hardware connection and drivers\n"
+msgstr ""
+
+#: modules/iwconfig.py:243
+#, python-format
+msgid ""
+"ESSID:\"%s\"  \n"
+"          "
+msgstr ""
+
+#: modules/iwconfig.py:245
+msgid ""
+"ESSID:off/any  \n"
+"          "
+msgstr ""
+
+#: modules/iwconfig.py:248
+msgid "Mode:"
+msgstr ""
+
+#: modules/iwconfig.py:250
+#, fuzzy
+#| msgid "  Frequency: %s\n"
+msgid "  Frequency:"
+msgstr "  Συχνότητα: %s\n"
+
+#: modules/iwconfig.py:261
+msgid "Cell"
+msgstr ""
+
+#: modules/iwconfig.py:266
+msgid "Not-Associated"
+msgstr ""
+
+#: modules/iwconfig.py:267
+msgid "  "
+msgstr ""
+
+#: modules/iwconfig.py:267
+msgid ": "
+msgstr ""
+
+#: modules/iwconfig.py:267
+msgid "   "
+msgstr ""
+
+#: modules/iwconfig.py:321
+#, fuzzy, python-format
+#| msgid "  Quality: %s\n"
+msgid "Link Quality:%s/100  "
+msgstr "  Ποιότητα: %s\n"
+
+#: modules/iwconfig.py:322
+#, python-format
+msgid "Signal level:%sdBm  "
+msgstr ""
+
+#: modules/iwconfig.py:323
+#, python-format
+msgid "Noise level:%sdBm"
+msgstr ""
+
+#: modules/iwconfig.py:327
+#, python-format
+msgid "Rx invalid nwid:%s  "
+msgstr ""
+
+#: modules/iwconfig.py:328
+#, python-format
+msgid "Rx invalid crypt:%s  "
+msgstr ""
+
+#: modules/iwconfig.py:329
+#, python-format
+msgid "Rx invalid frag:%s"
+msgstr ""
+
+#: modules/iwconfig.py:333
+#, python-format
+msgid "Tx excessive retries:%s  "
+msgstr ""
+
+#: modules/iwconfig.py:334
+#, python-format
+msgid "Invalid misc:%s   "
+msgstr ""
+
+#: modules/iwconfig.py:335
+#, python-format
+msgid "Missed beacon:%s"
+msgstr ""
 
 #: modules/iwlist.py:59 modules/iwlist_tools.py:68
 msgid "Detailed network scanning"
@@ -920,6 +1758,136 @@ msgstr "Προηγμένα εργαλεία WiFi"
 #: modules/iwlist.py:130
 msgid "Tool not available"
 msgstr "Το εργαλείο δεν είναι διαθέσιμο"
+
+#: modules/iwlist.py:133
+#, python-brace-format
+msgid "Error running {tool}: {error}"
+msgstr ""
+
+#: modules/iwlist.py:171 modules/iwlist.py:539
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  Interface doesn't support scanning.\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist.py:183 modules/iwlist.py:554
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  Interface doesn't support scanning : {error}\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist.py:219
+msgid "off"
+msgstr ""
+
+#: modules/iwlist.py:221
+msgid "on"
+msgstr ""
+
+#: modules/iwlist.py:233 modules/iwlist.py:238
+msgid "                    Bit Rates:"
+msgstr ""
+
+#: modules/iwlist.py:233 modules/iwlist.py:238
+msgid "                              "
+msgstr ""
+
+#: modules/iwlist.py:258
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no frequency information.\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist.py:270
+#, fuzzy
+#| msgid "  Frequency: %s\n"
+msgid "Frequency"
+msgstr "  Συχνότητα: %s\n"
+
+#: modules/iwlist.py:295
+#, fuzzy, python-brace-format
+#| msgid "Getting bitrate information..."
+msgid ""
+"{interface:<8.16}  no bit-rate information.\n"
+"\n"
+msgstr "Λήψη πληροφοριών ρυθμού μετάδοσης..."
+
+#: modules/iwlist.py:343
+#, fuzzy, python-brace-format
+#| msgid "Getting encryption information..."
+msgid ""
+"{interface:<8.16}  no encryption keys information.\n"
+"\n"
+msgstr "Λήψη πληροφοριών κρυπτογράφησης..."
+
+#: modules/iwlist.py:350
+msgid " bits"
+msgstr ""
+
+#: modules/iwlist.py:396
+#, fuzzy, python-brace-format
+#| msgid "Getting power management information..."
+msgid ""
+"{interface:<8.16}  no power management information.\n"
+"\n"
+msgstr "Λήψη πληροφοριών διαχείρισης ενέργειας..."
+
+#: modules/iwlist.py:474
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no retry limit/lifetime information.\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist.py:480
+#, python-brace-format
+msgid "Auto  limit    ;  min limit:{limit}"
+msgstr ""
+
+#: modules/iwlist.py:482
+#, python-brace-format
+msgid "Fixed limit    ;  min limit:{limit}"
+msgstr ""
+
+#: modules/iwlist.py:492
+#, python-brace-format
+msgid "Fixed lifetime ;  min lifetime:{lifetime}"
+msgstr ""
+
+#: modules/iwlist.py:507
+msgid "lifetime"
+msgstr ""
+
+#: modules/iwlist.py:509
+msgid "limit"
+msgstr ""
+
+#: modules/iwlist.py:510
+msgid "                 "
+msgstr ""
+
+#: modules/iwlist.py:512
+#, python-brace-format
+msgid " min {type}:{value}"
+msgstr ""
+
+#: modules/iwlist.py:514
+#, python-brace-format
+msgid " max {type}:{value}"
+msgstr ""
+
+#: modules/iwlist.py:516
+#, python-brace-format
+msgid " short {type}:{value}"
+msgstr ""
+
+#: modules/iwlist.py:518
+#, python-brace-format
+msgid " long {type}:{value}"
+msgstr ""
 
 #: modules/iwlist_tools.py:62
 msgid "Executing tool..."
@@ -1055,6 +2023,16 @@ msgstr "  Σήμα: %s\n"
 msgid "  Encryption: %s\n"
 msgstr "  Κρυπτογράφηση: %s\n"
 
+#: modules/iwlist_tools.py:210 modules/scanner.py:188 modules/scanner.py:271
+#: modules/scanner.py:436
+msgid "Yes"
+msgstr ""
+
+#: modules/iwlist_tools.py:210 modules/scanner.py:188 modules/scanner.py:271
+#: modules/scanner.py:436
+msgid "No"
+msgstr ""
+
 #: modules/iwlist_tools.py:216
 msgid "Getting channel information..."
 msgstr "Λήψη πληροφοριών καναλιού..."
@@ -1079,6 +2057,12 @@ msgstr ""
 #: modules/iwlist_tools.py:224
 msgid "Frequency information not available\n"
 msgstr "Οι πληροφορίες συχνοτήτων δεν είναι διαθέσιμες\n"
+
+#: modules/iwlist_tools.py:236
+#, fuzzy, python-brace-format
+#| msgid "Getting channel information..."
+msgid "Error getting channel information: {}"
+msgstr "Λήψη πληροφοριών καναλιού..."
 
 #: modules/iwlist_tools.py:242
 msgid "Getting bitrate information..."
@@ -1105,6 +2089,12 @@ msgstr ""
 msgid "Bitrate information not available\n"
 msgstr "Οι πληροφορίες ρυθμού μετάδοσης δεν είναι διαθέσιμες\n"
 
+#: modules/iwlist_tools.py:262
+#, fuzzy, python-brace-format
+#| msgid "Getting bitrate information..."
+msgid "Error getting bitrate information: {}"
+msgstr "Λήψη πληροφοριών ρυθμού μετάδοσης..."
+
 #: modules/iwlist_tools.py:268
 msgid "Getting encryption information..."
 msgstr "Λήψη πληροφοριών κρυπτογράφησης..."
@@ -1130,6 +2120,12 @@ msgstr ""
 msgid "Encryption information not available\n"
 msgstr "Οι πληροφορίες κρυπτογράφησης δεν είναι διαθέσιμες\n"
 
+#: modules/iwlist_tools.py:288
+#, fuzzy, python-brace-format
+#| msgid "Getting encryption information..."
+msgid "Error getting encryption information: {}"
+msgstr "Λήψη πληροφοριών κρυπτογράφησης..."
+
 #: modules/iwlist_tools.py:294
 msgid "Getting power management information..."
 msgstr "Λήψη πληροφοριών διαχείρισης ενέργειας..."
@@ -1145,6 +2141,12 @@ msgstr ""
 #: modules/iwlist_tools.py:302
 msgid "Power management information not available\n"
 msgstr "Οι πληροφορίες διαχείρισης ενέργειας δεν είναι διαθέσιμες\n"
+
+#: modules/iwlist_tools.py:314
+#, fuzzy, python-brace-format
+#| msgid "Getting retry information..."
+msgid "Error getting power information: {}"
+msgstr "Λήψη πληροφοριών επαναπροσπάθειας..."
 
 #: modules/iwlist_tools.py:320
 msgid "Getting retry information..."
@@ -1162,6 +2164,12 @@ msgstr ""
 msgid "Retry limit information not available\n"
 msgstr "Οι πληροφορίες ορίων επαναπροσπάθειας δεν είναι διαθέσιμες\n"
 
+#: modules/iwlist_tools.py:340
+#, fuzzy, python-brace-format
+#| msgid "Getting retry information..."
+msgid "Error getting retry information: {}"
+msgstr "Λήψη πληροφοριών επαναπροσπάθειας..."
+
 #: modules/iwlist_tools.py:346
 msgid "Getting access point information..."
 msgstr "Λήψη πληροφοριών σημείων πρόσβασης..."
@@ -1178,9 +2186,19 @@ msgstr ""
 msgid "No station/peer information available\n"
 msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες σταθμών/peers\n"
 
+#: modules/iwlist_tools.py:366
+#, fuzzy, python-brace-format
+#| msgid "Error opening configuration: %s"
+msgid "Error getting AP information: {}"
+msgstr "Σφάλμα κατά το άνοιγμα των ρυθμίσεων: %s"
+
 #: modules/iwlist_tools.py:387
-msgid "Select a tool from the menu to get detailed information about WiFi configuration and status."
-msgstr "Επιλέξτε ένα εργαλείο από το μενού για να δείτε αναλυτικές πληροφορίες σχετικά με τη ρύθμιση και την κατάσταση του WiFi."
+msgid ""
+"Select a tool from the menu to get detailed information about WiFi "
+"configuration and status."
+msgstr ""
+"Επιλέξτε ένα εργαλείο από το μενού για να δείτε αναλυτικές πληροφορίες "
+"σχετικά με τη ρύθμιση και την κατάσταση του WiFi."
 
 #: modules/iwlist_tools.py:395
 #, python-format
@@ -1239,6 +2257,49 @@ msgstr "Δεν υπάρχουν μηνύματα WiFi στα αρχεία κατ
 msgid "System Logs"
 msgstr "Αρχεία καταγραφής συστήματος"
 
+#: modules/iwlist_tools.py:482
+msgid "Managed (Client)"
+msgstr ""
+
+#: modules/iwlist_tools.py:483
+msgid "Ad-Hoc"
+msgstr ""
+
+#: modules/iwlist_tools.py:484
+msgid "Master (AP)"
+msgstr ""
+
+#: modules/iwlist_tools.py:486 modules/iwlist_tools.py:490
+#: modules/iwlist_tools.py:496
+msgid "Auto"
+msgstr ""
+
+#: modules/iwlist_tools.py:491 modules/tools.py:226
+#, fuzzy, python-brace-format
+#| msgid "Channel"
+msgid "Channel {}"
+msgstr "Κανάλι"
+
+#: modules/iwlist_tools.py:497
+msgid "1 dBm (Min)"
+msgstr ""
+
+#: modules/iwlist_tools.py:498
+msgid "5 dBm"
+msgstr ""
+
+#: modules/iwlist_tools.py:499
+msgid "10 dBm"
+msgstr ""
+
+#: modules/iwlist_tools.py:500
+msgid "15 dBm"
+msgstr ""
+
+#: modules/iwlist_tools.py:501
+msgid "20 dBm (Max)"
+msgstr ""
+
 #: modules/iwlist_tools.py:510
 msgid "Advanced WiFi configuration settings"
 msgstr "Ρυθμίσεις προηγμένης διαμόρφωσης WiFi"
@@ -1264,21 +2325,18 @@ msgstr "Οι ρυθμίσεις εφαρμόστηκαν με επιτυχία"
 msgid ""
 "Advanced WiFi Configuration:\n"
 "\n"
-"RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
-"Fragmentation: Max frame size before fragmentation\n"
-"Beacon Interval: Time between beacon signals (ms)\n"
-"DTIM Period: Delivery Traffic Indication Message interval\n"
+"Operation Mode: Network operation mode\n"
+"Channel: WiFi channel selection\n"
+"TX Power: Transmission power level\n"
 "\n"
 "Warning: Incorrect settings may degrade performance!"
 msgstr ""
-"Προηγμένη διαμόρφωση WiFi:\n"
-"\n"
-"RTS Threshold: Ελέγχει τη χειραψία RTS/CTS (2347=απενεργοποιημένο)\n"
-"Fragmentation: Μέγιστο μέγεθος πακέτου πριν τον κατακερματισμό\n"
-"Beacon Interval: Χρόνος μεταξύ σημάτων beacon (ms)\n"
-"DTIM Period: Διάστημα μηνύματος DTIM (Delivery Traffic Indication Message)\n"
-"\n"
-"Προειδοποίηση: Εσφαλμένες ρυθμίσεις μπορεί να μειώσουν την απόδοση!"
+
+#: modules/monitor.py:73 modules/monitor.py:327
+#, fuzzy
+#| msgid "  Signal: %s\n"
+msgid "Signal: N/A"
+msgstr "  Σήμα: %s\n"
 
 #: modules/monitor.py:77 modules/monitor.py:111
 msgid "Start"
@@ -1296,29 +2354,451 @@ msgstr "Παρακολούθηση σήματος WiFi"
 msgid "Pause"
 msgstr "Παύση"
 
-#: modules/scanner.py:72 modules/speedtest_manager.py:76 modules/speedtest_manager.py:107
+#: modules/monitor.py:125
+#, fuzzy, python-brace-format
+#| msgid "  Quality: %s\n"
+msgid "Quality: {}%"
+msgstr "  Ποιότητα: %s\n"
+
+#: modules/monitor.py:151 modules/monitor.py:177
+#, python-brace-format
+msgid "Signal: {} dBm"
+msgstr ""
+
+#: modules/monitor.py:164 modules/monitor.py:322
+#, fuzzy, python-brace-format
+#| msgid "Interface"
+msgid "Interface: {}"
+msgstr "Διεπαφή"
+
+#: modules/monitor.py:165
+#, fuzzy, python-brace-format
+#| msgid "  ESSID: %s\n"
+msgid "ESSID: {}"
+msgstr "  ESSID: %s\n"
+
+#: modules/monitor.py:166
+#, fuzzy, python-brace-format
+#| msgid "ISP: {isp}"
+msgid "IP: {}"
+msgstr "ISP: {isp}"
+
+#: modules/monitor.py:167
+#, python-brace-format
+msgid "MAC: {}"
+msgstr ""
+
+#: modules/monitor.py:176
+#, fuzzy, python-brace-format
+#| msgid "  Quality: %s\n"
+msgid "Quality: {}% ({})"
+msgstr "  Ποιότητα: %s\n"
+
+#: modules/monitor.py:191
+#, fuzzy
+#| msgid "No connection details available"
+msgid "No WiFi connection data available"
+msgstr "Δεν υπάρχουν διαθέσιμες λεπτομέρειες σύνδεσης"
+
+#: modules/monitor.py:195
+#, fuzzy, python-brace-format
+#| msgid "Connection error: {}"
+msgid "Monitoring error: {}"
+msgstr "Σφάλμα σύνδεσης: {}"
+
+#: modules/monitor.py:324
+msgid "IP: N/A"
+msgstr ""
+
+#: modules/monitor.py:325
+msgid "MAC: N/A"
+msgstr ""
+
+#: modules/monitor.py:326
+#, fuzzy
+#| msgid "  Quality: %s\n"
+msgid "Quality: N/A"
+msgstr "  Ποιότητα: %s\n"
+
+#: modules/scanner.py:85 modules/speedtest_manager.py:76
+#: modules/speedtest_manager.py:107
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
-#: modules/scanner.py:95
+#: modules/scanner.py:108
 msgid "WiFi Scanner"
 msgstr "Σαρωτής WiFi"
 
-#: modules/scanner.py:105
+#: modules/scanner.py:118
 msgid "Scanning for WiFi networks..."
 msgstr "Σάρωση για δίκτυα WiFi..."
 
-#: modules/scanner.py:251
+#: modules/scanner.py:134
+#, fuzzy
+#| msgid "No WiFi interfaces found"
+msgid "No WiFi interfaces found\n"
+msgstr "Δεν βρέθηκαν διεπαφές WiFi"
+
+#: modules/scanner.py:144
+msgid ""
+"\n"
+"[INFO] pythonwifi not available, using iwlist\n"
+msgstr ""
+
+#: modules/scanner.py:161
+#, fuzzy, python-brace-format
+#| msgid "Scan error: "
+msgid "Scan error: {}\n"
+msgstr "Σφάλμα σάρωσης: "
+
+#: modules/scanner.py:163
 msgid "Scan error: "
 msgstr "Σφάλμα σάρωσης: "
 
-#: modules/scanner.py:568
-msgid "Detailed view enabled - rescan to see details"
-msgstr "Ενεργοποιήθηκε αναλυτική προβολή – εκτελέστε ξανά σάρωση για εμφάνιση λεπτομερειών"
+#: modules/scanner.py:169
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "=== CONNECTION QUALITY ===\n"
+msgid ""
+"\n"
+"=== SCAN WITH IWLIST ===\n"
+msgstr ""
+"\n"
+"=== ΠΟΙΟΤΗΤΑ ΣΥΝΔΕΣΗΣ ===\n"
 
-#: modules/scanner.py:570
+#: modules/scanner.py:193 modules/scanner.py:442
+#, python-brace-format
+msgid ""
+"{index:2d}. {essid:20} | Quality: {quality:3}% ({signal_quality}) | Signal: "
+"{signal:4} dBm | Channel: {channel} | Encrypted: {encrypted}\n"
+msgstr ""
+
+#: modules/scanner.py:207
+#, python-brace-format
+msgid "   iwlist timeout on {}\n"
+msgstr ""
+
+#: modules/scanner.py:209
+#, python-brace-format
+msgid "   iwlist error on {interface}: {error}\n"
+msgstr ""
+
+#: modules/scanner.py:211
+#, python-brace-format
+msgid "   iwlist exception on {interface}: {error}\n"
+msgstr ""
+
+#: modules/scanner.py:214
+#, fuzzy
+#| msgid "No networks found"
+msgid "   No networks found with iwlist\n"
+msgstr "Δεν βρέθηκαν δίκτυα"
+
+#: modules/scanner.py:221
+msgid ""
+"\n"
+"=== SCAN WITH PYTHONWIFI ===\n"
+msgstr ""
+
+#: modules/scanner.py:243
+#, fuzzy, python-brace-format
+#| msgid "No networks found"
+msgid "   No networks found on {}\n"
+msgstr "Δεν βρέθηκαν δίκτυα"
+
+#: modules/scanner.py:246
+#, python-brace-format
+msgid "   Error on {interface}: {error}\n"
+msgstr ""
+
+#: modules/scanner.py:257 modules/scanner.py:355 modules/scanner.py:478
+#: modules/scanner.py:515
+#, fuzzy
+#| msgid "Hidden Network"
+msgid "Hidden"
+msgstr "Κρυφό δίκτυο"
+
+#: modules/scanner.py:277
+#, python-brace-format
+msgid ""
+"{index:2d}. {essid:20} | Quality: {quality:3}% ({signal_quality}) | Signal: "
+"{signal:4} dBm | Channel: {channel:2} | Encrypted: {encrypted}\n"
+msgstr ""
+
+#: modules/scanner.py:333
+msgid "iwlist: No networks found or interface busy\n"
+msgstr ""
+
+#: modules/scanner.py:402
+#, fuzzy
+#| msgid "No networks found"
+msgid "iwlist: No networks found\n"
+msgstr "Δεν βρέθηκαν δίκτυα"
+
+#: modules/scanner.py:408
+msgid ""
+"\n"
+"=== FALLBACK SCAN with iwlist ===\n"
+msgstr ""
+
+#: modules/scanner.py:461
+msgid "   No results with iwlist\n"
+msgstr ""
+
+#: modules/scanner.py:465
+#, python-brace-format
+msgid "   iwlist error: {}\n"
+msgstr ""
+
+#: modules/scanner.py:475
+#, fuzzy
+#| msgid "No networks found"
+msgid "pythonwifi: No networks found\n"
+msgstr "Δεν βρέθηκαν δίκτυα"
+
+#: modules/scanner.py:483
+#, python-brace-format
+msgid "{index}. {essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm\n"
+msgstr ""
+
+#: modules/scanner.py:499
+#, python-brace-format
+msgid ""
+"{essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm | {bssid}...\n"
+msgstr ""
+
+#: modules/scanner.py:510
+#, python-brace-format
+msgid "{essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm | {bssid}\n"
+msgstr ""
+
+#: modules/scanner.py:519
+#, python-brace-format
+msgid ""
+"{index:2d}. {essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm\n"
+msgstr ""
+
+#: modules/scanner.py:527
+msgid ""
+"\n"
+"DETAILED DIAGNOSTICS"
+msgstr ""
+
+#: modules/scanner.py:532
+msgid ""
+"\n"
+"WIFI INTERFACES:\n"
+msgstr ""
+
+#: modules/scanner.py:535
+#, python-brace-format
+msgid "   Found: {}\n"
+msgstr ""
+
+#: modules/scanner.py:537
+#, fuzzy
+#| msgid "No WiFi interfaces found"
+msgid "   No WiFi interfaces found\n"
+msgstr "Δεν βρέθηκαν διεπαφές WiFi"
+
+#: modules/scanner.py:540
+msgid ""
+"\n"
+"INTERFACE STATUS:\n"
+msgstr ""
+
+#: modules/scanner.py:542
+msgid "ACTIVE"
+msgstr ""
+
+#: modules/scanner.py:542
+msgid "INACTIVE"
+msgstr ""
+
+#: modules/scanner.py:544
+#, python-brace-format
+msgid "   {icon} {interface}: {status}\n"
+msgstr ""
+
+#: modules/scanner.py:547
+msgid ""
+"\n"
+"ACTIVE CONNECTIONS:\n"
+msgstr ""
+
+#: modules/scanner.py:553
+#, python-brace-format
+msgid "   {interface}: Connected to {essid} ({quality})\n"
+msgstr ""
+
+#: modules/scanner.py:555
+#, python-brace-format
+msgid "   {interface}: Not connected\n"
+msgstr ""
+
+#: modules/scanner.py:558
+msgid ""
+"\n"
+"POSSIBLE SOLUTIONS:\n"
+msgstr ""
+
+#: modules/scanner.py:559
+#, fuzzy
+#| msgid "Connect to WiFi networks"
+msgid "   1. Disconnect from current WiFi network\n"
+msgstr "Σύνδεση σε δίκτυα WiFi"
+
+#: modules/scanner.py:560
+#, fuzzy
+#| msgid "Restart WiFi Interface"
+msgid "   2. Restart WiFi adapter\n"
+msgstr "Επανεκκίνηση διεπαφής WiFi"
+
+#: modules/scanner.py:561
+msgid "   3. Check if WiFi driver is installed\n"
+msgstr ""
+
+#: modules/scanner.py:562
+msgid "   4. Try with different USB WiFi adapter\n"
+msgstr ""
+
+#: modules/scanner.py:563
+msgid "   5. Check root permissions\n"
+msgstr ""
+
+#: modules/scanner.py:566
+#, fuzzy, python-brace-format
+#| msgid "Connection error: {}"
+msgid "Diagnostic error: {}\n"
+msgstr "Σφάλμα σύνδεσης: {}"
+
+#: modules/scanner.py:579
+msgid "Detailed view enabled - rescan to see details"
+msgstr ""
+"Ενεργοποιήθηκε αναλυτική προβολή – εκτελέστε ξανά σάρωση για εμφάνιση "
+"λεπτομερειών"
+
+#: modules/scanner.py:581
 msgid "Basic view enabled - rescan to see basic info"
-msgstr "Ενεργοποιήθηκε βασική προβολή – εκτελέστε ξανά σάρωση για εμφάνιση βασικών πληροφοριών"
+msgstr ""
+"Ενεργοποιήθηκε βασική προβολή – εκτελέστε ξανά σάρωση για εμφάνιση βασικών "
+"πληροφοριών"
+
+#: modules/speedtest.py:44
+#, fuzzy
+#| msgid "Checking internet connection..."
+msgid "No internet connection"
+msgstr "Έλεγχος σύνδεσης στο διαδίκτυο..."
+
+#: modules/speedtest.py:46
+#, fuzzy
+#| msgid "Connection Info"
+msgid "Connection timeout"
+msgstr "Πληροφορίες σύνδεσης"
+
+#: modules/speedtest.py:84 modules/speedtest.py:146
+#, fuzzy, python-brace-format
+#| msgid "Error: {}"
+msgid "Error: {error}"
+msgstr "Σφάλμα: {}"
+
+#: modules/speedtest.py:110
+#, python-brace-format
+msgid "{speed:.2f} Mbps"
+msgstr ""
+
+#: modules/speedtest.py:112
+#, fuzzy
+#| msgid "SpeedtestSimple not available"
+msgid "Upload test not available"
+msgstr "Το SpeedtestSimple δεν είναι διαθέσιμο"
+
+#: modules/speedtest.py:115
+#, fuzzy, python-brace-format
+#| msgid "Full test error: {error}"
+msgid "Upload test failed: {error}"
+msgstr "Σφάλμα πλήρους ελέγχου: {error}"
+
+#: modules/speedtest.py:140
+msgid "Ping data not found"
+msgstr ""
+
+#: modules/speedtest.py:143
+#, fuzzy
+#| msgid "Scan failed"
+msgid "Ping failed"
+msgstr "Αποτυχία σάρωσης"
+
+#: modules/speedtest.py:152
+msgid "Google DNS"
+msgstr ""
+
+#: modules/speedtest.py:153 modules/speedtest_manager.py:213
+msgid "Cloudflare"
+msgstr ""
+
+#: modules/speedtest.py:154 modules/speedtest_manager.py:214
+#, fuzzy
+#| msgid "Open"
+msgid "OpenDNS"
+msgstr "Άνοιγμα"
+
+#: modules/speedtest.py:160
+#, python-brace-format
+msgid "{name} ({host}): {ping}"
+msgstr ""
+
+#: modules/speedtest.py:215
+#, python-brace-format
+msgid "{name}: {speed:.2f} Mbps"
+msgstr ""
+
+#: modules/speedtest.py:217
+#, fuzzy, python-brace-format
+#| msgid "Failed"
+msgid "{name}: Failed"
+msgstr "Αποτυχία"
+
+#: modules/speedtest.py:220
+#, python-brace-format
+msgid "{name}: Timeout"
+msgstr ""
+
+#: modules/speedtest.py:222
+#, fuzzy, python-brace-format
+#| msgid "Full test error: {error}"
+msgid "{name}: Error {error}"
+msgstr "Σφάλμα πλήρους ελέγχου: {error}"
+
+#: modules/speedtest.py:231
+#, fuzzy, python-brace-format
+#| msgid "Upload Speed: {upload}\n"
+msgid "Upload test: {result}"
+msgstr "Ταχύτητα αποστολής: {upload}\n"
+
+#: modules/speedtest.py:257
+msgid "Stable"
+msgstr ""
+
+#: modules/speedtest.py:257
+msgid "Unstable"
+msgstr ""
+
+#: modules/speedtest.py:258
+#, python-brace-format
+msgid "Packets: {sent}, Lost: {lost} ({percentage:.1f}%) - {stability}"
+msgstr ""
+
+#: modules/speedtest.py:261
+msgid "No packets sent"
+msgstr ""
+
+#: modules/speedtest.py:264
+#, fuzzy, python-brace-format
+#| msgid "Detailed test error: {error}"
+msgid "Stability test error: {error}"
+msgstr "Σφάλμα αναλυτικού ελέγχου: {error}"
 
 #: modules/speedtest_manager.py:69
 msgid "Select a speed test type"
@@ -1328,11 +2808,12 @@ msgstr "Επιλέξτε τύπο ελέγχου ταχύτητας"
 msgid "WiFi Speed Test Manager"
 msgstr "Διαχειριστής ελέγχου ταχύτητας WiFi"
 
-#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:511
+#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:513
 msgid "Test cancelled"
 msgstr "Η δοκιμή ακυρώθηκε"
 
-#: modules/speedtest_manager.py:147 modules/speedtest_manager.py:159 modules/speedtest_manager.py:172
+#: modules/speedtest_manager.py:147 modules/speedtest_manager.py:159
+#: modules/speedtest_manager.py:172
 msgid "wait..."
 msgstr "περιμένετε..."
 
@@ -1377,47 +2858,68 @@ msgstr "Δημόσια IP: Αδυναμία προσδιορισμού"
 msgid "Client info error: {error}"
 msgstr "Σφάλμα πληροφοριών πελάτη: {error}"
 
-#: modules/speedtest_manager.py:224
+#: modules/speedtest_manager.py:212
+msgid "Primary DNS"
+msgstr ""
+
+#: modules/speedtest_manager.py:212
+msgid "Google"
+msgstr ""
+
+#: modules/speedtest_manager.py:213
+msgid "Secondary DNS"
+msgstr ""
+
+#: modules/speedtest_manager.py:214
+msgid "Tertiary DNS"
+msgstr ""
+
+#: modules/speedtest_manager.py:220
+#, python-brace-format
+msgid "{name} ({sponsor}): {ping}"
+msgstr ""
+
+#: modules/speedtest_manager.py:226
 #, python-brace-format
 msgid "Server info error: {error}"
 msgstr "Σφάλμα πληροφοριών διακομιστή: {error}"
 
-#: modules/speedtest_manager.py:234
+#: modules/speedtest_manager.py:236
 #, python-brace-format
 msgid "Network Interface: {interface}"
 msgstr "Διεπαφή δικτύου: {interface}"
 
-#: modules/speedtest_manager.py:242
+#: modules/speedtest_manager.py:244
 #, python-brace-format
 msgid "Gateway: {gateway}"
 msgstr "Πύλη: {gateway}"
 
-#: modules/speedtest_manager.py:247
+#: modules/speedtest_manager.py:249
 msgid "Network information unavailable"
 msgstr "Πληροφορίες δικτύου μη διαθέσιμες"
 
-#: modules/speedtest_manager.py:249
+#: modules/speedtest_manager.py:251
 #, python-brace-format
 msgid "Network info error: {error}"
 msgstr "Σφάλμα πληροφοριών δικτύου: {error}"
 
-#: modules/speedtest_manager.py:256
+#: modules/speedtest_manager.py:258
 msgid "Testing connectivity..."
 msgstr "Έλεγχος συνδεσιμότητας..."
 
-#: modules/speedtest_manager.py:259 modules/speedtest_manager.py:366
+#: modules/speedtest_manager.py:261 modules/speedtest_manager.py:368
 msgid "Testing download speed..."
 msgstr "Έλεγχος ταχύτητας λήψης..."
 
-#: modules/speedtest_manager.py:262 modules/speedtest_manager.py:316
+#: modules/speedtest_manager.py:264 modules/speedtest_manager.py:318
 msgid "Testing upload speed..."
 msgstr "Έλεγχος ταχύτητας αποστολής..."
 
-#: modules/speedtest_manager.py:265
+#: modules/speedtest_manager.py:267
 msgid "Quick test completed"
 msgstr "Η γρήγορη δοκιμή ολοκληρώθηκε"
 
-#: modules/speedtest_manager.py:268
+#: modules/speedtest_manager.py:270
 msgid ""
 "=== QUICK SPEED TEST RESULTS ===\n"
 "\n"
@@ -1425,27 +2927,27 @@ msgstr ""
 "=== ΑΠΟΤΕΛΕΣΜΑΤΑ ΓΡΗΓΟΡΟΥ ΕΛΕΓΧΟΥ ΤΑΧΥΤΗΤΑΣ ===\n"
 "\n"
 
-#: modules/speedtest_manager.py:269
+#: modules/speedtest_manager.py:271
 #, python-brace-format
 msgid "Ping/Latency: {ping}\n"
 msgstr "Ping/Καθυστέρηση: {ping}\n"
 
-#: modules/speedtest_manager.py:270
+#: modules/speedtest_manager.py:272
 #, python-brace-format
 msgid "Download Speed: {download}\n"
 msgstr "Ταχύτητα λήψης: {download}\n"
 
-#: modules/speedtest_manager.py:271
+#: modules/speedtest_manager.py:273
 #, python-brace-format
 msgid "Upload Speed: {upload}\n"
 msgstr "Ταχύτητα αποστολής: {upload}\n"
 
-#: modules/speedtest_manager.py:277
+#: modules/speedtest_manager.py:279
 #, python-brace-format
 msgid "Quick test error: {error}"
 msgstr "Σφάλμα γρήγορης δοκιμής: {error}"
 
-#: modules/speedtest_manager.py:283
+#: modules/speedtest_manager.py:285
 msgid ""
 "=== COMPREHENSIVE SPEED TEST ===\n"
 "\n"
@@ -1453,11 +2955,11 @@ msgstr ""
 "=== ΕΚΤΕΝΗΣ ΕΛΕΓΧΟΣ ΤΑΧΥΤΗΤΑΣ ===\n"
 "\n"
 
-#: modules/speedtest_manager.py:288
+#: modules/speedtest_manager.py:290
 msgid "Gathering client information..."
 msgstr "Συλλογή πληροφοριών πελάτη..."
 
-#: modules/speedtest_manager.py:290
+#: modules/speedtest_manager.py:292
 #, python-brace-format
 msgid ""
 "=== CLIENT INFORMATION ===\n"
@@ -1468,11 +2970,11 @@ msgstr ""
 "{info}\n"
 "\n"
 
-#: modules/speedtest_manager.py:295
+#: modules/speedtest_manager.py:297
 msgid "Testing latency to multiple hosts..."
 msgstr "Έλεγχος καθυστέρησης σε πολλαπλούς hosts..."
 
-#: modules/speedtest_manager.py:297
+#: modules/speedtest_manager.py:299
 #, python-brace-format
 msgid ""
 "=== LATENCY TEST ===\n"
@@ -1483,11 +2985,11 @@ msgstr ""
 "{ping}\n"
 "\n"
 
-#: modules/speedtest_manager.py:302 modules/speedtest_manager.py:364
+#: modules/speedtest_manager.py:304 modules/speedtest_manager.py:366
 msgid "Finding best server..."
 msgstr "Εύρεση καλύτερου διακομιστή..."
 
-#: modules/speedtest_manager.py:304
+#: modules/speedtest_manager.py:306
 #, python-brace-format
 msgid ""
 "=== SERVER INFORMATION ===\n"
@@ -1498,11 +3000,11 @@ msgstr ""
 "{server}\n"
 "\n"
 
-#: modules/speedtest_manager.py:309
+#: modules/speedtest_manager.py:311
 msgid "Testing download speed (multiple servers)..."
 msgstr "Έλεγχος ταχύτητας λήψης (πολλαπλοί διακομιστές)..."
 
-#: modules/speedtest_manager.py:311
+#: modules/speedtest_manager.py:313
 #, python-brace-format
 msgid ""
 "=== DOWNLOAD SPEED TEST ===\n"
@@ -1513,7 +3015,7 @@ msgstr ""
 "{download}\n"
 "\n"
 
-#: modules/speedtest_manager.py:318
+#: modules/speedtest_manager.py:320
 #, python-brace-format
 msgid ""
 "=== UPLOAD SPEED TEST ===\n"
@@ -1524,11 +3026,11 @@ msgstr ""
 "{upload}\n"
 "\n"
 
-#: modules/speedtest_manager.py:323
+#: modules/speedtest_manager.py:325
 msgid "Testing connection stability..."
 msgstr "Έλεγχος σταθερότητας σύνδεσης..."
 
-#: modules/speedtest_manager.py:325
+#: modules/speedtest_manager.py:327
 #, python-brace-format
 msgid ""
 "=== CONNECTION STABILITY ===\n"
@@ -1539,11 +3041,11 @@ msgstr ""
 "{stability}\n"
 "\n"
 
-#: modules/speedtest_manager.py:330
+#: modules/speedtest_manager.py:332
 msgid "Gathering network details..."
 msgstr "Συλλογή λεπτομερειών δικτύου..."
 
-#: modules/speedtest_manager.py:332
+#: modules/speedtest_manager.py:334
 #, python-brace-format
 msgid ""
 "=== NETWORK INFORMATION ===\n"
@@ -1554,11 +3056,11 @@ msgstr ""
 "{network}\n"
 "\n"
 
-#: modules/speedtest_manager.py:337
+#: modules/speedtest_manager.py:339
 msgid "Final connectivity check..."
 msgstr "Τελικός έλεγχος συνδεσιμότητας..."
 
-#: modules/speedtest_manager.py:339
+#: modules/speedtest_manager.py:341
 #, python-brace-format
 msgid ""
 "=== FINAL CHECK ===\n"
@@ -1567,77 +3069,78 @@ msgstr ""
 "=== ΤΕΛΙΚΟΣ ΕΛΕΓΧΟΣ ===\n"
 "Συνδεσιμότητα: {conn}\n"
 
-#: modules/speedtest_manager.py:342
+#: modules/speedtest_manager.py:344
 msgid "Full test completed"
 msgstr "Η πλήρης δοκιμή ολοκληρώθηκε"
 
-#: modules/speedtest_manager.py:346
+#: modules/speedtest_manager.py:348
 #, python-brace-format
 msgid "Full test error: {error}"
 msgstr "Σφάλμα πλήρους ελέγχου: {error}"
 
-#: modules/speedtest_manager.py:354
+#: modules/speedtest_manager.py:356
 msgid "SpeedtestSimple not available"
 msgstr "Το SpeedtestSimple δεν είναι διαθέσιμο"
 
-#: modules/speedtest_manager.py:359
+#: modules/speedtest_manager.py:361
 msgid "Checking internet connection..."
 msgstr "Έλεγχος σύνδεσης στο διαδίκτυο..."
 
-#: modules/speedtest_manager.py:360
+#: modules/speedtest_manager.py:362
 msgid "Getting client information..."
 msgstr "Λήψη πληροφοριών πελάτη..."
 
-#: modules/speedtest_manager.py:361
+#: modules/speedtest_manager.py:363
 msgid "Client info completed"
 msgstr "Οι πληροφορίες πελάτη ολοκληρώθηκαν"
 
-#: modules/speedtest_manager.py:362
+#: modules/speedtest_manager.py:364
 msgid "Testing latency..."
 msgstr "Έλεγχος καθυστέρησης..."
 
-#: modules/speedtest_manager.py:363
+#: modules/speedtest_manager.py:365
 msgid "Latency test completed"
 msgstr "Ο έλεγχος καθυστέρησης ολοκληρώθηκε"
 
-#: modules/speedtest_manager.py:365
+#: modules/speedtest_manager.py:367
 msgid "Server found"
 msgstr "Βρέθηκε διακομιστής"
 
-#: modules/speedtest_manager.py:367
+#: modules/speedtest_manager.py:369
 msgid "Download test completed"
 msgstr "Ο έλεγχος λήψης ολοκληρώθηκε"
 
-#: modules/speedtest_manager.py:368
+#: modules/speedtest_manager.py:370
 msgid "Estimating upload speed..."
 msgstr "Εκτίμηση ταχύτητας αποστολής..."
 
-#: modules/speedtest_manager.py:369
+#: modules/speedtest_manager.py:371
 msgid "Upload estimation completed"
 msgstr "Η εκτίμηση ταχύτητας αποστολής ολοκληρώθηκε"
 
-#: modules/speedtest_manager.py:370 modules/speedtest_manager.py:481
+#: modules/speedtest_manager.py:372 modules/speedtest_manager.py:483
 msgid "Test failed"
 msgstr "Ο έλεγχος απέτυχε"
 
-#: modules/speedtest_manager.py:377
+#: modules/speedtest_manager.py:379
 msgid "Initializing detailed speed test..."
 msgstr "Αρχικοποίηση αναλυτικού ελέγχου ταχύτητας..."
 
-#: modules/speedtest_manager.py:383
+#: modules/speedtest_manager.py:385
 msgid "Detailed test completed"
 msgstr "Ο αναλυτικός έλεγχος ολοκληρώθηκε"
 
-#: modules/speedtest_manager.py:387
+#: modules/speedtest_manager.py:389
 msgid "Detailed speed test failed - Check internet connection"
-msgstr "Η αναλυτική δοκιμή ταχύτητας απέτυχε - Ελέγξτε τη σύνδεση στο διαδίκτυο"
+msgstr ""
+"Η αναλυτική δοκιμή ταχύτητας απέτυχε - Ελέγξτε τη σύνδεση στο διαδίκτυο"
 
-#: modules/speedtest_manager.py:390
+#: modules/speedtest_manager.py:392
 #, python-brace-format
 msgid "Detailed test error: {error}"
 msgstr "Σφάλμα αναλυτικού ελέγχου: {error}"
 
-#: modules/speedtest_manager.py:394
+#: modules/speedtest_manager.py:396
 msgid ""
 "\n"
 "=== CONNECTION QUALITY ===\n"
@@ -1645,51 +3148,51 @@ msgstr ""
 "\n"
 "=== ΠΟΙΟΤΗΤΑ ΣΥΝΔΕΣΗΣ ===\n"
 
-#: modules/speedtest_manager.py:401 modules/speedtest_manager.py:448
+#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
 msgid "Excellent download speed\n"
 msgstr "Εξαιρετική ταχύτητα λήψης\n"
 
-#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
+#: modules/speedtest_manager.py:405 modules/speedtest_manager.py:452
 msgid "Good download speed\n"
 msgstr "Καλή ταχύτητα λήψης\n"
 
-#: modules/speedtest_manager.py:405
+#: modules/speedtest_manager.py:407
 msgid "Average download speed\n"
 msgstr "Μέση ταχύτητα λήψης\n"
 
-#: modules/speedtest_manager.py:407 modules/speedtest_manager.py:452
+#: modules/speedtest_manager.py:409 modules/speedtest_manager.py:454
 msgid "Poor download speed\n"
 msgstr "Χαμηλή ταχύτητα λήψης\n"
 
-#: modules/speedtest_manager.py:409
+#: modules/speedtest_manager.py:411
 msgid "Download speed unavailable\n"
 msgstr "Η ταχύτητα λήψης δεν είναι διαθέσιμη\n"
 
-#: modules/speedtest_manager.py:415
+#: modules/speedtest_manager.py:417
 msgid "Excellent latency\n"
 msgstr "Εξαιρετική καθυστέρηση\n"
 
-#: modules/speedtest_manager.py:417
+#: modules/speedtest_manager.py:419
 msgid "Good latency\n"
 msgstr "Καλή καθυστέρηση\n"
 
-#: modules/speedtest_manager.py:419
+#: modules/speedtest_manager.py:421
 msgid "Average latency\n"
 msgstr "Μέση καθυστέρηση\n"
 
-#: modules/speedtest_manager.py:421
+#: modules/speedtest_manager.py:423
 msgid "Poor latency\n"
 msgstr "Χαμηλή καθυστέρηση\n"
 
-#: modules/speedtest_manager.py:423
+#: modules/speedtest_manager.py:425
 msgid "Latency unavailable\n"
 msgstr "Η καθυστέρηση δεν είναι διαθέσιμη\n"
 
-#: modules/speedtest_manager.py:426
+#: modules/speedtest_manager.py:428
 msgid "Quality assessment unavailable\n"
 msgstr "Η αξιολόγηση ποιότητας δεν είναι διαθέσιμη\n"
 
-#: modules/speedtest_manager.py:437
+#: modules/speedtest_manager.py:439
 msgid ""
 "=== SPEED TEST RESULTS ===\n"
 "\n"
@@ -1697,26 +3200,27 @@ msgstr ""
 "=== ΑΠΟΤΕΛΕΣΜΑΤΑ ΕΛΕΓΧΟΥ ΤΑΧΥΤΗΤΑΣ ===\n"
 "\n"
 
-#: modules/speedtest_manager.py:438
+#: modules/speedtest_manager.py:440
 #, python-format
 msgid "Download Speed: %s\n"
 msgstr "Ταχύτητα λήψης: %s\n"
 
-#: modules/speedtest_manager.py:438 modules/speedtest_manager.py:439 modules/speedtest_manager.py:440
+#: modules/speedtest_manager.py:440 modules/speedtest_manager.py:441
+#: modules/speedtest_manager.py:442
 msgid "Failed"
 msgstr "Αποτυχία"
 
-#: modules/speedtest_manager.py:439
+#: modules/speedtest_manager.py:441
 #, python-format
 msgid "Upload Speed: %s\n"
 msgstr "Ταχύτητα αποστολής: %s\n"
 
-#: modules/speedtest_manager.py:440
+#: modules/speedtest_manager.py:442
 #, python-format
 msgid "Latency: %s\n"
 msgstr "Καθυστέρηση: %s\n"
 
-#: modules/speedtest_manager.py:443
+#: modules/speedtest_manager.py:445
 msgid ""
 "\n"
 "=== QUALITY ASSESSMENT ===\n"
@@ -1724,21 +3228,276 @@ msgstr ""
 "\n"
 "=== ΑΞΙΟΛΟΓΗΣΗ ΠΟΙΟΤΗΤΑΣ ===\n"
 
-#: modules/speedtest_manager.py:454 modules/speedtest_manager.py:456
+#: modules/speedtest_manager.py:456 modules/speedtest_manager.py:458
 msgid "Unable to assess download quality\n"
 msgstr "Αδυναμία αξιολόγησης ποιότητας λήψης\n"
 
-#: modules/speedtest_manager.py:464
+#: modules/speedtest_manager.py:466
 msgid "Test completed - See results below"
 msgstr "Ο έλεγχος ολοκληρώθηκε - Δείτε τα αποτελέσματα παρακάτω"
 
-#: modules/speedtest_manager.py:471
+#: modules/speedtest_manager.py:473
 msgid "Test completed!"
 msgstr "Ο έλεγχος ολοκληρώθηκε!"
 
-#: modules/speedtest_manager.py:502
+#: modules/speedtest_manager.py:504
 msgid "Cancelling test..."
 msgstr "Ακύρωση δοκιμής..."
+
+#: modules/speedtest_simple.py:138
+#, python-brace-format
+msgid "{}: {:.1f} ms"
+msgstr ""
+
+#: modules/speedtest_simple.py:314
+#, fuzzy
+#| msgid "Checking internet connection..."
+msgid "No internet connection detected"
+msgstr "Έλεγχος σύνδεσης στο διαδίκτυο..."
+
+#: modules/speedtest_simple.py:365
+#, fuzzy, python-brace-format
+#| msgid "Status check failed: {}"
+msgid "Speedtest failed: {}"
+msgstr "Αποτυχία ελέγχου κατάστασης: {}"
+
+#: modules/speedtest_simple.py:378
+#, fuzzy
+#| msgid "Detailed speed test failed - Check internet connection"
+msgid "Speedtest failed - No internet connection or all tests failed"
+msgstr ""
+"Η αναλυτική δοκιμή ταχύτητας απέτυχε - Ελέγξτε τη σύνδεση στο διαδίκτυο"
+
+#: modules/speedtest_simple.py:385
+#, python-brace-format
+msgid ""
+"📊 ENIGMA2 DETAILED SPEEDTEST\n"
+"============================\n"
+"🕐 Timestamp: {timestamp}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:392
+#, fuzzy
+#| msgid ""
+#| "=== CLIENT INFORMATION ===\n"
+#| "{info}\n"
+#| "\n"
+msgid "👤 CLIENT INFORMATION:\n"
+msgstr ""
+"=== ΠΛΗΡΟΦΟΡΙΕΣ ΠΕΛΑΤΗ ===\n"
+"{info}\n"
+"\n"
+
+#: modules/speedtest_simple.py:393
+#, fuzzy, python-brace-format
+#| msgid "ISP: {isp}"
+msgid "IP: {ip}\n"
+msgstr "ISP: {isp}"
+
+#: modules/speedtest_simple.py:395
+#, fuzzy, python-brace-format
+#| msgid "Location: {city}, {country}"
+msgid "Location: {city}, {country}\n"
+msgstr "Τοποθεσία: {city}, {country}"
+
+#: modules/speedtest_simple.py:400
+#, fuzzy, python-brace-format
+#| msgid "ISP: {isp}"
+msgid "ISP: {isp}\n"
+msgstr "ISP: {isp}"
+
+#: modules/speedtest_simple.py:405
+#, fuzzy
+#| msgid ""
+#| "=== SERVER INFORMATION ===\n"
+#| "{server}\n"
+#| "\n"
+msgid "🏢 SERVER INFORMATION:\n"
+msgstr ""
+"=== ΠΛΗΡΟΦΟΡΙΕΣ ΔΙΑΚΟΜΙΣΤΗ ===\n"
+"{server}\n"
+"\n"
+
+#: modules/speedtest_simple.py:406
+#, fuzzy, python-brace-format
+#| msgid "Hostname: {hostname}"
+msgid "Name: {name}\n"
+msgstr "Όνομα host: {hostname}"
+
+#: modules/speedtest_simple.py:407
+#, python-brace-format
+msgid "Sponsor: {sponsor}\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:408
+#, fuzzy, python-brace-format
+#| msgid "Hostname: {hostname}"
+msgid ""
+"Host: {host}\n"
+"\n"
+msgstr "Όνομα host: {hostname}"
+
+#: modules/speedtest_simple.py:411
+msgid "📈 TEST RESULTS:\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:413
+#, python-brace-format
+msgid "Ping: {:.1f} ms\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:415
+#, fuzzy
+#| msgid "Failed"
+msgid "Ping: Failed\n"
+msgstr "Αποτυχία"
+
+#: modules/speedtest_simple.py:418
+#, fuzzy, python-brace-format
+#| msgid "Download Speed: %s\n"
+msgid "Download: {:.2f} Mbps\n"
+msgstr "Ταχύτητα λήψης: %s\n"
+
+#: modules/speedtest_simple.py:420
+#, fuzzy
+#| msgid "Download Speed: %s\n"
+msgid "Download: Failed\n"
+msgstr "Ταχύτητα λήψης: %s\n"
+
+#: modules/speedtest_simple.py:423
+#, python-brace-format
+msgid "Upload: {:.2f} Mbps (estimated)\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:425
+#, fuzzy
+#| msgid "Tool not available"
+msgid "Upload: Not available\n"
+msgstr "Το εργαλείο δεν είναι διαθέσιμο"
+
+#: modules/speedtest_simple.py:429
+msgid ""
+"\n"
+"📡 PING DETAILS:\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:434
+msgid ""
+"\n"
+"⬇️ DOWNLOAD DETAILS:\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:436
+#, python-brace-format
+msgid "{server}: {speed:.2f} Mbps ({data:.1f} MB in {time:.1f}s)\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:444
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "=== QUALITY ASSESSMENT ===\n"
+msgid ""
+"\n"
+"📊 QUALITY ASSESSMENT:\n"
+msgstr ""
+"\n"
+"=== ΑΞΙΟΛΟΓΗΣΗ ΠΟΙΟΤΗΤΑΣ ===\n"
+
+#: modules/speedtest_simple.py:447
+#, fuzzy
+#| msgid "Excellent latency\n"
+msgid "✅ Excellent latency\n"
+msgstr "Εξαιρετική καθυστέρηση\n"
+
+#: modules/speedtest_simple.py:449
+#, fuzzy
+#| msgid "Good latency\n"
+msgid "⚠️ Good latency\n"
+msgstr "Καλή καθυστέρηση\n"
+
+#: modules/speedtest_simple.py:451
+#, fuzzy
+#| msgid "Average latency\n"
+msgid "⚠️ Average latency\n"
+msgstr "Μέση καθυστέρηση\n"
+
+#: modules/speedtest_simple.py:453
+#, fuzzy
+#| msgid "Poor latency\n"
+msgid "❌ Poor latency\n"
+msgstr "Χαμηλή καθυστέρηση\n"
+
+#: modules/speedtest_simple.py:455
+#, fuzzy
+#| msgid "Latency test completed"
+msgid "❌ Latency test failed\n"
+msgstr "Ο έλεγχος καθυστέρησης ολοκληρώθηκε"
+
+#: modules/speedtest_simple.py:459
+#, fuzzy
+#| msgid "Excellent download speed\n"
+msgid "✅ Excellent download speed\n"
+msgstr "Εξαιρετική ταχύτητα λήψης\n"
+
+#: modules/speedtest_simple.py:461
+#, fuzzy
+#| msgid "Good download speed\n"
+msgid "⚠️ Good download speed\n"
+msgstr "Καλή ταχύτητα λήψης\n"
+
+#: modules/speedtest_simple.py:463
+#, fuzzy
+#| msgid "Average download speed\n"
+msgid "⚠️ Average download speed\n"
+msgstr "Μέση ταχύτητα λήψης\n"
+
+#: modules/speedtest_simple.py:465
+#, fuzzy
+#| msgid "Poor download speed\n"
+msgid "❌ Poor download speed\n"
+msgstr "Χαμηλή ταχύτητα λήψης\n"
+
+#: modules/speedtest_simple.py:467
+#, fuzzy
+#| msgid "Download test completed"
+msgid "❌ Download test failed\n"
+msgstr "Ο έλεγχος λήψης ολοκληρώθηκε"
+
+#: modules/tools.py:202
+#, fuzzy, python-brace-format
+#| msgid "No WiFi interface available"
+msgid "Interface {} not available"
+msgstr "Δεν υπάρχει διαθέσιμη διεπαφή WiFi"
+
+#: modules/tools.py:224
+#, python-brace-format
+msgid "{} GHz"
+msgstr ""
+
+#: modules/tools.py:232
+#, python-brace-format
+msgid "{} Mb/s"
+msgstr ""
+
+#: modules/tools.py:259
+#, python-brace-format
+msgid "{:.1f}%"
+msgstr ""
+
+#: modules/tools.py:261
+msgid "0%"
+msgstr ""
+
+#: modules/tools.py:264 modules/tools.py:275
+#, python-brace-format
+msgid "{} dBm"
+msgstr ""
+
+#: modules/tools.py:607
+msgid "No data"
+msgstr ""
 
 #: modules/tools.py:618
 msgid "Excellent"
@@ -1759,3 +3518,73 @@ msgstr "Αδύναμο"
 #: modules/tools.py:622 modules/tools.py:629
 msgid "Very Poor"
 msgstr "Πολύ αδύναμο"
+
+#: modules/tools.py:627 modules/tools.py:629
+#, python-brace-format
+msgid "{} ({:.0f}%)"
+msgstr ""
+
+#: modules/tools.py:701
+#, fuzzy
+#| msgid "Tool not available"
+msgid "Ping not available"
+msgstr "Το εργαλείο δεν είναι διαθέσιμο"
+
+#: modules/tools.py:736 modules/tools.py:752
+#, python-brace-format
+msgid "{:.1f} ms"
+msgstr ""
+
+#: modules/tools.py:756
+msgid "No ping data"
+msgstr ""
+
+#: modules/tools.py:759
+msgid "Timeout"
+msgstr ""
+
+#~ msgid "Configuration saved"
+#~ msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
+
+#, python-brace-format
+#~ msgid "Connecting to {}..."
+#~ msgstr "Σύνδεση με {}..."
+
+#, python-brace-format
+#~ msgid "Connected to {}"
+#~ msgstr "Συνδέθηκε στο {}"
+
+#, python-brace-format
+#~ msgid "Successfully connected to {}"
+#~ msgstr "Επιτυχής σύνδεση στο {}"
+
+#, python-brace-format
+#~ msgid "Connection to {} failed"
+#~ msgstr "Η σύνδεση με {} απέτυχε"
+
+#, python-brace-format
+#~ msgid "Failed to connect to {}"
+#~ msgstr "Αποτυχία σύνδεσης με {}"
+
+#~ msgid "Disconnected successfully!"
+#~ msgstr "Αποσυνδέθηκε με επιτυχία!"
+
+#~ msgid ""
+#~ "Advanced WiFi Configuration:\n"
+#~ "\n"
+#~ "RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
+#~ "Fragmentation: Max frame size before fragmentation\n"
+#~ "Beacon Interval: Time between beacon signals (ms)\n"
+#~ "DTIM Period: Delivery Traffic Indication Message interval\n"
+#~ "\n"
+#~ "Warning: Incorrect settings may degrade performance!"
+#~ msgstr ""
+#~ "Προηγμένη διαμόρφωση WiFi:\n"
+#~ "\n"
+#~ "RTS Threshold: Ελέγχει τη χειραψία RTS/CTS (2347=απενεργοποιημένο)\n"
+#~ "Fragmentation: Μέγιστο μέγεθος πακέτου πριν τον κατακερματισμό\n"
+#~ "Beacon Interval: Χρόνος μεταξύ σημάτων beacon (ms)\n"
+#~ "DTIM Period: Διάστημα μηνύματος DTIM (Delivery Traffic Indication "
+#~ "Message)\n"
+#~ "\n"
+#~ "Προειδοποίηση: Εσφαλμένες ρυθμίσεις μπορεί να μειώσουν την απόδοση!"

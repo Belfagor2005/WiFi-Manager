@@ -231,19 +231,26 @@ class WiFiConnectZ(Screen):
 
             # Security icon
             if is_encrypted:
-                icon = "[LOCK]"
+                icon = _("[LOCK]")
                 security = _("Secured")
             else:
-                icon = "[OPEN]"
+                icon = _("[OPEN]")
                 security = _("Open")
 
             # Saved password indicator
             if self.get_saved_password(essid):
-                saved_indicator = "[SAVED] "
+                saved_indicator = _("[SAVED] ")
             else:
                 saved_indicator = ""
 
-            network_list.append(f"{connection_indicator}{saved_indicator}{icon} {essid} | {security} | {signal} dBm")
+            network_list.append(_("{connection}{saved}{icon} {essid} | {security} | {signal} dBm").format(
+                connection=connection_indicator,
+                saved=saved_indicator,
+                icon=icon,
+                essid=essid,
+                security=security,
+                signal=signal
+            ))
 
         print(f"[DEBUG] update_network_list - {len(network_list)} items")
 
@@ -307,57 +314,57 @@ class WiFiConnectZ(Screen):
         # IF CONNECTED TO THIS NETWORK
         if current_essid == essid:
             interface = get_wifi_interfaces()
-            ip = "No IP"
+            ip = _("No IP")
             if interface:
                 ip = get_ip_address(interface)
 
             # Check if static IP is configured
-            network_type = "DHCP"
+            network_type = _("DHCP")
             try:
                 if exists("/etc/enigma2/network.conf"):
                     with open("/etc/enigma2/network.conf", 'r') as f:
                         for line in f:
                             if line.startswith('connection_type='):
-                                network_type = "Static" if "static" in line else "DHCP"
+                                network_type = _("Static") if "static" in line else _("DHCP")
                                 break
             except:
                 pass
 
-            status_msg_template = _("CONNECTED to: %(essid)s\nIP: %(ip)s | Network: %(network_type)s\nSignal: %(quality)s (%(strength)s dBm)\nPress OK for options")
-            status_msg = status_msg_template % {
-                'essid': essid,
-                'ip': ip or "No IP",
-                'network_type': network_type,
-                'quality': signal_quality,
-                'strength': signal_strength
-            }
+            status_msg = _("CONNECTED to: {essid}\nIP: {ip} | Network: {network_type}\nSignal: {quality} ({strength} dBm)\nPress OK for options").format(
+
+                essid=essid,
+                ip=ip or _("No IP"),
+                network_type=network_type,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         # PROTECTED NETWORK WITH SAVED PASSWORD
         elif is_encrypted and has_saved_password:
-            status_msg_template = _("%(essid)s - Password saved\nSignal: %(quality)s (%(strength)s dBm)\nPress OK to connect or edit")
-            status_msg = status_msg_template % {
-                'essid': essid,
-                'quality': signal_quality,
-                'strength': signal_strength
-            }
+            status_msg = _("{essid} - Password saved\nSignal: {quality} ({strength} dBm)\nPress OK to connect or edit").format(
+
+                essid=essid,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         # PROTECTED NETWORK WITHOUT PASSWORD
         elif is_encrypted:
-            status_msg_template = _("%(essid)s - Password required\nSignal: %(quality)s (%(strength)s dBm)\nPress OK to enter password")
-            status_msg = status_msg_template % {
-                'essid': essid,
-                'quality': signal_quality,
-                'strength': signal_strength
-            }
+            status_msg = _("{essid} - Password required\nSignal: {quality} ({strength} dBm)\nPress OK to enter password").format(
+
+                essid=essid,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         # OPEN NETWORK
         else:
-            status_msg_template = _("%(essid)s - Open network\nSignal: %(quality)s (%(strength)s dBm)\nPress OK to connect")
-            status_msg = status_msg_template % {
-                'essid': essid,
-                'quality': signal_quality,
-                'strength': signal_strength
-            }
+            status_msg = _("{essid} - Open network\nSignal: {quality} ({strength} dBm)\nPress OK to connect").format(
+
+                essid=essid,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         self["status"].setText(status_msg)
 
@@ -878,56 +885,56 @@ class WiFiConnectZ(Screen):
                     if 'ESSID:' in line:
                         essid_match = search(r'ESSID:"([^"]*)"', line)
                         if essid_match:
-                            details.append(f"Network: {essid_match.group(1)}")
+                            details.append(_("Network: {essid}").format(essid=essid_match.group(1)))
 
                     elif 'Frequency:' in line:
                         freq_match = search(r'Frequency:([0-9.]+ GHz)', line)
                         if freq_match:
-                            details.append(f"Frequency: {freq_match.group(1)}")
+                            details.append(_("Frequency: {frequency}").format(frequency=freq_match.group(1)))
 
                     elif 'Access Point:' in line:
                         ap_match = search(r'Access Point: ([0-9A-Fa-f:]+)', line)
                         if ap_match:
-                            details.append(f"Access Point: {ap_match.group(1)}")
+                            details.append(_("Access Point: {ap}").format(ap=ap_match.group(1)))
 
                     elif 'Bit Rate=' in line:
                         rate_match = search(r'Bit Rate=([0-9.]+ [GM]b/s)', line)
                         if rate_match:
-                            details.append(f"Bit Rate: {rate_match.group(1)}")
+                            details.append(_("Bit Rate: {rate}").format(rate=rate_match.group(1)))
 
                     elif 'Signal level=' in line:
                         signal_match = search(r'Signal level=(-?\d+) dBm', line)
                         if signal_match:
-                            details.append(f"Signal Level: {signal_match.group(1)} dBm")
+                            details.append(_("Signal Level: {signal} dBm").format(signal=signal_match.group(1)))
 
                     elif 'Link Quality=' in line:
                         quality_match = search(r'Link Quality=([0-9/]+)', line)
                         if quality_match:
-                            details.append(f"Link Quality: {quality_match.group(1)}")
+                            details.append(_("Link Quality: {quality}").format(quality=quality_match.group(1)))
 
                     elif 'Mode:' in line:
                         mode_match = search(r'Mode:([A-Za-z]+)', line)
                         if mode_match:
-                            details.append(f"Mode: {mode_match.group(1)}")
+                            details.append(_("Mode: {mode}").format(mode=mode_match.group(1)))
 
                 # Add IP address information
                 try:
                     ip_result = subprocess.run(f"ip addr show {self.interface}", shell=True, capture_output=True, text=True)
                     ip_match = search(r'inet (\d+\.\d+\.\d+\.\d+)', ip_result.stdout)
                     if ip_match:
-                        details.append(f"IP Address: {ip_match.group(1)}")
+                        details.append(_("IP Address: {ip}").format(ip=ip_match.group(1)))
 
                     # Add MAC address
                     mac_match = search(r'link/ether ([0-9a-f:]+)', ip_result.stdout, IGNORECASE)
                     if mac_match:
-                        details.append(f"MAC Address: {mac_match.group(1)}")
+                        details.append(_("MAC Address: {mac}").format(mac=mac_match.group(1)))
                 except:
                     pass
 
                 if details:
                     # Create formatted details text
                     details_text = "\n".join(details)
-                    formatted_text = _("Connection Details:\n\n%s") % details_text
+                    formatted_text = _("Connection Details:\n\n{details}").format(details=details_text)
 
                     self.session.openWithCallback(
                         lambda result: callback() if callback else None,
@@ -949,7 +956,7 @@ class WiFiConnectZ(Screen):
             self.session.openWithCallback(
                 lambda result: callback() if callback else None,
                 MessageBox,
-                _("Error getting connection details: %s") % str(e),
+                _("Error getting connection details: {error}").format(error=str(e)),
                 MessageBox.TYPE_ERROR
             )
 
@@ -1089,15 +1096,19 @@ class WiFiConnectZ(Screen):
             self["status"].setText(_("Not connected to any network"))
             return
 
-        if info.get('essid') and info['essid'] != "Not connected":
+        if info.get('essid') and info['essid'] != _("Not connected"):
             essid = info['essid']
-            quality = info.get('quality', '?')
+            quality = info.get('quality', _('?'))
             interface = get_wifi_interfaces()
-            ip_addr = "No interface"
+            ip_addr = _("No interface")
             if interface:
                 ip_addr = get_ip_address(interface)
 
-            self["status"].setText(_("Connected to: {}\nSignal: {} | IP: {}").format(essid, quality, ip_addr))
+            self["status"].setText(_("Connected to: {essid}\nSignal: {quality} | IP: {ip}").format(
+                essid=essid,
+                quality=quality,
+                ip=ip_addr
+            ))
         else:
             self["status"].setText(_("Not connected to any network"))
 

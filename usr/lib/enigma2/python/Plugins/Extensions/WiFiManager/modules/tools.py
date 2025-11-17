@@ -199,7 +199,7 @@ def get_interface_info(ifname):
         # Get basic interface info using iwconfig
         result = subprocess.run(['iwconfig', ifname], capture_output=True, text=True)
         if result.returncode != 0:
-            info['error'] = f"Interface {ifname} not available"
+            info['error'] = _("Interface {} not available").format(ifname)
             return info
 
         output = result.stdout
@@ -207,29 +207,29 @@ def get_interface_info(ifname):
 
         # Extract ESSID
         essid_match = search(r'ESSID:"([^"]*)"', output)
-        info['essid'] = essid_match.group(1) if essid_match else "Not connected"
+        info['essid'] = essid_match.group(1) if essid_match else _("Not connected")
 
         # Extract AP MAC address
         ap_match = search(r'Access Point: ([0-9A-Fa-f:]{17})', output)
-        info['ap_addr'] = ap_match.group(1) if ap_match else "Unknown"
+        info['ap_addr'] = ap_match.group(1) if ap_match else _("Unknown")
 
         # Extract Mode
         mode_match = search(r'Mode:(\w+)', output)
-        info['mode'] = mode_match.group(1) if mode_match else "Unknown"
+        info['mode'] = mode_match.group(1) if mode_match else _("Unknown")
 
         # Extract Frequency/Channel
         freq_match = search(r'Frequency:([0-9.]+) GHz', output)
         channel_match = search(r'Channel[=:](\d+)', output)
         if freq_match:
-            info['frequency'] = f"{freq_match.group(1)} GHz"
+            info['frequency'] = _("{} GHz").format(freq_match.group(1))
         elif channel_match:
-            info['frequency'] = f"Channel {channel_match.group(1)}"
+            info['frequency'] = _("Channel {}").format(channel_match.group(1))
         else:
-            info['frequency'] = "Unknown"
+            info['frequency'] = _("Unknown")
 
         # Extract Bitrate
         rate_match = search(r'Bit Rate[=:]([0-9.]+) Mb/s', output)
-        info['bitrate'] = f"{rate_match.group(1)} Mb/s" if rate_match else "Unknown"
+        info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)) if rate_match else _("Unknown")
 
         # Extract Signal Quality
         quality_match = search(r'Link Quality=(\d+)/(\d+)', output)
@@ -256,15 +256,15 @@ def get_interface_info(ifname):
             max_quality = int(quality_match.group(2))
             if max_quality > 0:
                 percentage = (quality / max_quality) * 100
-                info['quality'] = f"{percentage:.1f}%"
+                info['quality'] = _("{:.1f}%").format(percentage)
             else:
-                info['quality'] = "0%"
+                info['quality'] = _("0%")
         elif signal_match:
             signal_dbm = int(signal_match.group(1))
-            info['quality'] = f"{signal_dbm} dBm"
+            info['quality'] = _("{} dBm").format(signal_dbm)
             info['signal_dbm'] = signal_dbm  # If we have signal_dbm, add it as 'signal' too
         else:
-            info['quality'] = "Unknown"
+            info['quality'] = _("Unknown")
 
         # If we have signal_dbm, add it as 'signal' too
         if 'signal_dbm' in info:
@@ -272,7 +272,7 @@ def get_interface_info(ifname):
 
         # Extract TX Power
         power_match = search(r'Tx-Power[=:](\d+) dBm', output)
-        info['txpower'] = f"{power_match.group(1)} dBm" if power_match else "Unknown"
+        info['txpower'] = _("{} dBm").format(power_match.group(1)) if power_match else _("Unknown")
 
         # Get protocol/driver info using ethtool
         try:
@@ -280,11 +280,11 @@ def get_interface_info(ifname):
                                             capture_output=True, text=True)
             if ethtool_result.returncode == 0:
                 driver_match = search(r'driver:\s*(\w+)', ethtool_result.stdout)
-                info['protocol'] = driver_match.group(1) if driver_match else "Unknown"
+                info['protocol'] = driver_match.group(1) if driver_match else _("Unknown")
             else:
-                info['protocol'] = "Unknown"
+                info['protocol'] = _("Unknown")
         except:
-            info['protocol'] = "Unknown"
+            info['protocol'] = _("Unknown")
 
         print(f"[DEBUG] Final interface info: {info}")  # DEBUG
         return info
@@ -604,7 +604,7 @@ def scan_networks(ifname, detailed=False):
 def format_signal_quality(quality_data):
     """Format the signal quality into readable text"""
     if not quality_data:
-        return "No data"
+        return _("No data")
 
     # Handle both percentage and dBm
     if isinstance(quality_data, (int, float)):
@@ -612,7 +612,7 @@ def format_signal_quality(quality_data):
     elif isinstance(quality_data, dict) and hasattr(quality_data, 'quality'):
         quality = quality_data.quality
     else:
-        return "Unknown"
+        return _("Unknown")
 
     levels = [
         (90, _("Excellent")),
@@ -624,9 +624,9 @@ def format_signal_quality(quality_data):
 
     for threshold, description in levels:
         if quality >= threshold:
-            return f"{description} ({quality}%)"
+            return _("{} ({:.0f}%)").format(description, quality)
 
-    return f"{_('Very Poor')} ({quality}%)"
+    return _("{} ({:.0f}%)").format(_('Very Poor'), quality)
 
 
 def load_saved_networks(config_file=None, interface=None):
@@ -698,7 +698,7 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                 continue
 
         if ping_result is None or ping_result.returncode != 0:
-            return "Ping not available"
+            return _("Ping not available")
 
         if debug:
             print(f"[PING] Output:\n{ping_result.stdout}")
@@ -733,7 +733,7 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
         if times:
             # Calculate average
             avg_time = sum(times) / len(times)
-            return f"{avg_time:.1f} ms"
+            return _("{:.1f} ms").format(avg_time)
 
         # If we don't find times, let's try with the final statistics
         stats_lines = [line for line in output.split('\n') if 'min/avg/max' in line or 'rtt' in line]
@@ -749,15 +749,15 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
             if match:
                 try:
                     avg_ping = float(match.group(2))
-                    return f"{avg_ping:.1f} ms"
+                    return _("{:.1f} ms").format(avg_ping)
                 except ValueError:
                     pass
 
-        return "No ping data"
+        return _("No ping data")
 
     except subprocess.TimeoutExpired:
-        return "Timeout"
+        return _("Timeout")
     except Exception as e:
         if debug:
             print(f"[PING] Exception: {e}")
-        return f"Error: {str(e)}"
+        return _("Error: {}").format(str(e))

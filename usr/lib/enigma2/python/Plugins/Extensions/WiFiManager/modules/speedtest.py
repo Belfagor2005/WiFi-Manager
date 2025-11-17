@@ -24,9 +24,10 @@ import subprocess
 from re import search
 from json import loads
 from six.moves.urllib.request import urlopen
+from .. import _
 
 
-def test_download_speed(interface=None, timeout=10):  # Riduci timeout
+def test_download_speed(interface=None, timeout=10):
     """Test download speed with better timeout handling"""
     try:
         test_servers = [
@@ -40,9 +41,9 @@ def test_download_speed(interface=None, timeout=10):  # Riduci timeout
             ping_result = subprocess.run(['ping', '-c', '1', '-W', '2', '8.8.8.8'],
                                          capture_output=True, text=True, timeout=5)
             if ping_result.returncode != 0:
-                return "No internet connection"
+                return _("No internet connection")
         except subprocess.TimeoutExpired:
-            return "Connection timeout"
+            return _("Connection timeout")
 
         for test_url in test_servers:
             try:
@@ -80,11 +81,11 @@ def test_download_speed(interface=None, timeout=10):  # Riduci timeout
         return "All download servers failed"
 
     except Exception as e:
-        return f"Error: {str(e)}"
+        return _("Error: {error}").format(error=str(e))
 
 
 def test_upload_speed(interface=None, timeout=10):
-    """Test upload speed - semply version"""
+    """Test upload speed - simple version"""
     try:
         test_file = "/tmp/upload_test.bin"
         test_data = b'0' * 1024 * 100  # 100KB di dati
@@ -106,12 +107,12 @@ def test_upload_speed(interface=None, timeout=10):
             duration = end_time - start_time
             file_size_mb = 0.1  # 100KB = 0.1MB
             speed_mbps = (file_size_mb * 8) / duration
-            return f"{speed_mbps:.2f} Mbps"
+            return _("{speed:.2f} Mbps").format(speed=speed_mbps)
         else:
-            return "Upload test not available"
+            return _("Upload test not available")
 
     except Exception as e:
-        return f"Upload test failed: {str(e)}"
+        return _("Upload test failed: {error}").format(error=str(e))
 
 
 def test_ping(host="8.8.8.8", count=3):
@@ -136,27 +137,27 @@ def test_ping(host="8.8.8.8", count=3):
 
             # DEBUG: print output to check format
             print(f"[DEBUG] Ping output: {result.stdout}")
-            return "Ping data not found"
+            return _("Ping data not found")
 
         else:
-            return "Ping failed"
+            return _("Ping failed")
 
     except Exception as e:
-        return f"Error: {str(e)}"
+        return _("Error: {error}").format(error=str(e))
 
 
 def extended_ping_test():
     """Extended ping test to multiple hosts"""
     hosts = [
-        ("Google DNS", "8.8.8.8"),
-        ("Cloudflare", "1.1.1.1"),
-        ("OpenDNS", "208.67.222.222")
+        (_("Google DNS"), "8.8.8.8"),
+        (_("Cloudflare"), "1.1.1.1"),
+        (_("OpenDNS"), "208.67.222.222")
     ]
 
     results = []
     for name, host in hosts:
         ping_result = test_ping(host, 2)
-        results.append(f"{name} ({host}): {ping_result}")
+        results.append(_("{name} ({host}): {ping}").format(name=name, host=host, ping=ping_result))
 
     return "\n".join(results)
 
@@ -211,14 +212,14 @@ def multi_server_download_test(interface=None):
                 else:
                     size_mb = 1
                 speed = (size_mb * 8) / duration
-                results.append(f"{name}: {speed:.2f} Mbps")
+                results.append(_("{name}: {speed:.2f} Mbps").format(name=name, speed=speed))
             else:
-                results.append(f"{name}: Failed")
+                results.append(_("{name}: Failed").format(name=name))
 
         except subprocess.TimeoutExpired:
-            results.append(f"{name}: Timeout")
+            results.append(_("{name}: Timeout").format(name=name))
         except Exception as e:
-            results.append(f"{name}: Error {e}")
+            results.append(_("{name}: Error {error}").format(name=name, error=e))
 
     return "\n".join(results)
 
@@ -227,7 +228,7 @@ def multi_server_upload_test(interface=None):
     """Multi-server upload test (simulated)"""
     # For uploading we use a simplified approach
     upload_result = test_upload_speed(interface)
-    return f"Upload test: {upload_result}"
+    return _("Upload test: {result}").format(result=upload_result)
 
 
 def connection_stability_test(interface=None, duration=5):
@@ -253,13 +254,14 @@ def connection_stability_test(interface=None, duration=5):
 
         if packets_sent > 0:
             loss_percentage = (packets_lost / packets_sent) * 100
-            stability = "Stable" if loss_percentage < 10 else "Unstable"
-            return f"Packets: {packets_sent}, Lost: {packets_lost} ({loss_percentage:.1f}%) - {stability}"
+            stability = _("Stable") if loss_percentage < 10 else _("Unstable")
+            return _("Packets: {sent}, Lost: {lost} ({percentage:.1f}%) - {stability}").format(
+                sent=packets_sent, lost=packets_lost, percentage=loss_percentage, stability=stability)
         else:
-            return "No packets sent"
+            return _("No packets sent")
 
     except Exception as e:
-        return f"Stability test error: {str(e)}"
+        return _("Stability test error: {error}").format(error=str(e))
 
 
 def format_speed_result(speed_value):

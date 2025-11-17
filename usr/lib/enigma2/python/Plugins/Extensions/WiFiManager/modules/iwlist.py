@@ -33,7 +33,7 @@ from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.ScrollLabel import ScrollLabel
 
-from . import _
+from .. import _
 
 try:
     from .iwlibs import Wireless, Iwrange, getWNICnames, getNICnames, KILO, MEGA, ifname
@@ -130,7 +130,7 @@ class IWListTools(Screen):
                     self["output"].setText(_("Tool not available"))
 
             except Exception as e:
-                self.session.open(MessageBox, f"Error running {tool_name}: {str(e)}", MessageBox.TYPE_ERROR)
+                self.session.open(MessageBox, _("Error running {tool}: {error}").format(tool=tool_name, error=str(e)), MessageBox.TYPE_ERROR)
 
 
 class IWListOutputScreen(Screen):
@@ -168,7 +168,7 @@ def print_scanning_results(wifi, args=None):
         else:
             error_number, error_string = e[0], e[1]
 
-        sys.stderr.write(f"{wifi.ifname:<8.16}  Interface doesn't support scanning.\n\n")
+        sys.stderr.write(_("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(interface=wifi.ifname))
         return
 
     try:
@@ -180,7 +180,8 @@ def print_scanning_results(wifi, args=None):
             error_number, error_string = e[0], e[1]
 
         if error_number != errno.EPERM:
-            sys.stderr.write(f"{wifi.ifname:<8.16}  Interface doesn't support scanning : {error_string}\n\n")
+            sys.stderr.write(_("{interface:<8.16}  Interface doesn't support scanning : {error}\n\n").format(
+                interface=wifi.ifname, error=error_string))
         return
 
     if not results or len(results) == 0:
@@ -215,9 +216,9 @@ def print_scanning_results(wifi, args=None):
         )
 
         if ap.encode.flags & flags.IW_ENCODE_DISABLED:
-            key_status = "off"
+            key_status = _("off")
         elif ap.encode.flags & flags.IW_ENCODE_NOKEY and ap.encode.length <= 0:
-            key_status = "on"
+            key_status = _("on")
         else:
             key_status = ""
 
@@ -229,12 +230,12 @@ def print_scanning_results(wifi, args=None):
                 rate_remainder = len(rate_list) % 5
 
                 for line in range(rate_lines):
-                    label = "                    Bit Rates:" if line == 0 else "                              "
+                    label = _("                    Bit Rates:") if line == 0 else _("                              ")
                     rates = "; ".join(wifi._formatBitrate(x) for x in rate_list[line * 5:(line * 5) + 5])
                     print(f"{label}{rates}")
 
                 if rate_remainder > 0:
-                    label = "                              " if rate_lines > 0 else "                    Bit Rates:"
+                    label = _("                              ") if rate_lines > 0 else _("                    Bit Rates:")
                     partial_rates = "; ".join(
                         wifi._formatBitrate(x) for x in rate_list[-rate_remainder:]
                     )
@@ -254,7 +255,7 @@ def print_channels(wifi, args=None):
             error_number, error_string = e[0], e[1]
 
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
-            sys.stderr.write(f"{wifi.ifname:<8.16}  no frequency information.\n\n")
+            sys.stderr.write(_("{interface:<8.16}  no frequency information.\n\n").format(interface=wifi.ifname))
         else:
             report_error("channel", wifi.ifname, error_number, error_string)
         return
@@ -266,7 +267,7 @@ def print_channels(wifi, args=None):
 
     iwfreq = wifi.wireless_info.getFrequency()
     fixed = "=" if iwfreq.flags & flags.IW_FREQ_FIXED else ":"
-    return_type = "Channel" if iwfreq.getFrequency() < KILO else "Frequency"
+    return_type = _("Channel") if iwfreq.getFrequency() < KILO else _("Frequency")
 
     current_freq = wifi.getFrequency()
     try:
@@ -291,7 +292,7 @@ def print_bitrates(wifi, args=None):
 
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
             sys.stderr.write(
-                f"{wifi.ifname:<8.16}  no bit-rate information.\n\n"
+                _("{interface:<8.16}  no bit-rate information.\n\n").format(interface=wifi.ifname)
             )
         else:
             report_error("bit rate", wifi.ifname, error_number, error_string)
@@ -339,14 +340,14 @@ def print_encryption(wifi, args=None):
         print(f"error_number: {error_number}  error_string: {error_string}")
 
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
-            sys.stderr.write(f"{wifi.ifname:<8.16}  no encryption keys information.\n\n")
+            sys.stderr.write(_("{interface:<8.16}  no encryption keys information.\n\n").format(interface=wifi.ifname))
         return
 
     range_info = Iwrange(wifi.ifname)
     key_sizes = ", ".join(
         str(range_info.encoding_size[i] * 8)
         for i in range(range_info.num_encoding_sizes)
-    ) + " bits"
+    ) + _(" bits")
 
     print(f"{wifi.ifname:<8.16}  {range_info.num_encoding_sizes} key sizes : {key_sizes}")
     print(f"          {len(keys)} keys available :")
@@ -392,7 +393,7 @@ def print_power(wifi, args=None):
         print(f"error_number: {error_number}  error_string: {error_string}")
 
         if error_number == errno.ENODEV:
-            sys.stderr.write(f"{wifi.ifname:<8.16}  no power management information.\n\n")
+            sys.stderr.write(_("{interface:<8.16}  no power management information.\n\n").format(interface=wifi.ifname))
         return
 
     print(f"{wifi.ifname:<8.16} ", end="")
@@ -470,17 +471,15 @@ def print_retry(wifi, args=None):
         print(f"error_number: {error_number}  error_string: {error_string}")
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
             sys.stderr.write(
-                f"{wifi.ifname:<8.16}  no retry limit/lifetime information.\n\n"
+                _("{interface:<8.16}  no retry limit/lifetime information.\n\n").format(interface=wifi.ifname)
             )
     else:
         ifname = "%-8.16s  " % (wifi.ifname, )
         if (range_info.retry_flags & flags.IW_RETRY_LIMIT):
             if (range_info.retry_flags & flags.IW_RETRY_MIN):
-                limit = "Auto  limit    ;  min limit:%d" % (
-                    range_info.min_retry, )
+                limit = _("Auto  limit    ;  min limit:{limit}").format(limit=range_info.min_retry)
             else:
-                limit = "Fixed limit    ;  min limit:%d" % (
-                    range_info.min_retry, )
+                limit = _("Fixed limit    ;  min limit:{limit}").format(limit=range_info.min_retry)
             print(ifname + limit)
             ifname = None
             print("                            max limit:%d" % (
@@ -490,8 +489,7 @@ def print_retry(wifi, args=None):
                 lifetime = "Auto  lifetime ;  min lifetime:%d" % (
                     range_info.min_r_time, )
             else:
-                lifetime = "Fixed lifetime ;  min lifetime:%d" % (
-                    range_info.min_r_time, )
+                lifetime = _("Fixed lifetime ;  min lifetime:{lifetime}").format(lifetime=range_info.min_r_time)
             if ifname:
                 print(ifname + lifetime)
                 ifname = None
@@ -506,18 +504,18 @@ def print_retry(wifi, args=None):
             print("          Current mode:on")
             if (iwparam.flags & flags.IW_RETRY_TYPE):
                 if (iwparam.flags & flags.IW_RETRY_LIFETIME):
-                    mode_type = "lifetime"
+                    mode_type = _("lifetime")
                 else:
-                    mode_type = "limit"
-                mode = "                 "
+                    mode_type = _("limit")
+                mode = _("                 ")
                 if (iwparam.flags & flags.IW_RETRY_MIN):
-                    mode = mode + " min %s:%d" % (mode_type, iwparam.value)
+                    mode = mode + _(" min {type}:{value}").format(type=mode_type, value=iwparam.value)
                 if (iwparam.flags & flags.IW_RETRY_MAX):
-                    mode = mode + " max %s:%d" % (mode_type, iwparam.value)
+                    mode = mode + _(" max {type}:{value}").format(type=mode_type, value=iwparam.value)
                 if (iwparam.flags & flags.IW_RETRY_SHORT):
-                    mode = mode + " short %s:%d" % (mode_type, iwparam.value)
+                    mode = mode + _(" short {type}:{value}").format(type=mode_type, value=iwparam.value)
                 if (iwparam.flags & flags.IW_RETRY_LONG):
-                    mode = mode + " long %s:%d" % (mode_type, iwparam.value)
+                    mode = mode + _(" long {type}:{value}").format(type=mode_type, value=iwparam.value)
                 print(mode)
 
 
@@ -538,7 +536,7 @@ def print_aps(wifi, args=None):
         else:
             error_number = e[0]
             error_string = e[1]
-        sys.stderr.write("%-8.16s  Interface doesn't support scanning.\n\n" % (wifi.ifname))
+        sys.stderr.write(_("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(interface=wifi.ifname))
     else:
         # "Check for Active Scan (scan with specific essid)"
         # "Check for last scan result (do not trigger scan)"
@@ -553,8 +551,8 @@ def print_aps(wifi, args=None):
                 error_string = e[1]
             if error_number != errno.EPERM:
                 sys.stderr.write(
-                    "%-8.16s  Interface doesn't support scanning : %s\n\n" %
-                    (wifi.ifname, error_string))
+                    _("{interface:<8.16}  Interface doesn't support scanning : {error}\n\n").format(
+                        interface=wifi.ifname, error=error_string))
         else:
             if len(results) == 0:
                 print(

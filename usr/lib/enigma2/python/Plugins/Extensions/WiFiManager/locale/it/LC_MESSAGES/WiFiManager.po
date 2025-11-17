@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 18:29+0100\n"
-"PO-Revision-Date: 2025-11-15 18:30+0100\n"
+"POT-Creation-Date: 2025-11-17 00:31+0100\n"
+"PO-Revision-Date: 2025-11-17 01:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -43,11 +43,11 @@ msgstr "Seleziona un opzione"
 msgid "Scanner"
 msgstr "Scansione"
 
-#: WiFiManager.py:109
+#: WiFiManager.py:109 modules/iwlist_tools.py:485
 msgid "Monitor"
 msgstr ""
 
-#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1016
+#: WiFiManager.py:113 WiFiManager.py:190 modules/connect.py:1023
 msgid "Connect"
 msgstr "Connetti"
 
@@ -141,129 +141,134 @@ msgstr "Questi forum sono ottimi posti per ottenere aiuto,\n"
 msgid "share experiences,and connect with other users."
 msgstr "condividere esperienze e connettersi con altri utenti."
 
-#: WiFiManager.py:324 modules/iwlist.py:107
+#: WiFiManager.py:324 modules/iwlist.py:107 modules/monitor.py:101
 msgid "No WiFi interfaces found"
 msgstr "Nessuna interfaccia WiFi trovato"
 
-#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:59
+#: WiFiManager.py:335
+#, python-brace-format
+msgid "Error opening {module}: {error}"
+msgstr ""
+
+#: WiFiManager.py:342 WiFiManager.py:397 modules/iwlist.py:59
 #: modules/iwlist_tools.py:68
 msgid "Advanced Scan"
 msgstr "Scansione  Avanzata"
 
-#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:60
+#: WiFiManager.py:343 WiFiManager.py:398 modules/iwlist.py:60
 #: modules/iwlist_tools.py:69 modules/iwlist_tools.py:229
 msgid "Channel Info"
 msgstr "Informazioni sul canale"
 
-#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:61
+#: WiFiManager.py:344 WiFiManager.py:399 modules/iwlist.py:61
 #: modules/iwlist_tools.py:70 modules/iwlist_tools.py:255
 msgid "Bitrate Info"
 msgstr "Informazioni sul bitrate"
 
-#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:62
+#: WiFiManager.py:345 WiFiManager.py:400 modules/iwlist.py:62
 #: modules/iwlist_tools.py:71 modules/iwlist_tools.py:281
 msgid "Encryption Info"
 msgstr "Informazioni sulla crittografia"
 
-#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:63
+#: WiFiManager.py:346 WiFiManager.py:401 modules/iwlist.py:63
 #: modules/iwlist_tools.py:72 modules/iwlist_tools.py:307
 msgid "Power Management"
 msgstr "Impostazioni di gestione"
 
-#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:64
+#: WiFiManager.py:347 WiFiManager.py:402 modules/iwlist.py:64
 #: modules/iwlist_tools.py:73 modules/iwlist_tools.py:333
 msgid "Retry Limits"
 msgstr "Limiti di ripetizione"
 
-#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist.py:65
+#: WiFiManager.py:348 WiFiManager.py:403 modules/iwlist.py:65
 #: modules/iwlist_tools.py:74 modules/iwlist_tools.py:359
 msgid "Access Points"
 msgstr "Punti di accesso"
 
-#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:75
+#: WiFiManager.py:349 WiFiManager.py:404 modules/iwlist_tools.py:75
 msgid "Advanced Config"
 msgstr "Configurazione Avanzata"
 
-#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:76
+#: WiFiManager.py:350 WiFiManager.py:405 modules/iwlist_tools.py:76
 msgid "Restart WiFi Interface"
 msgstr "Riavvio interfaccia WiFi"
 
-#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:77
+#: WiFiManager.py:351 WiFiManager.py:406 modules/iwlist_tools.py:77
 msgid "Reload WiFi Modules"
 msgstr "Ricarica i moduli WiFi"
 
-#: WiFiManager.py:353 WiFiManager.py:408 modules/iwlist_tools.py:78
+#: WiFiManager.py:352 WiFiManager.py:407 modules/iwlist_tools.py:78
 msgid "Check System Logs"
 msgstr "Controllare i registri di sistema"
 
-#: WiFiManager.py:359 WiFiManager.py:426 modules/iwlist_tools.py:87
+#: WiFiManager.py:358 WiFiManager.py:425 modules/iwlist_tools.py:87
 msgid "WiFi Advanced Tools"
 msgstr "Strumenti Avanzati WiFi"
 
-#: WiFiManager.py:398
+#: WiFiManager.py:397
 msgid "Detailed network scanning with signal strength and encryption info"
 msgstr ""
 "Scansione dettagliata della rete con informazioni sulla potenza del segnale "
 "e sulla crittografia"
 
-#: WiFiManager.py:399
+#: WiFiManager.py:398
 msgid "Available frequencies and channels for your region"
 msgstr "Frequenze e canali disponibili per la tua regione"
 
-#: WiFiManager.py:400
+#: WiFiManager.py:399
 msgid "Supported bitrates and current transmission rates"
 msgstr "Bitrate supportati e velocità di trasmissione attuali"
 
-#: WiFiManager.py:401
+#: WiFiManager.py:400
 msgid "Encryption keys and security protocols"
 msgstr "Chiavi di crittografia e protocolli di sicurezza"
 
-#: WiFiManager.py:402
+#: WiFiManager.py:401
 msgid "Power management settings and power saving modes"
 msgstr ""
 "Impostazioni di gestione dell'alimentazione e modalità di risparmio "
 "energetico"
 
-#: WiFiManager.py:403
+#: WiFiManager.py:402
 msgid "Packet retry limits and frame lifetime settings"
 msgstr ""
 "Limiti di ripetizione dei pacchetti e impostazioni della durata dei frame"
 
-#: WiFiManager.py:404
+#: WiFiManager.py:403
 msgid "List of access points and connected peer stations"
 msgstr "Elenco dei punti di accesso e delle stazioni peer connesse"
 
-#: WiFiManager.py:405
+#: WiFiManager.py:404
 msgid "Advanced WiFi interface configuration"
 msgstr "Configurazione avanzata dell'interfaccia WiFi"
 
-#: WiFiManager.py:406
+#: WiFiManager.py:405
 msgid "Restart wireless interface to reset connectivity"
 msgstr "Riavviare l'interfaccia wireless per ripristinare la connettività"
 
-#: WiFiManager.py:407
+#: WiFiManager.py:406
 msgid "Reload kernel WiFi modules to fix driver issues"
 msgstr "Ricarica i moduli WiFi del kernel per risolvere i problemi del driver"
 
-#: WiFiManager.py:408
+#: WiFiManager.py:407
 msgid "Check system logs for WiFi errors and connection issues"
 msgstr ""
 "Controllare i registri di sistema per errori Wi-Fi e problemi di connessione"
 
-#: WiFiManager.py:412 WiFiManager.py:454
+#: WiFiManager.py:411 WiFiManager.py:453
 msgid "Select a tool to see description"
 msgstr "Seleziona uno strumento per visualizzare informazioni"
 
-#: WiFiManager.py:413 modules/detailed_info.py:59 modules/iwlist.py:149
+#: WiFiManager.py:412 modules/detailed_info.py:59 modules/iwlist.py:149
 #: modules/iwlist_tools.py:63 modules/speedtest_manager.py:73
 msgid "Close"
 msgstr "Esci"
 
-#: WiFiManager.py:414
+#: WiFiManager.py:413
 msgid "Select"
 msgstr "Seleziona"
 
-#: WiFiManager.py:432
+#: WiFiManager.py:431
 msgid ""
 "Performs a detailed scan of available WiFi networks showing:\n"
 "- Signal strength\n"
@@ -279,7 +284,7 @@ msgstr ""
 "- Bande di frequenza\n"
 "- Indirizzi MAC"
 
-#: WiFiManager.py:433
+#: WiFiManager.py:432
 msgid ""
 "Shows available channels and frequencies for your region:\n"
 "- 2.4GHz channels (1-14)\n"
@@ -293,7 +298,7 @@ msgstr ""
 "- Informazioni sul dominio normativo\n"
 "- Larghezza dei canali"
 
-#: WiFiManager.py:434
+#: WiFiManager.py:433
 msgid ""
 "Displays supported bitrates and current transmission rates:\n"
 "- Available bitrates\n"
@@ -307,7 +312,7 @@ msgstr ""
 "- Indici MCS (per 802.11n/ac)\n"
 "- Funzionalità HT/VHT"
 
-#: WiFiManager.py:435
+#: WiFiManager.py:434
 msgid ""
 "Shows encryption and security information:\n"
 "- Supported encryption types\n"
@@ -321,7 +326,7 @@ msgstr ""
 "- Gestione delle chiavi\n"
 "- Protocolli di sicurezza"
 
-#: WiFiManager.py:436
+#: WiFiManager.py:435
 msgid ""
 "Displays power management settings:\n"
 "- Current power state\n"
@@ -335,7 +340,7 @@ msgstr ""
 "- Potenza di trasmissione\n"
 "- Funzioni di gestione dell'alimentazione"
 
-#: WiFiManager.py:437
+#: WiFiManager.py:436
 msgid ""
 "Shows packet retry limits and settings:\n"
 "- Retry short limit\n"
@@ -349,7 +354,7 @@ msgstr ""
 "- Durata del frame\n"
 "- Statistiche di ripetizione"
 
-#: WiFiManager.py:438
+#: WiFiManager.py:437
 msgid ""
 "Lists access points and peer stations:\n"
 "- Connected stations\n"
@@ -363,7 +368,7 @@ msgstr ""
 "- Statistiche peer\n"
 "- Qualità della connessione"
 
-#: WiFiManager.py:439
+#: WiFiManager.py:438
 msgid ""
 "Advanced WiFi interface configuration:\n"
 "- Operation mode (Managed/AP/Monitor)\n"
@@ -377,7 +382,7 @@ msgstr ""
 "- Controllo della potenza di trasmissione\n"
 "- Impostazioni di base dell'interfaccia"
 
-#: WiFiManager.py:440
+#: WiFiManager.py:439
 msgid ""
 "Restarts the WiFi interface:\n"
 "- Brings interface down/up\n"
@@ -391,7 +396,7 @@ msgstr ""
 "- Mantiene la configurazione\n"
 "- Ripristino rapido della connettività"
 
-#: WiFiManager.py:441
+#: WiFiManager.py:440
 msgid ""
 "Reloads WiFi kernel modules:\n"
 "- Unloads/loads drivers\n"
@@ -405,7 +410,7 @@ msgstr ""
 "- Risolve i problemi dei driver\n"
 "- Richiede l'accesso root"
 
-#: WiFiManager.py:442
+#: WiFiManager.py:441
 msgid ""
 "Checks system logs for WiFi errors:\n"
 "- Kernel messages (dmesg)\n"
@@ -419,11 +424,11 @@ msgstr ""
 "- Errori del driver\n"
 "- Problemi di connessione"
 
-#: WiFiManager.py:444
+#: WiFiManager.py:443
 msgid "No help available for this tool."
 msgstr "Nessun aiuto  disponibile per la selezione."
 
-#: WiFiManager.py:457
+#: WiFiManager.py:456
 msgid "Error loading help"
 msgstr "Errore durante il caricamento della guida"
 
@@ -496,7 +501,7 @@ msgstr "Nome della rete (SSID)"
 msgid "Hidden Network"
 msgstr "Rete Nascosta"
 
-#: modules/config.py:411
+#: modules/config.py:411 modules/diagnostics.py:378
 msgid "Encryption"
 msgstr "Crittografia"
 
@@ -532,7 +537,7 @@ msgstr ""
 msgid "Operation Mode"
 msgstr "Modalità operativa"
 
-#: modules/config.py:439 modules/iwlist_tools.py:505
+#: modules/config.py:439 modules/iwlist.py:270 modules/iwlist_tools.py:505
 msgid "Channel"
 msgstr "Canale"
 
@@ -623,117 +628,165 @@ msgstr "Scansione delle reti..."
 msgid "Scan failed"
 msgstr "Scansione  fallita"
 
-#: modules/connect.py:222
+#: modules/connect.py:222 modules/detailed_info.py:207
+#: modules/detailed_info.py:212 modules/detailed_info.py:217
+#: modules/detailed_info.py:222 modules/detailed_info.py:227
+#: modules/detailed_info.py:232 modules/detailed_info.py:268
+#: modules/detailed_info.py:305 modules/detailed_info.py:380
+#: modules/scanner.py:184 modules/scanner.py:432 modules/scanner.py:495
+#: modules/scanner.py:505 modules/scanner.py:506
+#: modules/speedtest_manager.py:195 modules/speedtest_manager.py:197
+#: modules/speedtest_manager.py:198 modules/speedtest_manager.py:200
+#: modules/speedtest_simple.py:72 modules/speedtest_simple.py:73
+#: modules/speedtest_simple.py:74 modules/speedtest_simple.py:75
+#: modules/speedtest_simple.py:76 modules/speedtest_simple.py:92
+#: modules/speedtest_simple.py:291 modules/speedtest_simple.py:292
+#: modules/speedtest_simple.py:393 modules/speedtest_simple.py:396
+#: modules/speedtest_simple.py:397 modules/speedtest_simple.py:400
+#: modules/speedtest_simple.py:406 modules/speedtest_simple.py:407
+#: modules/speedtest_simple.py:408 modules/tools.py:214 modules/tools.py:218
+#: modules/tools.py:228 modules/tools.py:232 modules/tools.py:267
+#: modules/tools.py:275 modules/tools.py:283 modules/tools.py:285
+#: modules/tools.py:287 modules/tools.py:615
 msgid "Unknown"
 msgstr "Errore Sconosciuto"
+
+#: modules/connect.py:234
+msgid "[LOCK]"
+msgstr ""
 
 #: modules/connect.py:235
 msgid "Secured"
 msgstr "Protetto"
 
+#: modules/connect.py:237
+msgid "[OPEN]"
+msgstr ""
+
 #: modules/connect.py:238
 msgid "Open"
 msgstr "Apri"
 
-#: modules/connect.py:276
+#: modules/connect.py:242
+msgid "[SAVED] "
+msgstr ""
+
+#: modules/connect.py:246
+#, python-brace-format
+msgid "{connection}{saved}{icon} {essid} | {security} | {signal} dBm"
+msgstr ""
+
+#: modules/connect.py:283
 #, python-brace-format
 msgid "CONNECTED to: {} - Press OK for options"
 msgstr "CONNESSO a: {} - Premere OK per le opzioni"
 
-#: modules/connect.py:280
+#: modules/connect.py:287
 #, python-brace-format
 msgid "{} - Password saved - Press OK for options"
 msgstr "{} - Password salvata - Premere OK per le opzioni"
 
-#: modules/connect.py:282
+#: modules/connect.py:289
 #, python-brace-format
 msgid "{} - Password required - Press OK for options"
 msgstr "{} - Password richiesta - Premere OK per le opzioni"
 
-#: modules/connect.py:285
+#: modules/connect.py:292
 #, python-brace-format
 msgid "{} - Open network - Press OK for options"
 msgstr "{} - Rete Aperta - Premi OK per le opzioni"
 
-#: modules/connect.py:326
-#, python-format
+#: modules/connect.py:317 modules/connect.py:336 modules/connect.py:860
+msgid "No IP"
+msgstr "Nessun IP"
+
+#: modules/connect.py:322 modules/connect.py:328
+msgid "DHCP"
+msgstr ""
+
+#: modules/connect.py:328
+msgid "Static"
+msgstr "Statico"
+
+#: modules/connect.py:333
+#, python-brace-format
 msgid ""
-"CONNECTED to: %(essid)s\n"
-"IP: %(ip)s | Network: %(network_type)s\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"CONNECTED to: {essid}\n"
+"IP: {ip} | Network: {network_type}\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK for options"
 msgstr ""
-"CONNESSO a: %(essid)s\n"
-"IP: %(ip)s | Rete: %(network_type)s\n"
-"Segnale: %(quality)s (%(strength)s dBm)\n"
+"CONNESSO a: {essid}\n"
+"IP: {ip} | Rete: {network_type}\n"
+"Segnale: {quality} ({strength} dBm)\n"
 "Premi OK per le opzioni"
 
-#: modules/connect.py:337
-#, python-format
+#: modules/connect.py:344
+#, python-brace-format
 msgid ""
-"%(essid)s - Password saved\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Password saved\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK to connect or edit"
 msgstr ""
-"%(essid)s - Password salvata\n"
-"Segnale: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Password salvata\n"
+"Segnale: {quality} ({strength} dBm)\n"
 "Premi OK per connetterti o modificare"
 
-#: modules/connect.py:346
-#, python-format
+#: modules/connect.py:353
+#, python-brace-format
 msgid ""
-"%(essid)s - Password required\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Password required\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK to enter password"
 msgstr ""
-"%(essid)s - Password richiesta\n"
-"Segnale: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Password richiesta\n"
+"Segnale: {quality} ({strength} dBm)\n"
 "Premi OK per inserire la password"
 
-#: modules/connect.py:355
-#, python-format
+#: modules/connect.py:362
+#, python-brace-format
 msgid ""
-"%(essid)s - Open network\n"
-"Signal: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Open network\n"
+"Signal: {quality} ({strength} dBm)\n"
 "Press OK to connect"
 msgstr ""
-"%(essid)s - Rete aperta\n"
-"Segnale: %(quality)s (%(strength)s dBm)\n"
+"{essid} - Rete aperta\n"
+"Segnale: {quality} ({strength} dBm)\n"
 "Premi OK per connetterti"
 
-#: modules/connect.py:421
+#: modules/connect.py:428
 msgid "No networks found - Press BLUE to rescan"
 msgstr "Nessuna rete trovata - Premi BLU per ripetere la scansione"
 
-#: modules/connect.py:422 modules/iwlist_tools.py:185
+#: modules/connect.py:429 modules/iwlist_tools.py:185
 #: modules/iwlist_tools.py:199
 msgid "No networks found"
 msgstr "Nessuna Network trovato"
 
-#: modules/connect.py:603 modules/connect.py:1050
+#: modules/connect.py:610 modules/connect.py:1057
 #, python-format
 msgid "Connecting to %s..."
 msgstr "Connessione a %s..."
 
-#: modules/connect.py:620
+#: modules/connect.py:627
 #, python-format
 msgid "Connected to %s"
 msgstr "Connesso a %s"
 
-#: modules/connect.py:623
+#: modules/connect.py:630
 #, python-format
 msgid "Failed to connect to %s"
 msgstr "Impossibile connettersi a %s"
 
-#: modules/connect.py:634
+#: modules/connect.py:641
 msgid "Connected successfully!"
 msgstr "Connessione completata con successo!"
 
-#: modules/connect.py:636
+#: modules/connect.py:643
 msgid "Connection failed!"
 msgstr "Connessione  fallita!"
 
-#: modules/connect.py:684
+#: modules/connect.py:691
 #, python-format
 msgid ""
 "WiFi and network configuration saved for %s\n"
@@ -744,7 +797,7 @@ msgstr ""
 "\n"
 "Connettersi ora?"
 
-#: modules/connect.py:715
+#: modules/connect.py:722
 #, python-format
 msgid ""
 "Password saved for %s\n"
@@ -755,129 +808,184 @@ msgstr ""
 "\n"
 "Connettersi ora?"
 
-#: modules/connect.py:725
+#: modules/connect.py:732
 #, python-format
 msgid "Enter password for: %s"
 msgstr "Inserisci la password per: %s"
 
-#: modules/connect.py:726
+#: modules/connect.py:733
 msgid "WiFi Password"
 msgstr "Password WiFi"
 
-#: modules/connect.py:801
+#: modules/connect.py:808
 msgid "Disconnected"
 msgstr "Disconnesso"
 
-#: modules/connect.py:804
+#: modules/connect.py:811
 msgid "Error disconnecting"
 msgstr "Errore durante la disconnessione"
 
-#: modules/connect.py:815
+#: modules/connect.py:822
 msgid "Network forgotten!"
 msgstr "Rete dimenticata!"
 
-#: modules/connect.py:834
+#: modules/connect.py:841
 #, python-brace-format
 msgid "Forgotten network: {}"
 msgstr "Rete dimenticata: {}"
 
-#: modules/connect.py:837
+#: modules/connect.py:844 modules/tools.py:763
 #, python-brace-format
 msgid "Error: {}"
 msgstr "Errore: {}"
 
-#: modules/connect.py:853
-msgid "No IP"
-msgstr "Nessun IP"
-
-#: modules/connect.py:855
+#: modules/connect.py:862
 #, python-brace-format
 msgid "Connected: {} | Signal: {} dBm | IP: {}"
 msgstr "Connesso: {} | Segnale: {} dBm | IP: {}"
 
-#: modules/connect.py:858 modules/connect.py:1089 modules/connect.py:1102
+#: modules/connect.py:865 modules/connect.py:1096 modules/connect.py:1113
 msgid "Not connected to any network"
 msgstr "Non connesso a nessuna rete"
 
-#: modules/connect.py:861
+#: modules/connect.py:868
 #, python-brace-format
 msgid "Status check failed: {}"
 msgstr "Controllo dello stato non riuscito: {}"
 
+#: modules/connect.py:888
+#, python-brace-format
+msgid "Network: {essid}"
+msgstr "Rete: {essid}"
+
+#: modules/connect.py:893
+#, python-brace-format
+msgid "Frequency: {frequency}"
+msgstr "Frequenza: {frequency}"
+
+#: modules/connect.py:898
+#, python-brace-format
+msgid "Access Point: {ap}"
+msgstr "Punti di accesso: {ap}"
+
+#: modules/connect.py:903
+#, python-brace-format
+msgid "Bit Rate: {rate}"
+msgstr ""
+
+#: modules/connect.py:908
+#, python-brace-format
+msgid "Signal Level: {signal} dBm"
+msgstr "Livello Segnale: {signal} dBm"
+
+#: modules/connect.py:913
+#, python-brace-format
+msgid "Link Quality: {quality}"
+msgstr "Qualità Collegamento: {quality}"
+
+#: modules/connect.py:918
+#, python-brace-format
+msgid "Mode: {mode}"
+msgstr "Modo: {mode}"
+
+#: modules/connect.py:925
+#, python-brace-format
+msgid "IP Address: {ip}"
+msgstr "Indirizzo IP: {ip}"
+
 #: modules/connect.py:930
-#, python-format
+#, python-brace-format
+msgid "MAC Address: {mac}"
+msgstr "Indirizzo MAC: {mac}"
+
+#: modules/connect.py:937
+#, python-brace-format
 msgid ""
 "Connection Details:\n"
 "\n"
-"%s"
+"{details}"
 msgstr ""
-"Dettagli Connessione:\n"
+"Dettagli di connessione:\n"
 "\n"
-"%s"
+"{details}"
 
-#: modules/connect.py:944
+#: modules/connect.py:951
 msgid "No connection details available"
 msgstr "Nessun dettaglio di connessione disponibile"
 
-#: modules/connect.py:952
-#, python-format
-msgid "Error getting connection details: %s"
-msgstr "Errore durante il recupero dei dettagli di connessione: %s"
+#: modules/connect.py:959
+#, python-brace-format
+msgid "Error getting connection details: {error}"
+msgstr "Errore durante l'ottenimento dei dettagli di connessione: {error}"
 
-#: modules/connect.py:1006
+#: modules/connect.py:1013
 msgid "Disconnect"
 msgstr "Disconnetti"
 
-#: modules/connect.py:1007 modules/connect.py:1026
+#: modules/connect.py:1014 modules/connect.py:1033
 msgid "Connection Info"
 msgstr "Informazioni di Connessione"
 
-#: modules/connect.py:1008 modules/connect.py:1024
+#: modules/connect.py:1015 modules/connect.py:1031
 msgid "Edit Configuration"
 msgstr "Modifica Configurazione"
 
-#: modules/connect.py:1009 modules/connect.py:1027 modules/iwlist_tools.py:635
+#: modules/connect.py:1016 modules/connect.py:1034 modules/iwlist_tools.py:634
 msgid "Back"
 msgstr "Torna"
 
-#: modules/connect.py:1011
+#: modules/connect.py:1018
 #, python-format
 msgid "Connected to: %s"
 msgstr "Connesso a: %s"
 
-#: modules/connect.py:1020
+#: modules/connect.py:1027
 msgid "Edit Password"
 msgstr "Modifica Password"
 
-#: modules/connect.py:1022
+#: modules/connect.py:1029
 msgid "Enter Password"
 msgstr "Inserire Password"
 
-#: modules/connect.py:1025
+#: modules/connect.py:1032
 msgid "Forget Network"
 msgstr "Dimentica Rete"
 
-#: modules/connect.py:1029
+#: modules/connect.py:1036
 #, python-format
 msgid "Network: %s"
 msgstr "Rete: %s"
 
-#: modules/connect.py:1056
+#: modules/connect.py:1063
 msgid "Disconnecting..."
 msgstr "Disconnessione..."
 
-#: modules/connect.py:1079
+#: modules/connect.py:1086
 msgid "No network selected"
 msgstr "Nessuna Rete selezionata"
 
-#: modules/connect.py:1100
+#: modules/connect.py:1099 modules/detailed_info.py:202 modules/monitor.py:165
+#: modules/monitor.py:218 modules/monitor.py:292 modules/monitor.py:302
+#: modules/scanner.py:550 modules/tools.py:210
+msgid "Not connected"
+msgstr "Non connesso"
+
+#: modules/connect.py:1101
+msgid "?"
+msgstr ""
+
+#: modules/connect.py:1103
+msgid "No interface"
+msgstr "Nessuna interfaccia"
+
+#: modules/connect.py:1107
 #, python-brace-format
 msgid ""
-"Connected to: {}\n"
-"Signal: {} | IP: {}"
+"Connected to: {essid}\n"
+"Signal: {quality} | IP: {ip}"
 msgstr ""
-"Connesso a: {}\n"
-"Segnale: {} | IP: {}"
+"Connesso a: {essid}\n"
+"Segnale: {quality} | IP: {ip}"
 
 #: modules/detailed_info.py:58 modules/monitor.py:79 modules/scanner.py:84
 msgid "Refresh"
@@ -887,6 +995,233 @@ msgstr "Aggiorna"
 #, python-brace-format
 msgid "Detailed Info - {}"
 msgstr "Informazioni dettagliate - {}"
+
+#: modules/detailed_info.py:105
+#, python-brace-format
+msgid "❌ Interface {} not found or not a WiFi interface\n"
+msgstr "❌ Interfaccia {} non trovata o non è un'interfaccia WiFi\n"
+
+#: modules/detailed_info.py:106
+#, python-brace-format
+msgid "Available interfaces: {}"
+msgstr "Interfacce disponibili: {}"
+
+#: modules/detailed_info.py:106
+msgid "None"
+msgstr ""
+
+#: modules/detailed_info.py:112
+#, python-brace-format
+msgid "📡 DETAILED WIFI INFORMATION - {}\n"
+msgstr "📡 INFORMAZIONI DETTAGLIATE SUL WIFI - {}\n"
+
+#: modules/detailed_info.py:118
+msgid "🔧 BASIC INTERFACE INFO\n"
+msgstr "🔧 INFORMAZIONI DI BASE SULL'INTERFACCIA\n"
+
+#: modules/detailed_info.py:127
+msgid "📶 WIRELESS INFORMATION\n"
+msgstr "📶 INFORMAZIONI WIRELESS \n"
+
+#: modules/detailed_info.py:136
+msgid "🔌 DRIVER & HARDWARE\n"
+msgstr "🔌 DRIVER E HARDWARE\n"
+
+#: modules/detailed_info.py:145
+msgid "📊 NETWORK STATISTICS\n"
+msgstr "📊 STATISTICHE RETE\n"
+
+#: modules/detailed_info.py:154
+msgid "🌐 AVAILABLE NETWORKS\n"
+msgstr "🌐 RETI DISPONIBILI\n"
+
+#: modules/detailed_info.py:176
+#, python-brace-format
+msgid ""
+"❌ Error getting detailed info:\n"
+"{}\n"
+"\n"
+msgstr ""
+"❌ Errore durante il recupero delle informazioni dettagliate:\n"
+"{}\n"
+"\n"
+
+#: modules/detailed_info.py:194 modules/detailed_info.py:254
+#, python-brace-format
+msgid "❌ Error: {}\n"
+msgstr "❌ Errore: {}\n"
+
+#: modules/detailed_info.py:198
+msgid "📡 Interface Type: WIRELESS\n"
+msgstr "📡 Tipo di interfaccia: WIRELESS\n"
+
+#: modules/detailed_info.py:203
+#, python-brace-format
+msgid "📡 ESSID: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:208
+#, python-brace-format
+msgid "🔧 Mode: {}\n"
+msgstr "🔧 Modalità: {}\n"
+
+#: modules/detailed_info.py:213
+#, python-brace-format
+msgid "📶 Frequency: {}\n"
+msgstr "📶  Frequenza: {}\n"
+
+#: modules/detailed_info.py:218
+#, python-brace-format
+msgid "📊 Quality: {}\n"
+msgstr "📊  Qualità: {}\n"
+
+#: modules/detailed_info.py:223
+#, python-brace-format
+msgid "🚀 Bit Rate: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:228
+#, python-brace-format
+msgid "⚡ TX Power: {}\n"
+msgstr "⚡ Potenza di trasmissione: {}\n"
+
+#: modules/detailed_info.py:233
+#, python-brace-format
+msgid "💾 Protocol: {}\n"
+msgstr "💾 Protocollo: {}\n"
+
+#: modules/detailed_info.py:237
+#, python-brace-format
+msgid "Wireless info error: {}"
+msgstr "Errore informazioni wireless: {}"
+
+#: modules/detailed_info.py:238 modules/detailed_info.py:280
+#: modules/detailed_info.py:318 modules/detailed_info.py:357
+#, python-brace-format
+msgid "❌ {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:259
+msgid "UP and active"
+msgstr ""
+
+#: modules/detailed_info.py:259
+msgid "DOWN"
+msgstr ""
+
+#: modules/detailed_info.py:261
+#, python-brace-format
+msgid "{} Status: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:265
+#, python-brace-format
+msgid "🔧 Interface: {}\n"
+msgstr "🔧 Interfaccia: {}\n"
+
+#: modules/detailed_info.py:269
+#, python-brace-format
+msgid "📟 MAC: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:273 modules/detailed_info.py:274
+msgid "Wireless"
+msgstr ""
+
+#: modules/detailed_info.py:273
+msgid "Wired"
+msgstr "Cablata"
+
+#: modules/detailed_info.py:275
+#, python-brace-format
+msgid "{} Type: {} interface\n"
+msgstr ""
+
+#: modules/detailed_info.py:279
+#, python-brace-format
+msgid "Basic info error: {}"
+msgstr "Errore nelle informazioni di base: {}"
+
+#: modules/detailed_info.py:298
+#, python-brace-format
+msgid "💾 Driver: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:301
+msgid "💾 Driver: Unknown\n"
+msgstr ""
+
+#: modules/detailed_info.py:306
+#, python-brace-format
+msgid "🔧 Module: {}\n"
+msgstr "🔧 Modulo: {}\n"
+
+#: modules/detailed_info.py:310
+msgid "📡 Type: Wireless interface\n"
+msgstr "📡 Tipo: Interfaccia wireless\n"
+
+#: modules/detailed_info.py:313
+msgid "🔌 Type: Wired interface\n"
+msgstr "🔌 Tipo: Interfaccia cablata\n"
+
+#: modules/detailed_info.py:317
+#, python-brace-format
+msgid "Driver info error: {}"
+msgstr "Errore informazioni driver: {}"
+
+#: modules/detailed_info.py:339
+#, python-brace-format
+msgid "⬇️  Received: {}\n"
+msgstr "⬇️  Ricevuti: {}\n"
+
+#: modules/detailed_info.py:350
+#, python-brace-format
+msgid "⬆️  Transmitted: {}\n"
+msgstr "⬆️  Transmessi: {}\n"
+
+#: modules/detailed_info.py:356
+#, python-brace-format
+msgid "Statistics error: {}"
+msgstr "Errore statistico: {}"
+
+#: modules/detailed_info.py:376
+#, python-brace-format
+msgid "Found {} networks:\n"
+msgstr "Trovate {} reti\n"
+
+#: modules/detailed_info.py:381 modules/diagnostics.py:349
+#: modules/iwlist_tools.py:204 modules/iwlist_tools.py:205
+#: modules/iwlist_tools.py:206 modules/iwlist_tools.py:207
+#: modules/iwlist_tools.py:208 modules/iwlist_tools.py:209
+#: modules/monitor.py:164 modules/monitor.py:166 modules/monitor.py:167
+#: modules/monitor.py:294 modules/monitor.py:306 modules/monitor.py:308
+#: modules/monitor.py:309 modules/monitor.py:322
+msgid "N/A"
+msgstr ""
+
+#: modules/detailed_info.py:388
+#, python-brace-format
+msgid "  {:2d}. {} {:20} | Signal: {:4} dBm ({}) | Channel: {}\n"
+msgstr ""
+
+#: modules/detailed_info.py:393
+#, python-brace-format
+msgid "  ... and {} more networks\n"
+msgstr " ... e {} altre reti\n"
+
+#: modules/detailed_info.py:395
+msgid "No networks found or scan not supported\n"
+msgstr "Nessuna rete trovata o scansione non supportata\n"
+
+#: modules/detailed_info.py:399
+#, python-brace-format
+msgid "Scan error: {}"
+msgstr "Errore di scansione: {}"
+
+#: modules/detailed_info.py:400
+#, python-brace-format
+msgid "{}\n"
+msgstr ""
 
 #: modules/diagnostics.py:53 modules/speedtest_manager.py:75
 #: modules/speedtest_manager.py:106
@@ -905,6 +1240,437 @@ msgstr "Pulire"
 #: modules/diagnostics.py:73
 msgid "WiFi Diagnostics"
 msgstr "Diagnostica WiFi"
+
+#: modules/diagnostics.py:84
+msgid "=== WiFi Diagnostics (System Commands Only) ===\n"
+msgstr "=== Diagnostica WiFi (solo comandi di sistema) ===\n"
+
+#: modules/diagnostics.py:85
+#, python-brace-format
+msgid ""
+"Test Type: {test_type}\n"
+"\n"
+msgstr ""
+"Tipo Test: {test_type}\n"
+"\n"
+
+#: modules/diagnostics.py:86
+msgid "Full Comprehensive Test"
+msgstr "Test completo e comprensivo"
+
+#: modules/diagnostics.py:86
+msgid "Quick System Check"
+msgstr "Controllo rapido del sistema"
+
+#: modules/diagnostics.py:92
+msgid "🔧 SYSTEM LEVEL DIAGNOSTICS\n"
+msgstr "🔧 DIAGNOSTICA A LIVELLO DI SISTEMA\n"
+
+#: modules/diagnostics.py:125
+#, python-brace-format
+msgid "All Network Interfaces: {interfaces}\n"
+msgstr "Tutte le interfacce di rete: {interfaces}\n"
+
+#: modules/diagnostics.py:126 modules/diagnostics.py:128
+msgid "None found"
+msgstr "Nessuno trovato"
+
+#: modules/diagnostics.py:127
+#, python-brace-format
+msgid ""
+"Wireless Interfaces: {interfaces}\n"
+"\n"
+msgstr ""
+"Interfacce wireless: {interfaces}\n"
+"\n"
+
+#: modules/diagnostics.py:133
+msgid "❌ CRITICAL: No WiFi interfaces detected!\n"
+msgstr "❌ CRITICO: Nessuna interfaccia WiFi rilevata!\n"
+
+#: modules/diagnostics.py:144
+#, python-brace-format
+msgid ""
+"\n"
+"🔍 DETAILED ANALYSIS: {interface}\n"
+msgstr ""
+"\n"
+"🔍 ANALISI DETTAGLIATA: {interface}\n"
+
+#: modules/diagnostics.py:184
+msgid ""
+"\n"
+"💡 SUMMARY & RECOMMENDATIONS\n"
+msgstr ""
+"\n"
+"💡 RIASSUNTO E RACCOMANDAZIONI\n"
+
+#: modules/diagnostics.py:194
+#, python-brace-format
+msgid ""
+"\n"
+"❌ DIAGNOSTIC ERROR: {error}\n"
+msgstr ""
+"\n"
+"❌ ERRORE DIAGNOSTICO: {error}\n"
+
+#: modules/diagnostics.py:229
+#, python-brace-format
+msgid "✅ Loaded WiFi modules: {modules}\n"
+msgstr "✅ Moduli WiFi caricati: {modules}\n"
+
+#: modules/diagnostics.py:231
+msgid "⚠️  No WiFi kernel modules detected\n"
+msgstr "⚠️ Nessun modulo kernel WiFi rilevato\n"
+
+#: modules/diagnostics.py:233
+#, python-brace-format
+msgid "❌ Kernel module check failed: {error}\n"
+msgstr "❌ Controllo del modulo kernel fallito: {error}\n"
+
+#: modules/diagnostics.py:248
+msgid "✅ USB WiFi adapters detected:\n"
+msgstr "✅ Adattatori WiFi USB rilevati:\n"
+
+#: modules/diagnostics.py:250
+#, python-brace-format
+msgid "   - {adapter}\n"
+msgstr ""
+
+#: modules/diagnostics.py:252
+msgid "ℹ️  No USB WiFi adapters found\n"
+msgstr "ℹ️ Nessun adattatore WiFi USB trovato\n"
+
+#: modules/diagnostics.py:254
+#, python-brace-format
+msgid "❌ USB device check failed: {error}\n"
+msgstr "❌ Controllo dispositivo USB fallito: {error}\n"
+
+#: modules/diagnostics.py:271
+#, python-brace-format
+msgid "✅ Available commands: {commands}\n"
+msgstr "✅ Comandi disponibili: {commands}\n"
+
+#: modules/diagnostics.py:273
+#, python-brace-format
+msgid "⚠️  Missing commands: {commands}\n"
+msgstr "⚠️ Comandi mancanti: {commands}\n"
+
+#: modules/diagnostics.py:284
+#, python-brace-format
+msgid "✅ Interface {interface}: UP and active\n"
+msgstr "✅ Interfaccia {interface}: ATTIVA e attiva\n"
+
+#: modules/diagnostics.py:286
+#, python-brace-format
+msgid "⚠️  Interface {interface}: DOWN (needs activation)\n"
+msgstr "⚠️ Interfaccia {interface}: GIÙ (necessita di attivazione)\n"
+
+#: modules/diagnostics.py:288
+#, python-brace-format
+msgid "❌ Interface {interface}: UNKNOWN STATE\n"
+msgstr "❌ Interfaccia {interface}: STATO SCONOSCIUTO\n"
+
+#: modules/diagnostics.py:293
+#, python-brace-format
+msgid "   MAC Address: {mac}\n"
+msgstr "   Indirizzo MAC: {mac}\n"
+
+#: modules/diagnostics.py:296
+#, python-brace-format
+msgid "❌ Interface {interface}: NOT FOUND\n"
+msgstr "❌ Interfaccia {interface}: NON TROVATA\n"
+
+#: modules/diagnostics.py:298
+#, python-brace-format
+msgid "❌ Interface check failed: {error}\n"
+msgstr "❌ Controllo dell'interfaccia fallito: {error}\n"
+
+#: modules/diagnostics.py:309
+#, python-brace-format
+msgid "   Driver: {driver}\n"
+msgstr ""
+
+#: modules/diagnostics.py:311
+msgid "   Driver: Unknown\n"
+msgstr ""
+
+#: modules/diagnostics.py:313
+#, python-brace-format
+msgid "   Driver check failed: {error}\n"
+msgstr " Controllo Driver fallito: {error}\n"
+
+#: modules/diagnostics.py:329
+#, python-brace-format
+msgid "📶 ESSID: {essid}\n"
+msgstr ""
+
+#: modules/diagnostics.py:332
+msgid "📶 ESSID: Not connected\n"
+msgstr "📶 ESSID: Non connesso\n"
+
+#: modules/diagnostics.py:335
+#, python-brace-format
+msgid "❌ ESSID check: {error}\n"
+msgstr "❌ Controllo ESSID: {error}\n"
+
+#: modules/diagnostics.py:350
+#, python-brace-format
+msgid "📊 Signal: {quality}% quality, {signal} dBm\n"
+msgstr "📊 Segnale: {quality}% qualità, {signal} dBm\n"
+
+#: modules/diagnostics.py:353
+msgid "📊 Signal: No quality data available\n"
+msgstr "📊 Segnale: Nessun dato di qualità disponibile\n"
+
+#: modules/diagnostics.py:355
+#, python-brace-format
+msgid "❌ Signal check: {error}\n"
+msgstr "❌ Controllo del segnale: {error}\n"
+
+#: modules/diagnostics.py:362
+#, python-brace-format
+msgid "🔧 Mode: {mode}\n"
+msgstr "🔧 Modalità: {mode}\n"
+
+#: modules/diagnostics.py:364
+msgid "🔧 Mode: Unknown\n"
+msgstr "🔧 Modalità: Sconosciuta\n"
+
+#: modules/diagnostics.py:366
+#, python-brace-format
+msgid "❌ Mode check: {error}\n"
+msgstr "❌ Controllo della modalità: {error}\n"
+
+#: modules/diagnostics.py:373
+msgid ""
+"\n"
+"   🔬 ADVANCED TESTS:\n"
+msgstr ""
+"\n"
+"   🔬 TEST AVANZATI:\n"
+
+#: modules/diagnostics.py:376
+msgid "Frequency/Channel"
+msgstr "Frequenza/Canale"
+
+#: modules/diagnostics.py:377
+msgid "Bitrate"
+msgstr ""
+
+#: modules/diagnostics.py:379 modules/iwconfig.py:263
+msgid "Access Point"
+msgstr "Punto di accesso"
+
+#: modules/diagnostics.py:386
+#, python-brace-format
+msgid "   ✅ {test}: {output}\n"
+msgstr ""
+
+#: modules/diagnostics.py:388
+#, python-brace-format
+msgid "   ⚠️  {test}: No data\n"
+msgstr ""
+
+#: modules/diagnostics.py:390
+#, python-brace-format
+msgid ""
+"   ❌ {test}: Failed\n"
+"Error: {error}"
+msgstr ""
+" ❌ {test}: fallito\n"
+"Errore: {error}"
+
+#: modules/diagnostics.py:397
+msgid ""
+"\n"
+"   🚀 PERFORMANCE TESTS:\n"
+msgstr ""
+"\n"
+"   🚀 TEST DI PRESTAZIONE:\n"
+
+#: modules/diagnostics.py:405
+#, python-brace-format
+msgid "   📡 Scan: Found {count} networks\n"
+msgstr "   📡 Scansione: trovate {count} reti\n"
+
+#: modules/diagnostics.py:408
+msgid "   ⚠️  Scan: Interface busy (connected to network)\n"
+msgstr "   ⚠️  Scansione: Interfaccia occupata (connesso alla rete)\n"
+
+#: modules/diagnostics.py:410 modules/diagnostics.py:412
+#, python-brace-format
+msgid "   ❌ Scan test: {error}\n"
+msgstr "  ❌ Test di scansione: {error}\n"
+
+#: modules/diagnostics.py:419
+#, python-brace-format
+msgid "   🌐 Connectivity: IP {ip} - ONLINE\n"
+msgstr "   🌐 Connectività: IP {ip} - ONLINE\n"
+
+#: modules/diagnostics.py:421
+msgid "   🌐 Connectivity: No IP address - OFFLINE\n"
+msgstr "   🌐 Connettività: Nessun indirizzo IP - OFFLINE\n"
+
+#: modules/diagnostics.py:423
+msgid "   🌐 Connectivity: Unknown status\n"
+msgstr "  🌐 Connettività: Stato sconosciuto\n"
+
+#: modules/diagnostics.py:430
+msgid ""
+"\n"
+"🔧 POSSIBLE SOLUTIONS:\n"
+msgstr ""
+"\n"
+"🔧 POSSIBILI SOLUZIONI:\n"
+
+#: modules/diagnostics.py:433
+msgid "1. Check if WiFi adapter is properly connected\n"
+msgstr "1. Verificare che l'adattatore WiFi sia collegato correttamente\n"
+
+#: modules/diagnostics.py:434
+msgid "2. Verify WiFi adapter is supported by your receiver\n"
+msgstr "2. Verifica che l'adattatore WiFi sia supportato dal tuo ricevitore\n"
+
+#: modules/diagnostics.py:435
+msgid "3. Try different USB port for USB WiFi adapters\n"
+msgstr "3. Prova una porta USB diversa per gli adattatori WiFi USB\n"
+
+#: modules/diagnostics.py:436
+msgid "4. Check if WiFi drivers are installed\n"
+msgstr "4. Verificare se i driver WiFi sono installati\n"
+
+#: modules/diagnostics.py:437
+msgid "5. Restart the receiver and try again\n"
+msgstr "5. Riavviare il ricevitore e riprovare\n"
+
+#: modules/diagnostics.py:440
+msgid "✅ All systems operational\n"
+msgstr "✅ Tutti i sistemi operativi\n"
+
+#: modules/diagnostics.py:441
+msgid "💡 Tips:\n"
+msgstr "💡 Suggerimenti:\n"
+
+#: modules/diagnostics.py:442
+msgid "   • Monitor signal strength for best performance\n"
+msgstr " • Monitorare la potenza del segnale per prestazioni ottimali\n"
+
+#: modules/diagnostics.py:443
+msgid "   • Keep drivers updated\n"
+msgstr " • Mantenere aggiornati i driver\n"
+
+#: modules/diagnostics.py:444
+msgid "   • Use 5GHz band for less interference\n"
+msgstr " • Utilizzare la banda a 5 GHz per ridurre le interferenze\n"
+
+#: modules/diagnostics.py:452
+msgid "✅ SYSTEM STATUS: WiFi hardware detected and functional\n"
+msgstr "✅ STATO DEL SISTEMA: Hardware WiFi rilevato e funzionante\n"
+
+#: modules/diagnostics.py:453
+msgid "🔧 METHOD: Using system commands (no root required)\n"
+msgstr "🔧 METODO: Utilizzo dei comandi di sistema (non è richiesto il root)\n"
+
+#: modules/diagnostics.py:454
+msgid "💡 All basic diagnostics available\n"
+msgstr "💡 Tutte le diagnosi di base disponibili\n"
+
+#: modules/diagnostics.py:456
+msgid "❌ SYSTEM STATUS: No WiFi interfaces detected\n"
+msgstr ""
+"❌ STATO DEL SISTEMA: Nessuna interfaccia WiFi rilevata\n"
+"a\n"
+
+#: modules/diagnostics.py:457
+msgid "🚨 Check hardware connection and drivers\n"
+msgstr "🚨 Controlla la connessione hardware e i driver\n"
+
+#: modules/iwconfig.py:243
+#, python-format
+msgid ""
+"ESSID:\"%s\"  \n"
+"          "
+msgstr ""
+
+#: modules/iwconfig.py:245
+msgid ""
+"ESSID:off/any  \n"
+"          "
+msgstr ""
+
+#: modules/iwconfig.py:248
+msgid "Mode:"
+msgstr "Modalità:"
+
+#: modules/iwconfig.py:250
+msgid "  Frequency:"
+msgstr "  Frequenza:"
+
+#: modules/iwconfig.py:261
+msgid "Cell"
+msgstr ""
+
+#: modules/iwconfig.py:266
+msgid "Not-Associated"
+msgstr "Non associato"
+
+#: modules/iwconfig.py:267
+msgid "  "
+msgstr ""
+
+#: modules/iwconfig.py:267
+msgid ": "
+msgstr ""
+
+#: modules/iwconfig.py:267
+msgid "   "
+msgstr ""
+
+#: modules/iwconfig.py:321
+#, python-format
+msgid "Link Quality:%s/100  "
+msgstr "Qualità del collegamento:%s/100 "
+
+#: modules/iwconfig.py:322
+#, python-format
+msgid "Signal level:%sdBm  "
+msgstr "Livello Segnale:%sdBm  "
+
+#: modules/iwconfig.py:323
+#, python-format
+msgid "Noise level:%sdBm"
+msgstr "Livello di rumore:%sdBm"
+
+#: modules/iwconfig.py:327
+#, python-format
+msgid "Rx invalid nwid:%s  "
+msgstr "Riicezione non valida nwid:%s "
+
+#: modules/iwconfig.py:328
+#, python-format
+msgid "Rx invalid crypt:%s  "
+msgstr "Ricezione crittografia non valida:%s "
+
+#: modules/iwconfig.py:329
+#, python-format
+msgid "Rx invalid frag:%s"
+msgstr "Frammento Rx non valido:%s"
+
+#: modules/iwconfig.py:333
+#, python-format
+msgid "Tx excessive retries:%s  "
+msgstr "Numero eccessivo di tentativi di trasmissione:%s "
+
+#: modules/iwconfig.py:334
+#, python-format
+msgid "Invalid misc:%s   "
+msgstr "Misc non valido:%s "
+
+#: modules/iwconfig.py:335
+#, python-format
+msgid "Missed beacon:%s"
+msgstr "Segnale mancato:%s"
 
 #: modules/iwlist.py:59 modules/iwlist_tools.py:68
 msgid "Detailed network scanning"
@@ -945,6 +1711,140 @@ msgstr "Strumenti WiFi Avanzati"
 #: modules/iwlist.py:130
 msgid "Tool not available"
 msgstr "Strumento non disponibile"
+
+#: modules/iwlist.py:133
+#, python-brace-format
+msgid "Error running {tool}: {error}"
+msgstr "Errore durante l'esecuzione di {tool}: {error}"
+
+#: modules/iwlist.py:171 modules/iwlist.py:539
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  Interface doesn't support scanning.\n"
+"\n"
+msgstr ""
+"{interface:<8.16} L'interfaccia non supporta la scansione.\n"
+"\n"
+
+#: modules/iwlist.py:183 modules/iwlist.py:554
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  Interface doesn't support scanning : {error}\n"
+"\n"
+msgstr ""
+"{interface:<8.16} L'interfaccia non supporta la scansione: {error}\n"
+"\n"
+
+#: modules/iwlist.py:219
+msgid "off"
+msgstr ""
+
+#: modules/iwlist.py:221
+msgid "on"
+msgstr ""
+
+#: modules/iwlist.py:233 modules/iwlist.py:238
+msgid "                    Bit Rates:"
+msgstr ""
+
+#: modules/iwlist.py:233 modules/iwlist.py:238
+msgid "                              "
+msgstr ""
+
+#: modules/iwlist.py:258
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no frequency information.\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist.py:270
+msgid "Frequency"
+msgstr "Frequenza"
+
+#: modules/iwlist.py:295
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no bit-rate information.\n"
+"\n"
+msgstr ""
+"{interface:<8.16} nessuna informazione sul bitrate.\n"
+"\n"
+
+#: modules/iwlist.py:343
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no encryption keys information.\n"
+"\n"
+msgstr ""
+"{interface:<8.16} nessuna informazione sulle chiavi di crittografia.\n"
+"\n"
+
+#: modules/iwlist.py:350
+msgid " bits"
+msgstr ""
+
+#: modules/iwlist.py:396
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no power management information.\n"
+"\n"
+msgstr ""
+"{interface:<8.16} nessuna informazione sulla gestione dell'alimentazione.\n"
+
+#: modules/iwlist.py:474
+#, python-brace-format
+msgid ""
+"{interface:<8.16}  no retry limit/lifetime information.\n"
+"\n"
+msgstr ""
+
+#: modules/iwlist.py:480
+#, python-brace-format
+msgid "Auto  limit    ;  min limit:{limit}"
+msgstr ""
+
+#: modules/iwlist.py:482
+#, python-brace-format
+msgid "Fixed limit    ;  min limit:{limit}"
+msgstr ""
+
+#: modules/iwlist.py:492
+#, python-brace-format
+msgid "Fixed lifetime ;  min lifetime:{lifetime}"
+msgstr ""
+
+#: modules/iwlist.py:507
+msgid "lifetime"
+msgstr ""
+
+#: modules/iwlist.py:509
+msgid "limit"
+msgstr "limite"
+
+#: modules/iwlist.py:510
+msgid "                 "
+msgstr ""
+
+#: modules/iwlist.py:512
+#, python-brace-format
+msgid " min {type}:{value}"
+msgstr ""
+
+#: modules/iwlist.py:514
+#, python-brace-format
+msgid " max {type}:{value}"
+msgstr ""
+
+#: modules/iwlist.py:516
+#, python-brace-format
+msgid " short {type}:{value}"
+msgstr ""
+
+#: modules/iwlist.py:518
+#, python-brace-format
+msgid " long {type}:{value}"
+msgstr ""
 
 #: modules/iwlist_tools.py:62
 msgid "Executing tool..."
@@ -1081,6 +1981,16 @@ msgstr "  Segnale: %s\n"
 msgid "  Encryption: %s\n"
 msgstr " Crittografia: %s\n"
 
+#: modules/iwlist_tools.py:210 modules/scanner.py:188 modules/scanner.py:271
+#: modules/scanner.py:436
+msgid "Yes"
+msgstr "Si"
+
+#: modules/iwlist_tools.py:210 modules/scanner.py:188 modules/scanner.py:271
+#: modules/scanner.py:436
+msgid "No"
+msgstr ""
+
 #: modules/iwlist_tools.py:216
 msgid "Getting channel information..."
 msgstr "Ottenimento informazioni sul canale..."
@@ -1105,6 +2015,11 @@ msgstr ""
 #: modules/iwlist_tools.py:224
 msgid "Frequency information not available\n"
 msgstr "Informazioni sulla frequenza non disponibili\n"
+
+#: modules/iwlist_tools.py:236
+#, python-brace-format
+msgid "Error getting channel information: {}"
+msgstr "Errore durante il recupero delle informazioni sul canale: {}"
 
 #: modules/iwlist_tools.py:242
 msgid "Getting bitrate information..."
@@ -1131,6 +2046,11 @@ msgstr ""
 msgid "Bitrate information not available\n"
 msgstr "Informazioni sul bitrate non disponibili\n"
 
+#: modules/iwlist_tools.py:262
+#, python-brace-format
+msgid "Error getting bitrate information: {}"
+msgstr "Errore durante l'acquisizione delle informazioni sul bitrate: {}"
+
 #: modules/iwlist_tools.py:268
 msgid "Getting encryption information..."
 msgstr "Ottenimento delle informazioni sulla crittografia..."
@@ -1156,6 +2076,11 @@ msgstr ""
 msgid "Encryption information not available\n"
 msgstr "Informazioni sulla crittografia non disponibili\n"
 
+#: modules/iwlist_tools.py:288
+#, python-brace-format
+msgid "Error getting encryption information: {}"
+msgstr "Errore durante il recupero delle informazioni di crittografia: {}"
+
 #: modules/iwlist_tools.py:294
 msgid "Getting power management information..."
 msgstr "Ottenimento di informazioni sulla gestione dell'alimentazione..."
@@ -1171,6 +2096,11 @@ msgstr ""
 #: modules/iwlist_tools.py:302
 msgid "Power management information not available\n"
 msgstr "Informazioni sulla gestione dell'alimentazione non disponibili\n"
+
+#: modules/iwlist_tools.py:314
+#, python-brace-format
+msgid "Error getting power information: {}"
+msgstr "Errore durante il recupero delle informazioni sull'alimentazione: {}"
 
 #: modules/iwlist_tools.py:320
 msgid "Getting retry information..."
@@ -1188,6 +2118,12 @@ msgstr ""
 msgid "Retry limit information not available\n"
 msgstr "Informazioni sul limite di tentativi non disponibili\n"
 
+#: modules/iwlist_tools.py:340
+#, python-brace-format
+msgid "Error getting retry information: {}"
+msgstr ""
+"Errore durante l'ottenimento delle informazioni per il nuovo tentativo: {}"
+
 #: modules/iwlist_tools.py:346
 msgid "Getting access point information..."
 msgstr "Ottenimento delle informazioni sul punto di accesso..."
@@ -1203,6 +2139,11 @@ msgstr ""
 #: modules/iwlist_tools.py:354
 msgid "No station/peer information available\n"
 msgstr "Nessuna informazione disponibile su stazione/peer\n"
+
+#: modules/iwlist_tools.py:366
+#, python-brace-format
+msgid "Error getting AP information: {}"
+msgstr "Errore durante l'acquisizione delle informazioni AP: {}"
 
 #: modules/iwlist_tools.py:387
 msgid ""
@@ -1269,6 +2210,48 @@ msgstr "Nessun messaggio WiFi nei registri di sistema"
 msgid "System Logs"
 msgstr "Registri di sistema"
 
+#: modules/iwlist_tools.py:482
+msgid "Managed (Client)"
+msgstr "Gestione (Client)"
+
+#: modules/iwlist_tools.py:483
+msgid "Ad-Hoc"
+msgstr ""
+
+#: modules/iwlist_tools.py:484
+msgid "Master (AP)"
+msgstr ""
+
+#: modules/iwlist_tools.py:486 modules/iwlist_tools.py:490
+#: modules/iwlist_tools.py:496
+msgid "Auto"
+msgstr ""
+
+#: modules/iwlist_tools.py:491 modules/tools.py:226
+#, python-brace-format
+msgid "Channel {}"
+msgstr "Canale {}"
+
+#: modules/iwlist_tools.py:497
+msgid "1 dBm (Min)"
+msgstr ""
+
+#: modules/iwlist_tools.py:498
+msgid "5 dBm"
+msgstr ""
+
+#: modules/iwlist_tools.py:499
+msgid "10 dBm"
+msgstr ""
+
+#: modules/iwlist_tools.py:500
+msgid "15 dBm"
+msgstr ""
+
+#: modules/iwlist_tools.py:501
+msgid "20 dBm (Max)"
+msgstr ""
+
 #: modules/iwlist_tools.py:510
 msgid "Advanced WiFi configuration settings"
 msgstr "Configurazione WiFi Avanzata"
@@ -1294,21 +2277,23 @@ msgstr "Impostazioni applicate correttamente"
 msgid ""
 "Advanced WiFi Configuration:\n"
 "\n"
-"RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
-"Fragmentation: Max frame size before fragmentation\n"
-"Beacon Interval: Time between beacon signals (ms)\n"
-"DTIM Period: Delivery Traffic Indication Message interval\n"
+"Operation Mode: Network operation mode\n"
+"Channel: WiFi channel selection\n"
+"TX Power: Transmission power level\n"
 "\n"
 "Warning: Incorrect settings may degrade performance!"
 msgstr ""
 "Configurazione WiFi avanzata:\n"
 "\n"
-"Soglia RTS: controlla l'handshake RTS/CTS (2347=disabilitato)\n"
-"Frammentazione: dimensione massima del frame prima della frammentazione\n"
-"Intervallo beacon: tempo tra i segnali beacon (ms)\n"
-"Periodo DTIM: intervallo di messaggio Delivery Traffic Indication\n"
+"Modalità operativa: Modalità di funzionamento in rete\n"
+"Canale: Selezione del canale WiFi\n"
+"Potenza TX: Livello di potenza di trasmissione\n"
 "\n"
-"Attenzione: impostazioni errate potrebbero compromettere le prestazioni!"
+"Attenzione: Impostazioni errate potrebbero compromettere le prestazioni!"
+
+#: modules/monitor.py:73 modules/monitor.py:327
+msgid "Signal: N/A"
+msgstr "Segnale: N/A"
 
 #: modules/monitor.py:77 modules/monitor.py:111
 msgid "Start"
@@ -1326,6 +2311,62 @@ msgstr "Monitor del segnale WiFi"
 msgid "Pause"
 msgstr "Pausa"
 
+#: modules/monitor.py:125
+#, python-brace-format
+msgid "Quality: {}%"
+msgstr "Qualità: {}%"
+
+#: modules/monitor.py:151 modules/monitor.py:177
+#, python-brace-format
+msgid "Signal: {} dBm"
+msgstr "Segnale: {} dBm"
+
+#: modules/monitor.py:164 modules/monitor.py:322
+#, python-brace-format
+msgid "Interface: {}"
+msgstr "Interfaccia {}"
+
+#: modules/monitor.py:165
+#, python-brace-format
+msgid "ESSID: {}"
+msgstr ""
+
+#: modules/monitor.py:166
+#, python-brace-format
+msgid "IP: {}"
+msgstr ""
+
+#: modules/monitor.py:167
+#, python-brace-format
+msgid "MAC: {}"
+msgstr ""
+
+#: modules/monitor.py:176
+#, python-brace-format
+msgid "Quality: {}% ({})"
+msgstr "Qualità: {}% ({})"
+
+#: modules/monitor.py:191
+msgid "No WiFi connection data available"
+msgstr "Nessun dato di connessione WiFi disponibile"
+
+#: modules/monitor.py:195
+#, python-brace-format
+msgid "Monitoring error: {}"
+msgstr "Errore di monitoraggio: {}"
+
+#: modules/monitor.py:324
+msgid "IP: N/A"
+msgstr ""
+
+#: modules/monitor.py:325
+msgid "MAC: N/A"
+msgstr ""
+
+#: modules/monitor.py:326
+msgid "Quality: N/A"
+msgstr "Qualità: N/A"
+
 #: modules/scanner.py:85 modules/speedtest_manager.py:76
 #: modules/speedtest_manager.py:107
 msgid "Details"
@@ -1339,21 +2380,357 @@ msgstr "Scanner WiFi"
 msgid "Scanning for WiFi networks..."
 msgstr "Scansione delle reti WiFi in corso..."
 
+#: modules/scanner.py:134
+msgid "No WiFi interfaces found\n"
+msgstr "Nessuna interfaccia WiFi trovata\n"
+
+#: modules/scanner.py:144
+msgid ""
+"\n"
+"[INFO] pythonwifi not available, using iwlist\n"
+msgstr ""
+"\n"
+"[INFO] pythonwifi non disponibile, utilizzo iwlist\n"
+
+#: modules/scanner.py:161
+#, python-brace-format
+msgid "Scan error: {}\n"
+msgstr "Errore di scansione: {}\n"
+
 #: modules/scanner.py:163
 msgid "Scan error: "
 msgstr "Errore scansione: "
 
-#: modules/scanner.py:554
+#: modules/scanner.py:169
+msgid ""
+"\n"
+"=== SCAN WITH IWLIST ===\n"
+msgstr ""
+"\n"
+"=== SCANSIONA CON IWLIST ===\n"
+
+#: modules/scanner.py:193 modules/scanner.py:442
+#, python-brace-format
+msgid ""
+"{index:2d}. {essid:20} | Quality: {quality:3}% ({signal_quality}) | Signal: "
+"{signal:4} dBm | Channel: {channel} | Encrypted: {encrypted}\n"
+msgstr ""
+"{index:2d}. {essid:20} | Qualità: {quality:3}% ({signal_quality}) | Segnale: "
+"{signal:4} dBm | Canale: {channel} | Crittografato: {encrypted}\n"
+
+#: modules/scanner.py:207
+#, python-brace-format
+msgid "   iwlist timeout on {}\n"
+msgstr " timeout iwlist su {}\n"
+
+#: modules/scanner.py:209
+#, python-brace-format
+msgid "   iwlist error on {interface}: {error}\n"
+msgstr ""
+
+#: modules/scanner.py:211
+#, python-brace-format
+msgid "   iwlist exception on {interface}: {error}\n"
+msgstr ""
+
+#: modules/scanner.py:214
+msgid "   No networks found with iwlist\n"
+msgstr " Nessuna rete trovata con iwlist\n"
+
+#: modules/scanner.py:221
+msgid ""
+"\n"
+"=== SCAN WITH PYTHONWIFI ===\n"
+msgstr ""
+"\n"
+"=== SCANSIONA CON PYTHONWIFI ===\n"
+
+#: modules/scanner.py:243
+#, python-brace-format
+msgid "   No networks found on {}\n"
+msgstr " Nessuna rete trovata su {}\n"
+
+#: modules/scanner.py:246
+#, python-brace-format
+msgid "   Error on {interface}: {error}\n"
+msgstr "   Error su {interface}: {error}\n"
+
+#: modules/scanner.py:257 modules/scanner.py:355 modules/scanner.py:478
+#: modules/scanner.py:515
+msgid "Hidden"
+msgstr "Nascosta"
+
+#: modules/scanner.py:277
+#, python-brace-format
+msgid ""
+"{index:2d}. {essid:20} | Quality: {quality:3}% ({signal_quality}) | Signal: "
+"{signal:4} dBm | Channel: {channel:2} | Encrypted: {encrypted}\n"
+msgstr ""
+"{index:2d}. {essid:20} | Qualità: {quality:3}% ({signal_quality}) | Segnale: "
+"{signal:4} dBm | Canale: {channel:2} | Criptato: {encrypted}\n"
+
+#: modules/scanner.py:333
+msgid "iwlist: No networks found or interface busy\n"
+msgstr "iwlist: Nessuna rete trovata o interfaccia occupata\n"
+
+#: modules/scanner.py:402
+msgid "iwlist: No networks found\n"
+msgstr "iwlist: Nessuna rete trovata\n"
+
+#: modules/scanner.py:408
+msgid ""
+"\n"
+"=== FALLBACK SCAN with iwlist ===\n"
+msgstr ""
+"\n"
+"=== SCANSIONE DI RISERVA con iwlist ===\n"
+
+#: modules/scanner.py:461
+msgid "   No results with iwlist\n"
+msgstr " Nessun risultato con iwlist\n"
+
+#: modules/scanner.py:465
+#, python-brace-format
+msgid "   iwlist error: {}\n"
+msgstr " Errore iwlist :  {}\n"
+
+#: modules/scanner.py:475
+msgid "pythonwifi: No networks found\n"
+msgstr "pythonwifi: Nessuna rete trovata\n"
+
+#: modules/scanner.py:483
+#, python-brace-format
+msgid "{index}. {essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm\n"
+msgstr ""
+"{index}. {essid:20} | Qualità: {quality:3}% | Segnale: {signal:4} dBm\n"
+
+#: modules/scanner.py:499
+#, python-brace-format
+msgid ""
+"{essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm | {bssid}...\n"
+msgstr ""
+"{essid:20} | Qualità: {quality:3}% | Segnale: {signal:4} dBm | {bssid}...\n"
+
+#: modules/scanner.py:510
+#, python-brace-format
+msgid "{essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm | {bssid}\n"
+msgstr ""
+"{essid:20} | Qualità: {quality:3}% | Segnale: {signal:4} dBm | {bssid}\n"
+
+#: modules/scanner.py:519
+#, python-brace-format
+msgid ""
+"{index:2d}. {essid:20} | Quality: {quality:3}% | Signal: {signal:4} dBm\n"
+msgstr ""
+"{index:2d}. {essid:20} | Qualità: {quality:3}% | Seignale: {signal:4} dBm\n"
+
+#: modules/scanner.py:527
+msgid ""
+"\n"
+"DETAILED DIAGNOSTICS"
+msgstr ""
+"\n"
+"DIAGNOSTICA DETTAGLIATA"
+
+#: modules/scanner.py:532
+msgid ""
+"\n"
+"WIFI INTERFACES:\n"
+msgstr ""
+"\n"
+"INTERFACCE WIFI:\n"
+
+#: modules/scanner.py:535
+#, python-brace-format
+msgid "   Found: {}\n"
+msgstr "    Trovato: {}\n"
+
+#: modules/scanner.py:537
+msgid "   No WiFi interfaces found\n"
+msgstr " Nessuna interfaccia WiFi trovata\n"
+
+#: modules/scanner.py:540
+msgid ""
+"\n"
+"INTERFACE STATUS:\n"
+msgstr ""
+"\n"
+"STATO INTERFACCIA:\n"
+
+#: modules/scanner.py:542
+msgid "ACTIVE"
+msgstr "ATTIVO"
+
+#: modules/scanner.py:542
+msgid "INACTIVE"
+msgstr "INATTIVO"
+
+#: modules/scanner.py:544
+#, python-brace-format
+msgid "   {icon} {interface}: {status}\n"
+msgstr ""
+
+#: modules/scanner.py:547
+msgid ""
+"\n"
+"ACTIVE CONNECTIONS:\n"
+msgstr ""
+"\n"
+"CONNESSIONI ATTIVE:\n"
+
+#: modules/scanner.py:553
+#, python-brace-format
+msgid "   {interface}: Connected to {essid} ({quality})\n"
+msgstr "   {interface}: Connesso a {essid} ({quality})\n"
+
+#: modules/scanner.py:555
+#, python-brace-format
+msgid "   {interface}: Not connected\n"
+msgstr "   {interface}: Non connesso\n"
+
+#: modules/scanner.py:558
+msgid ""
+"\n"
+"POSSIBLE SOLUTIONS:\n"
+msgstr ""
+"\n"
+"POSSIBILI SOLUZIONI:\n"
+
+#: modules/scanner.py:559
+msgid "   1. Disconnect from current WiFi network\n"
+msgstr " 1. Disconnettersi dalla rete WiFi corrente\n"
+
+#: modules/scanner.py:560
+msgid "   2. Restart WiFi adapter\n"
+msgstr " 2. Riavviare l'adattatore WiFi\n"
+
+#: modules/scanner.py:561
+msgid "   3. Check if WiFi driver is installed\n"
+msgstr " 3. Verificare se il driver WiFi è installato\n"
+
+#: modules/scanner.py:562
+msgid "   4. Try with different USB WiFi adapter\n"
+msgstr " 4. Prova con un adattatore WiFi USB diverso\n"
+
+#: modules/scanner.py:563
+msgid "   5. Check root permissions\n"
+msgstr " 5. Controllare i permessi di root\n"
+
+#: modules/scanner.py:566
+#, python-brace-format
+msgid "Diagnostic error: {}\n"
+msgstr "Errore diagnostico: {}\n"
+
+#: modules/scanner.py:579
 msgid "Detailed view enabled - rescan to see details"
 msgstr ""
 "Visualizzazione dettagliata abilitata: esegui una nuova scansione per vedere "
 "i dettagli"
 
-#: modules/scanner.py:556
+#: modules/scanner.py:581
 msgid "Basic view enabled - rescan to see basic info"
 msgstr ""
 "Visualizzazione di base abilitata: esegui una nuova scansione per "
 "visualizzare le informazioni di base"
+
+#: modules/speedtest.py:44
+msgid "No internet connection"
+msgstr "Nessuna connessione internet"
+
+#: modules/speedtest.py:46
+msgid "Connection timeout"
+msgstr "Timeout di connessione"
+
+#: modules/speedtest.py:84 modules/speedtest.py:146
+#, python-brace-format
+msgid "Error: {error}"
+msgstr "Errore: {error}"
+
+#: modules/speedtest.py:110
+#, python-brace-format
+msgid "{speed:.2f} Mbps"
+msgstr ""
+
+#: modules/speedtest.py:112
+msgid "Upload test not available"
+msgstr "Test Upload non disponibile"
+
+#: modules/speedtest.py:115
+#, python-brace-format
+msgid "Upload test failed: {error}"
+msgstr "Test di caricamento fallito: {error}"
+
+#: modules/speedtest.py:140
+msgid "Ping data not found"
+msgstr "Dati ping non trovati"
+
+#: modules/speedtest.py:143
+msgid "Ping failed"
+msgstr "Ping   fallito"
+
+#: modules/speedtest.py:152
+msgid "Google DNS"
+msgstr ""
+
+#: modules/speedtest.py:153 modules/speedtest_manager.py:213
+msgid "Cloudflare"
+msgstr ""
+
+#: modules/speedtest.py:154 modules/speedtest_manager.py:214
+msgid "OpenDNS"
+msgstr ""
+
+#: modules/speedtest.py:160
+#, python-brace-format
+msgid "{name} ({host}): {ping}"
+msgstr ""
+
+#: modules/speedtest.py:215
+#, python-brace-format
+msgid "{name}: {speed:.2f} Mbps"
+msgstr ""
+
+#: modules/speedtest.py:217
+#, python-brace-format
+msgid "{name}: Failed"
+msgstr "{name}: Fallito"
+
+#: modules/speedtest.py:220
+#, python-brace-format
+msgid "{name}: Timeout"
+msgstr ""
+
+#: modules/speedtest.py:222
+#, python-brace-format
+msgid "{name}: Error {error}"
+msgstr "{name}: Errore {error}"
+
+#: modules/speedtest.py:231
+#, python-brace-format
+msgid "Upload test: {result}"
+msgstr "Test Upload: {result}"
+
+#: modules/speedtest.py:257
+msgid "Stable"
+msgstr "Stabile"
+
+#: modules/speedtest.py:257
+msgid "Unstable"
+msgstr "Instabile"
+
+#: modules/speedtest.py:258
+#, python-brace-format
+msgid "Packets: {sent}, Lost: {lost} ({percentage:.1f}%) - {stability}"
+msgstr "Pacchetti: {sent}, Persi: {lost} ({percentage:.1f}%) - {stability}"
+
+#: modules/speedtest.py:261
+msgid "No packets sent"
+msgstr "Nessun pacchetto inviato"
+
+#: modules/speedtest.py:264
+#, python-brace-format
+msgid "Stability test error: {error}"
+msgstr "Errore nel test di stabilità: {error}"
 
 #: modules/speedtest_manager.py:69
 msgid "Select a speed test type"
@@ -1363,7 +2740,7 @@ msgstr "Seleziona un tipo di test di velocità"
 msgid "WiFi Speed Test Manager"
 msgstr "Gestore WiFi Speed Test Manager"
 
-#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:511
+#: modules/speedtest_manager.py:136 modules/speedtest_manager.py:513
 msgid "Test cancelled"
 msgstr "Test cancellato"
 
@@ -1413,47 +2790,68 @@ msgstr "IP pubblico: impossibile determinarlo"
 msgid "Client info error: {error}"
 msgstr "Errore nelle informazioni del cliente: {error}"
 
-#: modules/speedtest_manager.py:224
+#: modules/speedtest_manager.py:212
+msgid "Primary DNS"
+msgstr "DNS primario"
+
+#: modules/speedtest_manager.py:212
+msgid "Google"
+msgstr ""
+
+#: modules/speedtest_manager.py:213
+msgid "Secondary DNS"
+msgstr "DNS secondario"
+
+#: modules/speedtest_manager.py:214
+msgid "Tertiary DNS"
+msgstr "DNS terziario"
+
+#: modules/speedtest_manager.py:220
+#, python-brace-format
+msgid "{name} ({sponsor}): {ping}"
+msgstr ""
+
+#: modules/speedtest_manager.py:226
 #, python-brace-format
 msgid "Server info error: {error}"
 msgstr "Errore informazioni server: {error}"
 
-#: modules/speedtest_manager.py:234
+#: modules/speedtest_manager.py:236
 #, python-brace-format
 msgid "Network Interface: {interface}"
 msgstr "Interfaccia di rete: {interface}"
 
-#: modules/speedtest_manager.py:242
+#: modules/speedtest_manager.py:244
 #, python-brace-format
 msgid "Gateway: {gateway}"
 msgstr "Porta d'accesso: {gateway}"
 
-#: modules/speedtest_manager.py:247
+#: modules/speedtest_manager.py:249
 msgid "Network information unavailable"
 msgstr "Informazioni Rete non disponibili"
 
-#: modules/speedtest_manager.py:249
+#: modules/speedtest_manager.py:251
 #, python-brace-format
 msgid "Network info error: {error}"
 msgstr "Errore informazioni di rete: {error}"
 
-#: modules/speedtest_manager.py:256
+#: modules/speedtest_manager.py:258
 msgid "Testing connectivity..."
 msgstr "Test di connettività..."
 
-#: modules/speedtest_manager.py:259 modules/speedtest_manager.py:366
+#: modules/speedtest_manager.py:261 modules/speedtest_manager.py:368
 msgid "Testing download speed..."
 msgstr "Test della velocità di download..."
 
-#: modules/speedtest_manager.py:262 modules/speedtest_manager.py:316
+#: modules/speedtest_manager.py:264 modules/speedtest_manager.py:318
 msgid "Testing upload speed..."
 msgstr "Test della velocità di caricamento..."
 
-#: modules/speedtest_manager.py:265
+#: modules/speedtest_manager.py:267
 msgid "Quick test completed"
 msgstr "Test rapido completato"
 
-#: modules/speedtest_manager.py:268
+#: modules/speedtest_manager.py:270
 msgid ""
 "=== QUICK SPEED TEST RESULTS ===\n"
 "\n"
@@ -1461,27 +2859,27 @@ msgstr ""
 "=== RISULTATI DEL TEST DI VELOCITÀ RAPIDO ===\n"
 "\n"
 
-#: modules/speedtest_manager.py:269
+#: modules/speedtest_manager.py:271
 #, python-brace-format
 msgid "Ping/Latency: {ping}\n"
 msgstr "Ping/Latenza: {ping}\n"
 
-#: modules/speedtest_manager.py:270
+#: modules/speedtest_manager.py:272
 #, python-brace-format
 msgid "Download Speed: {download}\n"
 msgstr "Velocità di download: {download}\n"
 
-#: modules/speedtest_manager.py:271
+#: modules/speedtest_manager.py:273
 #, python-brace-format
 msgid "Upload Speed: {upload}\n"
 msgstr "Velocità Upload: {upload}\n"
 
-#: modules/speedtest_manager.py:277
+#: modules/speedtest_manager.py:279
 #, python-brace-format
 msgid "Quick test error: {error}"
 msgstr "Errore del test rapido: {error}"
 
-#: modules/speedtest_manager.py:283
+#: modules/speedtest_manager.py:285
 msgid ""
 "=== COMPREHENSIVE SPEED TEST ===\n"
 "\n"
@@ -1489,11 +2887,11 @@ msgstr ""
 "=== TEST DI VELOCITÀ COMPLETO ===\n"
 "\n"
 
-#: modules/speedtest_manager.py:288
+#: modules/speedtest_manager.py:290
 msgid "Gathering client information..."
 msgstr "Raccolta delle informazioni sui clienti..."
 
-#: modules/speedtest_manager.py:290
+#: modules/speedtest_manager.py:292
 #, python-brace-format
 msgid ""
 "=== CLIENT INFORMATION ===\n"
@@ -1504,11 +2902,11 @@ msgstr ""
 "{info}\n"
 "\n"
 
-#: modules/speedtest_manager.py:295
+#: modules/speedtest_manager.py:297
 msgid "Testing latency to multiple hosts..."
 msgstr "Test di latenza su più host..."
 
-#: modules/speedtest_manager.py:297
+#: modules/speedtest_manager.py:299
 #, python-brace-format
 msgid ""
 "=== LATENCY TEST ===\n"
@@ -1519,11 +2917,11 @@ msgstr ""
 "{ping}\n"
 "\n"
 
-#: modules/speedtest_manager.py:302 modules/speedtest_manager.py:364
+#: modules/speedtest_manager.py:304 modules/speedtest_manager.py:366
 msgid "Finding best server..."
 msgstr "Trovare il miglior server..."
 
-#: modules/speedtest_manager.py:304
+#: modules/speedtest_manager.py:306
 #, python-brace-format
 msgid ""
 "=== SERVER INFORMATION ===\n"
@@ -1534,11 +2932,11 @@ msgstr ""
 "{server}\n"
 "\n"
 
-#: modules/speedtest_manager.py:309
+#: modules/speedtest_manager.py:311
 msgid "Testing download speed (multiple servers)..."
 msgstr "Test della velocità di download (server multipli)..."
 
-#: modules/speedtest_manager.py:311
+#: modules/speedtest_manager.py:313
 #, python-brace-format
 msgid ""
 "=== DOWNLOAD SPEED TEST ===\n"
@@ -1549,7 +2947,7 @@ msgstr ""
 "{download}\n"
 "\n"
 
-#: modules/speedtest_manager.py:318
+#: modules/speedtest_manager.py:320
 #, python-brace-format
 msgid ""
 "=== UPLOAD SPEED TEST ===\n"
@@ -1560,11 +2958,11 @@ msgstr ""
 "{upload}\n"
 "\n"
 
-#: modules/speedtest_manager.py:323
+#: modules/speedtest_manager.py:325
 msgid "Testing connection stability..."
 msgstr "Test della stabilità della connessione..."
 
-#: modules/speedtest_manager.py:325
+#: modules/speedtest_manager.py:327
 #, python-brace-format
 msgid ""
 "=== CONNECTION STABILITY ===\n"
@@ -1575,11 +2973,11 @@ msgstr ""
 "{stability}\n"
 "\n"
 
-#: modules/speedtest_manager.py:330
+#: modules/speedtest_manager.py:332
 msgid "Gathering network details..."
 msgstr "Raccolta dei dettagli di rete in corso..."
 
-#: modules/speedtest_manager.py:332
+#: modules/speedtest_manager.py:334
 #, python-brace-format
 msgid ""
 "=== NETWORK INFORMATION ===\n"
@@ -1590,11 +2988,11 @@ msgstr ""
 "{network}\n"
 "\n"
 
-#: modules/speedtest_manager.py:337
+#: modules/speedtest_manager.py:339
 msgid "Final connectivity check..."
 msgstr "Controllo finale della connettività..."
 
-#: modules/speedtest_manager.py:339
+#: modules/speedtest_manager.py:341
 #, python-brace-format
 msgid ""
 "=== FINAL CHECK ===\n"
@@ -1603,78 +3001,78 @@ msgstr ""
 "=== CONTROLLO FINALE ===\n"
 "Connettività: {conn}\n"
 
-#: modules/speedtest_manager.py:342
+#: modules/speedtest_manager.py:344
 msgid "Full test completed"
 msgstr "Test Completo completato"
 
-#: modules/speedtest_manager.py:346
+#: modules/speedtest_manager.py:348
 #, python-brace-format
 msgid "Full test error: {error}"
 msgstr "Errore del test completo: {error}"
 
-#: modules/speedtest_manager.py:354
+#: modules/speedtest_manager.py:356
 msgid "SpeedtestSimple not available"
 msgstr "SpeedtestSimple non disponibile"
 
-#: modules/speedtest_manager.py:359
+#: modules/speedtest_manager.py:361
 msgid "Checking internet connection..."
 msgstr "Controllo della connessione Internet..."
 
-#: modules/speedtest_manager.py:360
+#: modules/speedtest_manager.py:362
 msgid "Getting client information..."
 msgstr "Ottenimento delle informazioni sul cliente..."
 
-#: modules/speedtest_manager.py:361
+#: modules/speedtest_manager.py:363
 msgid "Client info completed"
 msgstr "Informazioni sul cliente completate"
 
-#: modules/speedtest_manager.py:362
+#: modules/speedtest_manager.py:364
 msgid "Testing latency..."
 msgstr "Test di latenza..."
 
-#: modules/speedtest_manager.py:363
+#: modules/speedtest_manager.py:365
 msgid "Latency test completed"
 msgstr "Test Latenza completato"
 
-#: modules/speedtest_manager.py:365
+#: modules/speedtest_manager.py:367
 msgid "Server found"
 msgstr "Server trovato"
 
-#: modules/speedtest_manager.py:367
+#: modules/speedtest_manager.py:369
 msgid "Download test completed"
 msgstr "Download test completato"
 
-#: modules/speedtest_manager.py:368
+#: modules/speedtest_manager.py:370
 msgid "Estimating upload speed..."
 msgstr "Stima della velocità di caricamento..."
 
-#: modules/speedtest_manager.py:369
+#: modules/speedtest_manager.py:371
 msgid "Upload estimation completed"
 msgstr "Caricamento stima completato"
 
-#: modules/speedtest_manager.py:370 modules/speedtest_manager.py:481
+#: modules/speedtest_manager.py:372 modules/speedtest_manager.py:483
 msgid "Test failed"
 msgstr "Test fallito"
 
-#: modules/speedtest_manager.py:377
+#: modules/speedtest_manager.py:379
 msgid "Initializing detailed speed test..."
 msgstr "Inizializzazione del test di velocità dettagliato..."
 
-#: modules/speedtest_manager.py:383
+#: modules/speedtest_manager.py:385
 msgid "Detailed test completed"
 msgstr "Test Dettaglio completata"
 
-#: modules/speedtest_manager.py:387
+#: modules/speedtest_manager.py:389
 msgid "Detailed speed test failed - Check internet connection"
 msgstr ""
 "Test di velocità dettagliato fallito - Controlla la connessione Internet"
 
-#: modules/speedtest_manager.py:390
+#: modules/speedtest_manager.py:392
 #, python-brace-format
 msgid "Detailed test error: {error}"
 msgstr "Errore di test dettagliato: {error}"
 
-#: modules/speedtest_manager.py:394
+#: modules/speedtest_manager.py:396
 msgid ""
 "\n"
 "=== CONNECTION QUALITY ===\n"
@@ -1682,51 +3080,51 @@ msgstr ""
 "\n"
 "=== QUALITÀ DELLA CONNESSIONE ===\n"
 
-#: modules/speedtest_manager.py:401 modules/speedtest_manager.py:448
+#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
 msgid "Excellent download speed\n"
 msgstr "Ottima velocità di download\n"
 
-#: modules/speedtest_manager.py:403 modules/speedtest_manager.py:450
+#: modules/speedtest_manager.py:405 modules/speedtest_manager.py:452
 msgid "Good download speed\n"
 msgstr "Buona velocità di download\n"
 
-#: modules/speedtest_manager.py:405
+#: modules/speedtest_manager.py:407
 msgid "Average download speed\n"
 msgstr "Velocità media di download\n"
 
-#: modules/speedtest_manager.py:407 modules/speedtest_manager.py:452
+#: modules/speedtest_manager.py:409 modules/speedtest_manager.py:454
 msgid "Poor download speed\n"
 msgstr "Scarsa velocità di download\n"
 
-#: modules/speedtest_manager.py:409
+#: modules/speedtest_manager.py:411
 msgid "Download speed unavailable\n"
 msgstr "Velocità di download non disponibile\n"
 
-#: modules/speedtest_manager.py:415
+#: modules/speedtest_manager.py:417
 msgid "Excellent latency\n"
 msgstr "Ottima latenza\n"
 
-#: modules/speedtest_manager.py:417
+#: modules/speedtest_manager.py:419
 msgid "Good latency\n"
 msgstr "Buona latenza\n"
 
-#: modules/speedtest_manager.py:419
+#: modules/speedtest_manager.py:421
 msgid "Average latency\n"
 msgstr "Latenza media\n"
 
-#: modules/speedtest_manager.py:421
+#: modules/speedtest_manager.py:423
 msgid "Poor latency\n"
 msgstr "Bassa latenza\n"
 
-#: modules/speedtest_manager.py:423
+#: modules/speedtest_manager.py:425
 msgid "Latency unavailable\n"
 msgstr "Latenza non disponibile\n"
 
-#: modules/speedtest_manager.py:426
+#: modules/speedtest_manager.py:428
 msgid "Quality assessment unavailable\n"
 msgstr "Valutazione della qualità non disponibile\n"
 
-#: modules/speedtest_manager.py:437
+#: modules/speedtest_manager.py:439
 msgid ""
 "=== SPEED TEST RESULTS ===\n"
 "\n"
@@ -1734,27 +3132,27 @@ msgstr ""
 "=== RISULTATI DEL TEST DI VELOCITÀ ===\n"
 "\n"
 
-#: modules/speedtest_manager.py:438
+#: modules/speedtest_manager.py:440
 #, python-format
 msgid "Download Speed: %s\n"
 msgstr "Velocità di download: %s\n"
 
-#: modules/speedtest_manager.py:438 modules/speedtest_manager.py:439
-#: modules/speedtest_manager.py:440
+#: modules/speedtest_manager.py:440 modules/speedtest_manager.py:441
+#: modules/speedtest_manager.py:442
 msgid "Failed"
 msgstr "Fallito"
 
-#: modules/speedtest_manager.py:439
+#: modules/speedtest_manager.py:441
 #, python-format
 msgid "Upload Speed: %s\n"
 msgstr "Velocità Upload: %s\n"
 
-#: modules/speedtest_manager.py:440
+#: modules/speedtest_manager.py:442
 #, python-format
 msgid "Latency: %s\n"
 msgstr "Latenza: %s\n"
 
-#: modules/speedtest_manager.py:443
+#: modules/speedtest_manager.py:445
 msgid ""
 "\n"
 "=== QUALITY ASSESSMENT ===\n"
@@ -1762,21 +3160,229 @@ msgstr ""
 "\n"
 "=== VALUTAZIONE DELLA QUALITÀ ===\n"
 
-#: modules/speedtest_manager.py:454 modules/speedtest_manager.py:456
+#: modules/speedtest_manager.py:456 modules/speedtest_manager.py:458
 msgid "Unable to assess download quality\n"
 msgstr "Impossibile valutare la qualità del download\n"
 
-#: modules/speedtest_manager.py:464
+#: modules/speedtest_manager.py:466
 msgid "Test completed - See results below"
 msgstr "Test completato - Vedi i risultati sotto"
 
-#: modules/speedtest_manager.py:471
+#: modules/speedtest_manager.py:473
 msgid "Test completed!"
 msgstr "Test completato!"
 
-#: modules/speedtest_manager.py:502
+#: modules/speedtest_manager.py:504
 msgid "Cancelling test..."
 msgstr "Annullamento del Test..."
+
+#: modules/speedtest_simple.py:138
+#, python-brace-format
+msgid "{}: {:.1f} ms"
+msgstr ""
+
+#: modules/speedtest_simple.py:314
+msgid "No internet connection detected"
+msgstr "Nessuna connessione Internet rilevata"
+
+#: modules/speedtest_simple.py:365
+#, python-brace-format
+msgid "Speedtest failed: {}"
+msgstr "Speedtest fallito: {}"
+
+#: modules/speedtest_simple.py:378
+msgid "Speedtest failed - No internet connection or all tests failed"
+msgstr ""
+"Test di velocità dettagliato fallito - Controlla la connessione Internet"
+
+#: modules/speedtest_simple.py:385
+#, python-brace-format
+msgid ""
+"📊 ENIGMA2 DETAILED SPEEDTEST\n"
+"============================\n"
+"🕐 Timestamp: {timestamp}\n"
+"\n"
+msgstr ""
+"📊 SPEEDTEST DETTAGLIATO DI ENIGMA2\n"
+"=============================\n"
+"🕐 Timestamp: {timestamp}\n"
+"\n"
+
+#: modules/speedtest_simple.py:392
+msgid "👤 CLIENT INFORMATION:\n"
+msgstr "👤 INFORMAZIONI CLIENTE:\n"
+
+#: modules/speedtest_simple.py:393
+#, python-brace-format
+msgid "IP: {ip}\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:395
+#, python-brace-format
+msgid "Location: {city}, {country}\n"
+msgstr "Posizione: {city}, {country}\n"
+
+#: modules/speedtest_simple.py:400
+#, python-brace-format
+msgid "ISP: {isp}\n"
+msgstr "Fornitore di servizi Internet: {isp}\n"
+
+#: modules/speedtest_simple.py:405
+msgid "🏢 SERVER INFORMATION:\n"
+msgstr "🏢 INFORMAZIONI SUL SERVER:\n"
+
+#: modules/speedtest_simple.py:406
+#, python-brace-format
+msgid "Name: {name}\n"
+msgstr "Nome : {name}\n"
+
+#: modules/speedtest_simple.py:407
+#, python-brace-format
+msgid "Sponsor: {sponsor}\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:408
+#, python-brace-format
+msgid ""
+"Host: {host}\n"
+"\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:411
+msgid "📈 TEST RESULTS:\n"
+msgstr "📈 RISULTATI DEL TEST:\n"
+
+#: modules/speedtest_simple.py:413
+#, python-brace-format
+msgid "Ping: {:.1f} ms\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:415
+msgid "Ping: Failed\n"
+msgstr "Ping: Fallito\n"
+
+#: modules/speedtest_simple.py:418
+#, python-brace-format
+msgid "Download: {:.2f} Mbps\n"
+msgstr ""
+"Download: {:.2f} Mbps\n"
+"\n"
+
+#: modules/speedtest_simple.py:420
+msgid "Download: Failed\n"
+msgstr "Download: Fallito\n"
+
+#: modules/speedtest_simple.py:423
+#, python-brace-format
+msgid "Upload: {:.2f} Mbps (estimated)\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:425
+msgid "Upload: Not available\n"
+msgstr "Upload: Non disponibile\n"
+
+#: modules/speedtest_simple.py:429
+msgid ""
+"\n"
+"📡 PING DETAILS:\n"
+msgstr ""
+"\n"
+"📡 DETTAGLI PING:\n"
+
+#: modules/speedtest_simple.py:434
+msgid ""
+"\n"
+"⬇️ DOWNLOAD DETAILS:\n"
+msgstr ""
+"\n"
+"⬇️ DETTAGLI PER IL DOWNLOAD:\n"
+
+#: modules/speedtest_simple.py:436
+#, python-brace-format
+msgid "{server}: {speed:.2f} Mbps ({data:.1f} MB in {time:.1f}s)\n"
+msgstr ""
+
+#: modules/speedtest_simple.py:444
+msgid ""
+"\n"
+"📊 QUALITY ASSESSMENT:\n"
+msgstr ""
+"\n"
+"📊 VALUTAZIONE DELLA QUALITÀ:\n"
+"\n"
+
+#: modules/speedtest_simple.py:447
+msgid "✅ Excellent latency\n"
+msgstr "✅ Ottima latenza\n"
+
+#: modules/speedtest_simple.py:449
+msgid "⚠️ Good latency\n"
+msgstr "⚠️ Buona latenza\n"
+
+#: modules/speedtest_simple.py:451
+msgid "⚠️ Average latency\n"
+msgstr "⚠️ Latenza media\n"
+
+#: modules/speedtest_simple.py:453
+msgid "❌ Poor latency\n"
+msgstr "❌ Bassa latenza\n"
+
+#: modules/speedtest_simple.py:455
+msgid "❌ Latency test failed\n"
+msgstr "❌ Test Latenza fallito\n"
+
+#: modules/speedtest_simple.py:459
+msgid "✅ Excellent download speed\n"
+msgstr "✅ Ottima velocità di download\n"
+
+#: modules/speedtest_simple.py:461
+msgid "⚠️ Good download speed\n"
+msgstr "⚠️ Buona velocità di download\n"
+
+#: modules/speedtest_simple.py:463
+msgid "⚠️ Average download speed\n"
+msgstr "⚠️ Velocità media di download\n"
+
+#: modules/speedtest_simple.py:465
+msgid "❌ Poor download speed\n"
+msgstr "❌ Scarsa velocità di download\n"
+
+#: modules/speedtest_simple.py:467
+msgid "❌ Download test failed\n"
+msgstr "❌ Download test fallito\n"
+
+#: modules/tools.py:202
+#, python-brace-format
+msgid "Interface {} not available"
+msgstr "Interfaccia {} non disponibile"
+
+#: modules/tools.py:224
+#, python-brace-format
+msgid "{} GHz"
+msgstr ""
+
+#: modules/tools.py:232
+#, python-brace-format
+msgid "{} Mb/s"
+msgstr ""
+
+#: modules/tools.py:259
+#, python-brace-format
+msgid "{:.1f}%"
+msgstr ""
+
+#: modules/tools.py:261
+msgid "0%"
+msgstr ""
+
+#: modules/tools.py:264 modules/tools.py:275
+#, python-brace-format
+msgid "{} dBm"
+msgstr ""
+
+#: modules/tools.py:607
+msgid "No data"
+msgstr ""
 
 #: modules/tools.py:618
 msgid "Excellent"
@@ -1797,6 +3403,61 @@ msgstr "Debole"
 #: modules/tools.py:622 modules/tools.py:629
 msgid "Very Poor"
 msgstr "Molto Debole"
+
+#: modules/tools.py:627 modules/tools.py:629
+#, python-brace-format
+msgid "{} ({:.0f}%)"
+msgstr ""
+
+#: modules/tools.py:701
+msgid "Ping not available"
+msgstr "Ping non disponibile"
+
+#: modules/tools.py:736 modules/tools.py:752
+#, python-brace-format
+msgid "{:.1f} ms"
+msgstr ""
+
+#: modules/tools.py:756
+msgid "No ping data"
+msgstr "Nessun dato ping"
+
+#: modules/tools.py:759
+msgid "Timeout"
+msgstr ""
+
+#, python-format
+#~ msgid ""
+#~ "Connection Details:\n"
+#~ "\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Dettagli Connessione:\n"
+#~ "\n"
+#~ "%s"
+
+#, python-format
+#~ msgid "Error getting connection details: %s"
+#~ msgstr "Errore durante il recupero dei dettagli di connessione: %s"
+
+#~ msgid ""
+#~ "Advanced WiFi Configuration:\n"
+#~ "\n"
+#~ "RTS Threshold: Controls RTS/CTS handshake (2347=disabled)\n"
+#~ "Fragmentation: Max frame size before fragmentation\n"
+#~ "Beacon Interval: Time between beacon signals (ms)\n"
+#~ "DTIM Period: Delivery Traffic Indication Message interval\n"
+#~ "\n"
+#~ "Warning: Incorrect settings may degrade performance!"
+#~ msgstr ""
+#~ "Configurazione WiFi avanzata:\n"
+#~ "\n"
+#~ "Soglia RTS: controlla l'handshake RTS/CTS (2347=disabilitato)\n"
+#~ "Frammentazione: dimensione massima del frame prima della frammentazione\n"
+#~ "Intervallo beacon: tempo tra i segnali beacon (ms)\n"
+#~ "Periodo DTIM: intervallo di messaggio Delivery Traffic Indication\n"
+#~ "\n"
+#~ "Attenzione: impostazioni errate potrebbero compromettere le prestazioni!"
 
 #~ msgid "Configuration saved"
 #~ msgstr "Impostazioni salvate"
@@ -1821,19 +3482,12 @@ msgstr "Molto Debole"
 #~ msgid "Failed to connect to {}"
 #~ msgstr "Impossibile connettersi a {}"
 
-#, python-brace-format
-#~ msgid "Connection error: {}"
-#~ msgstr "Errore di Connessione :  {}"
-
 #, python-format
 #~ msgid "Error opening configuration: %s"
 #~ msgstr "Errore durante l'apertura della configurazione: %s"
 
 #~ msgid "Disconnected successfully!"
 #~ msgstr "Disconnesso con successo!"
-
-#~ msgid "Disconnected from network"
-#~ msgstr "Disconnesso dalla Rete"
 
 #, python-format
 #~ msgid "Connected successfully to %s"
@@ -1867,10 +3521,6 @@ msgstr "Molto Debole"
 #~ msgid "Operation completed. Press BLUE for menu"
 #~ msgstr "Operazione completata. Premi BLU per il Menu"
 
-#, python-format
-#~ msgid "  Mode: %s\n"
-#~ msgstr " Modalità: %s\n"
-
 #~ msgid "Select Advanced WiFi Tool"
 #~ msgstr "Seleziona Strumento WiFi avanzato"
 
@@ -1883,19 +3533,6 @@ msgstr "Molto Debole"
 #~ msgstr ""
 #~ "=== RICARICA MODULO ===\n"
 #~ "\n"
-
-#, python-format
-#~ msgid ""
-#~ "Loaded WiFi modules:\n"
-#~ "%s\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Ricarica i moduli WiFi:\n"
-#~ "%s\n"
-#~ "\n"
-
-#~ msgid "None found"
-#~ msgstr "Nessuno trovato"
 
 #~ msgid ""
 #~ "Module reload functionality requires custom implementation for your "
@@ -1915,14 +3552,6 @@ msgstr "Molto Debole"
 
 #~ msgid "Scan failed or no networks found"
 #~ msgstr "Scansione non riuscita o nessuna rete trovata"
-
-#, python-format
-#~ msgid ""
-#~ "Available Channels:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Canali disponibili:\n"
-#~ "%s"
 
 #~ msgid "Channel information not available"
 #~ msgstr "Informazione canale non disponibile"
@@ -2015,18 +3644,8 @@ msgstr "Molto Debole"
 #~ msgid "Configuration saved for {}"
 #~ msgstr "Connessione fallita a: {}"
 
-#, fuzzy, python-brace-format
-#~| msgid "Error starting import: {}"
-#~ msgid "Error saving configuration: {}"
-#~ msgstr "Errore durante l'avvio dell'importazione: {}"
-
 #~ msgid "Forget"
 #~ msgstr "Dimenticare"
-
-#, fuzzy
-#~| msgid "No WiFi interface found"
-#~ msgid "❌ No WiFi interface found"
-#~ msgstr "Nessuna interfaccia WiFi trovata"
 
 #, fuzzy
 #~| msgid "Error deleting items"
@@ -2042,11 +3661,6 @@ msgstr "Molto Debole"
 #~| msgid "Scanning..."
 #~ msgid "Scanning... Please wait"
 #~ msgstr "Scansione..."
-
-#, fuzzy, python-brace-format
-#~| msgid "Backup failed: {}"
-#~ msgid "❌ Scan failed: {}"
-#~ msgstr "Backup non riuscito: {}"
 
 #, fuzzy, python-brace-format
 #~| msgid "Selected: {} - Press OK to connect"
@@ -2173,36 +3787,15 @@ msgstr "Molto Debole"
 #~ msgid "Connect to {}"
 #~ msgstr "Connesso a: {}"
 
-#, fuzzy, python-brace-format
-#~| msgid "Network Share"
-#~ msgid "Network: {}"
-#~ msgstr "Condivisione di rete"
-
 #, fuzzy
 #~| msgid "Connection failed"
 #~ msgid "Authentication failed"
-#~ msgstr "Connessione  fallita: {}"
-
-#~ msgid "Connection failed"
 #~ msgstr "Connessione  fallita: {}"
 
 #, fuzzy, python-brace-format
 #~| msgid "Please enter password"
 #~ msgid "Enter password for: {}"
 #~ msgstr "Inserisci la password"
-
-#, fuzzy, python-brace-format
-#~| msgid "Connection failed: {}"
-#~ msgid ""
-#~ "Connection Details:\n"
-#~ "\n"
-#~ "{}"
-#~ msgstr "Connessione fallita: {}"
-
-#, fuzzy, python-brace-format
-#~| msgid "Error getting cache statistics"
-#~ msgid "Error getting connection details: {}"
-#~ msgstr "Errore durante l'acquisizione delle statistiche della cache"
 
 #, fuzzy, python-brace-format
 #~| msgid "Connected to {} (no IP)"
@@ -2244,11 +3837,6 @@ msgstr "Molto Debole"
 #~ msgid "✅ Connected to {} - Press YELLOW to disconnect"
 #~ msgstr "Selezionato: {} - Premi OK per connetterti"
 
-#, fuzzy
-#~| msgid "Connect"
-#~ msgid "Connected"
-#~ msgstr "Connetti"
-
 #~ msgid "System Tools"
 #~ msgstr "Strumenti di sistema"
 
@@ -2280,11 +3868,6 @@ msgstr "Molto Debole"
 
 #~ msgid "Connectivity Test"
 #~ msgstr "Test di connettività"
-
-#, fuzzy, python-brace-format
-#~| msgid "Backup failed: {}"
-#~ msgid "Speed test failed: {}"
-#~ msgstr "Backup non riuscito: {}"
 
 #, fuzzy
 #~| msgid "Error: %s"
@@ -2318,11 +3901,6 @@ msgstr "Molto Debole"
 #~ msgstr "Errore di Connessione :  {}"
 
 #, fuzzy, python-format
-#~| msgid "File write error: %s"
-#~ msgid "Bitrate info error: %s"
-#~ msgstr "Errore di scrittura del file: %s"
-
-#, fuzzy, python-format
 #~| msgid "Encryption Info"
 #~ msgid "Encryption info error: %s"
 #~ msgstr "Informazioni sulla crittografia"
@@ -2345,12 +3923,6 @@ msgstr "Molto Debole"
 #~ msgid "Please wait..."
 #~ msgstr "Attendi prego..."
 
-#~ msgid "No WiFi interfaces"
-#~ msgstr "Nessuna interfaccia WiFi"
-
-#~ msgid "Error running tool"
-#~ msgstr "Errore durante l'esecuzione dello strumento"
-
 #, fuzzy
 #~| msgid "Tool not available"
 #~ msgid "Speedtest module not available"
@@ -2361,19 +3933,10 @@ msgstr "Molto Debole"
 #~ msgid "❌ Speedtest failed to complete"
 #~ msgstr "Seleziona il file Bouquet da convertire"
 
-#, fuzzy, python-brace-format
-#~| msgid "Connection error: {}"
-#~ msgid "❌ Download error: {}\n"
-#~ msgstr "Errore di Connessione :  {}"
-
 #, fuzzy
 #~| msgid "Testing connectivity..."
 #~ msgid "🌐 Testing connectivity...\n"
 #~ msgstr "Test di connettività..."
-
-#, python-brace-format
-#~ msgid "Scan error: {}"
-#~ msgstr "Errore di scansione: {}"
 
 #~ msgid "Encrypted"
 #~ msgstr "Criptato"
@@ -2573,10 +4136,6 @@ msgstr "Molto Debole"
 #~ "Nessuna statistica di conversione disponibile.\n"
 #~ "Esegui prima una conversione per visualizzare le statistiche."
 
-#, python-brace-format
-#~ msgid "📊 EPG STATISTICS - {}"
-#~ msgstr "📊 STATISTICHE EPG - {}"
-
 #~ msgid "No conversion statistics available."
 #~ msgstr "Nessuna statistica di conversione disponibile."
 
@@ -2616,10 +4175,6 @@ msgstr "Molto Debole"
 
 #~ msgid "💾 CACHE PERFORMANCE:"
 #~ msgstr "💾 PRESTAZIONI DELLA CACHE:"
-
-#, python-brace-format
-#~ msgid "• Hit: {} ({:.1f}%)"
-#~ msgstr "• Risultato: {} ({:.1f}%)"
 
 #, python-brace-format
 #~ msgid "• Miss: {}"
@@ -2730,9 +4285,6 @@ msgstr "Molto Debole"
 #~ "Posizione: {}\n"
 #~ "Correzioni: {}\n"
 #~ "Dimensione: {} byte"
-
-#~ msgid "Error exporting database"
-#~ msgstr "Errore durante l'esportazione del database"
 
 #~ msgid "Database Directory"
 #~ msgstr "Elenco dei database"
@@ -2854,9 +4406,6 @@ msgstr "Molto Debole"
 #~ msgid "Processing selection..."
 #~ msgstr "Elaborazione della selezione..."
 
-#~ msgid "File not found"
-#~ msgstr "File non trovato"
-
 #~ msgid "Ready to convert"
 #~ msgstr "Pronto per la conversione"
 
@@ -2960,10 +4509,6 @@ msgstr "Molto Debole"
 #~ msgstr "✏️ Modifiche manuali applicate: {}"
 
 #, python-brace-format
-#~ msgid "🕒 Edited at: {}"
-#~ msgstr "🕒 Modificato alle: {}"
-
-#, python-brace-format
 #~ msgid "🗄️ Database mode: {}"
 #~ msgstr "🗄️ Modalità database: {}"
 
@@ -3002,10 +4547,6 @@ msgstr "Molto Debole"
 #, python-brace-format
 #~ msgid "📡 DVB channels in DB: {}"
 #~ msgstr "📡 Canali DVB nel DB: {}"
-
-#, python-brace-format
-#~ msgid "💾 Output file: {}"
-#~ msgstr "💾 File di output:  {}"
 
 #, python-brace-format
 #~ msgid "📁 File size: {}"
@@ -3140,9 +4681,6 @@ msgstr "Molto Debole"
 
 #~ msgid "Duplicates"
 #~ msgstr "Duplicati"
-
-#~ msgid "Done"
-#~ msgstr "Fatto"
 
 #~ msgid "Selection mode active. Select items with OK"
 #~ msgstr "Modalità di selezione attiva. Selezionare gli elementi con OK"
@@ -3686,14 +5224,6 @@ msgstr "Molto Debole"
 #~ "Loaded %d channels. Are you ready to convert? Press Green to proceed."
 #~ msgstr ""
 #~ "Caricati %d canali. Pronti per la conversione? Premi Verde per procedere."
-
-#, python-format
-#~ msgid ""
-#~ "Invalid file format:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Formato file non valido:\n"
-#~ "%s"
 
 #, python-format
 #~ msgid "Loaded %d channels. Ready to convert to TV bouquets."

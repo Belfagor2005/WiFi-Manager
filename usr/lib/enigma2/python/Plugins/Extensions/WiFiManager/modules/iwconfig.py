@@ -22,6 +22,7 @@
 
 import getopt
 from sys import version_info, argv
+from .. import _
 
 try:
     from .iwlibs import Wireless, Iwrange, getNICnames, getWNICnames
@@ -239,14 +240,14 @@ def iwconfig(interface):
         wifi = Wireless(interface)
         line = """%-8.16s  %s  """ % (interface, wifi.getWirelessName())
         if (wifi.getEssid()):
-            line = line + """ESSID:"%s"  \n          """ % (wifi.getEssid(), )
+            line = line + _("""ESSID:"%s"  \n          """) % (wifi.getEssid(), )
         else:
-            line = line + "ESSID:off/any  \n          "
+            line = line + _("ESSID:off/any  \n          ")
 
         # Mode, Frequency, and Access Point
-        line = line + "Mode:" + wifi.getMode()
+        line = line + _("Mode:") + wifi.getMode()
         try:
-            line = line + "  Frequency:" + wifi.getFrequency()
+            line = line + _("  Frequency:") + wifi.getFrequency()
         except IOError as e:
             if (version_info[0] == 3):
                 error_number, error_string = e.args
@@ -257,13 +258,13 @@ def iwconfig(interface):
             pass
 
         if (wifi.wireless_info.getMode() == wifi_flags.IW_MODE_ADHOC):
-            ap_type = "Cell"
+            ap_type = _("Cell")
         else:
-            ap_type = "Access Point"
+            ap_type = _("Access Point")
         ap_addr = wifi.getAPaddr()
         if (ap_addr == "00:00:00:00:00:00"):
-            ap_addr = "Not-Associated"
-        line = line + "  " + ap_type + ": " + ap_addr + "   "
+            ap_addr = _("Not-Associated")
+        line = line + _("  ") + ap_type + _(": ") + ap_addr + _("   ")
         print(line)
 
         # Bit Rate, TXPower, and Sensitivity line
@@ -317,21 +318,21 @@ def iwconfig(interface):
         else:
             # Link Quality, Signal Level and Noise Level line
             line = "          "
-            line = line + "Link Quality:%s/100  " % (qual.quality, )
-            line = line + "Signal level:%sdBm  " % (qual.signallevel, )
-            line = line + "Noise level:%sdBm" % (qual.noiselevel, )
+            line = line + _("Link Quality:%s/100  ") % (qual.quality, )
+            line = line + _("Signal level:%sdBm  ") % (qual.signallevel, )
+            line = line + _("Noise level:%sdBm") % (qual.noiselevel, )
             print(line)
             # Rx line
             line = "          "
-            line = line + "Rx invalid nwid:%s  " % (discard['nwid'], )
-            line = line + "Rx invalid crypt:%s  " % (discard['code'], )
-            line = line + "Rx invalid frag:%s" % (discard['fragment'], )
+            line = line + _("Rx invalid nwid:%s  ") % (discard['nwid'], )
+            line = line + _("Rx invalid crypt:%s  ") % (discard['code'], )
+            line = line + _("Rx invalid frag:%s") % (discard['fragment'], )
             print(line)
             # Tx line
             line = "          "
-            line = line + "Tx excessive retries:%s  " % (discard['retries'], )
-            line = line + "Invalid misc:%s   " % (discard['misc'], )
-            line = line + "Missed beacon:%s" % (missed_beacon, )
+            line = line + _("Tx excessive retries:%s  ") % (discard['retries'], )
+            line = line + _("Invalid misc:%s   ") % (discard['misc'], )
+            line = line + _("Missed beacon:%s") % (missed_beacon, )
             print(line)
 
     print()
