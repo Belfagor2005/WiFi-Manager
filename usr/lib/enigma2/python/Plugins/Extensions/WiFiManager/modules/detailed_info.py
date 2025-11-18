@@ -22,7 +22,7 @@
 import subprocess
 import traceback
 from datetime import datetime
-
+from os.path import basename, realpath, isdir
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.Button import Button
@@ -293,29 +293,33 @@ class WiFiDetailedInfo(Screen):
             driver_path = f"/sys/class/net/{self.ifname}/device/driver"
             self._write_debug(f"Checking driver path: {driver_path}")
 
-            if subprocess.run(["test", "-d", driver_path], capture_output=True).returncode == 0:
-                driver_name = subprocess.check_output(["basename", driver_path], text=True).strip()
-                info += _("💾 Driver: {}\n").format(driver_name)
+            # Driver information
+            if isdir(driver_path):
+                driver_name = basename(realpath(driver_path))
+                info += _("Driver: {}").format(driver_name) + "\n"
                 self._write_debug(f"Driver found: {driver_name}")
             else:
-                info += _("💾 Driver: Unknown\n")
+                info += _("Driver: Unknown") + "\n"
                 self._write_debug("Driver: Unknown")
 
+            # Additional interface information
             interface_info = get_interface_info(self.ifname)
-            if 'protocol' in interface_info and interface_info['protocol'] != _("Unknown"):
-                info += _("🔧 Module: {}\n").format(interface_info['protocol'])
-                self._write_debug(f"Module: {interface_info['protocol']}")
+            protocol = interface_info.get('protocol')
+            if protocol not in (None, "", _("Unknown")):
+                info += _("Protocol: {}").format(protocol) + "\n"
+                self._write_debug(f"Protocol: {protocol}")
 
+            # Interface type
             if self.ifname in get_wifi_interfaces():
-                info += _("📡 Type: Wireless interface\n")
-                self._write_debug("Type: Wireless interface")
+                info += _("Type: Wireless interface") + "\n"
+                self._write_debug("Type: Wireless")
             else:
-                info += _("🔌 Type: Wired interface\n")
-                self._write_debug("Type: Wired interface")
+                info += _("Type: Wired interface") + "\n"
+                self._write_debug("Type: Wired")
 
         except Exception as e:
             error_msg = _("Driver info error: {}").format(str(e))
-            info += _("❌ {}\n").format(error_msg)
+            info += _("Error: {}").format(error_msg) + "\n"
             self._write_debug(error_msg, error=True)
 
         self._write_debug(f"Driver info completed, length: {len(info)}")

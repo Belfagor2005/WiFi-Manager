@@ -26,7 +26,7 @@ from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.ScrollLabel import ScrollLabel
-
+from os.path import basename, realpath
 from .tools import get_wifi_interfaces
 from . import _
 
@@ -304,13 +304,16 @@ class WiFiDiagnostics(Screen):
         results = []
         try:
             driver_path = f"/sys/class/net/{ifname}/device/driver"
+            # Check if the folder exists
             if subprocess.run(["test", "-d", driver_path], capture_output=True).returncode == 0:
-                driver_name = subprocess.check_output(["basename", driver_path], text=True).strip()
+                # Read the symbolic link to get the real driver name
+                driver_link = realpath(driver_path)
+                driver_name = basename(driver_link)
                 results.append(_("   Driver: {driver}\n").format(driver=driver_name))
             else:
                 results.append(_("   Driver: Unknown\n"))
         except Exception as e:
-            results.append(_("   Driver check failed: {error}\n").format(error=e))
+            results.append(_("   Driver check failed: {error}\n").format(error=str(e)))
         return results
 
     def run_basic_wireless_tests(self, ifname):

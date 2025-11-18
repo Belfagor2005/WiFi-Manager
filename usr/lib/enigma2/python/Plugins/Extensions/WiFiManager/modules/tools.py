@@ -203,7 +203,7 @@ def get_interface_info(ifname):
             return info
 
         output = result.stdout
-        print(f"[DEBUG] iwconfig output for {ifname}:\n{output}")  # DEBUG
+        print(f"[DEBUG] iwconfig output for {ifname}:\n{output}")
 
         # Extract ESSID
         essid_match = search(r'ESSID:"([^"]*)"', output)
@@ -231,62 +231,69 @@ def get_interface_info(ifname):
         rate_match = search(r'Bit Rate[=:]([0-9.]+) Mb/s', output)
         info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)) if rate_match else _("Unknown")
 
-        # Extract Signal Quality
+        # Extract Signal Quality - unified approach
         quality_match = search(r'Link Quality=(\d+)/(\d+)', output)
         signal_match = search(r'Signal level=(-?\d+) dBm', output)
 
-        # Find for connected networks
+        # Alternative signal pattern
         if not signal_match:
-            signal_match = search(r'Signal[=\s:]*(-?\d+)', output)  # Alternative Pattern
+            signal_match = search(r'Signal[=\s:]*(-?\d+)', output)
 
+        # Try iw command as fallback for signal
         if not signal_match:
-            # Prova con iw command per ottenere il signal
             try:
                 iw_result = subprocess.run(['iw', 'dev', ifname, 'link'],
                                            capture_output=True, text=True, timeout=5)
                 if iw_result.returncode == 0:
-                    iw_signal_match = search(r'signal: (-?\d+)', iw_result.stdout)
+                    iw_signal_match = search(r'signal:\s*(-?\d+)', iw_result.stdout)
                     if iw_signal_match:
                         info['signal_dbm'] = int(iw_signal_match.group(1))
-            except:
+            except (subprocess.TimeoutExpired, Exception):
                 pass
 
+        # Process quality and signal information
         if quality_match:
             quality = int(quality_match.group(1))
             max_quality = int(quality_match.group(2))
-            if max_quality > 0:
-                percentage = (quality / max_quality) * 100
-                info['quality'] = _("{:.1f}%").format(percentage)
-            else:
-                info['quality'] = _("0%")
+            percentage = (quality / max_quality) * 100 if max_quality > 0 else 0
+            info['quality'] = _("{:.1f}%").format(percentage)
+            info['quality_raw'] = f"{quality}/{max_quality}"
         elif signal_match:
             signal_dbm = int(signal_match.group(1))
             info['quality'] = _("{} dBm").format(signal_dbm)
-            info['signal_dbm'] = signal_dbm  # If we have signal_dbm, add it as 'signal' too
+            info['signal_dbm'] = signal_dbm
         else:
             info['quality'] = _("Unknown")
 
-        # If we have signal_dbm, add it as 'signal' too
+        # Ensure signal field is always present
         if 'signal_dbm' in info:
             info['signal'] = info['signal_dbm']
+        elif signal_match:
+            info['signal'] = int(signal_match.group(1))
 
         # Extract TX Power
-        power_match = search(r'Tx-Power[=:](\d+) dBm', output)
+        power_match = search(r'Tx-Power[=:](-?\d+) dBm', output)
         info['txpower'] = _("{} dBm").format(power_match.group(1)) if power_match else _("Unknown")
 
-        # Get protocol/driver info using ethtool
+        # Get driver info using ethtool - rename to 'driver' for clarity
         try:
             ethtool_result = subprocess.run(['ethtool', '-i', ifname],
                                             capture_output=True, text=True)
             if ethtool_result.returncode == 0:
                 driver_match = search(r'driver:\s*(\w+)', ethtool_result.stdout)
-                info['protocol'] = driver_match.group(1) if driver_match else _("Unknown")
-            else:
-                info['protocol'] = _("Unknown")
-        except:
-            info['protocol'] = _("Unknown")
+                info['driver'] = driver_match.group(1) if driver_match else _("Unknown")
 
-        print(f"[DEBUG] Final interface info: {info}")  # DEBUG
+                # Extract additional driver info if available
+                version_match = search(r'version:\s*(\S+)', ethtool_result.stdout)
+                if version_match:
+                    info['driver_version'] = version_match.group(1)
+            else:
+                info['driver'] = _("Unknown")
+        except Exception as e:
+            print(f"[DEBUG] ethtool error: {e}")
+            info['driver'] = _("Unknown")
+
+        print(f"[DEBUG] Final interface info: {info}")
         return info
 
     except Exception as e:
@@ -500,72 +507,6 @@ def parse_iwlist_detailed(scan_output):
     return networks
 
 
-# def parse_iwlist_detailed(scan_output):
-    # """More detailed parser for iwlist scan output"""
-    # networks = []
-    # current_net = {}
-
-    # for line in scan_output.split('\n'):
-        # line = line.strip()
-
-        # # New cell
-        # if 'Cell' in line and 'Address' in line:
-            # if current_net and current_net.get('essid'):
-                # networks.append(current_net)
-            # current_net = {'encryption': False}
-
-            # # Extract MAC address
-            # mac_match = search(r'Address: ([0-9A-Fa-f:]{17})', line)
-            # if mac_match:
-                # current_net['bssid'] = mac_match.group(1)
-
-        # # ESSID
-        # elif 'ESSID:' in line:
-            # essid_match = search(r'ESSID:\s*"([^"]*)"', line)
-            # if essid_match:
-                # current_net['essid'] = essid_match.group(1).strip()
-
-        # # Encryption with type detection
-        # elif 'Encryption key:' in line:
-            # current_net['encryption'] = 'on' in line.lower()
-
-        # # Signal level
-        # elif 'Signal level=' in line:
-            # signal_match = search(r'Signal level=\s*(-?\d+)', line)
-            # if signal_match:
-                # current_net['signal'] = int(signal_match.group(1))
-
-        # # Quality
-        # elif 'Quality=' in line:
-            # quality_match = search(r'Quality=(\d+)/(\d+)', line)
-            # if quality_match:
-                # quality = int(quality_match.group(1))
-                # max_quality = int(quality_match.group(2))
-                # if max_quality > 0:
-                    # percentage = (quality / max_quality) * 100
-                    # current_net['quality_percent'] = percentage
-                # else:
-                    # current_net['quality_percent'] = 0
-
-        # # Channel/Frequency
-        # elif 'Channel:' in line:
-            # channel_match = search(r'Channel:(\d+)', line)
-            # if channel_match:
-                # current_net['channel'] = int(channel_match.group(1))
-
-        # # Mode
-        # elif 'Mode:' in line:
-            # mode_match = search(r'Mode:(\w+)', line)
-            # if mode_match:
-                # current_net['mode'] = mode_match.group(1)
-
-    # # Add last network
-    # if current_net and current_net.get('essid'):
-        # networks.append(current_net)
-
-    # return networks
-
-
 def scan_networks_simple(ifname):
     """Simple network scan using iw dev scan"""
     try:
@@ -666,11 +607,13 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
             ["ping", "-c", str(count), "-W", str(timeout), host],
             ["ping6", "-c", str(count), "-W", str(timeout), host],
             ["ping", "-c", str(count), host],  # Senza timeout
-            ["busybox", "ping", "-c", str(count), host]
+            ["busybox", "ping", "-c", str(count), host],
+            ["ping", "-4", "-c", str(count), host]  # Forza IPv4
         ]
 
         ping_result = None
         last_error = None
+        used_command = None
 
         for cmd in ping_commands:
             try:
@@ -685,11 +628,12 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                 )
 
                 if ping_result.returncode == 0:
+                    used_command = ' '.join(cmd)  # Memorizza il comando completo
                     break
                 else:
                     last_error = ping_result.stderr
                     if debug:
-                        print(f"[PING] Command failed: {last_error}")
+                        print(f"[PING] Command failed (code {ping_result.returncode}): {last_error}")
 
             except (subprocess.TimeoutExpired, FileNotFoundError, Exception) as e:
                 last_error = str(e)
@@ -698,9 +642,15 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                 continue
 
         if ping_result is None or ping_result.returncode != 0:
-            return _("Ping not available")
+            error_msg = _("Ping not available")
+            if last_error and "Name or service not known" in last_error:
+                error_msg = _("Host not found")
+            elif last_error and "Network is unreachable" in last_error:
+                error_msg = _("Network unreachable")
+            return error_msg
 
         if debug:
+            print(f"[PING] Success with: {used_command}")
             print(f"[PING] Output:\n{ping_result.stdout}")
             if ping_result.stderr:
                 print(f"[PING] Error:\n{ping_result.stderr}")
@@ -708,7 +658,7 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
         # Parse per Enigma2/BusyBox
         output = ping_result.stdout
 
-        # Search for rows with response time
+        # Method 1: Extract individual response times
         time_lines = []
         for line in output.split('\n'):
             if 'time=' in line or 'ms' in line:
@@ -716,42 +666,71 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                 if debug:
                     print(f"[PING] Time line: {line}")
 
-        # Extract all times
+        # Extract all times with multiple patterns
         times = []
+        time_patterns = [
+            r'time=([\d.]+)\s*ms',      # time=1.234 ms
+            r'time=([\d.]+)ms',         # time=1.234ms
+            r'([\d.]+)\s*ms',           # 1.234 ms (fallback)
+            r'icmp_seq=\d+.+?([\d.]+)\s*ms'  # icmp_seq=1 time=1.234 ms
+        ]
+
         for line in time_lines:
-            # Find pattern: time=1.234 ms o time=1.234ms
-            time_matches = findall(r'time=([\d.]+)\s*ms', line)
-            for match in time_matches:
-                try:
-                    times.append(float(match))
-                except ValueError:
-                    continue
+            for pattern in time_patterns:
+                time_matches = findall(pattern, line)
+                for match in time_matches:
+                    try:
+                        times.append(float(match))
+                        if debug:
+                            print(f"[PING] Found time: {match} ms")
+                        break  # Una volta trovato un match, passa alla linea successiva
+                    except ValueError:
+                        continue
 
         if debug:
-            print(f"[PING] Found times: {times}")
+            print(f"[PING] Found individual times: {times}")
 
         if times:
             # Calculate average
             avg_time = sum(times) / len(times)
+            if debug:
+                print(f"[PING] Calculated average: {avg_time:.1f} ms")
             return _("{:.1f} ms").format(avg_time)
 
-        # If we don't find times, let's try with the final statistics
-        stats_lines = [line for line in output.split('\n') if 'min/avg/max' in line or 'rtt' in line]
+        # Method 2: Try with final statistics
+        stats_lines = [line for line in output.split('\n')
+                       if 'min/avg/max' in line.lower() or 'rtt' in line.lower()]
 
         if stats_lines:
-            stats_line = stats_lines[-1]  # Last line of statistics
+            stats_line = stats_lines[-1]
             if debug:
                 print(f"[PING] Stats line: {stats_line}")
 
-            # Pattern min/avg/max
-            pattern = r'([\d.]+)/([\d.]+)/([\d.]+)'
-            match = search(pattern, stats_line)
-            if match:
-                try:
-                    avg_ping = float(match.group(2))
-                    return _("{:.1f} ms").format(avg_ping)
-                except ValueError:
-                    pass
+            # Multiple patterns for statistics
+            stats_patterns = [
+                r'([\d.]+)/([\d.]+)/([\d.]+)',  # min/avg/max
+                r'=\s*([\d.]+)/([\d.]+)/([\d.]+)',  # = min/avg/max
+                r'avg\s*[=:]\s*([\d.]+)',  # avg = 1.234
+            ]
+
+            for pattern in stats_patterns:
+                match = search(pattern, stats_line)
+                if match:
+                    try:
+                        # For min/avg/max pattern, group 2 is average
+                        if len(match.groups()) >= 3:
+                            avg_ping = float(match.group(2))
+                        else:
+                            avg_ping = float(match.group(1))
+                        if debug:
+                            print(f"[PING] Found average from stats: {avg_ping:.1f} ms")
+                        return _("{:.1f} ms").format(avg_ping)
+                    except (ValueError, IndexError):
+                        continue
+
+        # Method 3: Check if we got any responses at all
+        if "bytes from" in output or "icmp_seq" in output:
+            return _("Connected but no timing data")
 
         return _("No ping data")
 

@@ -93,30 +93,42 @@ class Enigma2Speedtest:
             return False
 
     def test_specific_ping(self, host):
-        """Test ping specific host"""
+        """Test ping to a specific host"""
         try:
             print(f"Pinging {host}...")
             result = subprocess.run(
                 ["ping", "-c", "2", "-W", "3", host],
-                capture_output=True, text=True, timeout=5
+                capture_output=True, text=True, timeout=10
             )
 
             if result.returncode == 0:
                 for line in result.stdout.split('\n'):
-                    if 'min/avg/max' in line:
+                    if 'min/avg/max' in line or 'rtt min/avg/max' in line:
+                        # Robust pattern for different formats
                         stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
                         if stats_match:
                             ping_time = float(stats_match.group(2))
-                            print(f"Ping {host}: {ping_time} ms")
+                            print(_("Ping {host}: {time} ms").format(host=host, time=ping_time))
                             return ping_time
-            print(f"Ping failed for {host}")
+                
+                # Fallback if min/avg/max line not found
+                stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', result.stdout)
+                if stats_match:
+                    ping_time = float(stats_match.group(2))
+                    print(_("Ping {host} (fallback): {time} ms").format(host=host, time=ping_time))
+                    return ping_time
+                    
+            print(_("Ping failed for {host} (returncode: {code})").format(host=host, code=result.returncode))
+            print(_("Output: {output}...").format(output=result.stdout[:200]))
             return 999
+            
         except subprocess.TimeoutExpired:
-            print(f"Ping timeout for {host}")
+            print(_("Ping timeout for {host}").format(host=host))
             return 999
         except Exception as e:
-            print(f"Ping error for {host}: {e}")
+            print(_("Ping error for {host}: {error}").format(host=host, error=e))
             return 999
+
 
     def test_ping(self):
         """Improved ping test with multiple servers"""
@@ -124,7 +136,7 @@ class Enigma2Speedtest:
             print("Starting ping test...")
             ping_hosts = [
                 ("Google DNS", "8.8.8.8"),
-                ("Cloudflare", "1.1.1.1"),
+                ("Cloudflare", "1.1.1.1"), 
                 ("OpenDNS", "208.67.222.222")
             ]
 
@@ -138,20 +150,28 @@ class Enigma2Speedtest:
                     ping_results.append(_("{}: {:.1f} ms").format(name, ping_time))
                     total_ping += ping_time
                     valid_pings += 1
+                else:
+                    ping_results.append(_("{}: Failed").format(name))
 
             if valid_pings > 0:
                 avg_ping = total_ping / valid_pings
                 self.results['ping_details'] = ping_results
                 self.results['ping'] = avg_ping
-                print(f"Ping test completed: {avg_ping:.1f} ms average")
+                print(_("Ping test completed: {avg:.1f} ms average ({success}/{total} successful)").format(
+                    avg=avg_ping, success=valid_pings, total=len(ping_hosts)))
                 return avg_ping
             else:
-                print("All ping tests failed")
+                self.results['ping_details'] = [_("All ping tests failed")]
+                self.results['ping'] = 999
+                print(_("All ping tests failed"))
                 return 999
 
         except Exception as e:
-            print(f"Ping test error: {e}")
+            print(_("Ping test error: {error}").format(error=e))
+            self.results['ping'] = 999
+            self.results['ping_details'] = [_("Ping test error: {error}").format(error=e)]
             return 999
+
 
     def test_download_simple(self):
         """Download test semplificato e più affidabile"""

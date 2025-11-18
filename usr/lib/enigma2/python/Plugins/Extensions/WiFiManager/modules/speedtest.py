@@ -121,28 +121,36 @@ def test_ping(host="8.8.8.8", count=3):
         result = subprocess.run(['ping', '-c', str(count), host],
                                 capture_output=True, text=True)
         if result.returncode == 0:
+            # DEBUG: print output to check format
+            print(f"[DEBUG] Ping output: {result.stdout}")
+            
             # MULTIPLE REGEX PATTERNS to cover different output formats
             patterns = [
-                r'min/avg/max/[^=]*=\s*[\d.]+/([\d.]+)/',  # Standard Linux format
-                r'rtt min/avg/max/mdev = [\d.]+/([\d.]+)/',  # Alternative Linux format
+                r'min/avg/max/[^=]*=\s*[\d.]+/([\d.]+)/[\d.]+/[\d.]+',  # Standard Linux format
+                r'rtt min/avg/max/mdev = [\d.]+/([\d.]+)/[\d.]+/[\d.]+',  # Alternative Linux format
                 r'= [\d.]+/([\d.]+)/[\d.]+/[\d.]+ ms',  # Simplified format
                 r'Average = ([\d.]+)ms',  # Windows format
+                r'(\d+\.\d+)/(\d+\.\d+)/(\d+\.\d+)/(\d+\.\d+)',  # Raw numbers format
             ]
 
             for pattern in patterns:
                 match = search(pattern, result.stdout)
                 if match:
-                    ping_avg = match.group(1)
+                    # For the raw numbers format, take the second group (average)
+                    if len(match.groups()) >= 2:
+                        ping_avg = match.group(2) if pattern == patterns[-1] else match.group(1)
+                    else:
+                        ping_avg = match.group(1)
                     return f"{ping_avg} ms"
 
-            # DEBUG: print output to check format
-            print(f"[DEBUG] Ping output: {result.stdout}")
             return _("Ping data not found")
 
         else:
+            print(f"[DEBUG] Ping failed: {result.stderr}")
             return _("Ping failed")
 
     except Exception as e:
+        print(f"[DEBUG] Ping error: {e}")
         return _("Error: {error}").format(error=str(e))
 
 

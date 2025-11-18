@@ -394,38 +394,99 @@ class WiFiSpeedtestManager(Screen):
     def _evaluate_connection_quality(self, download_result, ping_result):
         """Evaluate connection quality based on test results"""
         evaluation = _("\n=== CONNECTION QUALITY ===\n")
-
+        
         try:
-            # Analyze download
-            if "Mbps" in download_result:
-                download_speed = float(download_result.split()[0])
+            # Analyze download speed
+            download_speed = None
+            if download_result and "Mbps" in download_result:
+                try:
+                    # Extract number from strings like "25.4 Mbps" or "Error: 10.5 Mbps"
+                    from re import search as re_search
+                    speed_match = re_search(r'(\d+\.\d+|\d+)\s*Mbps', download_result)
+                    if speed_match:
+                        download_speed = float(speed_match.group(1))
+                except (ValueError, AttributeError, IndexError):
+                    pass
+            
+            if download_speed is not None:
                 if download_speed > 50:
-                    evaluation += _("Excellent download speed\n")
+                    evaluation += _("📈 Excellent download speed ({:.1f} Mbps)\n").format(download_speed)
                 elif download_speed > 20:
-                    evaluation += _("Good download speed\n")
+                    evaluation += _("📊 Good download speed ({:.1f} Mbps)\n").format(download_speed)
                 elif download_speed > 5:
-                    evaluation += _("Average download speed\n")
+                    evaluation += _("📉 Average download speed ({:.1f} Mbps)\n").format(download_speed)
                 else:
-                    evaluation += _("Poor download speed\n")
+                    evaluation += _("📉 Poor download speed ({:.1f} Mbps)\n").format(download_speed)
             else:
-                evaluation += _("Download speed unavailable\n")
+                evaluation += _("❓ Download speed unavailable\n")
 
-            # Analyze ping
-            if "ms" in ping_result:
-                ping_time = float(ping_result.split()[0])
-                if ping_time < 50:
-                    evaluation += _("Excellent latency\n")
+            # Analyze latency/ping
+            ping_time = None
+            if ping_result and "ms" in ping_result:
+                try:
+                    # Extract number from strings like "25.4 ms" or "Error: 100 ms"
+                    from re import search as re_search
+                    ping_match = re_search(r'(\d+\.\d+|\d+)\s*ms', ping_result)
+                    if ping_match:
+                        ping_time = float(ping_match.group(1))
+                except (ValueError, AttributeError, IndexError):
+                    pass
+            
+            if ping_time is not None:
+                if ping_time < 30:
+                    evaluation += _("⚡ Excellent latency ({:.1f} ms)\n").format(ping_time)
+                elif ping_time < 60:
+                    evaluation += _("✅ Good latency ({:.1f} ms)\n").format(ping_time)
                 elif ping_time < 100:
-                    evaluation += _("Good latency\n")
+                    evaluation += _("⚠️ Average latency ({:.1f} ms)\n").format(ping_time)
                 elif ping_time < 200:
-                    evaluation += _("Average latency\n")
+                    evaluation += _("🐢 Poor latency ({:.1f} ms)\n").format(ping_time)
                 else:
-                    evaluation += _("Poor latency\n")
+                    evaluation += _("❌ Very poor latency ({:.1f} ms)\n").format(ping_time)
             else:
-                evaluation += _("Latency unavailable\n")
+                evaluation += _("❓ Latency unavailable\n")
 
-        except:
-            evaluation += _("Quality assessment unavailable\n")
+            # Overall evaluation
+            evaluation += _("\n--- OVERALL ASSESSMENT ---\n")
+            
+            if download_speed is not None and ping_time is not None:
+                # Combined scoring
+                speed_score = min(download_speed / 50.0, 1.0)  # Normalize to 0-1
+                ping_score = max(0, 1.0 - (ping_time / 200.0))  # Normalize to 0-1
+                
+                overall_score = (speed_score + ping_score) / 2.0
+                
+                if overall_score > 0.8:
+                    evaluation += _("🎯 EXCELLENT connection\n")
+                elif overall_score > 0.6:
+                    evaluation += _("👍 GOOD connection\n")
+                elif overall_score > 0.4:
+                    evaluation += _("👌 FAIR connection\n")
+                elif overall_score > 0.2:
+                    evaluation += _("👎 POOR connection\n")
+                else:
+                    evaluation += _("🚫 VERY POOR connection\n")
+                    
+            elif download_speed is not None:
+                # Only download available
+                if download_speed > 20:
+                    evaluation += _("📶 Connection appears good (based on download)\n")
+                else:
+                    evaluation += _("📶 Connection may be limited (based on download)\n")
+                    
+            elif ping_time is not None:
+                # Only ping available
+                if ping_time < 100:
+                    evaluation += _("📶 Connection appears responsive (based on ping)\n")
+                else:
+                    evaluation += _("📶 Connection may be slow (based on ping)\n")
+            else:
+                evaluation += _("❓ Cannot assess connection quality\n")
+
+        except Exception as e:
+            if self.debug:
+                print(f"[DEBUG] Evaluation error: {e}")
+            evaluation += _("❓ Quality assessment unavailable\n")
 
         return evaluation
 
