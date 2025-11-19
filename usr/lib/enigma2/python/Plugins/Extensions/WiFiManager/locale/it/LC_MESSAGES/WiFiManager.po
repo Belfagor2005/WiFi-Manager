@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WiFiManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-18 23:26+0100\n"
-"PO-Revision-Date: 2025-11-18 23:38+0100\n"
+"POT-Creation-Date: 2025-11-19 13:52+0100\n"
+"PO-Revision-Date: 2025-11-19 13:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: <ekekaz@gmail.com>\n"
 "Language: it\n"
@@ -434,7 +434,7 @@ msgstr "Errore durante il caricamento della guida"
 
 #: modules/config.py:45
 msgid "Automatic (DHCP)"
-msgstr ""
+msgstr "Automatico (DHCP)"
 
 #: modules/config.py:46
 msgid "Manual (Static IP)"
@@ -515,7 +515,7 @@ msgstr "Configurazione IP"
 
 #: modules/config.py:428
 msgid "IP Address"
-msgstr ""
+msgstr "Indirizzo IP"
 
 #: modules/config.py:429
 msgid "Netmask"
@@ -632,7 +632,7 @@ msgstr "Scansione  fallita"
 #: modules/detailed_info.py:212 modules/detailed_info.py:217
 #: modules/detailed_info.py:222 modules/detailed_info.py:227
 #: modules/detailed_info.py:232 modules/detailed_info.py:268
-#: modules/detailed_info.py:308 modules/detailed_info.py:384
+#: modules/detailed_info.py:309 modules/detailed_info.py:385
 #: modules/scanner.py:184 modules/scanner.py:432 modules/scanner.py:495
 #: modules/scanner.py:505 modules/scanner.py:506
 #: modules/speedtest_manager.py:195 modules/speedtest_manager.py:197
@@ -640,14 +640,14 @@ msgstr "Scansione  fallita"
 #: modules/speedtest_simple.py:72 modules/speedtest_simple.py:73
 #: modules/speedtest_simple.py:74 modules/speedtest_simple.py:75
 #: modules/speedtest_simple.py:76 modules/speedtest_simple.py:92
-#: modules/speedtest_simple.py:311 modules/speedtest_simple.py:312
-#: modules/speedtest_simple.py:413 modules/speedtest_simple.py:416
-#: modules/speedtest_simple.py:417 modules/speedtest_simple.py:420
-#: modules/speedtest_simple.py:426 modules/speedtest_simple.py:427
-#: modules/speedtest_simple.py:428 modules/tools.py:214 modules/tools.py:218
-#: modules/tools.py:228 modules/tools.py:232 modules/tools.py:266
-#: modules/tools.py:276 modules/tools.py:284 modules/tools.py:291
-#: modules/tools.py:294 modules/tools.py:556
+#: modules/speedtest_simple.py:309 modules/speedtest_simple.py:310
+#: modules/speedtest_simple.py:411 modules/speedtest_simple.py:414
+#: modules/speedtest_simple.py:415 modules/speedtest_simple.py:418
+#: modules/speedtest_simple.py:424 modules/speedtest_simple.py:425
+#: modules/speedtest_simple.py:426 modules/tools.py:214 modules/tools.py:218
+#: modules/tools.py:229 modules/tools.py:233 modules/tools.py:268
+#: modules/tools.py:276 modules/tools.py:292 modules/tools.py:296
+#: modules/tools.py:302 modules/tools.py:577
 msgid "Unknown"
 msgstr "Errore Sconosciuto"
 
@@ -834,7 +834,7 @@ msgstr "Rete dimenticata!"
 msgid "Forgotten network: {}"
 msgstr "Rete dimenticata: {}"
 
-#: modules/connect.py:844 modules/detailed_info.py:322 modules/tools.py:742
+#: modules/connect.py:844 modules/speedtest.py:145 modules/tools.py:763
 #, python-brace-format
 msgid "Error: {}"
 msgstr "Errore: {}"
@@ -1068,12 +1068,12 @@ msgstr "🔧 Modalità: {}\n"
 #: modules/detailed_info.py:213
 #, python-brace-format
 msgid "📶 Frequency: {}\n"
-msgstr "📶  Frequenza: {}\n"
+msgstr "📶 Frequenza: {}\n"
 
 #: modules/detailed_info.py:218
 #, python-brace-format
 msgid "📊 Quality: {}\n"
-msgstr "📊  Qualità: {}\n"
+msgstr "📊 Qualità: {}\n"
 
 #: modules/detailed_info.py:223
 #, python-brace-format
@@ -1096,18 +1096,18 @@ msgid "Wireless info error: {}"
 msgstr "Errore informazioni wireless: {}"
 
 #: modules/detailed_info.py:238 modules/detailed_info.py:280
-#: modules/detailed_info.py:361
+#: modules/detailed_info.py:323 modules/detailed_info.py:362
 #, python-brace-format
 msgid "❌ {}\n"
 msgstr ""
 
 #: modules/detailed_info.py:259
 msgid "UP and active"
-msgstr ""
+msgstr "SU e attivo"
 
 #: modules/detailed_info.py:259
 msgid "DOWN"
-msgstr ""
+msgstr "GIÙ"
 
 #: modules/detailed_info.py:261
 #, python-brace-format
@@ -1142,54 +1142,54 @@ msgstr ""
 msgid "Basic info error: {}"
 msgstr "Errore nelle informazioni di base: {}"
 
-#: modules/detailed_info.py:299
+#: modules/detailed_info.py:300
 #, python-brace-format
-msgid "Driver: {}"
-msgstr "Driver: {}"
+msgid "💾 Driver: {}\n"
+msgstr "💾 Driver: {}\n"
 
-#: modules/detailed_info.py:302
-msgid "Driver: Unknown"
-msgstr "Driver: Sconosciuto"
+#: modules/detailed_info.py:303
+msgid "💾 Driver: Unknown\n"
+msgstr "💾 Driver: Sconosciuto\n"
 
-#: modules/detailed_info.py:309
+#: modules/detailed_info.py:310
 #, python-brace-format
-msgid "Protocol: {}"
-msgstr "Protocollo: {}"
+msgid "🔧 Module: {}\n"
+msgstr "🔧 Modulo: {}\n"
 
-#: modules/detailed_info.py:314
-msgid "Type: Wireless interface"
-msgstr "Tipo: Interfaccia wireless"
+#: modules/detailed_info.py:315
+msgid "📡 Type: Wireless interface\n"
+msgstr "📡 Tipo: Interfaccia wireless\n"
 
-#: modules/detailed_info.py:317
-msgid "Type: Wired interface"
-msgstr "Tipo: Interfaccia cablata"
+#: modules/detailed_info.py:318
+msgid "🔌 Type: Wired interface\n"
+msgstr "🔌 Tipo: Interfaccia cablata\n"
 
-#: modules/detailed_info.py:321
+#: modules/detailed_info.py:322
 #, python-brace-format
 msgid "Driver info error: {}"
 msgstr "Errore informazioni driver: {}"
 
-#: modules/detailed_info.py:343
+#: modules/detailed_info.py:344
 #, python-brace-format
 msgid "⬇️  Received: {}\n"
 msgstr "⬇️  Ricevuti: {}\n"
 
-#: modules/detailed_info.py:354
+#: modules/detailed_info.py:355
 #, python-brace-format
 msgid "⬆️  Transmitted: {}\n"
 msgstr "⬆️  Transmessi: {}\n"
 
-#: modules/detailed_info.py:360
+#: modules/detailed_info.py:361
 #, python-brace-format
 msgid "Statistics error: {}"
 msgstr "Errore statistico: {}"
 
-#: modules/detailed_info.py:380
+#: modules/detailed_info.py:381
 #, python-brace-format
 msgid "Found {} networks:\n"
 msgstr "Trovate {} reti\n"
 
-#: modules/detailed_info.py:385 modules/diagnostics.py:352
+#: modules/detailed_info.py:386 modules/diagnostics.py:352
 #: modules/iwlist_tools.py:204 modules/iwlist_tools.py:205
 #: modules/iwlist_tools.py:206 modules/iwlist_tools.py:207
 #: modules/iwlist_tools.py:208 modules/iwlist_tools.py:209
@@ -1199,26 +1199,26 @@ msgstr "Trovate {} reti\n"
 msgid "N/A"
 msgstr ""
 
-#: modules/detailed_info.py:392
+#: modules/detailed_info.py:393
 #, python-brace-format
 msgid "  {:2d}. {} {:20} | Signal: {:4} dBm ({}) | Channel: {}\n"
 msgstr ""
 
-#: modules/detailed_info.py:397
+#: modules/detailed_info.py:398
 #, python-brace-format
 msgid "  ... and {} more networks\n"
-msgstr " ... e {} altre reti\n"
+msgstr "  ... e {} altre reti\n"
 
-#: modules/detailed_info.py:399
+#: modules/detailed_info.py:400
 msgid "No networks found or scan not supported\n"
 msgstr "Nessuna rete trovata o scansione non supportata\n"
 
-#: modules/detailed_info.py:403
+#: modules/detailed_info.py:404
 #, python-brace-format
 msgid "Scan error: {}"
 msgstr "Errore di scansione: {}"
 
-#: modules/detailed_info.py:404
+#: modules/detailed_info.py:405
 #, python-brace-format
 msgid "{}\n"
 msgstr ""
@@ -1398,7 +1398,7 @@ msgstr ""
 #: modules/diagnostics.py:316
 #, python-brace-format
 msgid "   Driver check failed: {error}\n"
-msgstr " Controllo Driver fallito: {error}\n"
+msgstr "   Controllo Driver fallito: {error}\n"
 
 #: modules/diagnostics.py:332
 #, python-brace-format
@@ -1478,7 +1478,7 @@ msgid ""
 "   ❌ {test}: Failed\n"
 "Error: {error}"
 msgstr ""
-" ❌ {test}: fallito\n"
+"    ❌ {test}: fallito\n"
 "Errore: {error}"
 
 #: modules/diagnostics.py:400
@@ -1501,7 +1501,7 @@ msgstr "   ⚠️  Scansione: Interfaccia occupata (connesso alla rete)\n"
 #: modules/diagnostics.py:413 modules/diagnostics.py:415
 #, python-brace-format
 msgid "   ❌ Scan test: {error}\n"
-msgstr "  ❌ Test di scansione: {error}\n"
+msgstr "   ❌ Test di scansione: {error}\n"
 
 #: modules/diagnostics.py:422
 #, python-brace-format
@@ -1514,7 +1514,7 @@ msgstr "   🌐 Connettività: Nessun indirizzo IP - OFFLINE\n"
 
 #: modules/diagnostics.py:426
 msgid "   🌐 Connectivity: Unknown status\n"
-msgstr "  🌐 Connettività: Stato sconosciuto\n"
+msgstr "   🌐 Connettività: Stato sconosciuto\n"
 
 #: modules/diagnostics.py:433
 msgid ""
@@ -1554,7 +1554,7 @@ msgstr "💡 Suggerimenti:\n"
 
 #: modules/diagnostics.py:445
 msgid "   • Monitor signal strength for best performance\n"
-msgstr " • Monitorare la potenza del segnale per prestazioni ottimali\n"
+msgstr "   • Monitorare la potenza del segnale per prestazioni ottimali\n"
 
 #: modules/diagnostics.py:446
 msgid "   • Keep drivers updated\n"
@@ -1562,7 +1562,7 @@ msgstr " • Mantenere aggiornati i driver\n"
 
 #: modules/diagnostics.py:447
 msgid "   • Use 5GHz band for less interference\n"
-msgstr " • Utilizzare la banda a 5 GHz per ridurre le interferenze\n"
+msgstr "   • Utilizzare la banda a 5 GHz per ridurre le interferenze\n"
 
 #: modules/diagnostics.py:455
 msgid "✅ SYSTEM STATUS: WiFi hardware detected and functional\n"
@@ -1959,7 +1959,7 @@ msgstr ""
 #: modules/iwlist_tools.py:206
 #, python-format
 msgid "  Channel: %s\n"
-msgstr " Canale: %s\n"
+msgstr "  Canale: %s\n"
 
 #: modules/iwlist_tools.py:207
 #, python-format
@@ -1979,7 +1979,7 @@ msgstr "  Segnale: %s\n"
 #: modules/iwlist_tools.py:210
 #, python-format
 msgid "  Encryption: %s\n"
-msgstr " Crittografia: %s\n"
+msgstr "  Crittografia: %s\n"
 
 #: modules/iwlist_tools.py:210 modules/scanner.py:188 modules/scanner.py:271
 #: modules/scanner.py:436
@@ -2227,7 +2227,7 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-#: modules/iwlist_tools.py:491 modules/tools.py:226
+#: modules/iwlist_tools.py:491 modules/tools.py:227
 #, python-brace-format
 msgid "Channel {}"
 msgstr "Canale {}"
@@ -2421,12 +2421,12 @@ msgstr ""
 #: modules/scanner.py:207
 #, python-brace-format
 msgid "   iwlist timeout on {}\n"
-msgstr " timeout iwlist su {}\n"
+msgstr "   timeout iwlist su {}\n"
 
 #: modules/scanner.py:209
 #, python-brace-format
 msgid "   iwlist error on {interface}: {error}\n"
-msgstr "  errore iwlist su {interface}: {error}\n"
+msgstr "   errore iwlist su {interface}: {error}\n"
 
 #: modules/scanner.py:211
 #, python-brace-format
@@ -2435,7 +2435,7 @@ msgstr "   eccezione iwlist su {interface}: {error}\n"
 
 #: modules/scanner.py:214
 msgid "   No networks found with iwlist\n"
-msgstr " Nessuna rete trovata con iwlist\n"
+msgstr "   Nessuna rete trovata con iwlist\n"
 
 #: modules/scanner.py:221
 msgid ""
@@ -2448,7 +2448,7 @@ msgstr ""
 #: modules/scanner.py:243
 #, python-brace-format
 msgid "   No networks found on {}\n"
-msgstr " Nessuna rete trovata su {}\n"
+msgstr "   Nessuna rete trovata su {}\n"
 
 #: modules/scanner.py:246
 #, python-brace-format
@@ -2487,12 +2487,12 @@ msgstr ""
 
 #: modules/scanner.py:461
 msgid "   No results with iwlist\n"
-msgstr " Nessun risultato con iwlist\n"
+msgstr "   Nessun risultato con iwlist\n"
 
 #: modules/scanner.py:465
 #, python-brace-format
 msgid "   iwlist error: {}\n"
-msgstr " Errore iwlist :  {}\n"
+msgstr "   Errore iwlist :  {}\n"
 
 #: modules/scanner.py:475
 msgid "pythonwifi: No networks found\n"
@@ -2547,7 +2547,7 @@ msgstr "    Trovato: {}\n"
 
 #: modules/scanner.py:537
 msgid "   No WiFi interfaces found\n"
-msgstr " Nessuna interfaccia WiFi trovata\n"
+msgstr "   Nessuna interfaccia WiFi trovata\n"
 
 #: modules/scanner.py:540
 msgid ""
@@ -2598,23 +2598,23 @@ msgstr ""
 
 #: modules/scanner.py:559
 msgid "   1. Disconnect from current WiFi network\n"
-msgstr " 1. Disconnettersi dalla rete WiFi corrente\n"
+msgstr "   1. Disconnettersi dalla rete WiFi corrente\n"
 
 #: modules/scanner.py:560
 msgid "   2. Restart WiFi adapter\n"
-msgstr " 2. Riavviare l'adattatore WiFi\n"
+msgstr "   2. Riavviare l'adattatore WiFi\n"
 
 #: modules/scanner.py:561
 msgid "   3. Check if WiFi driver is installed\n"
-msgstr " 3. Verificare se il driver WiFi è installato\n"
+msgstr "   3. Verificare se il driver WiFi è installato\n"
 
 #: modules/scanner.py:562
 msgid "   4. Try with different USB WiFi adapter\n"
-msgstr " 4. Prova con un adattatore WiFi USB diverso\n"
+msgstr "   4. Prova con un adattatore WiFi USB diverso\n"
 
 #: modules/scanner.py:563
 msgid "   5. Check root permissions\n"
-msgstr " 5. Controllare i permessi di root\n"
+msgstr "   5. Controllare i permessi di root\n"
 
 #: modules/scanner.py:566
 #, python-brace-format
@@ -2641,7 +2641,7 @@ msgstr "Nessuna connessione internet"
 msgid "Connection timeout"
 msgstr "Timeout di connessione"
 
-#: modules/speedtest.py:84 modules/speedtest.py:154
+#: modules/speedtest.py:84
 #, python-brace-format
 msgid "Error: {error}"
 msgstr "Errore: {error}"
@@ -2660,74 +2660,74 @@ msgstr "Test Upload non disponibile"
 msgid "Upload test failed: {error}"
 msgstr "Test di caricamento fallito: {error}"
 
-#: modules/speedtest.py:146
-msgid "Ping data not found"
-msgstr "Dati ping non trovati"
-
-#: modules/speedtest.py:150
+#: modules/speedtest.py:140
 msgid "Ping failed"
 msgstr "Ping   fallito"
 
-#: modules/speedtest.py:160
+#: modules/speedtest.py:143 modules/tools.py:306 modules/tools.py:759
+msgid "Timeout"
+msgstr ""
+
+#: modules/speedtest.py:151
 msgid "Google DNS"
 msgstr ""
 
-#: modules/speedtest.py:161 modules/speedtest_manager.py:213
+#: modules/speedtest.py:152 modules/speedtest_manager.py:213
 msgid "Cloudflare"
 msgstr ""
 
-#: modules/speedtest.py:162 modules/speedtest_manager.py:214
+#: modules/speedtest.py:153 modules/speedtest_manager.py:214
 msgid "OpenDNS"
 msgstr ""
 
-#: modules/speedtest.py:168
+#: modules/speedtest.py:159
 #, python-brace-format
 msgid "{name} ({host}): {ping}"
 msgstr ""
 
-#: modules/speedtest.py:223
+#: modules/speedtest.py:214
 #, python-brace-format
 msgid "{name}: {speed:.2f} Mbps"
 msgstr ""
 
-#: modules/speedtest.py:225
+#: modules/speedtest.py:216
 #, python-brace-format
 msgid "{name}: Failed"
 msgstr "{name}: Fallito"
 
-#: modules/speedtest.py:228
+#: modules/speedtest.py:219
 #, python-brace-format
 msgid "{name}: Timeout"
 msgstr ""
 
-#: modules/speedtest.py:230
+#: modules/speedtest.py:221
 #, python-brace-format
 msgid "{name}: Error {error}"
 msgstr "{name}: Errore {error}"
 
-#: modules/speedtest.py:239
+#: modules/speedtest.py:230
 #, python-brace-format
 msgid "Upload test: {result}"
 msgstr "Test Upload: {result}"
 
-#: modules/speedtest.py:265
+#: modules/speedtest.py:256
 msgid "Stable"
 msgstr "Stabile"
 
-#: modules/speedtest.py:265
+#: modules/speedtest.py:256
 msgid "Unstable"
 msgstr "Instabile"
 
-#: modules/speedtest.py:266
+#: modules/speedtest.py:257
 #, python-brace-format
 msgid "Packets: {sent}, Lost: {lost} ({percentage:.1f}%) - {stability}"
 msgstr "Pacchetti: {sent}, Persi: {lost} ({percentage:.1f}%) - {stability}"
 
-#: modules/speedtest.py:269
+#: modules/speedtest.py:260
 msgid "No packets sent"
 msgstr "Nessun pacchetto inviato"
 
-#: modules/speedtest.py:272
+#: modules/speedtest.py:263
 #, python-brace-format
 msgid "Stability test error: {error}"
 msgstr "Errore nel test di stabilità: {error}"
@@ -3280,46 +3280,46 @@ msgstr "Timeout del ping per {host}"
 msgid "Ping error for {host}: {error}"
 msgstr "Errore ping per {host}: {error}"
 
-#: modules/speedtest_simple.py:150
+#: modules/speedtest_simple.py:149
 #, python-brace-format
 msgid "{}: {:.1f} ms"
 msgstr ""
 
-#: modules/speedtest_simple.py:154
+#: modules/speedtest_simple.py:153
 #, python-brace-format
 msgid "{}: Failed"
 msgstr "{}: Fallito"
 
-#: modules/speedtest_simple.py:160
+#: modules/speedtest_simple.py:159
 #, python-brace-format
 msgid ""
 "Ping test completed: {avg:.1f} ms average ({success}/{total} successful)"
 msgstr "Test ping completato: media {avg:.1f} ms ({success}/{total} riuscito)"
 
-#: modules/speedtest_simple.py:164 modules/speedtest_simple.py:166
+#: modules/speedtest_simple.py:163 modules/speedtest_simple.py:165
 msgid "All ping tests failed"
 msgstr "Tutti i test ping sono falliti"
 
-#: modules/speedtest_simple.py:170 modules/speedtest_simple.py:172
+#: modules/speedtest_simple.py:169 modules/speedtest_simple.py:171
 #, python-brace-format
 msgid "Ping test error: {error}"
 msgstr "Errore del test ping: {error}"
 
-#: modules/speedtest_simple.py:334
+#: modules/speedtest_simple.py:332
 msgid "No internet connection detected"
 msgstr "Nessuna connessione Internet rilevata"
 
-#: modules/speedtest_simple.py:385
+#: modules/speedtest_simple.py:383
 #, python-brace-format
 msgid "Speedtest failed: {}"
 msgstr "Speedtest fallito: {}"
 
-#: modules/speedtest_simple.py:398
+#: modules/speedtest_simple.py:396
 msgid "Speedtest failed - No internet connection or all tests failed"
 msgstr ""
 "Test di velocità dettagliato fallito - Controlla la connessione Internet"
 
-#: modules/speedtest_simple.py:405
+#: modules/speedtest_simple.py:403
 #, python-brace-format
 msgid ""
 "📊 ENIGMA2 DETAILED SPEEDTEST\n"
@@ -3332,80 +3332,80 @@ msgstr ""
 "🕐 Timestamp: {timestamp}\n"
 "\n"
 
-#: modules/speedtest_simple.py:412
+#: modules/speedtest_simple.py:410
 msgid "👤 CLIENT INFORMATION:\n"
 msgstr "👤 INFORMAZIONI CLIENTE:\n"
 
-#: modules/speedtest_simple.py:413
+#: modules/speedtest_simple.py:411
 #, python-brace-format
 msgid "IP: {ip}\n"
 msgstr ""
 
-#: modules/speedtest_simple.py:415
+#: modules/speedtest_simple.py:413
 #, python-brace-format
 msgid "Location: {city}, {country}\n"
 msgstr "Posizione: {city}, {country}\n"
 
-#: modules/speedtest_simple.py:420
+#: modules/speedtest_simple.py:418
 #, python-brace-format
 msgid "ISP: {isp}\n"
 msgstr "Fornitore di servizi Internet: {isp}\n"
 
-#: modules/speedtest_simple.py:425
+#: modules/speedtest_simple.py:423
 msgid "🏢 SERVER INFORMATION:\n"
 msgstr "🏢 INFORMAZIONI SUL SERVER:\n"
 
-#: modules/speedtest_simple.py:426
+#: modules/speedtest_simple.py:424
 #, python-brace-format
 msgid "Name: {name}\n"
 msgstr "Nome : {name}\n"
 
-#: modules/speedtest_simple.py:427
+#: modules/speedtest_simple.py:425
 #, python-brace-format
 msgid "Sponsor: {sponsor}\n"
 msgstr ""
 
-#: modules/speedtest_simple.py:428
+#: modules/speedtest_simple.py:426
 #, python-brace-format
 msgid ""
 "Host: {host}\n"
 "\n"
 msgstr ""
 
-#: modules/speedtest_simple.py:431
+#: modules/speedtest_simple.py:429
 msgid "📈 TEST RESULTS:\n"
 msgstr "📈 RISULTATI DEL TEST:\n"
 
-#: modules/speedtest_simple.py:433
+#: modules/speedtest_simple.py:431
 #, python-brace-format
 msgid "Ping: {:.1f} ms\n"
 msgstr ""
 
-#: modules/speedtest_simple.py:435
+#: modules/speedtest_simple.py:433
 msgid "Ping: Failed\n"
 msgstr "Ping: Fallito\n"
 
-#: modules/speedtest_simple.py:438
+#: modules/speedtest_simple.py:436
 #, python-brace-format
 msgid "Download: {:.2f} Mbps\n"
 msgstr ""
 "Download: {:.2f} Mbps\n"
 "\n"
 
-#: modules/speedtest_simple.py:440
+#: modules/speedtest_simple.py:438
 msgid "Download: Failed\n"
 msgstr "Download: Fallito\n"
 
-#: modules/speedtest_simple.py:443
+#: modules/speedtest_simple.py:441
 #, python-brace-format
 msgid "Upload: {:.2f} Mbps (estimated)\n"
 msgstr ""
 
-#: modules/speedtest_simple.py:445
+#: modules/speedtest_simple.py:443
 msgid "Upload: Not available\n"
 msgstr "Upload: Non disponibile\n"
 
-#: modules/speedtest_simple.py:449
+#: modules/speedtest_simple.py:447
 msgid ""
 "\n"
 "📡 PING DETAILS:\n"
@@ -3413,7 +3413,7 @@ msgstr ""
 "\n"
 "📡 DETTAGLI PING:\n"
 
-#: modules/speedtest_simple.py:454
+#: modules/speedtest_simple.py:452
 msgid ""
 "\n"
 "⬇️ DOWNLOAD DETAILS:\n"
@@ -3421,12 +3421,12 @@ msgstr ""
 "\n"
 "⬇️ DETTAGLI PER IL DOWNLOAD:\n"
 
-#: modules/speedtest_simple.py:456
+#: modules/speedtest_simple.py:454
 #, python-brace-format
 msgid "{server}: {speed:.2f} Mbps ({data:.1f} MB in {time:.1f}s)\n"
 msgstr ""
 
-#: modules/speedtest_simple.py:464
+#: modules/speedtest_simple.py:462
 msgid ""
 "\n"
 "📊 QUALITY ASSESSMENT:\n"
@@ -3435,43 +3435,43 @@ msgstr ""
 "📊 VALUTAZIONE DELLA QUALITÀ:\n"
 "\n"
 
-#: modules/speedtest_simple.py:467
+#: modules/speedtest_simple.py:465
 msgid "✅ Excellent latency\n"
 msgstr "✅ Ottima latenza\n"
 
-#: modules/speedtest_simple.py:469
+#: modules/speedtest_simple.py:467
 msgid "⚠️ Good latency\n"
 msgstr "⚠️ Buona latenza\n"
 
-#: modules/speedtest_simple.py:471
+#: modules/speedtest_simple.py:469
 msgid "⚠️ Average latency\n"
 msgstr "⚠️ Latenza media\n"
 
-#: modules/speedtest_simple.py:473
+#: modules/speedtest_simple.py:471
 msgid "❌ Poor latency\n"
 msgstr "❌ Bassa latenza\n"
 
-#: modules/speedtest_simple.py:475
+#: modules/speedtest_simple.py:473
 msgid "❌ Latency test failed\n"
 msgstr "❌ Test Latenza fallito\n"
 
-#: modules/speedtest_simple.py:479
+#: modules/speedtest_simple.py:477
 msgid "✅ Excellent download speed\n"
 msgstr "✅ Ottima velocità di download\n"
 
-#: modules/speedtest_simple.py:481
+#: modules/speedtest_simple.py:479
 msgid "⚠️ Good download speed\n"
 msgstr "⚠️ Buona velocità di download\n"
 
-#: modules/speedtest_simple.py:483
+#: modules/speedtest_simple.py:481
 msgid "⚠️ Average download speed\n"
 msgstr "⚠️ Velocità media di download\n"
 
-#: modules/speedtest_simple.py:485
+#: modules/speedtest_simple.py:483
 msgid "❌ Poor download speed\n"
 msgstr "❌ Scarsa velocità di download\n"
 
-#: modules/speedtest_simple.py:487
+#: modules/speedtest_simple.py:485
 msgid "❌ Download test failed\n"
 msgstr "❌ Download test fallito\n"
 
@@ -3480,87 +3480,98 @@ msgstr "❌ Download test fallito\n"
 msgid "Interface {} not available"
 msgstr "Interfaccia {} non disponibile"
 
-#: modules/tools.py:224
+#: modules/tools.py:225
 #, python-brace-format
 msgid "{} GHz"
 msgstr ""
 
-#: modules/tools.py:232
+#: modules/tools.py:233
 #, python-brace-format
 msgid "{} Mb/s"
 msgstr ""
 
-#: modules/tools.py:259
+#: modules/tools.py:260
 #, python-brace-format
 msgid "{:.1f}%"
 msgstr ""
 
-#: modules/tools.py:263 modules/tools.py:276
+#: modules/tools.py:262
+msgid "0%"
+msgstr ""
+
+#: modules/tools.py:265 modules/tools.py:276
 #, python-brace-format
 msgid "{} dBm"
 msgstr ""
 
-#: modules/tools.py:548
+#: modules/tools.py:310
+msgid "ethtool not found"
+msgstr "ethtool non trovato"
+
+#: modules/tools.py:314
+msgid "Error"
+msgstr "Errore"
+
+#: modules/tools.py:569
 msgid "No data"
 msgstr ""
 
-#: modules/tools.py:559
+#: modules/tools.py:580
 msgid "Excellent"
 msgstr "Ottimo"
 
-#: modules/tools.py:560
+#: modules/tools.py:581
 msgid "Good"
 msgstr "Buono"
 
-#: modules/tools.py:561
+#: modules/tools.py:582
 msgid "Fair"
 msgstr "Giusto"
 
-#: modules/tools.py:562
+#: modules/tools.py:583
 msgid "Poor"
 msgstr "Debole"
 
-#: modules/tools.py:563 modules/tools.py:570
+#: modules/tools.py:584 modules/tools.py:591
 msgid "Very Poor"
 msgstr "Molto Debole"
 
-#: modules/tools.py:568 modules/tools.py:570
+#: modules/tools.py:589 modules/tools.py:591
 #, python-brace-format
 msgid "{} ({:.0f}%)"
 msgstr ""
 
-#: modules/tools.py:645
+#: modules/tools.py:666
 msgid "Ping not available"
 msgstr "Ping non disponibile"
 
-#: modules/tools.py:647
+#: modules/tools.py:668
 msgid "Host not found"
 msgstr "Host non trovato"
 
-#: modules/tools.py:649
+#: modules/tools.py:670
 msgid "Network unreachable"
 msgstr "Rete irraggiungibile"
 
-#: modules/tools.py:698 modules/tools.py:727
+#: modules/tools.py:719 modules/tools.py:748
 #, python-brace-format
 msgid "{:.1f} ms"
 msgstr ""
 
-#: modules/tools.py:733
+#: modules/tools.py:754
 msgid "Connected but no timing data"
 msgstr "Connesso ma nessun dato di temporizzazione"
 
-#: modules/tools.py:735
+#: modules/tools.py:756
 msgid "No ping data"
 msgstr "Nessun dato ping"
 
-#: modules/tools.py:738
-msgid "Timeout"
-msgstr ""
-
 #, python-brace-format
-#~ msgid "🔧 Module: {}\n"
-#~ msgstr "🔧 Modulo: {}\n"
+#~ msgid "Protocol: {}"
+#~ msgstr "Protocollo: {}"
+
+#~ msgid "Ping data not found"
+#~ msgstr "Dati ping non trovati"
 
 #~ msgid "Excellent latency\n"
 #~ msgstr "Ottima latenza\n"
@@ -4010,11 +4021,6 @@ msgstr ""
 
 #~ msgid "Connectivity Test"
 #~ msgstr "Test di connettività"
-
-#, fuzzy
-#~| msgid "Error: %s"
-#~ msgid "Error"
-#~ msgstr "Errore: %s"
 
 #~ msgid "Kernel WiFi Logs"
 #~ msgstr "Registri WiFi del kernel"
@@ -4668,7 +4674,7 @@ msgstr ""
 
 #, python-brace-format
 #~ msgid "   (Based on selected database mode: {})"
-#~ msgstr " (In base alla modalità di database selezionata: {})"
+#~ msgstr "   (In base alla modalità di database selezionata: {})"
 
 #, python-brace-format
 #~ msgid "💾 Cache efficiency: {}"

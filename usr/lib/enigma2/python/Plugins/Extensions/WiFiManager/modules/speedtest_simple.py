@@ -110,18 +110,18 @@ class Enigma2Speedtest:
                             ping_time = float(stats_match.group(2))
                             print(_("Ping {host}: {time} ms").format(host=host, time=ping_time))
                             return ping_time
-                
+
                 # Fallback if min/avg/max line not found
                 stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', result.stdout)
                 if stats_match:
                     ping_time = float(stats_match.group(2))
                     print(_("Ping {host} (fallback): {time} ms").format(host=host, time=ping_time))
                     return ping_time
-                    
+
             print(_("Ping failed for {host} (returncode: {code})").format(host=host, code=result.returncode))
             print(_("Output: {output}...").format(output=result.stdout[:200]))
             return 999
-            
+
         except subprocess.TimeoutExpired:
             print(_("Ping timeout for {host}").format(host=host))
             return 999
@@ -129,14 +129,13 @@ class Enigma2Speedtest:
             print(_("Ping error for {host}: {error}").format(host=host, error=e))
             return 999
 
-
     def test_ping(self):
         """Improved ping test with multiple servers"""
         try:
             print("Starting ping test...")
             ping_hosts = [
                 ("Google DNS", "8.8.8.8"),
-                ("Cloudflare", "1.1.1.1"), 
+                ("Cloudflare", "1.1.1.1"),
                 ("OpenDNS", "208.67.222.222")
             ]
 
@@ -171,7 +170,6 @@ class Enigma2Speedtest:
             self.results['ping'] = 999
             self.results['ping_details'] = [_("Ping test error: {error}").format(error=e)]
             return 999
-
 
     def test_download_simple(self):
         """Download test semplificato e più affidabile"""

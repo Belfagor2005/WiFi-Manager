@@ -220,6 +220,7 @@ def get_interface_info(ifname):
         # Extract Frequency/Channel
         freq_match = search(r'Frequency:([0-9.]+) GHz', output)
         channel_match = search(r'Channel[=:](\d+)', output)
+
         if freq_match:
             info['frequency'] = _("{} GHz").format(freq_match.group(1))
         elif channel_match:
@@ -231,33 +232,34 @@ def get_interface_info(ifname):
         rate_match = search(r'Bit Rate[=:]([0-9.]+) Mb/s', output)
         info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)) if rate_match else _("Unknown")
 
-        # Extract Signal Quality - unified approach
+        # Extract Signal Quality
         quality_match = search(r'Link Quality=(\d+)/(\d+)', output)
         signal_match = search(r'Signal level=(-?\d+) dBm', output)
 
-        # Alternative signal pattern
+        # Alternative match for signal
         if not signal_match:
             signal_match = search(r'Signal[=\s:]*(-?\d+)', output)
 
-        # Try iw command as fallback for signal
+        # If still not found, try iw
         if not signal_match:
             try:
                 iw_result = subprocess.run(['iw', 'dev', ifname, 'link'],
                                            capture_output=True, text=True, timeout=5)
                 if iw_result.returncode == 0:
-                    iw_signal_match = search(r'signal:\s*(-?\d+)', iw_result.stdout)
+                    iw_signal_match = search(r'signal: (-?\d+)', iw_result.stdout)
                     if iw_signal_match:
                         info['signal_dbm'] = int(iw_signal_match.group(1))
-            except (subprocess.TimeoutExpired, Exception):
+            except:
                 pass
 
-        # Process quality and signal information
         if quality_match:
             quality = int(quality_match.group(1))
             max_quality = int(quality_match.group(2))
-            percentage = (quality / max_quality) * 100 if max_quality > 0 else 0
-            info['quality'] = _("{:.1f}%").format(percentage)
-            info['quality_raw'] = f"{quality}/{max_quality}"
+            if max_quality > 0:
+                percentage = (quality / max_quality) * 100
+                info['quality'] = _("{:.1f}%").format(percentage)
+            else:
+                info['quality'] = _("0%")
         elif signal_match:
             signal_dbm = int(signal_match.group(1))
             info['quality'] = _("{} dBm").format(signal_dbm)
@@ -265,33 +267,52 @@ def get_interface_info(ifname):
         else:
             info['quality'] = _("Unknown")
 
-        # Ensure signal field is always present
+        # If we have dBm, also store it as generic signal
         if 'signal_dbm' in info:
             info['signal'] = info['signal_dbm']
-        elif signal_match:
-            info['signal'] = int(signal_match.group(1))
 
         # Extract TX Power
         power_match = search(r'Tx-Power[=:](-?\d+) dBm', output)
         info['txpower'] = _("{} dBm").format(power_match.group(1)) if power_match else _("Unknown")
 
-        # Get driver info using ethtool - rename to 'driver' for clarity
+        # Get protocol (driver) information using ethtool
         try:
             ethtool_result = subprocess.run(['ethtool', '-i', ifname],
-                                            capture_output=True, text=True)
-            if ethtool_result.returncode == 0:
-                driver_match = search(r'driver:\s*(\w+)', ethtool_result.stdout)
-                info['driver'] = driver_match.group(1) if driver_match else _("Unknown")
+                                            capture_output=True, text=True, timeout=5)
 
-                # Extract additional driver info if available
-                version_match = search(r'version:\s*(\S+)', ethtool_result.stdout)
-                if version_match:
-                    info['driver_version'] = version_match.group(1)
+            if ethtool_result.returncode == 0:
+                ethtool_output = ethtool_result.stdout
+                print(f"[DEBUG] ethtool output for {ifname}:\n{ethtool_output}")
+
+                driver_match = search(r'driver:\s*(\S+)', ethtool_output)
+                if driver_match:
+                    info['protocol'] = driver_match.group(1)
+                    print(f"[DEBUG] Found driver: {info['protocol']}")
+                else:
+                    info['protocol'] = _("Unknown")
+                    print("[DEBUG] Driver not found in ethtool output")
+
+                # Try fallback to version
+                if info['protocol'] == _("Unknown"):
+                    version_match = search(r'version:\s*(\S+)', ethtool_output)
+                    if version_match:
+                        info['protocol'] = version_match.group(1)
+
             else:
-                info['driver'] = _("Unknown")
+                info['protocol'] = _("Unknown")
+                print(f"[DEBUG] ethtool failed with returncode: {ethtool_result.returncode}")
+
+        except subprocess.TimeoutExpired:
+            info['protocol'] = _("Timeout")
+            print("[DEBUG] ethtool timeout")
+
+        except FileNotFoundError:
+            info['protocol'] = _("ethtool not found")
+            print("[DEBUG] ethtool command not found")
+
         except Exception as e:
-            print(f"[DEBUG] ethtool error: {e}")
-            info['driver'] = _("Unknown")
+            info['protocol'] = _("Error")
+            print(f"[DEBUG] ethtool exception: {e}")
 
         print(f"[DEBUG] Final interface info: {info}")
         return info

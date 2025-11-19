@@ -295,31 +295,32 @@ class WiFiDetailedInfo(Screen):
 
             # Driver information
             if isdir(driver_path):
-                driver_name = basename(realpath(driver_path))
-                info += _("Driver: {}").format(driver_name) + "\n"
+                driver_link = realpath(driver_path)  # Resolve symlink
+                driver_name = basename(driver_link)  # Get actual driver name
+                info += _("💾 Driver: {}\n").format(driver_name)
                 self._write_debug(f"Driver found: {driver_name}")
             else:
-                info += _("Driver: Unknown") + "\n"
+                info += _("💾 Driver: Unknown\n")
                 self._write_debug("Driver: Unknown")
 
             # Additional interface information
             interface_info = get_interface_info(self.ifname)
             protocol = interface_info.get('protocol')
             if protocol not in (None, "", _("Unknown")):
-                info += _("Protocol: {}").format(protocol) + "\n"
-                self._write_debug(f"Protocol: {protocol}")
+                info += _("🔧 Module: {}\n").format(protocol)
+                self._write_debug(f"Module: {protocol}")
 
             # Interface type
             if self.ifname in get_wifi_interfaces():
-                info += _("Type: Wireless interface") + "\n"
+                info += _("📡 Type: Wireless interface\n")
                 self._write_debug("Type: Wireless")
             else:
-                info += _("Type: Wired interface") + "\n"
+                info += _("🔌 Type: Wired interface\n")
                 self._write_debug("Type: Wired")
 
         except Exception as e:
             error_msg = _("Driver info error: {}").format(str(e))
-            info += _("Error: {}").format(error_msg) + "\n"
+            info += _("❌ {}\n").format(error_msg)
             self._write_debug(error_msg, error=True)
 
         self._write_debug(f"Driver info completed, length: {len(info)}")

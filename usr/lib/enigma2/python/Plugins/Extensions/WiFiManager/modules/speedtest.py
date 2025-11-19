@@ -116,42 +116,33 @@ def test_upload_speed(interface=None, timeout=10):
 
 
 def test_ping(host="8.8.8.8", count=3):
-    """Test latency/ping"""
+    """Test latency/ping using the Enigma2Speedtest method"""
     try:
-        result = subprocess.run(['ping', '-c', str(count), host],
-                                capture_output=True, text=True)
+        result = subprocess.run(
+            ["ping", "-c", str(count), "-W", "3", host],
+            capture_output=True, text=True, timeout=10
+        )
+
         if result.returncode == 0:
-            # DEBUG: print output to check format
-            print(f"[DEBUG] Ping output: {result.stdout}")
-            
-            # MULTIPLE REGEX PATTERNS to cover different output formats
-            patterns = [
-                r'min/avg/max/[^=]*=\s*[\d.]+/([\d.]+)/[\d.]+/[\d.]+',  # Standard Linux format
-                r'rtt min/avg/max/mdev = [\d.]+/([\d.]+)/[\d.]+/[\d.]+',  # Alternative Linux format
-                r'= [\d.]+/([\d.]+)/[\d.]+/[\d.]+ ms',  # Simplified format
-                r'Average = ([\d.]+)ms',  # Windows format
-                r'(\d+\.\d+)/(\d+\.\d+)/(\d+\.\d+)/(\d+\.\d+)',  # Raw numbers format
-            ]
+            for line in result.stdout.split('\n'):
+                if 'min/avg/max' in line or 'rtt min/avg/max' in line:
+                    stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
+                    if stats_match:
+                        ping_time = float(stats_match.group(2))
+                        return "{:.1f} ms".format(ping_time)
 
-            for pattern in patterns:
-                match = search(pattern, result.stdout)
-                if match:
-                    # For the raw numbers format, take the second group (average)
-                    if len(match.groups()) >= 2:
-                        ping_avg = match.group(2) if pattern == patterns[-1] else match.group(1)
-                    else:
-                        ping_avg = match.group(1)
-                    return f"{ping_avg} ms"
+            # Fallback parsing
+            stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', result.stdout)
+            if stats_match:
+                ping_time = float(stats_match.group(2))
+                return "{:.1f} ms".format(ping_time)
 
-            return _("Ping data not found")
+        return _("Ping failed")
 
-        else:
-            print(f"[DEBUG] Ping failed: {result.stderr}")
-            return _("Ping failed")
-
+    except subprocess.TimeoutExpired:
+        return _("Timeout")
     except Exception as e:
-        print(f"[DEBUG] Ping error: {e}")
-        return _("Error: {error}").format(error=str(e))
+        return _("Error: {}").format(str(e))
 
 
 def extended_ping_test():
