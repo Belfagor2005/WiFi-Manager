@@ -3,13 +3,19 @@
 
 ---
 
-# WiFi-Manager
+# 📶 WiFi-Manager
 
-WiFi-Manager is a comprehensive tool for Enigma2 devices to manage, monitor, and optimize your WiFi connections.
-It provides both basic and advanced functionalities for home or professional use.
+**WiFi-Manager** is a comprehensive tool for **Enigma2 devices** to manage, monitor, and optimize WiFi connections.
 
+It provides both **basic and advanced functionalities**, suitable for **home** and **professional** use.
 
-<img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png">
+---
+
+## 📺 Screenshot
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png" height="220">
+</p>
 
 ---
 
@@ -85,3 +91,4 @@ For troubleshooting, guidance, or community support, visit:
 - [CorvoBoys Forum](https://www.corvoboys.org)  
 
 ---
+
