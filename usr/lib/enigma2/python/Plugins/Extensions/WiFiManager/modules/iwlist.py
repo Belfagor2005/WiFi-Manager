@@ -104,7 +104,10 @@ class IWListTools(Screen):
             try:
                 ifnames = getWNICnames()
                 if not ifnames:
-                    self.session.open(MessageBox, _("No WiFi interfaces found"), MessageBox.TYPE_ERROR)
+                    self.session.open(
+                        MessageBox,
+                        _("No WiFi interfaces found"),
+                        MessageBox.TYPE_ERROR)
                     return
 
                 ifname = ifnames[0]
@@ -125,12 +128,19 @@ class IWListTools(Screen):
                     output_text = mystdout.getvalue()
 
                     # Display the output in a dedicated screen
-                    self.session.open(IWListOutputScreen, f"{selection[0]} - {ifname}", output_text)
+                    self.session.open(
+                        IWListOutputScreen, f"{
+                            selection[0]} - {ifname}", output_text)
                 else:
                     self["output"].setText(_("Tool not available"))
 
             except Exception as e:
-                self.session.open(MessageBox, _("Error running {tool}: {error}").format(tool=tool_name, error=str(e)), MessageBox.TYPE_ERROR)
+                self.session.open(
+                    MessageBox,
+                    _("Error running {tool}: {error}").format(
+                        tool=tool_name,
+                        error=str(e)),
+                    MessageBox.TYPE_ERROR)
 
 
 class IWListOutputScreen(Screen):
@@ -168,7 +178,9 @@ def print_scanning_results(wifi, args=None):
         else:
             error_number, error_string = e[0], e[1]
 
-        sys.stderr.write(_("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(interface=wifi.ifname))
+        sys.stderr.write(
+            _("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(
+                interface=wifi.ifname))
         return
 
     try:
@@ -180,8 +192,9 @@ def print_scanning_results(wifi, args=None):
             error_number, error_string = e[0], e[1]
 
         if error_number != errno.EPERM:
-            sys.stderr.write(_("{interface:<8.16}  Interface doesn't support scanning : {error}\n\n").format(
-                interface=wifi.ifname, error=error_string))
+            sys.stderr.write(
+                _("{interface:<8.16}  Interface doesn't support scanning : {error}\n\n").format(
+                    interface=wifi.ifname, error=error_string))
         return
 
     if not results or len(results) == 0:
@@ -203,7 +216,8 @@ def print_scanning_results(wifi, args=None):
         except ValueError:
             channel_number = 0
 
-        print(f"                    Frequency:{freq_str} (Channel {channel_number})")
+        print(
+            f"                    Frequency:{freq_str} (Channel {channel_number})")
 
         quality_updated = "=" if ap.quality.updated & flags.IW_QUAL_QUAL_UPDATED else ":"
         signal_updated = "=" if ap.quality.updated & flags.IW_QUAL_LEVEL_UPDATED else ":"
@@ -230,15 +244,17 @@ def print_scanning_results(wifi, args=None):
                 rate_remainder = len(rate_list) % 5
 
                 for line in range(rate_lines):
-                    label = _("                    Bit Rates:") if line == 0 else _("                              ")
-                    rates = "; ".join(wifi._formatBitrate(x) for x in rate_list[line * 5:(line * 5) + 5])
+                    label = _("                    Bit Rates:") if line == 0 else _(
+                        "                              ")
+                    rates = "; ".join(wifi._formatBitrate(x)
+                                      for x in rate_list[line * 5:(line * 5) + 5])
                     print(f"{label}{rates}")
 
                 if rate_remainder > 0:
-                    label = _("                              ") if rate_lines > 0 else _("                    Bit Rates:")
-                    partial_rates = "; ".join(
-                        wifi._formatBitrate(x) for x in rate_list[-rate_remainder:]
-                    )
+                    label = _("                              ") if rate_lines > 0 else _(
+                        "                    Bit Rates:")
+                    partial_rates = "; ".join(wifi._formatBitrate(
+                        x) for x in rate_list[-rate_remainder:])
                     print(f"{label}{partial_rates}")
     print()
 
@@ -255,7 +271,9 @@ def print_channels(wifi, args=None):
             error_number, error_string = e[0], e[1]
 
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
-            sys.stderr.write(_("{interface:<8.16}  no frequency information.\n\n").format(interface=wifi.ifname))
+            sys.stderr.write(
+                _("{interface:<8.16}  no frequency information.\n\n").format(
+                    interface=wifi.ifname))
         else:
             report_error("channel", wifi.ifname, error_number, error_string)
         return
@@ -267,7 +285,8 @@ def print_channels(wifi, args=None):
 
     iwfreq = wifi.wireless_info.getFrequency()
     fixed = "=" if iwfreq.flags & flags.IW_FREQ_FIXED else ":"
-    return_type = _("Channel") if iwfreq.getFrequency() < KILO else _("Frequency")
+    return_type = _("Channel") if iwfreq.getFrequency(
+    ) < KILO else _("Frequency")
 
     current_freq = wifi.getFrequency()
     try:
@@ -275,7 +294,8 @@ def print_channels(wifi, args=None):
     except ValueError:
         current_channel = 0  # if current_freq not found
 
-    print(f"          Current {return_type}{fixed}{current_freq} (Channel {current_channel})\n")
+    print(
+        f"          Current {return_type}{fixed}{current_freq} (Channel {current_channel})\n")
 
 
 def print_bitrates(wifi, args=None):
@@ -340,7 +360,9 @@ def print_encryption(wifi, args=None):
         print(f"error_number: {error_number}  error_string: {error_string}")
 
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
-            sys.stderr.write(_("{interface:<8.16}  no encryption keys information.\n\n").format(interface=wifi.ifname))
+            sys.stderr.write(
+                _("{interface:<8.16}  no encryption keys information.\n\n").format(
+                    interface=wifi.ifname))
         return
 
     range_info = Iwrange(wifi.ifname)
@@ -393,7 +415,9 @@ def print_power(wifi, args=None):
         print(f"error_number: {error_number}  error_string: {error_string}")
 
         if error_number == errno.ENODEV:
-            sys.stderr.write(_("{interface:<8.16}  no power management information.\n\n").format(interface=wifi.ifname))
+            sys.stderr.write(
+                _("{interface:<8.16}  no power management information.\n\n").format(
+                    interface=wifi.ifname))
         return
 
     print(f"{wifi.ifname:<8.16} ", end="")
@@ -420,19 +444,31 @@ def print_power(wifi, args=None):
     if power_period[0] & flags.IW_POWER_PERIOD:
         mode = "Auto" if power_period[0] & flags.IW_POWER_MIN else "Fixed"
         print(f"{mode}  period  ; ", end="")
-        print(f"min period:{format_pm_value(power_period[1])}\n\t\t\t  ", end="")
+        print(
+            f"min period:{
+                format_pm_value(
+                    power_period[1])}\n\t\t\t  ",
+            end="")
         print(f"max period:{format_pm_value(power_period[2])}\n\t ", end="")
 
     if power_timeout[0] & flags.IW_POWER_TIMEOUT:
         mode = "Auto" if power_timeout[0] & flags.IW_POWER_MIN else "Fixed"
         print(f"{mode}  timeout ; ", end="")
-        print(f"min period:{format_pm_value(power_timeout[1])}\n\t\t\t  ", end="")
+        print(
+            f"min period:{
+                format_pm_value(
+                    power_timeout[1])}\n\t\t\t  ",
+            end="")
         print(f"max period:{format_pm_value(power_timeout[2])}\n\t ", end="")
 
     if power_saving[0] & flags.IW_POWER_SAVING:
         mode = "Auto" if power_saving[0] & flags.IW_POWER_MIN else "Fixed"
         print(f"{mode}  saving  ; ", end="")
-        print(f"min period:{format_pm_value(power_saving[1])}\n\t\t\t  ", end="")
+        print(
+            f"min period:{
+                format_pm_value(
+                    power_saving[1])}\n\t\t\t  ",
+            end="")
         print(f"max period:{format_pm_value(power_saving[2])}\n\t ", end="")
 
     if power_params.disabled:
@@ -471,15 +507,17 @@ def print_retry(wifi, args=None):
         print(f"error_number: {error_number}  error_string: {error_string}")
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
             sys.stderr.write(
-                _("{interface:<8.16}  no retry limit/lifetime information.\n\n").format(interface=wifi.ifname)
-            )
+                _("{interface:<8.16}  no retry limit/lifetime information.\n\n").format(
+                    interface=wifi.ifname))
     else:
         ifname = "%-8.16s  " % (wifi.ifname, )
         if (range_info.retry_flags & flags.IW_RETRY_LIMIT):
             if (range_info.retry_flags & flags.IW_RETRY_MIN):
-                limit = _("Auto  limit    ;  min limit:{limit}").format(limit=range_info.min_retry)
+                limit = _("Auto  limit    ;  min limit:{limit}").format(
+                    limit=range_info.min_retry)
             else:
-                limit = _("Fixed limit    ;  min limit:{limit}").format(limit=range_info.min_retry)
+                limit = _("Fixed limit    ;  min limit:{limit}").format(
+                    limit=range_info.min_retry)
             print(ifname + limit)
             ifname = None
             print("                            max limit:%d" % (
@@ -489,7 +527,8 @@ def print_retry(wifi, args=None):
                 lifetime = "Auto  lifetime ;  min lifetime:%d" % (
                     range_info.min_r_time, )
             else:
-                lifetime = _("Fixed lifetime ;  min lifetime:{lifetime}").format(lifetime=range_info.min_r_time)
+                lifetime = _("Fixed lifetime ;  min lifetime:{lifetime}").format(
+                    lifetime=range_info.min_r_time)
             if ifname:
                 print(ifname + lifetime)
                 ifname = None
@@ -509,13 +548,17 @@ def print_retry(wifi, args=None):
                     mode_type = _("limit")
                 mode = _("                 ")
                 if (iwparam.flags & flags.IW_RETRY_MIN):
-                    mode = mode + _(" min {type}:{value}").format(type=mode_type, value=iwparam.value)
+                    mode = mode + \
+                        _(" min {type}:{value}").format(type=mode_type, value=iwparam.value)
                 if (iwparam.flags & flags.IW_RETRY_MAX):
-                    mode = mode + _(" max {type}:{value}").format(type=mode_type, value=iwparam.value)
+                    mode = mode + \
+                        _(" max {type}:{value}").format(type=mode_type, value=iwparam.value)
                 if (iwparam.flags & flags.IW_RETRY_SHORT):
-                    mode = mode + _(" short {type}:{value}").format(type=mode_type, value=iwparam.value)
+                    mode = mode + \
+                        _(" short {type}:{value}").format(type=mode_type, value=iwparam.value)
                 if (iwparam.flags & flags.IW_RETRY_LONG):
-                    mode = mode + _(" long {type}:{value}").format(type=mode_type, value=iwparam.value)
+                    mode = mode + \
+                        _(" long {type}:{value}").format(type=mode_type, value=iwparam.value)
                 print(mode)
 
 
@@ -536,7 +579,9 @@ def print_aps(wifi, args=None):
         else:
             error_number = e[0]
             error_string = e[1]
-        sys.stderr.write(_("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(interface=wifi.ifname))
+        sys.stderr.write(
+            _("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(
+                interface=wifi.ifname))
     else:
         # "Check for Active Scan (scan with specific essid)"
         # "Check for last scan result (do not trigger scan)"
@@ -559,7 +604,9 @@ def print_aps(wifi, args=None):
                     f"{wifi.ifname:<8.16}  Interface doesn't have a list of Peers/Access-Points"
                 )
             else:
-                print("%-8.16s  Peers/Access-Points in range:" % (wifi.ifname, ))
+                print(
+                    "%-8.16s  Peers/Access-Points in range:" %
+                    (wifi.ifname, ))
                 for ap in results:
                     if ap.quality.quality:
                         if ap.quality.updated & flags.IW_QUAL_QUAL_UPDATED:
@@ -578,20 +625,18 @@ def print_aps(wifi, args=None):
                             noise_updated = ":"
 
                         print(
-                            "    %s : Quality%c%s/%s  Signal level%c%s/%s  Noise level%c%s/%s"
-                            % (
-                                ap.bssid,
-                                quality_updated,
-                                ap.quality.quality,
-                                wifi.getQualityMax().quality,
+                            "    %s : Quality%c%s/%s  Signal level%c%s/%s  Noise level%c%s/%s" %
+                            (ap.bssid,
+                             quality_updated,
+                             ap.quality.quality,
+                             wifi.getQualityMax().quality,
                                 signal_updated,
                                 ap.quality.getSignallevel(),
                                 "100",
                                 noise_updated,
                                 ap.quality.getNoiselevel(),
                                 "100",
-                            )
-                        )
+                             ))
                     else:
                         print("    %s" % (ap.bssid, ))
                 print
@@ -675,7 +720,9 @@ def main():
                 wifi = Wireless(ifnameX)
                 list_command(wifi)
         else:
-            print("iwlist.py: unknown command `%s' (check 'iwlist.py --help')." % (option, ))
+            print(
+                "iwlist.py: unknown command `%s' (check 'iwlist.py --help')." %
+                (option, ))
 
     # if program name and more than one argument are given
     if len(sys.argv) > 2:
@@ -688,7 +735,9 @@ def main():
             wifi = Wireless(ifname)
             list_command(wifi, sys.argv[3:])
         else:
-            print("iwlist.py: unknown command `%s' (check 'iwlist.py --help')." % (option, ))
+            print(
+                "iwlist.py: unknown command `%s' (check 'iwlist.py --help')." %
+                (option, ))
 
 
 if __name__ == "__main__":

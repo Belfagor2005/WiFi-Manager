@@ -78,18 +78,19 @@ class WiFiSpeedtestManager(Screen):
         self["progress"].setRange((0, 100))
         self["progress"].setValue(0)
 
-        self["actions"] = ActionMap(["ColorActions", "OkCancelActions", "DirectionActions"], {
-            "red": self.close,
-            "green": self.quick_test,
-            "yellow": self.full_test,
-            "blue": self.detailed_test,
-            "cancel": self.close,
-            "ok": self.show_results,
-            "up": self.keyUp,
-            "down": self.keyDown,
-            "left": self.keyLeft,
-            "right": self.keyRight
-        })
+        self["actions"] = ActionMap(["ColorActions",
+                                     "OkCancelActions",
+                                     "DirectionActions"],
+                                    {"red": self.close,
+                                     "green": self.quick_test,
+                                     "yellow": self.full_test,
+                                     "blue": self.detailed_test,
+                                     "cancel": self.close,
+                                     "ok": self.show_results,
+                                     "up": self.keyUp,
+                                     "down": self.keyDown,
+                                     "left": self.keyLeft,
+                                     "right": self.keyRight})
 
         self.setTitle(_("WiFi Speed Test Manager"))
         self.update_buttons()
@@ -192,13 +193,19 @@ class WiFiSpeedtestManager(Screen):
             try:
                 ip_response = urlopen('http://ipinfo.io/json', timeout=5)
                 ip_data = json.loads(ip_response.read().decode())
-                info.append(_("Public IP: {ip}").format(ip=ip_data.get('ip', _('Unknown'))))
+                info.append(
+                    _("Public IP: {ip}").format(
+                        ip=ip_data.get(
+                            'ip', _('Unknown'))))
                 info.append(_("Location: {city}, {country}").format(
                     city=ip_data.get('city', _('Unknown')),
                     country=ip_data.get('country', _('Unknown'))
                 ))
-                info.append(_("ISP: {isp}").format(isp=ip_data.get('org', _('Unknown'))))
-            except:
+                info.append(
+                    _("ISP: {isp}").format(
+                        isp=ip_data.get(
+                            'org', _('Unknown'))))
+            except BaseException:
                 info.append(_("Public IP: Unable to determine"))
 
             return "\n".join(info)
@@ -233,20 +240,26 @@ class WiFiSpeedtestManager(Screen):
             # Interface information
             interfaces = get_wifi_interfaces()
             if interfaces:
-                info.append(_("Network Interface: {interface}").format(interface=interfaces[0]))
+                info.append(
+                    _("Network Interface: {interface}").format(
+                        interface=interfaces[0]))
 
             # Gateway
             try:
-                result = subprocess.run(['ip', 'route'], capture_output=True, text=True)
+                result = subprocess.run(
+                    ['ip', 'route'], capture_output=True, text=True)
                 for line in result.stdout.split('\n'):
                     if 'default' in line:
                         gateway = line.split()[2]
-                        info.append(_("Gateway: {gateway}").format(gateway=gateway))
+                        info.append(
+                            _("Gateway: {gateway}").format(
+                                gateway=gateway))
                         break
-            except:
+            except BaseException:
                 pass
 
-            return "\n".join(info) if info else _("Network information unavailable")
+            return "\n".join(info) if info else _(
+                "Network information unavailable")
         except Exception as e:
             return _("Network info error: {error}").format(error=str(e))
 
@@ -268,15 +281,21 @@ class WiFiSpeedtestManager(Screen):
 
             # Formatta i risultati
             results_text = _("=== QUICK SPEED TEST RESULTS ===\n\n")
-            results_text += _("Ping/Latency: {ping}\n").format(ping=ping_result)
-            results_text += _("Download Speed: {download}\n").format(download=download_result)
-            results_text += _("Upload Speed: {upload}\n").format(upload=upload_result)
-            results_text += self._evaluate_connection_quality(download_result, ping_result)
+            results_text += _("Ping/Latency: {ping}\n").format(
+                ping=ping_result)
+            results_text += _("Download Speed: {download}\n").format(
+                download=download_result)
+            results_text += _("Upload Speed: {upload}\n").format(
+                upload=upload_result)
+            results_text += self._evaluate_connection_quality(
+                download_result, ping_result)
 
             self.show_results_success(results_text)
 
         except Exception as e:
-            self.show_error(_("Quick test error: {error}").format(error=str(e)))
+            self.show_error(
+                _("Quick test error: {error}").format(
+                    error=str(e)))
 
     def _run_full_test(self):
         """Runs full test in a separate thread with timeout handling"""
@@ -289,56 +308,66 @@ class WiFiSpeedtestManager(Screen):
                 return
             self.update_progress(5, _("Gathering client information..."))
             client_info = self._get_client_information()
-            results_text += _("=== CLIENT INFORMATION ===\n{info}\n\n").format(info=client_info)
+            results_text += _("=== CLIENT INFORMATION ===\n{info}\n\n").format(
+                info=client_info)
 
             # 1. Extended ping test
             if not self._check_cancellation():
                 return
             self.update_progress(15, _("Testing latency to multiple hosts..."))
             extended_ping = speedtest.extended_ping_test()
-            results_text += _("=== LATENCY TEST ===\n{ping}\n\n").format(ping=extended_ping)
+            results_text += _("=== LATENCY TEST ===\n{ping}\n\n").format(
+                ping=extended_ping)
 
             # 2. Server information
             if not self._check_cancellation():
                 return
             self.update_progress(25, _("Finding best server..."))
             server_info = self._get_server_information()
-            results_text += _("=== SERVER INFORMATION ===\n{server}\n\n").format(server=server_info)
+            results_text += _("=== SERVER INFORMATION ===\n{server}\n\n").format(
+                server=server_info)
 
             # 3. Multiple download tests
             if not self._check_cancellation():
                 return
-            self.update_progress(30, _("Testing download speed (multiple servers)..."))
-            multi_download = speedtest.multi_server_download_test(self.interface)
-            results_text += _("=== DOWNLOAD SPEED TEST ===\n{download}\n\n").format(download=multi_download)
+            self.update_progress(
+                30, _("Testing download speed (multiple servers)..."))
+            multi_download = speedtest.multi_server_download_test(
+                self.interface)
+            results_text += _("=== DOWNLOAD SPEED TEST ===\n{download}\n\n").format(
+                download=multi_download)
 
             # 4. Upload test
             if not self._check_cancellation():
                 return
             self.update_progress(60, _("Testing upload speed..."))
             upload_result = speedtest.test_upload_speed(self.interface)
-            results_text += _("=== UPLOAD SPEED TEST ===\n{upload}\n\n").format(upload=upload_result)
+            results_text += _("=== UPLOAD SPEED TEST ===\n{upload}\n\n").format(
+                upload=upload_result)
 
             # 5. Stability test
             if not self._check_cancellation():
                 return
             self.update_progress(80, _("Testing connection stability..."))
             stability = speedtest.connection_stability_test(self.interface)
-            results_text += _("=== CONNECTION STABILITY ===\n{stability}\n\n").format(stability=stability)
+            results_text += _("=== CONNECTION STABILITY ===\n{stability}\n\n").format(
+                stability=stability)
 
             # 6. Network information
             if not self._check_cancellation():
                 return
             self.update_progress(85, _("Gathering network details..."))
             network_info = self._get_network_information()
-            results_text += _("=== NETWORK INFORMATION ===\n{network}\n\n").format(network=network_info)
+            results_text += _("=== NETWORK INFORMATION ===\n{network}\n\n").format(
+                network=network_info)
 
             # 7. Final connectivity test
             if not self._check_cancellation():
                 return
             self.update_progress(90, _("Final connectivity check..."))
             connectivity = speedtest.test_connectivity()
-            results_text += _("=== FINAL CHECK ===\nConnectivity: {conn}\n").format(conn=connectivity)
+            results_text += _("=== FINAL CHECK ===\nConnectivity: {conn}\n").format(
+                conn=connectivity)
 
             # Complete
             self.update_progress(100, _("Full test completed"))
@@ -386,37 +415,46 @@ class WiFiSpeedtestManager(Screen):
                 results_text = speedtest_simple.format_results()
                 self.show_results_success(results_text)
             else:
-                self.show_error(_("Detailed speed test failed - Check internet connection"))
+                self.show_error(
+                    _("Detailed speed test failed - Check internet connection"))
 
         except Exception as e:
-            self.show_error(_("Detailed test error: {error}").format(error=str(e)))
+            self.show_error(
+                _("Detailed test error: {error}").format(
+                    error=str(e)))
 
     def _evaluate_connection_quality(self, download_result, ping_result):
         """Evaluate connection quality based on test results"""
         evaluation = _("\n=== CONNECTION QUALITY ===\n")
-        
+
         try:
             # Analyze download speed
             download_speed = None
             if download_result and "Mbps" in download_result:
                 try:
-                    # Extract number from strings like "25.4 Mbps" or "Error: 10.5 Mbps"
+                    # Extract number from strings like "25.4 Mbps" or "Error:
+                    # 10.5 Mbps"
                     from re import search as re_search
-                    speed_match = re_search(r'(\d+\.\d+|\d+)\s*Mbps', download_result)
+                    speed_match = re_search(
+                        r'(\d+\.\d+|\d+)\s*Mbps', download_result)
                     if speed_match:
                         download_speed = float(speed_match.group(1))
                 except (ValueError, AttributeError, IndexError):
                     pass
-            
+
             if download_speed is not None:
                 if download_speed > 50:
-                    evaluation += _("📈 Excellent download speed ({:.1f} Mbps)\n").format(download_speed)
+                    evaluation += _("📈 Excellent download speed ({:.1f} Mbps)\n").format(
+                        download_speed)
                 elif download_speed > 20:
-                    evaluation += _("📊 Good download speed ({:.1f} Mbps)\n").format(download_speed)
+                    evaluation += _("📊 Good download speed ({:.1f} Mbps)\n").format(
+                        download_speed)
                 elif download_speed > 5:
-                    evaluation += _("📉 Average download speed ({:.1f} Mbps)\n").format(download_speed)
+                    evaluation += _("📉 Average download speed ({:.1f} Mbps)\n").format(
+                        download_speed)
                 else:
-                    evaluation += _("📉 Poor download speed ({:.1f} Mbps)\n").format(download_speed)
+                    evaluation += _("📉 Poor download speed ({:.1f} Mbps)\n").format(
+                        download_speed)
             else:
                 evaluation += _("❓ Download speed unavailable\n")
 
@@ -424,38 +462,47 @@ class WiFiSpeedtestManager(Screen):
             ping_time = None
             if ping_result and "ms" in ping_result:
                 try:
-                    # Extract number from strings like "25.4 ms" or "Error: 100 ms"
+                    # Extract number from strings like "25.4 ms" or "Error: 100
+                    # ms"
                     from re import search as re_search
                     ping_match = re_search(r'(\d+\.\d+|\d+)\s*ms', ping_result)
                     if ping_match:
                         ping_time = float(ping_match.group(1))
                 except (ValueError, AttributeError, IndexError):
                     pass
-            
+
             if ping_time is not None:
                 if ping_time < 30:
-                    evaluation += _("⚡ Excellent latency ({:.1f} ms)\n").format(ping_time)
+                    evaluation += _(
+                        "⚡ Excellent latency ({:.1f} ms)\n").format(ping_time)
                 elif ping_time < 60:
-                    evaluation += _("✅ Good latency ({:.1f} ms)\n").format(ping_time)
+                    evaluation += _(
+                        "✅ Good latency ({:.1f} ms)\n").format(ping_time)
                 elif ping_time < 100:
-                    evaluation += _("⚠️ Average latency ({:.1f} ms)\n").format(ping_time)
+                    evaluation += _(
+                        "⚠️ Average latency ({:.1f} ms)\n").format(ping_time)
                 elif ping_time < 200:
-                    evaluation += _("🐢 Poor latency ({:.1f} ms)\n").format(ping_time)
+                    evaluation += _(
+                        "🐢 Poor latency ({:.1f} ms)\n").format(ping_time)
                 else:
-                    evaluation += _("❌ Very poor latency ({:.1f} ms)\n").format(ping_time)
+                    evaluation += _(
+                        "❌ Very poor latency ({:.1f} ms)\n").format(ping_time)
             else:
                 evaluation += _("❓ Latency unavailable\n")
 
             # Overall evaluation
             evaluation += _("\n--- OVERALL ASSESSMENT ---\n")
-            
+
             if download_speed is not None and ping_time is not None:
                 # Combined scoring
-                speed_score = min(download_speed / 50.0, 1.0)  # Normalize to 0-1
-                ping_score = max(0, 1.0 - (ping_time / 200.0))  # Normalize to 0-1
-                
+                speed_score = min(
+                    download_speed / 50.0,
+                    1.0)  # Normalize to 0-1
+                ping_score = max(0, 1.0 - (ping_time / 200.0)
+                                 )  # Normalize to 0-1
+
                 overall_score = (speed_score + ping_score) / 2.0
-                
+
                 if overall_score > 0.8:
                     evaluation += _("🎯 EXCELLENT connection\n")
                 elif overall_score > 0.6:
@@ -466,14 +513,14 @@ class WiFiSpeedtestManager(Screen):
                     evaluation += _("👎 POOR connection\n")
                 else:
                     evaluation += _("🚫 VERY POOR connection\n")
-                    
+
             elif download_speed is not None:
                 # Only download available
                 if download_speed > 20:
                     evaluation += _("📶 Connection appears good (based on download)\n")
                 else:
                     evaluation += _("📶 Connection may be limited (based on download)\n")
-                    
+
             elif ping_time is not None:
                 # Only ping available
                 if ping_time < 100:
@@ -513,7 +560,7 @@ class WiFiSpeedtestManager(Screen):
                     results += _("Good download speed\n")
                 else:
                     results += _("Poor download speed\n")
-            except:
+            except BaseException:
                 results += _("Unable to assess download quality\n")
         else:
             results += _("Unable to assess download quality\n")
@@ -534,7 +581,7 @@ class WiFiSpeedtestManager(Screen):
                                           _("Test completed!"),
                                           MessageBox.TYPE_INFO,
                                           timeout=4)
-        except:
+        except BaseException:
             pass
 
     def show_error(self, message):
@@ -571,7 +618,10 @@ class WiFiSpeedtestManager(Screen):
                     break
                 time.sleep(0.1)
 
-            self.session.open(MessageBox, _("Test cancelled"), MessageBox.TYPE_WARNING)
+            self.session.open(
+                MessageBox,
+                _("Test cancelled"),
+                MessageBox.TYPE_WARNING)
             # Don't close immediately, let user see the cancellation
             return
 

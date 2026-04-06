@@ -82,8 +82,8 @@ class WiFiDiagnostics(Screen):
 
     def run_diagnostics(self, full_test=True):
         diagnostics = [_("=== WiFi Diagnostics (System Commands Only) ===\n")]
-        diagnostics.append(_("Test Type: {test_type}\n\n").format(
-            test_type=_('Full Comprehensive Test') if full_test else _('Quick System Check')))
+        diagnostics.append(_("Test Type: {test_type}\n\n").format(test_type=_(
+            'Full Comprehensive Test') if full_test else _('Quick System Check')))
         # LOG INIZIALE
         print("[WiFiDiagnostics] Starting diagnostics...")
 
@@ -130,7 +130,8 @@ class WiFiDiagnostics(Screen):
             print(f"[WiFiDiagnostics] Found interfaces: {wifi_interfaces}")
 
             if not wifi_interfaces:
-                diagnostics.append(_("❌ CRITICAL: No WiFi interfaces detected!\n"))
+                diagnostics.append(
+                    _("❌ CRITICAL: No WiFi interfaces detected!\n"))
                 solutions = self.suggest_solutions(no_interfaces=True)
                 diagnostics.extend(solutions)
                 for line in solutions:
@@ -141,7 +142,9 @@ class WiFiDiagnostics(Screen):
             # 3. PER-INTERFACE DETAILED TESTS
             for ifname in wifi_interfaces:
                 print(f"[WiFiDiagnostics] Testing interface: {ifname}")
-                diagnostics.append(_("\n🔍 DETAILED ANALYSIS: {interface}\n").format(interface=ifname))
+                diagnostics.append(
+                    _("\n🔍 DETAILED ANALYSIS: {interface}\n").format(
+                        interface=ifname))
                 diagnostics.append("-" * 40 + "\n")
 
                 # Interface status
@@ -191,7 +194,8 @@ class WiFiDiagnostics(Screen):
             print("[WiFiDiagnostics] Diagnostics completed successfully")
 
         except Exception as e:
-            error_msg = _("\n❌ DIAGNOSTIC ERROR: {error}\n").format(error=str(e))
+            error_msg = _("\n❌ DIAGNOSTIC ERROR: {error}\n").format(
+                error=str(e))
             diagnostics.append(error_msg)
             print(f"[WiFiDiagnostics] ERROR: {e}")
 
@@ -210,7 +214,7 @@ class WiFiDiagnostics(Screen):
                         ifname = parts[1].strip()
                         if ifname and ifname not in interfaces:
                             interfaces.append(ifname)
-        except:
+        except BaseException:
             pass
         return interfaces
 
@@ -220,17 +224,30 @@ class WiFiDiagnostics(Screen):
         try:
             output = subprocess.check_output(["lsmod"], text=True)
             wifi_modules = []
-            for module in ["rtl", "ath", "brcm", "wl", "iwl", "mt", "rt", "zd"]:
+            for module in [
+                "rtl",
+                "ath",
+                "brcm",
+                "wl",
+                "iwl",
+                "mt",
+                "rt",
+                    "zd"]:
                 if module in output.lower():
                     matches = findall(rf"({module}\w*)\s+\d", output)
                     wifi_modules.extend(matches)
 
             if wifi_modules:
-                results.append(_("✅ Loaded WiFi modules: {modules}\n").format(modules=', '.join(set(wifi_modules))))
+                results.append(
+                    _("✅ Loaded WiFi modules: {modules}\n").format(
+                        modules=', '.join(
+                            set(wifi_modules))))
             else:
                 results.append(_("⚠️  No WiFi kernel modules detected\n"))
         except Exception as e:
-            results.append(_("❌ Kernel module check failed: {error}\n").format(error=e))
+            results.append(
+                _("❌ Kernel module check failed: {error}\n").format(
+                    error=e))
         return results
 
     def check_usb_wifi_devices(self):
@@ -239,7 +256,13 @@ class WiFiDiagnostics(Screen):
         try:
             output = subprocess.check_output(["lsusb"], text=True)
             wifi_adapters = []
-            for vendor in ["Realtek", "Ralink", "Atheros", "Broadcom", "Intel", "MediaTek"]:
+            for vendor in [
+                "Realtek",
+                "Ralink",
+                "Atheros",
+                "Broadcom",
+                "Intel",
+                    "MediaTek"]:
                 if vendor.lower() in output.lower():
                     matches = findall(rf".*{vendor}.*", output, IGNORECASE)
                     wifi_adapters.extend(matches)
@@ -247,11 +270,14 @@ class WiFiDiagnostics(Screen):
             if wifi_adapters:
                 results.append(_("✅ USB WiFi adapters detected:\n"))
                 for adapter in set(wifi_adapters):
-                    results.append(_("   - {adapter}\n").format(adapter=adapter.strip()))
+                    results.append(
+                        _("   - {adapter}\n").format(adapter=adapter.strip()))
             else:
                 results.append(_("ℹ️  No USB WiFi adapters found\n"))
         except Exception as e:
-            results.append(_("❌ USB device check failed: {error}\n").format(error=e))
+            results.append(
+                _("❌ USB device check failed: {error}\n").format(
+                    error=e))
         return results
 
     def check_system_commands(self):
@@ -264,13 +290,17 @@ class WiFiDiagnostics(Screen):
             try:
                 subprocess.run([cmd, "--help"], capture_output=True, timeout=2)
                 available_cmds.append(cmd)
-            except:
+            except BaseException:
                 missing_cmds.append(cmd)
 
         if available_cmds:
-            results.append(_("✅ Available commands: {commands}\n").format(commands=', '.join(available_cmds)))
+            results.append(
+                _("✅ Available commands: {commands}\n").format(
+                    commands=', '.join(available_cmds)))
         if missing_cmds:
-            results.append(_("⚠️  Missing commands: {commands}\n").format(commands=', '.join(missing_cmds)))
+            results.append(
+                _("⚠️  Missing commands: {commands}\n").format(
+                    commands=', '.join(missing_cmds)))
 
         return results
 
@@ -279,23 +309,37 @@ class WiFiDiagnostics(Screen):
         results = []
         try:
             # Check if interface exists and status
-            output = subprocess.check_output(["ip", "link", "show", ifname], text=True)
+            output = subprocess.check_output(
+                ["ip", "link", "show", ifname], text=True)
             if "state UP" in output:
-                results.append(_("✅ Interface {interface}: UP and active\n").format(interface=ifname))
+                results.append(
+                    _("✅ Interface {interface}: UP and active\n").format(
+                        interface=ifname))
             elif "state DOWN" in output:
-                results.append(_("⚠️  Interface {interface}: DOWN (needs activation)\n").format(interface=ifname))
+                results.append(
+                    _("⚠️  Interface {interface}: DOWN (needs activation)\n").format(
+                        interface=ifname))
             else:
-                results.append(_("❌ Interface {interface}: UNKNOWN STATE\n").format(interface=ifname))
+                results.append(
+                    _("❌ Interface {interface}: UNKNOWN STATE\n").format(
+                        interface=ifname))
 
             # Get MAC address
-            mac_match = search(r"link/ether (([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2}))", output)
+            mac_match = search(
+                r"link/ether (([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2}))", output)
             if mac_match:
-                results.append(_("   MAC Address: {mac}\n").format(mac=mac_match.group(1)))
+                results.append(
+                    _("   MAC Address: {mac}\n").format(
+                        mac=mac_match.group(1)))
 
         except subprocess.CalledProcessError:
-            results.append(_("❌ Interface {interface}: NOT FOUND\n").format(interface=ifname))
+            results.append(
+                _("❌ Interface {interface}: NOT FOUND\n").format(
+                    interface=ifname))
         except Exception as e:
-            results.append(_("❌ Interface check failed: {error}\n").format(error=e))
+            results.append(
+                _("❌ Interface check failed: {error}\n").format(
+                    error=e))
 
         return results
 
@@ -305,15 +349,20 @@ class WiFiDiagnostics(Screen):
         try:
             driver_path = f"/sys/class/net/{ifname}/device/driver"
             # Check if the folder exists
-            if subprocess.run(["test", "-d", driver_path], capture_output=True).returncode == 0:
+            if subprocess.run(["test", "-d", driver_path],
+                              capture_output=True).returncode == 0:
                 # Read the symbolic link to get the real driver name
                 driver_link = realpath(driver_path)
                 driver_name = basename(driver_link)
-                results.append(_("   Driver: {driver}\n").format(driver=driver_name))
+                results.append(
+                    _("   Driver: {driver}\n").format(
+                        driver=driver_name))
             else:
                 results.append(_("   Driver: Unknown\n"))
         except Exception as e:
-            results.append(_("   Driver check failed: {error}\n").format(error=str(e)))
+            results.append(
+                _("   Driver check failed: {error}\n").format(
+                    error=str(e)))
         return results
 
     def run_basic_wireless_tests(self, ifname):
@@ -324,12 +373,16 @@ class WiFiDiagnostics(Screen):
         # Test ESSID con iwconfig
         try:
             print(f"[WiFiDiagnostics] Running iwconfig for {ifname}...")
-            output = subprocess.check_output(["iwconfig", ifname], text=True, timeout=5)
-            print(f"[WiFiDiagnostics] iwconfig output: {output[:200]}...")  # Prime 200 caratteri
+            output = subprocess.check_output(
+                ["iwconfig", ifname], text=True, timeout=5)
+            # Prime 200 caratteri
+            print(f"[WiFiDiagnostics] iwconfig output: {output[:200]}...")
 
             essid_match = search(r'ESSID:"([^"]*)"', output)
             if essid_match:
-                results.append(_("📶 ESSID: {essid}\n").format(essid=essid_match.group(1)))
+                results.append(
+                    _("📶 ESSID: {essid}\n").format(
+                        essid=essid_match.group(1)))
                 print(f"[WiFiDiagnostics] ESSID found: {essid_match.group(1)}")
             else:
                 results.append(_("📶 ESSID: Not connected\n"))
@@ -341,7 +394,8 @@ class WiFiDiagnostics(Screen):
 
         # Test signal quality con iwconfig
         try:
-            output = subprocess.check_output(["iwconfig", ifname], text=True, timeout=5)
+            output = subprocess.check_output(
+                ["iwconfig", ifname], text=True, timeout=5)
             quality_match = search(r'Link Quality=(\d+)/(\d+)', output)
             signal_match = search(r'Signal level=(-?\d+)', output)
 
@@ -349,9 +403,11 @@ class WiFiDiagnostics(Screen):
                 current = int(quality_match.group(1))
                 max_val = int(quality_match.group(2))
                 quality_percent = int((current / max_val) * 100)
-                signal_dbm = signal_match.group(1) if signal_match else _("N/A")
-                results.append(_("📊 Signal: {quality}% quality, {signal} dBm\n").format(
-                    quality=quality_percent, signal=signal_dbm))
+                signal_dbm = signal_match.group(
+                    1) if signal_match else _("N/A")
+                results.append(
+                    _("📊 Signal: {quality}% quality, {signal} dBm\n").format(
+                        quality=quality_percent, signal=signal_dbm))
             else:
                 results.append(_("📊 Signal: No quality data available\n"))
         except Exception as e:
@@ -359,10 +415,13 @@ class WiFiDiagnostics(Screen):
 
         # Test operation mode con iwconfig
         try:
-            output = subprocess.check_output(["iwconfig", ifname], text=True, timeout=5)
+            output = subprocess.check_output(
+                ["iwconfig", ifname], text=True, timeout=5)
             mode_match = search(r'Mode:(\w+)', output)
             if mode_match:
-                results.append(_("🔧 Mode: {mode}\n").format(mode=mode_match.group(1)))
+                results.append(
+                    _("🔧 Mode: {mode}\n").format(
+                        mode=mode_match.group(1)))
             else:
                 results.append(_("🔧 Mode: Unknown\n"))
         except Exception as e:
@@ -384,13 +443,20 @@ class WiFiDiagnostics(Screen):
 
         for test_name, cmd in advanced_tests:
             try:
-                output = subprocess.check_output(cmd, shell=True, text=True, timeout=5)
+                output = subprocess.check_output(
+                    cmd, shell=True, text=True, timeout=5)
                 if output.strip():
-                    results.append(_("   ✅ {test}: {output}\n").format(test=test_name, output=output.strip()))
+                    results.append(
+                        _("   ✅ {test}: {output}\n").format(
+                            test=test_name, output=output.strip()))
                 else:
-                    results.append(_("   ⚠️  {test}: No data\n").format(test=test_name))
+                    results.append(
+                        _("   ⚠️  {test}: No data\n").format(
+                            test=test_name))
             except Exception as e:
-                results.append(_("   ❌ {test}: Failed\nError: {error}").format(test=test_name, error=e))
+                results.append(
+                    _("   ❌ {test}: Failed\nError: {error}").format(
+                        test=test_name, error=e))
 
         return results
 
@@ -405,12 +471,17 @@ class WiFiDiagnostics(Screen):
                                              text=True, timeout=10,
                                              stderr=subprocess.STDOUT)
             cell_count = output.count("Cell ")
-            results.append(_("   📡 Scan: Found {count} networks\n").format(count=cell_count))
+            results.append(
+                _("   📡 Scan: Found {count} networks\n").format(
+                    count=cell_count))
         except subprocess.CalledProcessError as e:
             if "Device or resource busy" in e.output:
-                results.append(_("   ⚠️  Scan: Interface busy (connected to network)\n"))
+                results.append(
+                    _("   ⚠️  Scan: Interface busy (connected to network)\n"))
             else:
-                results.append(_("   ❌ Scan test: {error}\n").format(error=e.output.strip()))
+                results.append(
+                    _("   ❌ Scan test: {error}\n").format(
+                        error=e.output.strip()))
         except Exception as e:
             results.append(_("   ❌ Scan test: {error}\n").format(error=e))
 
@@ -419,10 +490,12 @@ class WiFiDiagnostics(Screen):
             from Components.Network import iNetwork
             ip = iNetwork.getAdapterAttribute(ifname, "ip")
             if ip and ip != [0, 0, 0, 0]:
-                results.append(_("   🌐 Connectivity: IP {ip} - ONLINE\n").format(ip='.'.join(map(str, ip))))
+                results.append(
+                    _("   🌐 Connectivity: IP {ip} - ONLINE\n").format(ip='.'.join(map(str, ip))))
             else:
-                results.append(_("   🌐 Connectivity: No IP address - OFFLINE\n"))
-        except:
+                results.append(
+                    _("   🌐 Connectivity: No IP address - OFFLINE\n"))
+        except BaseException:
             results.append(_("   🌐 Connectivity: Unknown status\n"))
 
         return results
@@ -433,16 +506,20 @@ class WiFiDiagnostics(Screen):
         suggestions.append(_("\n🔧 POSSIBLE SOLUTIONS:\n"))
 
         if no_interfaces:
-            suggestions.append(_("1. Check if WiFi adapter is properly connected\n"))
-            suggestions.append(_("2. Verify WiFi adapter is supported by your receiver\n"))
-            suggestions.append(_("3. Try different USB port for USB WiFi adapters\n"))
+            suggestions.append(
+                _("1. Check if WiFi adapter is properly connected\n"))
+            suggestions.append(
+                _("2. Verify WiFi adapter is supported by your receiver\n"))
+            suggestions.append(
+                _("3. Try different USB port for USB WiFi adapters\n"))
             suggestions.append(_("4. Check if WiFi drivers are installed\n"))
             suggestions.append(_("5. Restart the receiver and try again\n"))
 
         else:
             suggestions.append(_("✅ All systems operational\n"))
             suggestions.append(_("💡 Tips:\n"))
-            suggestions.append(_("   • Monitor signal strength for best performance\n"))
+            suggestions.append(
+                _("   • Monitor signal strength for best performance\n"))
             suggestions.append(_("   • Keep drivers updated\n"))
             suggestions.append(_("   • Use 5GHz band for less interference\n"))
 
@@ -452,8 +529,10 @@ class WiFiDiagnostics(Screen):
         """Generate diagnostic summary"""
         summary = []
         if wifi_interfaces:
-            summary.append(_("✅ SYSTEM STATUS: WiFi hardware detected and functional\n"))
-            summary.append(_("🔧 METHOD: Using system commands (no root required)\n"))
+            summary.append(
+                _("✅ SYSTEM STATUS: WiFi hardware detected and functional\n"))
+            summary.append(
+                _("🔧 METHOD: Using system commands (no root required)\n"))
             summary.append(_("💡 All basic diagnostics available\n"))
         else:
             summary.append(_("❌ SYSTEM STATUS: No WiFi interfaces detected\n"))
@@ -515,7 +594,9 @@ class WiFiDiagnostics(Screen):
         try:
             quality = wireless.getQualityAvg()
             if quality:
-                return True, f"Quality: {quality.quality}%, Signal: {quality.siglevel} dBm"
+                return True, f"Quality: {
+                    quality.quality}%, Signal: {
+                    quality.siglevel} dBm"
             return False, "No quality data"
         except Exception as e:
             return False, str(e)

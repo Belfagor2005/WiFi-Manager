@@ -240,7 +240,8 @@ def iwconfig(interface):
         wifi = Wireless(interface)
         line = """%-8.16s  %s  """ % (interface, wifi.getWirelessName())
         if (wifi.getEssid()):
-            line = line + _("""ESSID:"%s"  \n          """) % (wifi.getEssid(), )
+            line = line + \
+                _("""ESSID:"%s"  \n          """) % (wifi.getEssid(), )
         else:
             line = line + _("ESSID:off/any  \n          ")
 
@@ -330,7 +331,8 @@ def iwconfig(interface):
             print(line)
             # Tx line
             line = "          "
-            line = line + _("Tx excessive retries:%s  ") % (discard['retries'], )
+            line = line + \
+                _("Tx excessive retries:%s  ") % (discard['retries'], )
             line = line + _("Invalid misc:%s   ") % (discard['misc'], )
             line = line + _("Missed beacon:%s") % (missed_beacon, )
             print(line)
@@ -348,7 +350,9 @@ def setEssid(wifi, essid):
         else:
             errno, strerror = e[0], e[1]
 
-        print(f'Error for wireless request "Set ESSID" ({wifi_flags.SIOCSIWESSID:X}):')
+        print(
+            f'Error for wireless request "Set ESSID" ({
+                wifi_flags.SIOCSIWESSID:X}):')
         print(f'    argument too big (max {wifi_flags.IW_ESSID_MAX_SIZE})')
         print(type(errno), errno)
         print(type(strerror), strerror)
@@ -362,11 +366,15 @@ def setMode(wifi, mode):
     try:
         wifi.setMode(mode)
     except ValueError as detail:
-        print(f'Error for wireless request "Set Mode" ({wifi_flags.SIOCSIWMODE:X}):')
+        print(
+            f'Error for wireless request "Set Mode" ({
+                wifi_flags.SIOCSIWMODE:X}):')
         print(f'    invalid argument "{mode}".')
         print(f'    detail "{detail}".')
     except IOError as e:
-        print(f'Error for wireless request "Set Mode" ({wifi_flags.SIOCSIWMODE:X}):')
+        print(
+            f'Error for wireless request "Set Mode" ({
+                wifi_flags.SIOCSIWMODE:X}):')
         print(f'    SET failed on device {wifi.ifname}; {e}')
     except Exception as detail:
         # Unexpected errors
@@ -433,18 +441,18 @@ def get_matching_command(option):
     """
     # build dictionary of commands and functions
     iwcommands = {
-        "es": ("essid",      setEssid),
-        "mode": ("mode",       setMode),
-        "fre": ("freq",       setFreq),
-        "ch": ("channel",    setFreq),
+        "es": ("essid", setEssid),
+        "mode": ("mode", setMode),
+        "fre": ("freq", setFreq),
+        "ch": ("channel", setFreq),
         # "b"    : ("bit",        setBitrate),
         # "ra"   : ("rate",       setBitrate),
-        "en": ("enc",        setKey),
-        "k": ("key",        setKey),
+        "en": ("enc", setKey),
+        "k": ("key", setKey),
         # "p"    : ("power",      setPower),
         # "ni"   : ("nickname",   setNickname),
         # "nw"   : ("nwid",       setNwid),
-        "a": ("ap",         setAP),
+        "a": ("ap", setAP),
         # "t"    : ("txpower",    setTxpower),
         # "s"    : ("sens",       setSens),
         # "re"   : ("retry",      setRetry),
@@ -473,17 +481,18 @@ def main():
         try:
             if opts[0][0] in ("-h", "--help"):
                 usage()
-        except:
+        except BaseException:
             try:
                 if opts[0][0] in ("-v", "--version"):
                     version_info()
-            except:
+            except BaseException:
                 if len(args) == 0:
                     # no params given to iwconfig.py
                     for interface in getNICnames():
                         iwconfig(interface)
                 elif len(args) == 1:
-                    # one param given to iwconfig.py, it should be a network device
+                    # one param given to iwconfig.py, it should be a network
+                    # device
                     if argv[1] in getNICnames():
                         iwconfig(argv[1])
                 else:
@@ -499,7 +508,9 @@ def main():
                             wifi = Wireless(ifname)
                             set_command(wifi, argv[3])
                         else:
-                            print("iwconfig.py: unknown command `%s'(check 'iwconfig.py --help')." % (option, ))
+                            print(
+                                "iwconfig.py: unknown command `%s'(check 'iwconfig.py --help')." %
+                                (option, ))
 
 
 if __name__ == "__main__":

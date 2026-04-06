@@ -73,7 +73,8 @@ class WiFiDetailedInfo(Screen):
         )
         self.setTitle(_("Detailed Info - {}").format(ifname))
         # Write initialization to the debug file
-        self._write_debug(f"🚀 WiFiDetailedInfo INITIALIZED for interface: {ifname}")
+        self._write_debug(
+            f"🚀 WiFiDetailedInfo INITIALIZED for interface: {ifname}")
         self.refresh_info()
 
     def _write_debug(self, message, error=False):
@@ -102,14 +103,19 @@ class WiFiDetailedInfo(Screen):
         print(f"[WiFiDetailedInfo] Starting refresh for {self.ifname}")
         wifi_ifaces = get_wifi_interfaces()
         if self.ifname not in wifi_ifaces:
-            error_msg = _("❌ Interface {} not found or not a WiFi interface\n").format(self.ifname)
-            error_msg += _("Available interfaces: {}").format(', '.join(wifi_ifaces) if wifi_ifaces else _('None'))
-            self._write_debug(f"Interface not found: {self.ifname}", error=True)
+            error_msg = _("❌ Interface {} not found or not a WiFi interface\n").format(
+                self.ifname)
+            error_msg += _("Available interfaces: {}").format(
+                ', '.join(wifi_ifaces) if wifi_ifaces else _('None'))
+            self._write_debug(
+                f"Interface not found: {
+                    self.ifname}", error=True)
             self["info_output"].setText(error_msg)
             return
 
         try:
-            info_text = _("📡 DETAILED WIFI INFORMATION - {}\n").format(self.ifname.upper())
+            info_text = _(
+                "📡 DETAILED WIFI INFORMATION - {}\n").format(self.ifname.upper())
             info_text += "=" * 60 + "\n\n"
 
             # 1. BASIC INTERFACE INFORMATION
@@ -157,25 +163,39 @@ class WiFiDetailedInfo(Screen):
             info_text += networks_info
 
             # Also save complete information to the debug file
-            self._write_debug(f"REFRESH COMPLETED SUCCESSFULLY - Interface: {self.ifname}")
-            self._write_debug(f"FINAL OUTPUT LENGTH: {len(info_text)} characters")
+            self._write_debug(
+                f"REFRESH COMPLETED SUCCESSFULLY - Interface: {self.ifname}")
+            self._write_debug(
+                f"FINAL OUTPUT LENGTH: {
+                    len(info_text)} characters")
 
             # Save the full output to the debug file
             try:
                 with open(self.debug_file, "a", encoding="utf-8") as f:
-                    f.write("\n" + "=" * 50 + " FULL OUTPUT " + "=" * 50 + "\n")
+                    f.write(
+                        "\n" +
+                        "=" *
+                        50 +
+                        " FULL OUTPUT " +
+                        "=" *
+                        50 +
+                        "\n")
                     f.write(info_text)
                     f.write("\n" + "=" * 120 + "\n")
             except Exception as e:
-                self._write_debug(f"Error saving full output to debug file: {e}", error=True)
+                self._write_debug(
+                    f"Error saving full output to debug file: {e}", error=True)
 
             print("[WiFiDetailedInfo] Refresh completed successfully")
             self["info_output"].setText(info_text)
 
         except Exception as e:
-            error_msg = _("❌ Error getting detailed info:\n{}\n\n").format(str(e))
+            error_msg = _(
+                "❌ Error getting detailed info:\n{}\n\n").format(str(e))
             stack_trace = traceback.format_exc()
-            self._write_debug(f"CRITICAL ERROR during refresh: {error_msg}", error=True)
+            self._write_debug(
+                f"CRITICAL ERROR during refresh: {error_msg}",
+                error=True)
             self._write_debug(f"STACK TRACE: {stack_trace}", error=True)
             print(f"[WiFiDetailedInfo] ERROR: {e}")
             print(f"Stack trace: {stack_trace}")
@@ -183,7 +203,9 @@ class WiFiDetailedInfo(Screen):
 
     def get_wireless_info(self):
         """Get wireless-specific information using tools.py"""
-        self._write_debug(f"Getting wireless info for {self.ifname} using tools.py")
+        self._write_debug(
+            f"Getting wireless info for {
+                self.ifname} using tools.py")
         print(f"[WiFiDetailedInfo] Getting wireless info for {self.ifname}")
         info = ""
 
@@ -192,7 +214,9 @@ class WiFiDetailedInfo(Screen):
 
             if 'error' in interface_info:
                 info += _("❌ Error: {}\n").format(interface_info['error'])
-                self._write_debug(f"Error getting wireless info: {interface_info['error']}", error=True)
+                self._write_debug(
+                    f"Error getting wireless info: {
+                        interface_info['error']}", error=True)
                 return info
 
             info += _("📡 Interface Type: WIRELESS\n")
@@ -244,7 +268,9 @@ class WiFiDetailedInfo(Screen):
 
     def get_basic_interface_info(self):
         """Get basic interface information using tools.py"""
-        self._write_debug(f"Getting basic info for {self.ifname} using tools.py")
+        self._write_debug(
+            f"Getting basic info for {
+                self.ifname} using tools.py")
         print(f"[WiFiDetailedInfo] Getting basic info for {self.ifname}")
         info = ""
 
@@ -252,11 +278,14 @@ class WiFiDetailedInfo(Screen):
             interface_info = get_interface_info(self.ifname)
             if 'error' in interface_info:
                 info += _("❌ Error: {}\n").format(interface_info['error'])
-                self._write_debug(f"Error getting interface info: {interface_info['error']}", error=True)
+                self._write_debug(
+                    f"Error getting interface info: {
+                        interface_info['error']}", error=True)
                 return info
 
             # Status
-            status = _("UP and active") if is_interface_up(self.ifname) else _("DOWN")
+            status = _("UP and active") if is_interface_up(
+                self.ifname) else _("DOWN")
             icon = "✅" if is_interface_up(self.ifname) else "🔌"
             info += _("{} Status: {}\n").format(icon, status)
             self._write_debug(f"Status: {status}")
@@ -265,12 +294,14 @@ class WiFiDetailedInfo(Screen):
             info += _("🔧 Interface: {}\n").format(interface_info.get('name', self.ifname))
 
             # MAC Address
-            if 'ap_addr' in interface_info and interface_info['ap_addr'] != _("Unknown"):
+            if 'ap_addr' in interface_info and interface_info['ap_addr'] != _(
+                    "Unknown"):
                 info += _("📟 MAC: {}\n").format(interface_info['ap_addr'])
                 self._write_debug(f"MAC: {interface_info['ap_addr']}")
 
             # Type
-            interface_type = _("Wireless") if self.ifname in get_wifi_interfaces() else _("Wired")
+            interface_type = _(
+                "Wireless") if self.ifname in get_wifi_interfaces() else _("Wired")
             icon = "📡" if interface_type == _("Wireless") else "🔌"
             info += _("{} Type: {} interface\n").format(icon, interface_type)
             self._write_debug(f"Type: {interface_type}")
@@ -375,7 +406,9 @@ class WiFiDetailedInfo(Screen):
 
             networks = scan_networks(self.ifname, detailed=True)
 
-            self._write_debug(f"Scan completed, found {len(networks)} networks")
+            self._write_debug(
+                f"Scan completed, found {
+                    len(networks)} networks")
 
             if networks:
                 info += _("Found {} networks:\n").format(len(networks))
@@ -391,8 +424,7 @@ class WiFiDetailedInfo(Screen):
                     signal_quality = format_signal_quality(quality_percent)
 
                     info += _("  {:2d}. {} {:20} | Signal: {:4} dBm ({}) | Channel: {}\n").format(
-                        i + 1, encrypted, essid, signal, signal_quality, channel
-                    )
+                        i + 1, encrypted, essid, signal, signal_quality, channel)
 
                 if len(networks) > 8:
                     info += _("  ... and {} more networks\n").format(len(networks) - 8)

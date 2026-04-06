@@ -81,7 +81,8 @@ class Enigma2Speedtest:
                 print(f" ipinfo.io failed: {e}")
                 try:
                     ip_response = urlopen('http://api.ipify.org', timeout=5)
-                    self.results['client'] = {'ip': ip_response.read().decode().strip()}
+                    self.results['client'] = {
+                        'ip': ip_response.read().decode().strip()}
                     print("IP obtained via fallback")
                     return True
                 except Exception as e2:
@@ -105,20 +106,28 @@ class Enigma2Speedtest:
                 for line in result.stdout.split('\n'):
                     if 'min/avg/max' in line or 'rtt min/avg/max' in line:
                         # Robust pattern for different formats
-                        stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
+                        stats_match = search(
+                            r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
                         if stats_match:
                             ping_time = float(stats_match.group(2))
-                            print(_("Ping {host}: {time} ms").format(host=host, time=ping_time))
+                            print(
+                                _("Ping {host}: {time} ms").format(
+                                    host=host, time=ping_time))
                             return ping_time
 
                 # Fallback if min/avg/max line not found
-                stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', result.stdout)
+                stats_match = search(
+                    r'([0-9.]+)/([0-9.]+)/([0-9.]+)', result.stdout)
                 if stats_match:
                     ping_time = float(stats_match.group(2))
-                    print(_("Ping {host} (fallback): {time} ms").format(host=host, time=ping_time))
+                    print(
+                        _("Ping {host} (fallback): {time} ms").format(
+                            host=host, time=ping_time))
                     return ping_time
 
-            print(_("Ping failed for {host} (returncode: {code})").format(host=host, code=result.returncode))
+            print(
+                _("Ping failed for {host} (returncode: {code})").format(
+                    host=host, code=result.returncode))
             print(_("Output: {output}...").format(output=result.stdout[:200]))
             return 999
 
@@ -126,7 +135,9 @@ class Enigma2Speedtest:
             print(_("Ping timeout for {host}").format(host=host))
             return 999
         except Exception as e:
-            print(_("Ping error for {host}: {error}").format(host=host, error=e))
+            print(
+                _("Ping error for {host}: {error}").format(
+                    host=host, error=e))
             return 999
 
     def test_ping(self):
@@ -146,7 +157,9 @@ class Enigma2Speedtest:
             for name, host in ping_hosts:
                 ping_time = self.test_specific_ping(host)
                 if ping_time < 999:
-                    ping_results.append(_("{}: {:.1f} ms").format(name, ping_time))
+                    ping_results.append(
+                        _("{}: {:.1f} ms").format(
+                            name, ping_time))
                     total_ping += ping_time
                     valid_pings += 1
                 else:
@@ -156,8 +169,11 @@ class Enigma2Speedtest:
                 avg_ping = total_ping / valid_pings
                 self.results['ping_details'] = ping_results
                 self.results['ping'] = avg_ping
-                print(_("Ping test completed: {avg:.1f} ms average ({success}/{total} successful)").format(
-                    avg=avg_ping, success=valid_pings, total=len(ping_hosts)))
+                print(
+                    _("Ping test completed: {avg:.1f} ms average ({success}/{total} successful)").format(
+                        avg=avg_ping,
+                        success=valid_pings,
+                        total=len(ping_hosts)))
                 return avg_ping
             else:
                 self.results['ping_details'] = [_("All ping tests failed")]
@@ -168,7 +184,8 @@ class Enigma2Speedtest:
         except Exception as e:
             print(_("Ping test error: {error}").format(error=e))
             self.results['ping'] = 999
-            self.results['ping_details'] = [_("Ping test error: {error}").format(error=e)]
+            self.results['ping_details'] = [
+                _("Ping test error: {error}").format(error=e)]
             return 999
 
     def test_download_simple(self):
@@ -218,7 +235,8 @@ class Enigma2Speedtest:
                         if speed_mbps > best_speed_mbps:
                             best_speed_mbps = speed_mbps
 
-                        print(f"Download from {url.split('/')[2]}: {speed_mbps:.2f} Mbps")
+                        print(
+                            f"Download from {url.split('/')[2]}: {speed_mbps:.2f} Mbps")
 
                     # Short break between tests
                     time.sleep(1)
@@ -229,8 +247,11 @@ class Enigma2Speedtest:
 
             if download_details:
                 self.results['download_details'] = download_details
-                self.results['download'] = best_speed_mbps * 1000000  # Convert to bps
-                print(f"Download test completed. Best speed: {best_speed_mbps:.2f} Mbps")
+                self.results['download'] = best_speed_mbps * \
+                    1000000  # Convert to bps
+                print(
+                    f"Download test completed. Best speed: {
+                        best_speed_mbps:.2f} Mbps")
                 return best_speed_mbps * 1000000
             else:
                 print("All download tests failed")
@@ -258,7 +279,9 @@ class Enigma2Speedtest:
 
                 upload_mbps = download_mbps * upload_ratio
                 self.results['upload'] = upload_mbps * 1000000
-                print(f"Upload estimated: {upload_mbps:.2f} Mbps (ratio: {upload_ratio})")
+                print(
+                    f"Upload estimated: {
+                        upload_mbps:.2f} Mbps (ratio: {upload_ratio})")
                 return upload_mbps * 1000000
 
             print("Cannot estimate upload - no download data")
@@ -306,7 +329,8 @@ class Enigma2Speedtest:
 
             if best_server:
                 self.results['server'] = best_server
-                self.results['sponsor'] = best_server.get('sponsor', _('Unknown'))
+                self.results['sponsor'] = best_server.get(
+                    'sponsor', _('Unknown'))
                 self.results['host'] = best_server.get('host', _('Unknown'))
                 print(f"Best server: {best_server['name']} ({best_ping} ms)")
                 return best_server
@@ -389,14 +413,19 @@ class Enigma2Speedtest:
     def format_results(self):
         """Format the results for display"""
         # Check if the test was successful
-        has_ping = self.results.get('ping', 0) > 0 and self.results.get('ping', 0) < 999
+        has_ping = self.results.get(
+            'ping', 0) > 0 and self.results.get(
+            'ping', 0) < 999
         has_download = self.results.get('download', 0) > 0
 
         if not has_ping and not has_download:
-            return _("Speedtest failed - No internet connection or all tests failed")
+            return _(
+                "Speedtest failed - No internet connection or all tests failed")
 
-        download_mbps = self.results['download'] / 1000000 if has_download else 0
-        upload_mbps = self.results['upload'] / 1000000 if self.results['upload'] > 0 else 0
+        download_mbps = self.results['download'] / \
+            1000000 if has_download else 0
+        upload_mbps = self.results['upload'] / \
+            1000000 if self.results['upload'] > 0 else 0
         ping_ms = self.results.get('ping', 0) if has_ping else 999
 
         result_text = _(
@@ -408,22 +437,27 @@ class Enigma2Speedtest:
         # Client Information
         if self.results.get('client'):
             result_text += _("👤 CLIENT INFORMATION:\n")
-            result_text += _("IP: {ip}\n").format(ip=self.results['client'].get('ip', _('Unknown')))
+            result_text += _("IP: {ip}\n").format(
+                ip=self.results['client'].get('ip', _('Unknown')))
             if 'city' in self.results['client']:
                 result_text += _("Location: {city}, {country}\n").format(
                     city=self.results['client'].get('city', _('Unknown')),
                     country=self.results['client'].get('country', _('Unknown'))
                 )
             if 'isp' in self.results['client']:
-                result_text += _("ISP: {isp}\n").format(isp=self.results['client'].get('isp', _('Unknown')))
+                result_text += _("ISP: {isp}\n").format(
+                    isp=self.results['client'].get('isp', _('Unknown')))
             result_text += "\n"
 
         # Server Information
         if self.results.get('server'):
             result_text += _("🏢 SERVER INFORMATION:\n")
-            result_text += _("Name: {name}\n").format(name=self.results['server'].get('name', _('Unknown')))
-            result_text += _("Sponsor: {sponsor}\n").format(sponsor=self.results['server'].get('sponsor', _('Unknown')))
-            result_text += _("Host: {host}\n\n").format(host=self.results['server'].get('host', _('Unknown')))
+            result_text += _("Name: {name}\n").format(
+                name=self.results['server'].get('name', _('Unknown')))
+            result_text += _("Sponsor: {sponsor}\n").format(
+                sponsor=self.results['server'].get('sponsor', _('Unknown')))
+            result_text += _("Host: {host}\n\n").format(
+                host=self.results['server'].get('host', _('Unknown')))
 
         # Main Results
         result_text += _("📈 TEST RESULTS:\n")

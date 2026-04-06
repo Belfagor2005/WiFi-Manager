@@ -75,16 +75,28 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         self.helpList = []
         self.advanced_mode = False
 
-        ConfigListScreen.__init__(self, self.list, session=session, on_change=self.onSelectionChanged)
+        ConfigListScreen.__init__(
+            self,
+            self.list,
+            session=session,
+            on_change=self.onSelectionChanged)
         self.network_config = ConfigSubsection()
         self.wifi_config = ConfigSubsection()
-        self.wifi_config.essid = ConfigText(default=self.network_info.get('essid', ''), fixed_size=False)
+        self.wifi_config.essid = ConfigText(
+            default=self.network_info.get(
+                'essid', ''), fixed_size=False)
         self.wifi_config.hiddenessid = ConfigYesNo(default=False)
-        self.wifi_config.encryption = ConfigSelection(MODE_LIST, default=self.network_info.get('encryption', 'WPA/WPA2'))
-        self.wifi_config.wepkeytype = ConfigSelection(WEP_LIST, default="ASCII")
-        self.wifi_config.psk = ConfigPassword(default=self.network_info.get('password', ''), fixed_size=False)
+        self.wifi_config.encryption = ConfigSelection(
+            MODE_LIST, default=self.network_info.get(
+                'encryption', 'WPA/WPA2'))
+        self.wifi_config.wepkeytype = ConfigSelection(
+            WEP_LIST, default="ASCII")
+        self.wifi_config.psk = ConfigPassword(
+            default=self.network_info.get(
+                'password', ''), fixed_size=False)
 
-        self.wifi_config.connection_type = ConfigSelection(NETWORK_CONFIGS, default="dhcp")
+        self.wifi_config.connection_type = ConfigSelection(
+            NETWORK_CONFIGS, default="dhcp")
         self.wifi_config.ip = ConfigIP(default=[192, 168, 1, 100])
         self.wifi_config.netmask = ConfigIP(default=[255, 255, 255, 0])
         self.wifi_config.gateway = ConfigIP(default=[192, 168, 1, 1])
@@ -92,7 +104,8 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         self.wifi_config.dns2 = ConfigIP(default=[8, 8, 4, 4])
 
         # ADVANCED SETTINGS (dalla classe WiFiConfig originale)
-        self.wifi_config.interface = ConfigSelection(choices=self.get_interfaces(), default=iface)
+        self.wifi_config.interface = ConfigSelection(
+            choices=self.get_interfaces(), default=iface)
         self.wifi_config.mode = ConfigSelection(choices=[
             ("managed", "Managed (Client)"),
             ("ad-hoc", "Ad-Hoc"),
@@ -104,7 +117,8 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         # Channel Selection
         channels = [("auto", "Auto")]
         channels.extend([(str(i), f"Channel {i}") for i in range(1, 14)])
-        self.wifi_config.channel = ConfigSelection(choices=channels, default="auto")
+        self.wifi_config.channel = ConfigSelection(
+            choices=channels, default="auto")
 
         # TX Power
         self.wifi_config.txpower = ConfigSelection(choices=[
@@ -179,9 +193,14 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             "cancel": self.cancel,
             "ok": self.keyOK,
         })
-        self.wifi_config.connection_type.addNotifier(self.configChanged, initial_call=False)
+        self.wifi_config.connection_type.addNotifier(
+            self.configChanged, initial_call=False)
         self.buildConfigList()
-        self.setTitle(_("Configure {}").format(self.network_info.get('essid', 'WiFi Network')))
+        self.setTitle(
+            _("Configure {}").format(
+                self.network_info.get(
+                    'essid',
+                    'WiFi Network')))
 
         if not network_info:
             self.load_current_settings()
@@ -207,7 +226,11 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
 
             current = self["config"].getCurrent()
             if current and len(current) > 1 and current[1] is not None:
-                if isinstance(current[1], (ConfigEnableDisable, ConfigYesNo, ConfigSelection)):
+                if isinstance(
+                    current[1],
+                    (ConfigEnableDisable,
+                     ConfigYesNo,
+                     ConfigSelection)):
                     self['key_green'].setText(
                         _('Save & Connect') if self['config'].isChanged() else '- - - -')
 
@@ -235,20 +258,21 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
                                                 capture_output=True, text=True)
                         if result.returncode == 0:
                             interfaces.append((iface, iface))
-                    except:
+                    except BaseException:
                         continue
 
             # Method 3: Use iwconfig to find wireless interfaces
             if not interfaces:
                 try:
-                    result = subprocess.run(['iwconfig'], capture_output=True, text=True)
+                    result = subprocess.run(
+                        ['iwconfig'], capture_output=True, text=True)
                     if result.returncode == 0:
                         for line in result.stdout.split('\n'):
                             if 'IEEE 802.11' in line and 'no wireless extensions' not in line:
                                 ifname = line.split()[0]
                                 if ifname and ifname not in interfaces:
                                     interfaces.append((ifname, ifname))
-                except:
+                except BaseException:
                     pass
 
         except Exception as e:
@@ -265,7 +289,8 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             ifname = self.wifi_config.interface.value
 
             # Get current settings using iwconfig
-            result = subprocess.run(['iwconfig', ifname], capture_output=True, text=True)
+            result = subprocess.run(
+                ['iwconfig', ifname], capture_output=True, text=True)
             if result.returncode != 0:
                 print(f"[WiFiConfig] Cannot get settings for {ifname}")
                 return
@@ -276,21 +301,24 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             mode_match = search(r'Mode:(\w+)', output)
             if mode_match:
                 current_mode = mode_match.group(1).lower()
-                if current_mode in [choice[0] for choice in self.wifi_config.mode.choices]:
+                if current_mode in [choice[0]
+                                    for choice in self.wifi_config.mode.choices]:
                     self.wifi_config.mode.value = current_mode
 
             # Load current channel
             channel_match = search(r'Channel[=:](\d+)', output)
             if channel_match:
                 current_channel = channel_match.group(1)
-                if current_channel in [choice[0] for choice in self.wifi_config.channel.choices]:
+                if current_channel in [choice[0]
+                                       for choice in self.wifi_config.channel.choices]:
                     self.wifi_config.channel.value = current_channel
 
             # Load TX power
             power_match = search(r'Tx-Power[=:](\d+)', output)
             if power_match:
                 current_power = power_match.group(1)
-                if current_power in [choice[0] for choice in self.wifi_config.txpower.choices]:
+                if current_power in [choice[0]
+                                     for choice in self.wifi_config.txpower.choices]:
                     self.wifi_config.txpower.value = current_power
 
             # Load rate
@@ -299,7 +327,8 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
                 current_rate = rate_match.group(1)
                 # Remove decimal for matching
                 current_rate_clean = current_rate.split('.')[0]
-                if current_rate_clean in [choice[0] for choice in self.wifi_config.rate.choices]:
+                if current_rate_clean in [choice[0]
+                                          for choice in self.wifi_config.rate.choices]:
                     self.wifi_config.rate.value = current_rate_clean
 
             # Load RTS threshold
@@ -334,15 +363,21 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
 
             # Set operation mode
             if self.wifi_config.mode.value != "auto":
-                commands.append(f"iwconfig {ifname} mode {self.wifi_config.mode.value}")
+                commands.append(
+                    f"iwconfig {ifname} mode {
+                        self.wifi_config.mode.value}")
 
             # Set channel
             if self.wifi_config.channel.value != "auto":
-                commands.append(f"iwconfig {ifname} channel {self.wifi_config.channel.value}")
+                commands.append(
+                    f"iwconfig {ifname} channel {
+                        self.wifi_config.channel.value}")
 
             # Set TX power
             if self.wifi_config.txpower.value != "auto":
-                commands.append(f"iwconfig {ifname} txpower {self.wifi_config.txpower.value}")
+                commands.append(
+                    f"iwconfig {ifname} txpower {
+                        self.wifi_config.txpower.value}")
 
             # Set RTS threshold
             if self.wifi_config.rts.value != "auto":
@@ -360,7 +395,9 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
 
             # Set data rate
             if self.wifi_config.rate.value != "auto":
-                commands.append(f"iwconfig {ifname} rate {self.wifi_config.rate.value}M")
+                commands.append(
+                    f"iwconfig {ifname} rate {
+                        self.wifi_config.rate.value}M")
 
             # Execute commands
             success_count = 0
@@ -368,13 +405,16 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
 
             for cmd in commands:
                 try:
-                    result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=10)
+                    result = subprocess.run(
+                        cmd, shell=True, capture_output=True, text=True, timeout=10)
                     if result.returncode == 0:
                         success_count += 1
                         print(f"[WiFiConfig] Command successful: {cmd}")
                     else:
-                        failed_commands.append(f"{cmd}: {result.stderr.strip()}")
-                        print(f"[WiFiConfig] Command failed: {cmd} - {result.stderr}")
+                        failed_commands.append(
+                            f"{cmd}: {result.stderr.strip()}")
+                        print(
+                            f"[WiFiConfig] Command failed: {cmd} - {result.stderr}")
                 except subprocess.TimeoutExpired:
                     failed_commands.append(f"{cmd}: Timeout")
                     print(f"[WiFiConfig] Command timeout: {cmd}")
@@ -391,7 +431,8 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
                 self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
             else:
                 message = _("No settings were applied\n\nFailed commands:\n")
-                message += "\n".join(failed_commands[:3])  # Show first 3 errors
+                # Show first 3 errors
+                message += "\n".join(failed_commands[:3])
                 self.session.open(MessageBox, message, MessageBox.TYPE_WARNING)
 
         except Exception as e:
@@ -404,44 +445,101 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         # BASIC SECTION (always shown)
         section = '--------------------------( BASIC SETTINGS )-----------------------'
         self.list.append(getConfigListEntry(section))
-        self.list.append(getConfigListEntry(_("Interface"), self.wifi_config.interface))
+        self.list.append(
+            getConfigListEntry(
+                _("Interface"),
+                self.wifi_config.interface))
 
-        self.list.append(getConfigListEntry(_("Network Name (SSID)"), self.wifi_config.essid))
-        self.list.append(getConfigListEntry(_("Hidden Network"), self.wifi_config.hiddenessid))
-        self.list.append(getConfigListEntry(_("Encryption"), self.wifi_config.encryption))
+        self.list.append(
+            getConfigListEntry(
+                _("Network Name (SSID)"),
+                self.wifi_config.essid))
+        self.list.append(
+            getConfigListEntry(
+                _("Hidden Network"),
+                self.wifi_config.hiddenessid))
+        self.list.append(
+            getConfigListEntry(
+                _("Encryption"),
+                self.wifi_config.encryption))
 
         # Show password field only for encrypted networks
         if self.wifi_config.encryption.value != "Unencrypted":
-            self.list.append(getConfigListEntry(_("Password"), self.wifi_config.psk))
+            self.list.append(
+                getConfigListEntry(
+                    _("Password"),
+                    self.wifi_config.psk))
 
             # Show WEP key type for WEP encryption
             if self.wifi_config.encryption.value == "WEP":
-                self.list.append(getConfigListEntry(_("WEP Key Type"), self.wifi_config.wepkeytype))
+                self.list.append(
+                    getConfigListEntry(
+                        _("WEP Key Type"),
+                        self.wifi_config.wepkeytype))
 
         # NETWORK SECTION (sempre visibile)
         section = '--------------------------( NETWORK SETTINGS )-----------------------'
         self.list.append(getConfigListEntry(section))
-        self.list.append(getConfigListEntry(_("IP Configuration"), self.wifi_config.connection_type))
+        self.list.append(
+            getConfigListEntry(
+                _("IP Configuration"),
+                self.wifi_config.connection_type))
 
         # Mostra configurazione IP solo se manuale
         if self.wifi_config.connection_type.value == "static":
-            self.list.append(getConfigListEntry(_("IP Address"), self.wifi_config.ip))
-            self.list.append(getConfigListEntry(_("Netmask"), self.wifi_config.netmask))
-            self.list.append(getConfigListEntry(_("Gateway"), self.wifi_config.gateway))
-            self.list.append(getConfigListEntry(_("DNS Server 1"), self.wifi_config.dns1))
-            self.list.append(getConfigListEntry(_("DNS Server 2"), self.wifi_config.dns2))
+            self.list.append(
+                getConfigListEntry(
+                    _("IP Address"),
+                    self.wifi_config.ip))
+            self.list.append(
+                getConfigListEntry(
+                    _("Netmask"),
+                    self.wifi_config.netmask))
+            self.list.append(
+                getConfigListEntry(
+                    _("Gateway"),
+                    self.wifi_config.gateway))
+            self.list.append(
+                getConfigListEntry(
+                    _("DNS Server 1"),
+                    self.wifi_config.dns1))
+            self.list.append(
+                getConfigListEntry(
+                    _("DNS Server 2"),
+                    self.wifi_config.dns2))
 
         # ADVANCED SECTION (conditional)
         if self.advanced_mode:
             section = '--------------------------( ADVANCED SETTINGS )-----------------------'
             self.list.append(getConfigListEntry(section))
-            self.list.append(getConfigListEntry(_("Operation Mode"), self.wifi_config.mode))
-            self.list.append(getConfigListEntry(_("Channel"), self.wifi_config.channel))
-            self.list.append(getConfigListEntry(_("TX Power"), self.wifi_config.txpower))
-            self.list.append(getConfigListEntry(_("RTS Threshold"), self.wifi_config.rts))
-            self.list.append(getConfigListEntry(_("Fragmentation"), self.wifi_config.frag))
-            self.list.append(getConfigListEntry(_("Country Code"), self.wifi_config.country))
-            self.list.append(getConfigListEntry(_("Data Rate"), self.wifi_config.rate))
+            self.list.append(
+                getConfigListEntry(
+                    _("Operation Mode"),
+                    self.wifi_config.mode))
+            self.list.append(
+                getConfigListEntry(
+                    _("Channel"),
+                    self.wifi_config.channel))
+            self.list.append(
+                getConfigListEntry(
+                    _("TX Power"),
+                    self.wifi_config.txpower))
+            self.list.append(
+                getConfigListEntry(
+                    _("RTS Threshold"),
+                    self.wifi_config.rts))
+            self.list.append(
+                getConfigListEntry(
+                    _("Fragmentation"),
+                    self.wifi_config.frag))
+            self.list.append(
+                getConfigListEntry(
+                    _("Country Code"),
+                    self.wifi_config.country))
+            self.list.append(
+                getConfigListEntry(
+                    _("Data Rate"),
+                    self.wifi_config.rate))
 
         self["config"].list = self.list
         self["config"].l.setList(self.list)
@@ -449,7 +547,8 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
     def toggle_advanced(self):
         """Toggle advanced settings visibility"""
         self.advanced_mode = not self.advanced_mode
-        self["key_yellow"].setText(_("Basic") if self.advanced_mode else _("Advanced"))
+        self["key_yellow"].setText(
+            _("Basic") if self.advanced_mode else _("Advanced"))
         self.buildConfigList()
 
     def keyOK(self):
@@ -465,11 +564,17 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         try:
             # Validate input
             if not self.wifi_config.essid.value:
-                self.session.open(MessageBox, _("Please enter a network name"), MessageBox.TYPE_ERROR)
+                self.session.open(
+                    MessageBox,
+                    _("Please enter a network name"),
+                    MessageBox.TYPE_ERROR)
                 return
 
             if self.wifi_config.encryption.value != "Unencrypted" and not self.wifi_config.psk.value:
-                self.session.open(MessageBox, _("Please enter a password"), MessageBox.TYPE_ERROR)
+                self.session.open(
+                    MessageBox,
+                    _("Please enter a password"),
+                    MessageBox.TYPE_ERROR)
                 return
 
             # Write wpa_supplicant configuration
@@ -494,10 +599,9 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             config_file = "/etc/enigma2/network.conf"
 
             config_lines = [
-                "# Network configuration for {}".format(self.wifi_config.essid.value),
-                "[network]",
-                "connection_type={}".format(self.wifi_config.connection_type.value),
-            ]
+                "# Network configuration for {}".format(
+                    self.wifi_config.essid.value), "[network]", "connection_type={}".format(
+                    self.wifi_config.connection_type.value), ]
 
             if self.wifi_config.connection_type.value == "static":
                 config_lines.extend([
@@ -556,9 +660,13 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
         elif encryption == "WEP":
             lines.append('\tkey_mgmt=NONE')
             if self.wifi_config.wepkeytype.value == "ASCII":
-                lines.append('\twep_key0="{}"'.format(self.wifi_config.psk.value))
+                lines.append(
+                    '\twep_key0="{}"'.format(
+                        self.wifi_config.psk.value))
             else:
-                lines.append('\twep_key0={}'.format(self.wifi_config.psk.value))
+                lines.append(
+                    '\twep_key0={}'.format(
+                        self.wifi_config.psk.value))
         else:  # Unencrypted
             lines.append('\tkey_mgmt=NONE')
 
