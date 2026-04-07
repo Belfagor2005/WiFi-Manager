@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import
+
+import os
+import gettext
+
+from Components.Language import language
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+
+
 """
 #########################################################
 #                                                       #
@@ -19,19 +28,11 @@
 #########################################################
 """
 
-from __future__ import absolute_import
-
 __author__ = "Lululla"
 __email__ = "ekekaz@gmail.com"
 __copyright__ = "Copyright (c) 2024 Lululla"
 __license__ = "GPL-v2"
 __version__ = "1.0"
-
-import os
-import gettext
-
-from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 
 PluginLanguageDomain = "WiFiManager"
@@ -45,11 +46,7 @@ def localeInit():
         lang = language.getLanguage()[:2]
         os.environ["LANGUAGE"] = lang
     if PluginLanguageDomain and PluginLanguagePath:
-        gettext.bindtextdomain(
-            PluginLanguageDomain,
-            resolveFilename(
-                SCOPE_PLUGINS,
-                PluginLanguagePath))
+        gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
 
 
 if isDreambox:
@@ -61,9 +58,7 @@ else:
         if translated:
             return translated
         else:
-            print(
-                "[%s] fallback to default translation for %s" %
-                (PluginLanguageDomain, txt))
+            print("[%s] fallback to default translation for %s" % (PluginLanguageDomain, txt))
             return gettext.gettext(txt)
 
 localeInit()

@@ -1,24 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-#########################################################
-#                                                       #
-#  WiFi Manager Plugin                                  #
-#  Version: 1.0                                         #
-#  Created by Lululla (https://github.com/Belfagor2005) #
-#  License: Gnu Gpl v2                                  #
-#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
-#  Last Modified: "00:00 - 20250101"                    #
-#                                                       #
-#  Credits:                                             #
-#  - Original concept by Lululla                        #
-#  Usage of this code without proper attribution        #
-#  is strictly prohibited.                              #
-#  For modifications and redistribution,                #
-#  please maintain this credit header.                  #
-#########################################################
-"""
-
 from os.path import exists
 
 from Screens.Screen import Screen
@@ -38,6 +19,25 @@ from .modules.connect import WiFiConnectZ
 from .modules.speedtest_manager import WiFiSpeedtestManager
 
 from . import _, __version__, __author__
+
+"""
+#########################################################
+#                                                       #
+#  WiFi Manager Plugin                                  #
+#  Version: 1.0                                         #
+#  Created by Lululla (https://github.com/Belfagor2005) #
+#  License: Gnu Gpl v2                                  #
+#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
+#  Last Modified: "00:00 - 20250101"                    #
+#                                                       #
+#  Credits:                                             #
+#  - Original concept by Lululla                        #
+#  Usage of this code without proper attribution        #
+#  is strictly prohibited.                              #
+#  For modifications and redistribution,                #
+#  please maintain this credit header.                  #
+#########################################################
+"""
 
 
 try:
@@ -140,26 +140,17 @@ class WiFiManagerMain(Screen):
         self.current_selection = 0
         self.grid_items = [
             # row 1
-            {'row': 0, 'col': 0, 'module': 'scanner', 'description': _(
-                "Scan for available networks"), 'selected_widget': 'selected_scan'},
-            {'row': 0, 'col': 1, 'module': 'monitor', 'description': _(
-                "Real-time signal quality monitor"), 'selected_widget': 'selected_monitor'},
-            {'row': 0, 'col': 2, 'module': 'connect', 'description': _(
-                "Connect to WiFi networks"), 'selected_widget': 'selected_connect'},
+            {'row': 0, 'col': 0, 'module': 'scanner', 'description': _("Scan for available networks"), 'selected_widget': 'selected_scan'},
+            {'row': 0, 'col': 1, 'module': 'monitor', 'description': _("Real-time signal quality monitor"), 'selected_widget': 'selected_monitor'},
+            {'row': 0, 'col': 2, 'module': 'connect', 'description': _("Connect to WiFi networks"), 'selected_widget': 'selected_connect'},
             # row 2
-            {'row': 1, 'col': 0, 'module': 'diagnostics', 'description': _(
-                "WiFi diagnostics and tests"), 'selected_widget': 'selected_diagnostic'},
-            {'row': 1, 'col': 1, 'module': 'detailed_info', 'description': _(
-                "Complete iwconfig-like information"), 'selected_widget': 'selected_info'},
-            {'row': 1, 'col': 2, 'module': 'iwlist_tools', 'description': _(
-                "Advanced Tools"), 'selected_widget': 'selected_tools'},
+            {'row': 1, 'col': 0, 'module': 'diagnostics', 'description': _("WiFi diagnostics and tests"), 'selected_widget': 'selected_diagnostic'},
+            {'row': 1, 'col': 1, 'module': 'detailed_info', 'description': _("Complete iwconfig-like information"), 'selected_widget': 'selected_info'},
+            {'row': 1, 'col': 2, 'module': 'iwlist_tools', 'description': _("Advanced Tools"), 'selected_widget': 'selected_tools'},
             # row 3
-            {'row': 2, 'col': 0, 'module': 'config', 'description': _(
-                "Advanced WiFi configuration"), 'selected_widget': 'selected_config'},
-            {'row': 2, 'col': 1, 'module': 'speedtest', 'description': _(
-                "Speedtest"), 'selected_widget': 'selected_speedtest'},
-            {'row': 2, 'col': 2, 'module': 'lululla', 'description': _(
-                "About"), 'selected_widget': 'selected_lululla'},
+            {'row': 2, 'col': 0, 'module': 'config', 'description': _("Advanced WiFi configuration"), 'selected_widget': 'selected_config'},
+            {'row': 2, 'col': 1, 'module': 'speedtest', 'description': _("Speedtest"), 'selected_widget': 'selected_speedtest'},
+            {'row': 2, 'col': 2, 'module': 'lululla', 'description': _("About"), 'selected_widget': 'selected_lululla'},
         ]
 
         self.grid_map = {
@@ -248,15 +239,13 @@ class WiFiManagerMain(Screen):
 
         if current_col < 2:
             new_index = self.grid_map.get((current_row, current_col + 1))
-            if new_index is not None and new_index < len(
-                    self.grid_items) and self.grid_items[new_index]['module'] is not None:
+            if new_index is not None and new_index < len(self.grid_items) and self.grid_items[new_index]['module'] is not None:
                 self.current_selection = new_index
                 self.update_selection()
         else:
             if current_row < 2:
                 new_index = self.grid_map.get((current_row + 1, 0))
-                if new_index is not None and new_index < len(
-                        self.grid_items) and self.grid_items[new_index]['module'] is not None:
+                if new_index is not None and new_index < len(self.grid_items) and self.grid_items[new_index]['module'] is not None:
                     self.current_selection = new_index
                     self.update_selection()
 
@@ -265,8 +254,7 @@ class WiFiManagerMain(Screen):
 
         if current_row < 2:
             new_index = self.grid_map.get((current_row + 1, current_col))
-            if new_index is not None and new_index < len(
-                    self.grid_items) and self.grid_items[new_index]['module'] is not None:
+            if new_index is not None and new_index < len(self.grid_items) and self.grid_items[new_index]['module'] is not None:
                 self.current_selection = new_index
                 self.update_selection()
 
@@ -281,8 +269,7 @@ class WiFiManagerMain(Screen):
         else:
             if current_row > 0:
                 new_index = self.grid_map.get((current_row - 1, 2))
-                if new_index is not None and new_index < len(
-                        self.grid_items) and self.grid_items[new_index]['module'] is not None:
+                if new_index is not None and new_index < len(self.grid_items) and self.grid_items[new_index]['module'] is not None:
                     self.current_selection = new_index
                     self.update_selection()
 
@@ -302,9 +289,7 @@ class WiFiManagerMain(Screen):
     def contactSupport(self):
         self.session.open(
             MessageBox,
-            "WiFi Manager by %s v.%s\n\n" %
-            (__author__,
-             __version__) +
+            "WiFi Manager by %s v.%s\n\n" % (__author__, __version__) +
             _("Need help or have questions about WiFi Manager?\n\n") +
             _("For troubleshooting, detailed guidance, or community support, visit:\n") +
             "https://www.linuxsat-support.com\n" +
@@ -312,7 +297,8 @@ class WiFiManagerMain(Screen):
             _("These forums are great places to get help,\n") +
             _("share experiences,and connect with other users."),
             MessageBox.TYPE_INFO,
-            timeout=20)
+            timeout=20
+        )
 
     def run_selected(self):
         selection = self.grid_items[self.current_selection]
@@ -335,10 +321,7 @@ class WiFiManagerMain(Screen):
                 if ifnames:
                     self.session.open(WiFiDetailedInfo, ifnames[0])
                 else:
-                    self.session.open(
-                        MessageBox,
-                        _("No WiFi interfaces found"),
-                        MessageBox.TYPE_ERROR)
+                    self.session.open(MessageBox, _("No WiFi interfaces found"), MessageBox.TYPE_ERROR)
             elif module_name == "iwlist_tools":
                 self.session.open(ToolsMenuScreen)
             elif module_name == "config":
@@ -349,12 +332,7 @@ class WiFiManagerMain(Screen):
                 self.contactSupport()
 
         except Exception as e:
-            self.session.open(
-                MessageBox,
-                _("Error opening {module}: {error}").format(
-                    module=module_name,
-                    error=str(e)),
-                MessageBox.TYPE_ERROR)
+            self.session.open(MessageBox, _("Error opening {module}: {error}").format(module=module_name, error=str(e)), MessageBox.TYPE_ERROR)
 
     def open_tools_direct(self):
         """Directly opens the tools list from the main menu"""
@@ -429,8 +407,7 @@ class ToolsMenuScreen(Screen):
             (_("Check System Logs"), "check_logs", _("Check system logs for WiFi errors and connection issues")),
         ]
 
-        self["menu"] = MenuList([(item[0], item[1])
-                                for item in self.tool_list])
+        self["menu"] = MenuList([(item[0], item[1]) for item in self.tool_list])
         self["help_label"] = Label(_("Select a tool to see description"))
         self["key_red"] = Label(_("Close"))
         self["key_green"] = Label(_("Select"))
@@ -473,8 +450,7 @@ class ToolsMenuScreen(Screen):
                 help_text = self.get_tool_help(current[1])
                 self["help_label"].setText(help_text)
             else:
-                self["help_label"].setText(
-                    _("Select a tool to see description"))
+                self["help_label"].setText(_("Select a tool to see description"))
         except Exception as e:
             print(f"Error loading help {e}")
             self["help_label"].setText(_("Error loading help"))

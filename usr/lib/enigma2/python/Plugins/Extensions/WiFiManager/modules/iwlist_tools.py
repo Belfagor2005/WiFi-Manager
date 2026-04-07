@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
 
+import subprocess
+from re import search
+from enigma import eTimer
+
+from Screens.Screen import Screen
+from Screens.MessageBox import MessageBox
+from Components.ActionMap import ActionMap
+from Components.Label import Label
+from Components.ScrollLabel import ScrollLabel
+from Components.Button import Button
+from Components.config import ConfigSubsection, ConfigSelection  # , ConfigText, getConfigListEntry
+from Components.ConfigList import ConfigListScreen
+
+from .tools import get_wifi_interfaces, scan_networks
+from .. import _
+
 """
 #########################################################
 #                                                       #
@@ -18,23 +34,6 @@
 #  please maintain this credit header.                  #
 #########################################################
 """
-
-import subprocess
-from re import search
-from enigma import eTimer
-
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-from Components.ActionMap import ActionMap
-from Components.Label import Label
-from Components.ScrollLabel import ScrollLabel
-from Components.Button import Button
-# , ConfigText, getConfigListEntry
-from Components.config import ConfigSubsection, ConfigSelection
-from Components.ConfigList import ConfigListScreen
-
-from .tools import get_wifi_interfaces, scan_networks
-from .. import _
 
 
 class IWListTools(Screen):
@@ -94,12 +93,7 @@ class IWListTools(Screen):
     def run_command(self, cmd):
         """Executes a command and returns the output"""
         try:
-            result = subprocess.run(
-                cmd,
-                shell=True,
-                capture_output=True,
-                text=True,
-                timeout=30)
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
             if result.returncode == 0:
                 return result.stdout.strip()
             else:
@@ -167,9 +161,7 @@ class IWListTools(Screen):
             "check_logs": _("Logs checked."),
         }
 
-        message = tool_messages.get(
-            self.current_selection,
-            _("Operation completed."))
+        message = tool_messages.get(self.current_selection, _("Operation completed."))
         self["info_label"].setText(message)
 
         # Force a refresh of the screen
@@ -210,14 +202,12 @@ class IWListTools(Screen):
         for i, net in enumerate(networks, 1):
             output += _("Network %d:\n") % i
             output += _("  ESSID: %s\n") % net.get('essid', _('N/A'))
-            output += _("  MAC: %s\n") % net.get('bssid',
-                                                 net.get('mac', _('N/A')))
+            output += _("  MAC: %s\n") % net.get('bssid', net.get('mac', _('N/A')))
             output += _("  Channel: %s\n") % net.get('channel', _('N/A'))
             output += _("  Frequency: %s\n") % net.get('frequency', _('N/A'))
             output += _("  Quality: %s\n") % net.get('quality', _('N/A'))
             output += _("  Signal: %s\n") % net.get('signal', _('N/A'))
-            output += _("  Encryption: %s\n") % (_('Yes')
-                                                 if net.get('encryption') else _('No'))
+            output += _("  Encryption: %s\n") % (_('Yes') if net.get('encryption') else _('No'))
             output += "\n"
         return output
 
@@ -390,15 +380,11 @@ class IWListTools(Screen):
                 self.interface
             )
         else:
-            self.session.open(
-                MessageBox,
-                _("No WiFi interface available"),
-                MessageBox.TYPE_ERROR)
+            self.session.open(MessageBox, _("No WiFi interface available"), MessageBox.TYPE_ERROR)
 
     def show_help(self):
         """Show help"""
-        help_text = _(
-            "Select a tool from the menu to get detailed information about WiFi configuration and status.")
+        help_text = _("Select a tool from the menu to get detailed information about WiFi configuration and status.")
         self.session.open(MessageBox, help_text, MessageBox.TYPE_INFO)
 
     def restart_wifi_interface(self):
@@ -437,7 +423,8 @@ class IWListTools(Screen):
             self.close,
             MessageBox,
             _("Reload WiFi kernel modules?\nThis will temporarily disconnect all WiFi."),
-            MessageBox.TYPE_YESNO)
+            MessageBox.TYPE_YESNO
+        )
 
     def check_system_logs(self):
         """Check system logs for WiFi errors"""
@@ -445,8 +432,7 @@ class IWListTools(Screen):
 
         try:
             dmesg_result = self.run_command("dmesg | grep -i wifi | tail -20")
-            syslog_result = self.run_command(
-                "grep -i wifi /var/log/messages /var/log/syslog 2>/dev/null | tail -20")
+            syslog_result = self.run_command("grep -i wifi /var/log/messages /var/log/syslog 2>/dev/null | tail -20")
 
             output = _("=== SYSTEM LOGS - WIFI ERRORS ===\n\n")
 
@@ -502,10 +488,8 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
 
         # Channel Selection
         channels = [("auto", _("Auto"))]
-        channels.extend([(str(i), _("Channel {}").format(i))
-                        for i in range(1, 14)])
-        self.wifi_config.channel = ConfigSelection(
-            choices=channels, default="auto")
+        channels.extend([(str(i), _("Channel {}").format(i)) for i in range(1, 14)])
+        self.wifi_config.channel = ConfigSelection(choices=channels, default="auto")
 
         # TX Power
         self.wifi_config.txpower = ConfigSelection(choices=[
@@ -546,8 +530,7 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
         """Load current interface settings"""
         try:
             # Use iwconfig to read current settings
-            result = subprocess.run(
-                ['iwconfig', self.ifname], capture_output=True, text=True)
+            result = subprocess.run(['iwconfig', self.ifname], capture_output=True, text=True)
             if result.returncode == 0:
                 output = result.stdout
 
@@ -555,8 +538,7 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
                 mode_match = search(r'Mode:(\w+)', output)
                 if mode_match:
                     current_mode = mode_match.group(1).lower()
-                    if current_mode in [choice[0]
-                                        for choice in self.wifi_config.mode.choices]:
+                    if current_mode in [choice[0] for choice in self.wifi_config.mode.choices]:
                         self.wifi_config.mode.value = current_mode
         except Exception as e:
             print(f"[AdvancedConfig] Error loading settings: {e}")
@@ -567,22 +549,13 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
             commands = []
             # Apply mode
             if self.wifi_config.mode.value != "auto":
-                commands.append(
-                    f"iwconfig {
-                        self.ifname} mode {
-                        self.wifi_config.mode.value}")
+                commands.append(f"iwconfig {self.ifname} mode {self.wifi_config.mode.value}")
             # Apply channel
             if self.wifi_config.channel.value != "auto":
-                commands.append(
-                    f"iwconfig {
-                        self.ifname} channel {
-                        self.wifi_config.channel.value}")
+                commands.append(f"iwconfig {self.ifname} channel {self.wifi_config.channel.value}")
             # Apply TX power
             if self.wifi_config.txpower.value != "auto":
-                commands.append(
-                    f"iwconfig {
-                        self.ifname} txpower {
-                        self.wifi_config.txpower.value}")
+                commands.append(f"iwconfig {self.ifname} txpower {self.wifi_config.txpower.value}")
 
             # Execute commands
             for cmd in commands:
@@ -660,18 +633,16 @@ class ResultsScreen(Screen):
         self["results"] = ScrollLabel(text)
         self["key_red"] = Button(_("Back"))
 
-        self["actions"] = ActionMap(["ColorActions",
-                                     "OkCancelActions",
-                                     "DirectionActions"],
-                                    {"red": self.close,
-                                     "cancel": self.close,
-                                     "pageUp": self.pageUp,
-                                     "pageDown": self.pageDown,
-                                     "up": self.pageUp,
-                                     "down": self.pageDown,
-                                     "left": self.pageUp,
-                                     "right": self.pageDown,
-                                     })
+        self["actions"] = ActionMap(["ColorActions", "OkCancelActions", "DirectionActions"], {
+            "red": self.close,
+            "cancel": self.close,
+            "pageUp": self.pageUp,
+            "pageDown": self.pageDown,
+            "up": self.pageUp,
+            "down": self.pageDown,
+            "left": self.pageUp,
+            "right": self.pageDown,
+        })
         self.setTitle(title)
 
     def pageUp(self):

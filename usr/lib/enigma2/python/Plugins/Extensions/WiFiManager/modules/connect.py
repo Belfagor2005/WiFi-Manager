@@ -1,24 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-#########################################################
-#                                                       #
-#  WiFi Manager Plugin                                  #
-#  Version: 1.0                                         #
-#  Created by Lululla (https://github.com/Belfagor2005) #
-#  License: Gnu Gpl v2                                  #
-#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
-#  Last Modified: "00:00 - 20251110"                    #
-#                                                       #
-#  Credits:                                             #
-#  - Original concept by Lululla                        #
-#  Usage of this code without proper attribution        #
-#  is strictly prohibited.                              #
-#  For modifications and redistribution,                #
-#  please maintain this credit header.                  #
-#########################################################
-"""
-
 import time
 import traceback
 import subprocess
@@ -53,6 +34,25 @@ from .tools import (
     verify_connection,
 )
 from .config import WiFiConfigScreen
+
+"""
+#########################################################
+#                                                       #
+#  WiFi Manager Plugin                                  #
+#  Version: 1.0                                         #
+#  Created by Lululla (https://github.com/Belfagor2005) #
+#  License: Gnu Gpl v2                                  #
+#  https://creativecommons.org/licenses/by-nc-sa/4.0    #
+#  Last Modified: "00:00 - 20251110"                    #
+#                                                       #
+#  Credits:                                             #
+#  - Original concept by Lululla                        #
+#  Usage of this code without proper attribution        #
+#  is strictly prohibited.                              #
+#  For modifications and redistribution,                #
+#  please maintain this credit header.                  #
+#########################################################
+"""
 
 
 CONFIG_FILE = "/etc/wifi_saved_networks.json"
@@ -89,8 +89,7 @@ class WiFiConnectZ(Screen):
         self.helpList = []
 
         self.connect_config = ConfigSubsection()
-        self.connect_config.password = ConfigPassword(
-            default="", fixed_size=False)
+        self.connect_config.password = ConfigPassword(default="", fixed_size=False)
         self.connect_config.remember = ConfigYesNo(default=True)
 
         self["network_list"] = MenuList([])
@@ -151,14 +150,11 @@ class WiFiConnectZ(Screen):
         if interfaces:
             self.interface = interfaces[0]
             print(f"[WiFiConnectZ] Using interface: {self.interface}")
-            self["status"].setText(
-                _("Interface found: {}").format(
-                    self.interface))
+            self["status"].setText(_("Interface found: {}").format(self.interface))
         else:
             self.interface = None
             self["status"].setText(_("No WiFi interface found"))
-            self.show_message(
-                _("No WiFi interface detected. Please check your hardware."))
+            self.show_message(_("No WiFi interface detected. Please check your hardware."))
             print("[WiFiConnectZ] No WiFi interfaces found")
 
     def select_network_simple(self):
@@ -227,8 +223,7 @@ class WiFiConnectZ(Screen):
             signal = net.get('signal', 0)
             is_encrypted = net.get('encryption', False)
 
-            # CONNECTION INDICATOR - mark if this is the currently connected
-            # network
+            # CONNECTION INDICATOR - mark if this is the currently connected network
             if essid == current_essid:
                 connection_indicator = "-> "
             else:
@@ -248,14 +243,14 @@ class WiFiConnectZ(Screen):
             else:
                 saved_indicator = ""
 
-            network_list.append(
-                _("{connection}{saved}{icon} {essid} | {security} | {signal} dBm").format(
-                    connection=connection_indicator,
-                    saved=saved_indicator,
-                    icon=icon,
-                    essid=essid,
-                    security=security,
-                    signal=signal))
+            network_list.append(_("{connection}{saved}{icon} {essid} | {security} | {signal} dBm").format(
+                connection=connection_indicator,
+                saved=saved_indicator,
+                icon=icon,
+                essid=essid,
+                security=security,
+                signal=signal
+            ))
 
         print(f"[DEBUG] update_network_list - {len(network_list)} items")
 
@@ -281,25 +276,20 @@ class WiFiConnectZ(Screen):
         essid = self.current_network.get('essid')
         current_essid = get_current_connected_essid(self.interface)
 
-        print(
-            f"[DEBUG] update_status_selection - Selected: {essid}, Connected: {current_essid}")
+        print(f"[DEBUG] update_status_selection - Selected: {essid}, Connected: {current_essid}")
 
         if current_essid == essid:
             # Already connected to this network
-            self.update_status(
-                _("CONNECTED to: {} - Press OK for options").format(essid))
+            self.update_status(_("CONNECTED to: {} - Press OK for options").format(essid))
         elif self.current_network.get('encryption'):
             # Protected network
             if self.get_saved_password(essid):
-                self.update_status(
-                    _("{} - Password saved - Press OK for options").format(essid))
+                self.update_status(_("{} - Password saved - Press OK for options").format(essid))
             else:
-                self.update_status(
-                    _("{} - Password required - Press OK for options").format(essid))
+                self.update_status(_("{} - Password required - Press OK for options").format(essid))
         else:
             # Open network
-            self.update_status(
-                _("{} - Open network - Press OK for options").format(essid))
+            self.update_status(_("{} - Open network - Press OK for options").format(essid))
 
     def update_button_labels(self):
         """Update button labels based on selection"""
@@ -335,29 +325,47 @@ class WiFiConnectZ(Screen):
                     with open("/etc/enigma2/network.conf", 'r') as f:
                         for line in f:
                             if line.startswith('connection_type='):
-                                network_type = _(
-                                    "Static") if "static" in line else _("DHCP")
+                                network_type = _("Static") if "static" in line else _("DHCP")
                                 break
-            except BaseException:
+            except Exception as e:
+                print(e)
                 pass
 
             status_msg = _("CONNECTED to: {essid}\nIP: {ip} | Network: {network_type}\nSignal: {quality} ({strength} dBm)\nPress OK for options").format(
-                essid=essid, ip=ip or _("No IP"), network_type=network_type, quality=signal_quality, strength=signal_strength)
+
+                essid=essid,
+                ip=ip or _("No IP"),
+                network_type=network_type,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         # PROTECTED NETWORK WITH SAVED PASSWORD
         elif is_encrypted and has_saved_password:
             status_msg = _("{essid} - Password saved\nSignal: {quality} ({strength} dBm)\nPress OK to connect or edit").format(
-                essid=essid, quality=signal_quality, strength=signal_strength)
+
+                essid=essid,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         # PROTECTED NETWORK WITHOUT PASSWORD
         elif is_encrypted:
             status_msg = _("{essid} - Password required\nSignal: {quality} ({strength} dBm)\nPress OK to enter password").format(
-                essid=essid, quality=signal_quality, strength=signal_strength)
+
+                essid=essid,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         # OPEN NETWORK
         else:
             status_msg = _("{essid} - Open network\nSignal: {quality} ({strength} dBm)\nPress OK to connect").format(
-                essid=essid, quality=signal_quality, strength=signal_strength)
+
+                essid=essid,
+                quality=signal_quality,
+                strength=signal_strength
+            )
 
         self["status"].setText(status_msg)
 
@@ -373,9 +381,7 @@ class WiFiConnectZ(Screen):
                     content = f.read()
 
             # Remove existing network block for this ESSID
-            content = sub(
-                r'network=\{([^}]*ssid="%s"[^}]*)\}' %
-                escape(essid), '', content, flags=DOTALL)
+            content = sub(r'network=\{([^}]*ssid="%s"[^}]*)\}' % escape(essid), '', content, flags=DOTALL)
 
             # Add new network block
             network_block = """
@@ -420,8 +426,7 @@ class WiFiConnectZ(Screen):
                 print("[DEBUG] After select_network_simple")
             else:
                 print("[DEBUG] No networks found")
-                self["status"].setText(
-                    _("No networks found - Press BLUE to rescan"))
+                self["status"].setText(_("No networks found - Press BLUE to rescan"))
                 self["network_list"].setList([_("No networks found")])
 
             print("[DEBUG] update_display_after_scan COMPLETED")
@@ -485,8 +490,7 @@ class WiFiConnectZ(Screen):
         """Get saved password for network"""
         saved = self.saved_networks.get(essid, {})
         password = saved.get('password', "")
-        print("[DEBUG] get_saved_password for '%s': '%s'" % (
-            essid, "***" if password else "EMPTY"))
+        print("[DEBUG] get_saved_password for '%s': '%s'" % (essid, "***" if password else "EMPTY"))
         return password
 
     def get_current_connected_essid(self):
@@ -513,22 +517,12 @@ class WiFiConnectZ(Screen):
             essid = self.current_network.get('essid')
 
             # Disconnect first
-            subprocess.run(
-                f"iwconfig {
-                    self.interface} essid off",
-                shell=True,
-                capture_output=True,
-                timeout=5)
+            subprocess.run(f"iwconfig {self.interface} essid off", shell=True, capture_output=True, timeout=5)
             time.sleep(1)
 
             # Connect to open network
             cmd = f"iwconfig {self.interface} essid \"{essid}\""
-            result = subprocess.run(
-                cmd,
-                shell=True,
-                capture_output=True,
-                text=True,
-                timeout=30)
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
 
             if result.returncode == 0:
                 # Get IP via DHCP with timeout
@@ -536,26 +530,17 @@ class WiFiConnectZ(Screen):
                 for dhcp_client in ['dhcpcd', 'udhcpc', 'dhclient']:
                     try:
                         if dhcp_client == 'dhcpcd':
-                            result = subprocess.run(
-                                ['dhcpcd', self.interface], capture_output=True, text=True, timeout=15)
+                            result = subprocess.run(['dhcpcd', self.interface], capture_output=True, text=True, timeout=15)
                         elif dhcp_client == 'udhcpc':
-                            result = subprocess.run(['udhcpc',
-                                                     '-i',
-                                                     self.interface,
-                                                     '-t',
-                                                     '5',
-                                                     '-n'],
-                                                    capture_output=True,
-                                                    text=True,
-                                                    timeout=15)
+                            result = subprocess.run(['udhcpc', '-i', self.interface, '-t', '5', '-n'], capture_output=True, text=True, timeout=15)
                         elif dhcp_client == 'dhclient':
-                            result = subprocess.run(
-                                ['dhclient', self.interface, '-v'], capture_output=True, text=True, timeout=15)
+                            result = subprocess.run(['dhclient', self.interface, '-v'], capture_output=True, text=True, timeout=15)
 
                         if result.returncode == 0:
                             dhcp_success = True
                             break
-                    except BaseException:
+                    except Exception as e:
+                        print(e)
                         continue
 
                 # Verify connection
@@ -572,12 +557,9 @@ class WiFiConnectZ(Screen):
         """Connect using saved configuration - IN THREAD"""
         try:
             # Stop any existing connections
-            subprocess.run(['killall', 'wpa_supplicant'],
-                           capture_output=True, timeout=5)
-            subprocess.run(['killall', 'dhclient'],
-                           capture_output=True, timeout=5)
-            subprocess.run(['killall', 'dhcpcd'],
-                           capture_output=True, timeout=5)
+            subprocess.run(['killall', 'wpa_supplicant'], capture_output=True, timeout=5)
+            subprocess.run(['killall', 'dhclient'], capture_output=True, timeout=5)
+            subprocess.run(['killall', 'dhcpcd'], capture_output=True, timeout=5)
             time.sleep(2)
 
             # Start wpa_supplicant with saved config
@@ -585,15 +567,8 @@ class WiFiConnectZ(Screen):
             if not exists(config_file):
                 return False
 
-            cmd = [
-                'wpa_supplicant',
-                '-B',
-                '-i',
-                self.interface,
-                '-c',
-                config_file]
-            result = subprocess.run(
-                cmd, capture_output=True, text=True, timeout=10)
+            cmd = ['wpa_supplicant', '-B', '-i', self.interface, '-c', config_file]
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
 
             if result.returncode != 0:
                 return False
@@ -607,26 +582,17 @@ class WiFiConnectZ(Screen):
                 try:
                     print("[DEBUG] Trying DHCP client: " + dhcp_client)
                     if dhcp_client == 'dhcpcd':
-                        result = subprocess.run(
-                            ['dhcpcd', self.interface], capture_output=True, text=True, timeout=15)
+                        result = subprocess.run(['dhcpcd', self.interface], capture_output=True, text=True, timeout=15)
                     elif dhcp_client == 'udhcpc':
-                        result = subprocess.run(['udhcpc',
-                                                 '-i',
-                                                 self.interface,
-                                                 '-t',
-                                                 '5',
-                                                 '-n'],
-                                                capture_output=True,
-                                                text=True,
-                                                timeout=15)
+                        result = subprocess.run(['udhcpc', '-i', self.interface, '-t', '5', '-n'], capture_output=True, text=True, timeout=15)
                     elif dhcp_client == 'dhclient':
-                        result = subprocess.run(
-                            ['dhclient', self.interface, '-v'], capture_output=True, text=True, timeout=15)
+                        result = subprocess.run(['dhclient', self.interface, '-v'], capture_output=True, text=True, timeout=15)
 
                     if result.returncode == 0:
                         dhcp_success = True
                         break
-                except BaseException:
+                except Exception as e:
+                    print(e)
                     continue
 
             # Verify connection
@@ -650,8 +616,7 @@ class WiFiConnectZ(Screen):
             try:
                 if self.current_network.get('encryption'):
                     saved_password = self.get_saved_password(essid)
-                    return self.connect_with_saved_config_thread(
-                        essid, saved_password)
+                    return self.connect_with_saved_config_thread(essid, saved_password)
                 else:
                     return self.connect_to_open_network_thread()
             except Exception as e:
@@ -674,8 +639,7 @@ class WiFiConnectZ(Screen):
         """Execute connection with network configuration"""
         def connection_finished(success):
             if success:
-                # Apply network configuration ONLY after successful WiFi
-                # connection
+                # Apply network configuration ONLY after successful WiFi connection
                 self.apply_network_configuration()
                 self.show_message(_("Connected successfully!"))
             else:
@@ -683,10 +647,8 @@ class WiFiConnectZ(Screen):
             self.refresh_after_connection()
 
         if self.current_network.get('encryption'):
-            saved_password = self.get_saved_password(
-                self.current_network.get('essid'))
-            success = self.connect_with_saved_config_thread(
-                self.current_network.get('essid'), saved_password)
+            saved_password = self.get_saved_password(self.current_network.get('essid'))
+            success = self.connect_with_saved_config_thread(self.current_network.get('essid'), saved_password)
         else:
             # ALWAYS USE THE THREADED VERSION
             success = self.connect_to_open_network_thread()
@@ -727,13 +689,11 @@ class WiFiConnectZ(Screen):
 
                 if result:
                     self.session.openWithCallback(
-                        lambda answer: self.handle_connect_after_config(
-                            answer,
-                            callback),
+                        lambda answer: self.handle_connect_after_config(answer, callback),
                         MessageBox,
-                        _("WiFi and network configuration saved for %s\n\nConnect now?") %
-                        essid,
-                        MessageBox.TYPE_YESNO)
+                        _("WiFi and network configuration saved for %s\n\nConnect now?") % essid,
+                        MessageBox.TYPE_YESNO
+                    )
                 else:
                     if callback:
                         callback()
@@ -760,9 +720,11 @@ class WiFiConnectZ(Screen):
                 self.save_network_password(essid, password)
 
                 self.session.openWithCallback(
-                    lambda answer: self.handle_connect_after_password(
-                        answer, callback), MessageBox, _("Password saved for %s\n\nConnect now?") %
-                    essid, MessageBox.TYPE_YESNO)
+                    lambda answer: self.handle_connect_after_password(answer, callback),
+                    MessageBox,
+                    _("Password saved for %s\n\nConnect now?") % essid,
+                    MessageBox.TYPE_YESNO
+                )
             else:
                 if callback:
                     callback()
@@ -770,9 +732,9 @@ class WiFiConnectZ(Screen):
         self.session.openWithCallback(
             password_entered,
             InputBox,
-            title=_("Enter password for: %s") %
-            self.current_network.get('essid'),
-            windowTitle=_("WiFi Password"))
+            title=_("Enter password for: %s") % self.current_network.get('essid'),
+            windowTitle=_("WiFi Password")
+        )
 
     def apply_network_configuration(self):
         """Applica configurazione network da /etc/enigma2/network.conf"""
@@ -821,11 +783,7 @@ class WiFiConnectZ(Screen):
                 print("[DEBUG] Static network configuration applied")
             else:
                 # DHCP - ottieni IP automaticamente
-                subprocess.run(
-                    f"dhclient {
-                        self.interface}",
-                    shell=True,
-                    timeout=15)
+                subprocess.run(f"dhclient {self.interface}", shell=True, timeout=15)
                 print("[DEBUG] DHCP configuration applied")
 
         except Exception as e:
@@ -835,31 +793,13 @@ class WiFiConnectZ(Screen):
         """Disconnect from current network - IN THREAD"""
         def disconnect_thread():
             try:
-                subprocess.run(
-                    "killall wpa_supplicant 2>/dev/null",
-                    shell=True,
-                    timeout=5)
-                subprocess.run(
-                    "killall dhclient 2>/dev/null",
-                    shell=True,
-                    timeout=5)
-                subprocess.run(
-                    f"iwconfig {
-                        self.interface} essid off",
-                    shell=True,
-                    timeout=5)
+                subprocess.run("killall wpa_supplicant 2>/dev/null", shell=True, timeout=5)
+                subprocess.run("killall dhclient 2>/dev/null", shell=True, timeout=5)
+                subprocess.run(f"iwconfig {self.interface} essid off", shell=True, timeout=5)
 
                 # Reset interface
-                subprocess.run(
-                    f"ip link set {
-                        self.interface} down",
-                    shell=True,
-                    timeout=5)
-                subprocess.run(
-                    f"ip link set {
-                        self.interface} up",
-                    shell=True,
-                    timeout=5)
+                subprocess.run(f"ip link set {self.interface} down", shell=True, timeout=5)
+                subprocess.run(f"ip link set {self.interface} up", shell=True, timeout=5)
 
                 return True
             except Exception as e:
@@ -873,8 +813,7 @@ class WiFiConnectZ(Screen):
             else:
                 self["status"].setText(_("Error disconnecting"))
 
-        threads.deferToThread(disconnect_thread).addCallback(
-            disconnect_callback)
+        threads.deferToThread(disconnect_thread).addCallback(disconnect_callback)
 
     def forget_network_with_callback(self, callback):
         """Forget network and return to callback - FIXED"""
@@ -910,34 +849,20 @@ class WiFiConnectZ(Screen):
     def show_current_connection_status(self):
         """Show current connection status"""
         try:
-            result = subprocess.run(
-                f"iwconfig {
-                    self.interface}",
-                shell=True,
-                capture_output=True,
-                text=True)
+            result = subprocess.run(f"iwconfig {self.interface}", shell=True, capture_output=True, text=True)
             if 'ESSID:' in result.stdout:
                 essid_match = search(r'ESSID:"([^"]*)"', result.stdout)
                 if essid_match and essid_match.group(1):
                     essid = essid_match.group(1)
-                    signal_match = search(
-                        r'Signal level=(-?\d+)', result.stdout)
+                    signal_match = search(r'Signal level=(-?\d+)', result.stdout)
                     signal = signal_match.group(1) if signal_match else "?"
 
                     # Get IP address
-                    ip_result = subprocess.run(
-                        f"ip addr show {
-                            self.interface}",
-                        shell=True,
-                        capture_output=True,
-                        text=True)
-                    ip_match = search(
-                        r'inet (\d+\.\d+\.\d+\.\d+)', ip_result.stdout)
+                    ip_result = subprocess.run(f"ip addr show {self.interface}", shell=True, capture_output=True, text=True)
+                    ip_match = search(r'inet (\d+\.\d+\.\d+\.\d+)', ip_result.stdout)
                     ip_addr = ip_match.group(1) if ip_match else _("No IP")
 
-                    self["status"].setText(
-                        _("Connected: {} | Signal: {} dBm | IP: {}").format(
-                            essid, signal, ip_addr))
+                    self["status"].setText(_("Connected: {} | Signal: {} dBm | IP: {}").format(essid, signal, ip_addr))
                     return
 
             self["status"].setText(_("Not connected to any network"))
@@ -948,12 +873,7 @@ class WiFiConnectZ(Screen):
     def show_connection_details_with_callback(self, callback):
         """Show connection details in vertical format"""
         try:
-            result = subprocess.run(
-                f"iwconfig {
-                    self.interface}",
-                shell=True,
-                capture_output=True,
-                text=True)
+            result = subprocess.run(f"iwconfig {self.interface}", shell=True, capture_output=True, text=True)
             if result.returncode == 0:
                 details = []
 
@@ -968,87 +888,57 @@ class WiFiConnectZ(Screen):
                     if 'ESSID:' in line:
                         essid_match = search(r'ESSID:"([^"]*)"', line)
                         if essid_match:
-                            details.append(
-                                _("Network: {essid}").format(
-                                    essid=essid_match.group(1)))
+                            details.append(_("Network: {essid}").format(essid=essid_match.group(1)))
 
                     elif 'Frequency:' in line:
                         freq_match = search(r'Frequency:([0-9.]+ GHz)', line)
                         if freq_match:
-                            details.append(
-                                _("Frequency: {frequency}").format(
-                                    frequency=freq_match.group(1)))
+                            details.append(_("Frequency: {frequency}").format(frequency=freq_match.group(1)))
 
                     elif 'Access Point:' in line:
-                        ap_match = search(
-                            r'Access Point: ([0-9A-Fa-f:]+)', line)
+                        ap_match = search(r'Access Point: ([0-9A-Fa-f:]+)', line)
                         if ap_match:
-                            details.append(
-                                _("Access Point: {ap}").format(
-                                    ap=ap_match.group(1)))
+                            details.append(_("Access Point: {ap}").format(ap=ap_match.group(1)))
 
                     elif 'Bit Rate=' in line:
-                        rate_match = search(
-                            r'Bit Rate=([0-9.]+ [GM]b/s)', line)
+                        rate_match = search(r'Bit Rate=([0-9.]+ [GM]b/s)', line)
                         if rate_match:
-                            details.append(
-                                _("Bit Rate: {rate}").format(
-                                    rate=rate_match.group(1)))
+                            details.append(_("Bit Rate: {rate}").format(rate=rate_match.group(1)))
 
                     elif 'Signal level=' in line:
-                        signal_match = search(
-                            r'Signal level=(-?\d+) dBm', line)
+                        signal_match = search(r'Signal level=(-?\d+) dBm', line)
                         if signal_match:
-                            details.append(
-                                _("Signal Level: {signal} dBm").format(
-                                    signal=signal_match.group(1)))
+                            details.append(_("Signal Level: {signal} dBm").format(signal=signal_match.group(1)))
 
                     elif 'Link Quality=' in line:
                         quality_match = search(r'Link Quality=([0-9/]+)', line)
                         if quality_match:
-                            details.append(
-                                _("Link Quality: {quality}").format(
-                                    quality=quality_match.group(1)))
+                            details.append(_("Link Quality: {quality}").format(quality=quality_match.group(1)))
 
                     elif 'Mode:' in line:
                         mode_match = search(r'Mode:([A-Za-z]+)', line)
                         if mode_match:
-                            details.append(
-                                _("Mode: {mode}").format(
-                                    mode=mode_match.group(1)))
+                            details.append(_("Mode: {mode}").format(mode=mode_match.group(1)))
 
                 # Add IP address information
                 try:
-                    ip_result = subprocess.run(
-                        f"ip addr show {
-                            self.interface}",
-                        shell=True,
-                        capture_output=True,
-                        text=True)
-                    ip_match = search(
-                        r'inet (\d+\.\d+\.\d+\.\d+)', ip_result.stdout)
+                    ip_result = subprocess.run(f"ip addr show {self.interface}", shell=True, capture_output=True, text=True)
+                    ip_match = search(r'inet (\d+\.\d+\.\d+\.\d+)', ip_result.stdout)
                     if ip_match:
-                        details.append(
-                            _("IP Address: {ip}").format(
-                                ip=ip_match.group(1)))
+                        details.append(_("IP Address: {ip}").format(ip=ip_match.group(1)))
 
                     # Add MAC address
-                    mac_match = search(
-                        r'link/ether ([0-9a-f:]+)',
-                        ip_result.stdout,
-                        IGNORECASE)
+                    mac_match = search(r'link/ether ([0-9a-f:]+)', ip_result.stdout, IGNORECASE)
                     if mac_match:
-                        details.append(
-                            _("MAC Address: {mac}").format(
-                                mac=mac_match.group(1)))
-                except BaseException:
+                        details.append(_("MAC Address: {mac}").format(mac=mac_match.group(1)))
+                except Exception as e:
+                    print(e)
                     pass
 
                 if details:
                     # Create formatted details text
                     details_text = "\n".join(details)
-                    formatted_text = _("Connection Details:\n\n{details}").format(
-                        details=details_text)
+                    formatted_text = _("Connection Details:\n\n{details}").format(details=details_text)
 
                     self.session.openWithCallback(
                         lambda result: callback() if callback else None,
@@ -1070,9 +960,9 @@ class WiFiConnectZ(Screen):
             self.session.openWithCallback(
                 lambda result: callback() if callback else None,
                 MessageBox,
-                _("Error getting connection details: {error}").format(
-                    error=str(e)),
-                MessageBox.TYPE_ERROR)
+                _("Error getting connection details: {error}").format(error=str(e)),
+                MessageBox.TYPE_ERROR
+            )
 
     def show_message(self, message, callback=None, timeout=None):
         """Show message with proper callback handling"""
@@ -1090,11 +980,7 @@ class WiFiConnectZ(Screen):
             else:
                 def show_msg():
                     try:
-                        self.session.open(
-                            MessageBox,
-                            message,
-                            MessageBox.TYPE_INFO,
-                            timeout=timeout or 3)
+                        self.session.open(MessageBox, message, MessageBox.TYPE_INFO, timeout=timeout or 3)
                     except Exception as e:
                         print(f"[DEBUG] Error showing message: {e}")
                         # Fallback: update status instead
@@ -1197,8 +1083,7 @@ class WiFiConnectZ(Screen):
                     self.show_connection_details_with_callback(lambda: None)
 
             # Open ChoiceBox with callback
-            self.session.openWithCallback(
-                choice_callback, ChoiceBox, title, options)
+            self.session.openWithCallback(choice_callback, ChoiceBox, title, options)
 
         else:
             print("[DEBUG] No valid network selected")
@@ -1223,9 +1108,11 @@ class WiFiConnectZ(Screen):
             if interface:
                 ip_addr = get_ip_address(interface)
 
-            self["status"].setText(
-                _("Connected to: {essid}\nSignal: {quality} | IP: {ip}").format(
-                    essid=essid, quality=quality, ip=ip_addr))
+            self["status"].setText(_("Connected to: {essid}\nSignal: {quality} | IP: {ip}").format(
+                essid=essid,
+                quality=quality,
+                ip=ip_addr
+            ))
         else:
             self["status"].setText(_("Not connected to any network"))
 
@@ -1237,8 +1124,7 @@ class WiFiConnectZ(Screen):
         print("[DEBUG] After UP - index: " + str(current_index))
         if current_index is not None and current_index < len(self.networks):
             self.current_network = self.networks[current_index]
-            print("[DEBUG] Selected after UP: " +
-                  str(self.current_network.get('essid')))
+            print("[DEBUG] Selected after UP: " + str(self.current_network.get('essid')))
             self.update_status_based_on_network()
 
     def keyDown(self):
@@ -1249,8 +1135,7 @@ class WiFiConnectZ(Screen):
         print("[DEBUG] After DOWN - index: " + str(current_index))
         if current_index is not None and current_index < len(self.networks):
             self.current_network = self.networks[current_index]
-            print("[DEBUG] Selected after DOWN: " +
-                  str(self.current_network.get('essid')))
+            print("[DEBUG] Selected after DOWN: " + str(self.current_network.get('essid')))
             self.update_status_based_on_network()
 
     def keyLeft(self):

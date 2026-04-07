@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from Plugins.Plugin import PluginDescriptor
+
 """
 #########################################################
 #                                                       #
@@ -18,8 +20,6 @@
 #  please maintain this credit header.                  #
 #########################################################
 """
-
-from Plugins.Plugin import PluginDescriptor
 
 
 def main(session, **kwargs):
@@ -77,3 +77,4 @@ def Plugins(**kwargs):
     # ├── wifi-scan.png
     # ├── wifi-info.png
     # └── wifi-diagnostic.png
+    

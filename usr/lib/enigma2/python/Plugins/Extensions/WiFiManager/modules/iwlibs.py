@@ -45,7 +45,7 @@ from .flags import (
     IFNAMSIZE, IW_ESSID_MAX_SIZE, IW_ENCODING_TOKEN_MAX, ETH_ALEN,
     IW_MAX_BITRATES, IW_MAX_ENCODING_SIZES, IW_MAX_TXPOWER, IW_MAX_FREQUENCIES,
     IW_SCAN_MAX_DATA,
-
+    
     # IOCTL calls
     SIOCGIFCONF, SIOCSIWCOMMIT, SIOCGIWNAME, SIOCSIWAP, SIOCGIWAP,
     SIOCSIWSCAN, SIOCGIWSCAN, SIOCSIWESSID, SIOCGIWESSID, SIOCSIWMODE,
@@ -53,21 +53,21 @@ from .flags import (
     SIOCGIWSENS, SIOCGIWRATE, SIOCGIWRTS, SIOCGIWFRAG,
     SIOCGIWPOWER, SIOCGIWTXPOW, SIOCGIWRETRY, SIOCGIWSTATS, SIOCGIWRANGE,
     IW_EV_LCP_PK_LEN,
-
+    
     # Event constants
     SIOCIWFIRST, SIOCIWLAST, IWEVFIRST, IWEVLAST,
     IWEVQUAL, IWEVGENIE, IWEVCUSTOM,
-
+    
     # Encryption flags
     IW_ENCODE_INDEX, IW_ENCODE_NOKEY, IW_ENCODE_OPEN, IW_ENCODE_RESTRICTED,
     IW_ENCODE_DISABLED, IW_ENCODE_ENABLED,
-
+    
     # Frequency flags
     IW_FREQ_AUTO, IW_FREQ_FIXED,
-
+    
     # Mode constants
     modes,
-
+    
     # Altri flags usati
     SIOCGIWNWID, SIOCGIWMODUL
 )
@@ -236,8 +236,7 @@ class Wireless(object):
             mac_addr = "%c%c%c%c%c%c" % tuple(map(hex2int, addr.split(':')))
 
         iwreq = self.iwstruct.pack("H14s", 1, mac_addr)
-        status, result = self.iwstruct.iw_set_ext(
-            self.ifname, SIOCSIWAP, iwreq)
+        status, result = self.iwstruct.iw_set_ext(self.ifname, SIOCSIWAP, iwreq)
 
     def _formatBitrate(self, raw_bitrate):
         """ Returns formatted bitrate.
@@ -346,8 +345,7 @@ class Wireless(object):
         if (version_info[0] == 3):
             essid = bytes(essid, 'unicode-escape')
         iwpoint = Iwpoint(essid, 1)
-        status, result = self.iwstruct.iw_set_ext(
-            self.ifname, SIOCSIWESSID, data=iwpoint.packed_data)
+        status, result = self.iwstruct.iw_set_ext(self.ifname, SIOCSIWESSID, data=iwpoint.packed_data)
 
     def getEncryption(self):
         """ Get the association mode, which is probably a string of '*',
@@ -736,7 +734,6 @@ class Wireless(object):
             '17 dBm'
 
         """
-
         def mw2dbm(self, mwatt):
             """ Converts mW to dBm (float). """
             if mwatt == 0:
@@ -1093,10 +1090,8 @@ class Iwstruct(object):
         try:
             buff = array.array('B', b'\0' * buffsize)
             caddr_t, length = buff.buffer_info()
-            print(
-                f"[DEBUG] pack_wrq: caddr_t={caddr_t}, length={length}")  # DEBUG
-            # Due argomenti separati!
-            datastr = struct.pack('Pi', caddr_t, length)
+            print(f"[DEBUG] pack_wrq: caddr_t={caddr_t}, length={length}")  # DEBUG
+            datastr = struct.pack('Pi', caddr_t, length)  # Due argomenti separati!
             return buff, datastr
         except Exception as e:
             print(f"[DEBUG] pack_wrq ERROR: {e}")  # DEBUG
@@ -1108,8 +1103,7 @@ class Iwstruct(object):
             buff = array.array('c', string + '\0' * buffsize)
         else:
             var_bytes = bytes(string, 'unicode-escape')
-            # <-- QUI buffsize DEVE ESSERE buffsize
-            buff = array.array('B', var_bytes + b'\0' * buffsize)
+            buff = array.array('B', var_bytes + b'\0' * buffsize)  # <-- QUI buffsize DEVE ESSERE buffsize
         caddr_t, length = buff.buffer_info()
         s = struct.pack('PHH', caddr_t, length, 1)  # <-- 3 ARGOMENTI QUI
         return buff, s
@@ -1123,15 +1117,14 @@ class Iwstruct(object):
 
     def iw_get_ext(self, ifname, request, data=None):
         """ Read information from ifname. """
-        print(
-            f"[DEBUG] iw_get_ext called: ifname={ifname}, request={request}, data={data}")  # DEBUG
-
+        print(f"[DEBUG] iw_get_ext called: ifname={ifname}, request={request}, data={data}")  # DEBUG
+        
         buff = IFNAMSIZE - len(ifname)
         if (version_info[0] == 2):
             ifreq = array.array('c', ifname + '\0' * buff)
         else:
             ifreq = array.array('B', six.ensure_binary(ifname) + b'\0' * buff)
-
+        
         # put some additional data behind the interface name
         if data is not None:
             print(f"[DEBUG] data type: {type(data)}, data: {data}")  # DEBUG
@@ -1208,8 +1201,7 @@ class Iwfreq(object):
     def parse(self, data):
         """ Unpacks iw_freq. """
         size = struct.calcsize(self.fmt)
-        self.m, self.e, self.index, self.flags = struct.unpack(
-            self.fmt, data[:size])
+        self.m, self.e, self.index, self.flags = struct.unpack(self.fmt, data[:size])
 
     def getFrequency(self):
         """ Returns frequency or channel, depending on the driver. """
@@ -1343,8 +1335,7 @@ class Iwpoint(object):
         self.flags = flags
         self.buff = array.array('B', data)
         self.caddr_t, self.length = self.buff.buffer_info()
-        self.packed_data = struct.pack(
-            self.fmt, self.caddr_t, self.length, self.flags)
+        self.packed_data = struct.pack(self.fmt, self.caddr_t, self.length, self.flags)
 
     def update(self, packed_data):
         """ Updates the object attributes. """
@@ -1578,7 +1569,8 @@ class Iwscan(object):
                     time.sleep(0.1)
                 else:
                     raise
-            except BaseException:
+            except Exception as e:
+                print(e)
                 raise
             else:
                 break
@@ -1616,11 +1608,9 @@ class Iwscan(object):
                 else:
                     # we are on a 64bit system
                     scanresult_len = IW_EV_LCP_PK_LEN + 4
-                scanresult = Iwscanresult(
-                    data[scanresult_len:length], self.range)
+                scanresult = Iwscanresult(data[scanresult_len:length], self.range)
             elif scanresult is None:
-                raise RuntimeError(
-                    "Attempting to add an event without AP data.")
+                raise RuntimeError("Attempting to add an event without AP data.")
             else:
                 scanresult.addEvent(cmd, data[scanresult_len:length])
             # We're finished with the previous event
@@ -1644,8 +1634,7 @@ class Iwscanresult(object):
     def __init__(self, data, iwrange):
         """ Initialize the scan result with the access point data. """
         self.range = iwrange
-        self.bssid = "%02X:%02X:%02X:%02X:%02X:%02X" % (
-            struct.unpack('BBBBBB', data[2:8]))
+        self.bssid = "%02X:%02X:%02X:%02X:%02X:%02X" % (struct.unpack('BBBBBB', data[2:8]))
         self.essid = None
         self.mode = None
         self.rate = []
@@ -1736,8 +1725,7 @@ class Iwscanresult(object):
         print("Noise " + self.quality.getNoiselevel())
         print("Encryption: " + map(lambda x: hex(ord(x)), self.encode))
         # XXX
-        # print "Frequency:", self.frequency.getFrequency(), "(Channel",
-        # self.frequency.getChannel(self.range), ")"
+        # print "Frequency:", self.frequency.getFrequency(), "(Channel", self.frequency.getChannel(self.range), ")"
         for custom in self.custom:
             print("Custom: " + custom)
         print("")

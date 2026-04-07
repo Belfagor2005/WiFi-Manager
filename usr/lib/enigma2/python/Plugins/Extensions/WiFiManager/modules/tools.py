@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
 
+import time
+import subprocess
+from json import load, dump
+from re import search, findall, DOTALL
+from os.path import exists
+
+from .. import _
+
 """
 #########################################################
 #                                                       #
@@ -19,42 +27,27 @@
 #########################################################
 """
 
-import time
-import subprocess
-from json import load, dump
-from re import search, findall, DOTALL
-from os.path import exists
-
-from .. import _
-
 
 def verify_connection(interface, essid):
     """Verify connection to network"""
     try:
-        result = subprocess.run(
-            f"iwconfig {interface}",
-            shell=True,
-            capture_output=True,
-            text=True)
+        result = subprocess.run(f"iwconfig {interface}", shell=True, capture_output=True, text=True)
         if f'ESSID:"{essid}"' in result.stdout:
-            ip_result = subprocess.run(
-                f"ip addr show {interface}",
-                shell=True,
-                capture_output=True,
-                text=True)
+            ip_result = subprocess.run(f"ip addr show {interface}", shell=True, capture_output=True, text=True)
             return 'inet ' in ip_result.stdout
         return False
-    except BaseException:
+    except Exception as e:
+        print(e)
         return False
 
 
 def is_interface_up(interface):
     """Check if interface is up"""
     try:
-        result = subprocess.run(
-            ['ip', 'link', 'show', interface], capture_output=True, text=True)
+        result = subprocess.run(['ip', 'link', 'show', interface], capture_output=True, text=True)
         return 'state UP' in result.stdout
-    except BaseException:
+    except Exception as e:
+        print(e)
         return False
 
 
@@ -72,12 +65,8 @@ def ensure_interface_up(interface):
             return False
 
         # Try to bring interface up
-        result = subprocess.run(
-            f"ip link set {interface} up",
-            shell=True,
-            capture_output=True,
-            text=True,
-            timeout=10)
+        result = subprocess.run(f"ip link set {interface} up",
+                                shell=True, capture_output=True, text=True, timeout=10)
 
         if result.returncode == 0:
             print(f"[DEBUG] Interface {interface} brought up successfully")
@@ -86,12 +75,8 @@ def ensure_interface_up(interface):
         else:
             print(f"[DEBUG] Failed to bring interface up: {result.stderr}")
             # Try alternative command
-            result2 = subprocess.run(
-                f"ifconfig {interface} up",
-                shell=True,
-                capture_output=True,
-                text=True,
-                timeout=10)
+            result2 = subprocess.run(f"ifconfig {interface} up",
+                                     shell=True, capture_output=True, text=True, timeout=10)
             return result2.returncode == 0
 
     except Exception as e:
@@ -115,16 +100,11 @@ def get_wifi_interfaces():
                     if ifname and ifname not in wifi_interfaces:
                         wifi_interfaces.append(ifname)
         except Exception as e:
-            print(
-                f"[get_wifi_interfaces] Error reading /proc/net/wireless: {e}")
+            print(f"[get_wifi_interfaces] Error reading /proc/net/wireless: {e}")
 
         # METHOD 2: Check iwconfig output
         try:
-            result = subprocess.run(
-                ['iwconfig'],
-                capture_output=True,
-                text=True,
-                timeout=10)
+            result = subprocess.run(['iwconfig'], capture_output=True, text=True, timeout=10)
             if result.returncode == 0:
                 for line in result.stdout.split('\n'):
                     if 'IEEE 802.11' in line or 'ESSID:' in line:
@@ -139,17 +119,10 @@ def get_wifi_interfaces():
 
         # METHOD 3: Check ip link show with iw verification
         try:
-            result = subprocess.run(
-                ['ip', 'link', 'show'], capture_output=True, text=True, timeout=10)
+            result = subprocess.run(['ip', 'link', 'show'], capture_output=True, text=True, timeout=10)
             if result.returncode == 0:
                 for line in result.stdout.split('\n'):
-                    if any(
-                        name in line for name in [
-                            'wlan',
-                            'wlp',
-                            'wifi',
-                            'ath',
-                            'ra']):
+                    if any(name in line for name in ['wlan', 'wlp', 'wifi', 'ath', 'ra']):
                         ifname_match = search(r'^\d+:\s+(\w+):', line)
                         if ifname_match:
                             ifname = ifname_match.group(1)
@@ -160,21 +133,14 @@ def get_wifi_interfaces():
                                                                capture_output=True, text=True, timeout=5)
                                     if iw_result.returncode == 0:
                                         wifi_interfaces.append(ifname)
-                                except BaseException:
+                                except Exception as e:
+                                    print(e)
                                     pass
         except Exception as e:
             print(f"[get_wifi_interfaces] Error with ip link: {e}")
 
         # METHOD 4: Check common interface names with verification
-        common_names = [
-            'wlan0',
-            'wlan1',
-            'wlan2',
-            'wlp2s0',
-            'wlp3s0',
-            'wifi0',
-            'ath0',
-            'ra0']
+        common_names = ['wlan0', 'wlan1', 'wlan2', 'wlp2s0', 'wlp3s0', 'wifi0', 'ath0', 'ra0']
         for ifname in common_names:
             try:
                 result = subprocess.run(['ip', 'link', 'show', ifname],
@@ -185,7 +151,8 @@ def get_wifi_interfaces():
                                                capture_output=True, text=True, timeout=5)
                     if iw_result.returncode == 0 and ifname not in wifi_interfaces:
                         wifi_interfaces.append(ifname)
-            except BaseException:
+            except Exception as e:
+                print(e)
                 pass
 
         # METHOD 5: Check sysfs for wireless devices
@@ -194,8 +161,7 @@ def get_wifi_interfaces():
             if os.path.exists('/sys/class/net'):
                 for ifname in os.listdir('/sys/class/net'):
                     wireless_path = f'/sys/class/net/{ifname}/wireless'
-                    if os.path.exists(
-                            wireless_path) and ifname not in wifi_interfaces:
+                    if os.path.exists(wireless_path) and ifname not in wifi_interfaces:
                         wifi_interfaces.append(ifname)
         except Exception as e:
             print(f"[get_wifi_interfaces] Error checking sysfs: {e}")
@@ -209,16 +175,13 @@ def get_wifi_interfaces():
 def get_current_connected_essid(interface):
     """Get currently connected ESSID"""
     try:
-        result = subprocess.run(
-            f"iwconfig {interface}",
-            shell=True,
-            capture_output=True,
-            text=True)
+        result = subprocess.run(f"iwconfig {interface}", shell=True, capture_output=True, text=True)
         if result.returncode == 0:
             essid_match = search(r'ESSID:"([^"]*)"', result.stdout)
             if essid_match and essid_match.group(1):
                 return essid_match.group(1)
-    except BaseException:
+    except Exception as e:
+        print(e)
         pass
     return None
 
@@ -226,14 +189,11 @@ def get_current_connected_essid(interface):
 def get_ip_address(interface):
     """Get assigned IP address"""
     try:
-        result = subprocess.run(
-            f"ip addr show {interface}",
-            shell=True,
-            capture_output=True,
-            text=True)
+        result = subprocess.run(f"ip addr show {interface}", shell=True, capture_output=True, text=True)
         ip_match = search(r'inet (\d+\.\d+\.\d+\.\d+)', result.stdout)
         return ip_match.group(1) if ip_match else None
-    except BaseException:
+    except Exception as e:
+        print(e)
         return None
 
 
@@ -243,8 +203,7 @@ def get_interface_info(ifname):
         info = {'name': ifname}
 
         # Get basic interface info using iwconfig
-        result = subprocess.run(['iwconfig', ifname],
-                                capture_output=True, text=True)
+        result = subprocess.run(['iwconfig', ifname], capture_output=True, text=True)
         if result.returncode != 0:
             info['error'] = _("Interface {} not available").format(ifname)
             return info
@@ -254,8 +213,7 @@ def get_interface_info(ifname):
 
         # Extract ESSID
         essid_match = search(r'ESSID:"([^"]*)"', output)
-        info['essid'] = essid_match.group(
-            1) if essid_match else _("Not connected")
+        info['essid'] = essid_match.group(1) if essid_match else _("Not connected")
 
         # Extract AP MAC address
         ap_match = search(r'Access Point: ([0-9A-Fa-f:]{17})', output)
@@ -278,8 +236,7 @@ def get_interface_info(ifname):
 
         # Extract Bitrate
         rate_match = search(r'Bit Rate[=:]([0-9.]+) Mb/s', output)
-        info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)
-                                              ) if rate_match else _("Unknown")
+        info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)) if rate_match else _("Unknown")
 
         # Extract Signal Quality
         quality_match = search(r'Link Quality=(\d+)/(\d+)', output)
@@ -295,11 +252,11 @@ def get_interface_info(ifname):
                 iw_result = subprocess.run(['iw', 'dev', ifname, 'link'],
                                            capture_output=True, text=True, timeout=5)
                 if iw_result.returncode == 0:
-                    iw_signal_match = search(
-                        r'signal: (-?\d+)', iw_result.stdout)
+                    iw_signal_match = search(r'signal: (-?\d+)', iw_result.stdout)
                     if iw_signal_match:
                         info['signal_dbm'] = int(iw_signal_match.group(1))
-            except BaseException:
+            except Exception as e:
+                print(e)
                 pass
 
         if quality_match:
@@ -323,18 +280,16 @@ def get_interface_info(ifname):
 
         # Extract TX Power
         power_match = search(r'Tx-Power[=:](-?\d+) dBm', output)
-        info['txpower'] = _("{} dBm").format(
-            power_match.group(1)) if power_match else _("Unknown")
+        info['txpower'] = _("{} dBm").format(power_match.group(1)) if power_match else _("Unknown")
 
         # Get protocol (driver) information using ethtool
         try:
-            ethtool_result = subprocess.run(
-                ['ethtool', '-i', ifname], capture_output=True, text=True, timeout=5)
+            ethtool_result = subprocess.run(['ethtool', '-i', ifname],
+                                            capture_output=True, text=True, timeout=5)
 
             if ethtool_result.returncode == 0:
                 ethtool_output = ethtool_result.stdout
-                print(
-                    f"[DEBUG] ethtool output for {ifname}:\n{ethtool_output}")
+                print(f"[DEBUG] ethtool output for {ifname}:\n{ethtool_output}")
 
                 driver_match = search(r'driver:\s*(\S+)', ethtool_output)
                 if driver_match:
@@ -352,9 +307,7 @@ def get_interface_info(ifname):
 
             else:
                 info['protocol'] = _("Unknown")
-                print(
-                    f"[DEBUG] ethtool failed with returncode: {
-                        ethtool_result.returncode}")
+                print(f"[DEBUG] ethtool failed with returncode: {ethtool_result.returncode}")
 
         except subprocess.TimeoutExpired:
             info['protocol'] = _("Timeout")
@@ -538,8 +491,7 @@ def parse_iwlist_detailed(scan_output):
         elif 'Encryption key:' in line:
             current_net['encryption'] = 'on' in line.lower()
 
-        # Signal level - CORRETTO: cerca Signal level= in qualsiasi punto della
-        # linea
+        # Signal level - CORRETTO: cerca Signal level= in qualsiasi punto della linea
         elif 'Signal level=' in line:
             # Pattern migliorato per Signal level
             signal_match = search(r'Signal level=(-?\d+)\s*dBm?', line)
@@ -604,12 +556,7 @@ def scan_networks(ifname, detailed=False):
     """Scan available networks using iwlist - VERSIONE SICURA"""
     try:
         cmd = f"iwlist {ifname} scan"
-        result = subprocess.run(
-            cmd,
-            shell=True,
-            capture_output=True,
-            text=True,
-            timeout=30)
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
 
         if result.returncode != 0:
             raise Exception(f"Scan failed: {result.stderr.strip()}")
@@ -709,15 +656,12 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                 )
 
                 if ping_result.returncode == 0:
-                    # Memorizza il comando completo
-                    used_command = ' '.join(cmd)
+                    used_command = ' '.join(cmd)  # Memorizza il comando completo
                     break
                 else:
                     last_error = ping_result.stderr
                     if debug:
-                        print(
-                            f"[PING] Command failed (code {
-                                ping_result.returncode}): {last_error}")
+                        print(f"[PING] Command failed (code {ping_result.returncode}): {last_error}")
 
             except (subprocess.TimeoutExpired, FileNotFoundError, Exception) as e:
                 last_error = str(e)
@@ -782,8 +726,8 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
             return _("{:.1f} ms").format(avg_time)
 
         # Method 2: Try with final statistics
-        stats_lines = [line for line in output.split(
-            '\n') if 'min/avg/max' in line.lower() or 'rtt' in line.lower()]
+        stats_lines = [line for line in output.split('\n')
+                       if 'min/avg/max' in line.lower() or 'rtt' in line.lower()]
 
         if stats_lines:
             stats_line = stats_lines[-1]
@@ -807,9 +751,7 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                         else:
                             avg_ping = float(match.group(1))
                         if debug:
-                            print(
-                                f"[PING] Found average from stats: {
-                                    avg_ping:.1f} ms")
+                            print(f"[PING] Found average from stats: {avg_ping:.1f} ms")
                         return _("{:.1f} ms").format(avg_ping)
                     except (ValueError, IndexError):
                         continue
