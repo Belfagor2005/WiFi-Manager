@@ -77,4 +77,3 @@ def Plugins(**kwargs):
     # ├── wifi-scan.png
     # ├── wifi-info.png
     # └── wifi-diagnostic.png
-    

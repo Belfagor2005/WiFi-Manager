@@ -39,8 +39,15 @@ def test_download_speed(interface=None, timeout=10):
 
         # Quick connectivity check first
         try:
-            ping_result = subprocess.run(['ping', '-c', '1', '-W', '2', '8.8.8.8'],
-                                         capture_output=True, text=True, timeout=5)
+            ping_result = subprocess.run(['ping',
+                                          '-c',
+                                          '1',
+                                          '-W',
+                                          '2',
+                                          '8.8.8.8'],
+                                         capture_output=True,
+                                         text=True,
+                                         timeout=5)
             if ping_result.returncode != 0:
                 return _("No internet connection")
         except subprocess.TimeoutExpired:
@@ -127,13 +134,16 @@ def test_ping(host="8.8.8.8", count=3):
         if result.returncode == 0:
             for line in result.stdout.split('\n'):
                 if 'min/avg/max' in line or 'rtt min/avg/max' in line:
-                    stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
+                    stats_match = search(
+                        r'([0-9.]+)/([0-9.]+)/([0-9.]+)', line)
                     if stats_match:
                         ping_time = float(stats_match.group(2))
                         return "{:.1f} ms".format(ping_time)
 
             # Fallback parsing
-            stats_match = search(r'([0-9.]+)/([0-9.]+)/([0-9.]+)', result.stdout)
+            stats_match = search(
+                r'([0-9.]+)/([0-9.]+)/([0-9.]+)',
+                result.stdout)
             if stats_match:
                 ping_time = float(stats_match.group(2))
                 return "{:.1f} ms".format(ping_time)
@@ -157,7 +167,11 @@ def extended_ping_test():
     results = []
     for name, host in hosts:
         ping_result = test_ping(host, 2)
-        results.append(_("{name} ({host}): {ping}").format(name=name, host=host, ping=ping_result))
+        results.append(
+            _("{name} ({host}): {ping}").format(
+                name=name,
+                host=host,
+                ping=ping_result))
 
     return "\n".join(results)
 
@@ -176,7 +190,8 @@ def get_public_ip_info():
 def get_network_interfaces():
     """Get network interface information"""
     try:
-        result = subprocess.run(['ip', 'addr', 'show'], capture_output=True, text=True)
+        result = subprocess.run(['ip', 'addr', 'show'],
+                                capture_output=True, text=True)
         interfaces = []
         current_interface = None
 
@@ -194,8 +209,10 @@ def get_network_interfaces():
 def multi_server_download_test(interface=None):
     """Test downloads from multiple servers"""
     servers = [
-        ("Otenet Greece", "http://speedtest.ftp.otenet.gr/files/test1Mb.db"),
-        ("Linode Frankfurt", "http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin"),
+        ("Otenet Greece",
+         "http://speedtest.ftp.otenet.gr/files/test1Mb.db"),
+        ("Linode Frankfurt",
+         "http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin"),
     ]
 
     results = []
@@ -214,14 +231,18 @@ def multi_server_download_test(interface=None):
                 else:
                     size_mb = 1
                 speed = (size_mb * 8) / duration
-                results.append(_("{name}: {speed:.2f} Mbps").format(name=name, speed=speed))
+                results.append(
+                    _("{name}: {speed:.2f} Mbps").format(
+                        name=name, speed=speed))
             else:
                 results.append(_("{name}: Failed").format(name=name))
 
         except subprocess.TimeoutExpired:
             results.append(_("{name}: Timeout").format(name=name))
         except Exception as e:
-            results.append(_("{name}: Error {error}").format(name=name, error=e))
+            results.append(
+                _("{name}: Error {error}").format(
+                    name=name, error=e))
 
     return "\n".join(results)
 
@@ -243,8 +264,15 @@ def connection_stability_test(interface=None, duration=5):
 
         while time.time() - start_time < duration and packets_sent < max_packets:
             try:
-                result = subprocess.run(['ping', '-c', '1', '-W', '2', '8.8.8.8'],
-                                        capture_output=True, text=True, timeout=5)
+                result = subprocess.run(['ping',
+                                         '-c',
+                                         '1',
+                                         '-W',
+                                         '2',
+                                         '8.8.8.8'],
+                                        capture_output=True,
+                                        text=True,
+                                        timeout=5)
                 packets_sent += 1
                 if result.returncode != 0:
                     packets_lost += 1
