@@ -1007,7 +1007,8 @@ class WiFiConnectZ(Screen):
                             )
 
                     elif 'Access Point:' in line:
-                        ap_match = search(r'Access Point: ([0-9A-Fa-f:]+)', line)
+                        ap_match = search(
+                            r'Access Point: ([0-9A-Fa-f:]+)', line)
                         if ap_match:
                             details.append(
                                 _("Access Point: {ap}").format(
@@ -1016,7 +1017,8 @@ class WiFiConnectZ(Screen):
                             )
 
                     elif 'Bit Rate=' in line:
-                        rate_match = search(r'Bit Rate=([0-9.]+ [GM]b/s)', line)
+                        rate_match = search(
+                            r'Bit Rate=([0-9.]+ [GM]b/s)', line)
                         if rate_match:
                             details.append(
                                 _("Bit Rate: {rate}").format(
@@ -1025,7 +1027,8 @@ class WiFiConnectZ(Screen):
                             )
 
                     elif 'Signal level=' in line:
-                        signal_match = search(r'Signal level=(-?\d+) dBm', line)
+                        signal_match = search(
+                            r'Signal level=(-?\d+) dBm', line)
                         if signal_match:
                             details.append(
                                 _("Signal Level: {signal} dBm").format(
@@ -1094,8 +1097,7 @@ class WiFiConnectZ(Screen):
                     details_text = "\n".join(details)
 
                     formatted_text = _("Connection Details:\n\n{details}").format(
-                        details=details_text
-                    )
+                        details=details_text)
 
                     self.session.openWithCallback(
                         lambda result: callback() if callback else None,

@@ -427,7 +427,9 @@ class WiFiDetailedInfo(Screen):
         info = ""
 
         try:
-            self._write_debug("Running scan_networks for {}".format(self.ifname))
+            self._write_debug(
+                "Running scan_networks for {}".format(
+                    self.ifname))
 
             networks = scan_networks(self.ifname, detailed=True)
 
@@ -449,13 +451,7 @@ class WiFiDetailedInfo(Screen):
                     signal_quality = format_signal_quality(quality_percent)
 
                     info += _("  {:2d}. {} {:20} | Signal: {:4} dBm ({}) | Channel: {}\n").format(
-                        i + 1,
-                        encrypted,
-                        essid,
-                        signal,
-                        signal_quality,
-                        channel
-                    )
+                        i + 1, encrypted, essid, signal, signal_quality, channel)
 
                 if len(networks) > 8:
                     info += _("  ... and {} more networks\n").format(len(networks) - 8)
