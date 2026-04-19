@@ -198,9 +198,9 @@ class Enigma2Speedtest:
 
             # Use a small, reliable test file
             test_urls = [
-                "http://ipv4.download.thinkbroadband.com/1MB.zip",  # 1MB
-                "http://speedtest.ftp.otenet.gr/files/test1Mb.db",   # 1MB
-                "http://cachefly.cachefly.net/1mb.test"              # 1MB
+                "http://ipv4.download.thinkbroadband.com/1MB.zip",
+                "http://speedtest.ftp.otenet.gr/files/test1Mb.db",
+                "http://cachefly.cachefly.net/1mb.test"
             ]
 
             best_speed_mbps = 0
@@ -208,7 +208,7 @@ class Enigma2Speedtest:
 
             for url in test_urls:
                 try:
-                    print(f"Testing download from: {url}")
+                    print("Testing download from: {}".format(url))
 
                     start_time = time.time()
                     request = Request(url)
@@ -235,30 +235,34 @@ class Enigma2Speedtest:
                         if speed_mbps > best_speed_mbps:
                             best_speed_mbps = speed_mbps
 
-                        print(
-                            f"Download from {url.split('/')[2]}: {speed_mbps:.2f} Mbps")
+                        print("Download from {}: {:.2f} Mbps".format(
+                            url.split('/')[2],
+                            speed_mbps
+                        ))
 
                     # Short break between tests
                     time.sleep(1)
 
                 except Exception as e:
-                    print(f"Download test failed for {url}: {e}")
+                    print("Download test failed for {}: {}".format(url, e))
                     continue
 
             if download_details:
                 self.results['download_details'] = download_details
-                self.results['download'] = best_speed_mbps * \
-                    1000000  # Convert to bps
-                print(
-                    f"Download test completed. Best speed: {
-                        best_speed_mbps:.2f} Mbps")
+                self.results['download'] = best_speed_mbps * 1000000  # bps
+
+                print("Download test completed. Best speed: {:.2f} Mbps".format(
+                    best_speed_mbps
+                ))
+
                 return best_speed_mbps * 1000000
+
             else:
                 print("All download tests failed")
                 return 0
 
         except Exception as e:
-            print(f"Download test error: {e}")
+            print("Download test error: {}".format(e))
             return 0
 
     def test_upload_estimated(self):
@@ -279,15 +283,19 @@ class Enigma2Speedtest:
 
                 upload_mbps = download_mbps * upload_ratio
                 self.results['upload'] = upload_mbps * 1000000
-                print(
-                    f"Upload estimated: {
-                        upload_mbps:.2f} Mbps (ratio: {upload_ratio})")
+
+                print("Upload estimated: {:.2f} Mbps (ratio: {})".format(
+                    upload_mbps,
+                    upload_ratio
+                ))
+
                 return upload_mbps * 1000000
 
             print("Cannot estimate upload - no download data")
             return 0
+
         except Exception as e:
-            print(f"Upload test error: {e}")
+            print("Upload test error: {}".format(e))
             return 0
 
     def get_best_server(self):

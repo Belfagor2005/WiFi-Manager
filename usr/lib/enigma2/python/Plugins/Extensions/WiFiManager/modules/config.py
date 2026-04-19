@@ -357,72 +357,57 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
             print(f"[WiFiConfig] Error loading settings: {e}")
 
     def apply_advanced_settings(self):
-        """Apply advanced WiFi settings (dalla classe WiFiConfig originale)"""
         try:
             ifname = self.wifi_config.interface.value
-
             commands = []
 
-            # Set operation mode
             if self.wifi_config.mode.value != "auto":
-                commands.append(
-                    f"iwconfig {ifname} mode {
-                        self.wifi_config.mode.value}")
+                commands.append("iwconfig {} mode {}".format(ifname, self.wifi_config.mode.value))
 
-            # Set channel
             if self.wifi_config.channel.value != "auto":
-                commands.append(
-                    f"iwconfig {ifname} channel {
-                        self.wifi_config.channel.value}")
+                commands.append("iwconfig {} channel {}".format(ifname, self.wifi_config.channel.value))
 
-            # Set TX power
             if self.wifi_config.txpower.value != "auto":
-                commands.append(
-                    f"iwconfig {ifname} txpower {
-                        self.wifi_config.txpower.value}")
+                commands.append("iwconfig {} txpower {}".format(ifname, self.wifi_config.txpower.value))
 
-            # Set RTS threshold
             if self.wifi_config.rts.value != "auto":
                 rts_val = "off" if self.wifi_config.rts.value == "off" else self.wifi_config.rts.value
-                commands.append(f"iwconfig {ifname} rts {rts_val}")
+                commands.append("iwconfig {} rts {}".format(ifname, rts_val))
 
-            # Set fragmentation threshold
             if self.wifi_config.frag.value != "auto":
                 frag_val = "off" if self.wifi_config.frag.value == "off" else self.wifi_config.frag.value
-                commands.append(f"iwconfig {ifname} frag {frag_val}")
+                commands.append("iwconfig {} frag {}".format(ifname, frag_val))
 
-            # Set country code (using iw)
             if self.wifi_config.country.value != "auto":
-                commands.append(f"iw reg set {self.wifi_config.country.value}")
+                commands.append("iw reg set {}".format(self.wifi_config.country.value))
 
-            # Set data rate
             if self.wifi_config.rate.value != "auto":
-                commands.append(
-                    f"iwconfig {ifname} rate {
-                        self.wifi_config.rate.value}M")
+                commands.append("iwconfig {} rate {}M".format(ifname, self.wifi_config.rate.value))
 
-            # Execute commands
             success_count = 0
             failed_commands = []
 
             for cmd in commands:
                 try:
-                    result = subprocess.run(
-                        cmd, shell=True, capture_output=True, text=True, timeout=10)
+                    result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=10)
                     if result.returncode == 0:
                         success_count += 1
-                        print(f"[WiFiConfig] Command successful: {cmd}")
+                        print("[WiFiConfig] Command successful: {}".format(cmd))
                     else:
-                        failed_commands.append(
-                            f"{cmd}: {result.stderr.strip()}")
-                        print(
-                            f"[WiFiConfig] Command failed: {cmd} - {result.stderr}")
+                        failed_commands.append("{}: {}".format(cmd, result.stderr.strip()))
+                        print("[WiFiConfig] Command failed: {} - {}".format(cmd, result.stderr))
                 except subprocess.TimeoutExpired:
-                    failed_commands.append(f"{cmd}: Timeout")
-                    print(f"[WiFiConfig] Command timeout: {cmd}")
+                    failed_commands.append("{}: Timeout".format(cmd))
+                    print("[WiFiConfig] Command timeout: {}".format(cmd))
                 except Exception as e:
-                    failed_commands.append(f"{cmd}: {str(e)}")
-                    print(f"[WiFiConfig] Error executing {cmd}: {e}")
+                    failed_commands.append("{}: {}".format(cmd, str(e)))
+                    print("[WiFiConfig] Error executing {}: {}".format(cmd, e))
+
+            return success_count, failed_commands
+
+        except Exception as e:
+            print("[WiFiConfig] Error in apply_advanced_settings: {}".format(e))
+            return 0, [str(e)]
 
             # Show results
             if success_count > 0:

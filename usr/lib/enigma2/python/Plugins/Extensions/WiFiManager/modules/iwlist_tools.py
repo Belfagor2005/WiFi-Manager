@@ -565,24 +565,27 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
         """Apply advanced settings"""
         try:
             commands = []
+
             # Apply mode
             if self.wifi_config.mode.value != "auto":
-                commands.append(
-                    f"iwconfig {
-                        self.ifname} mode {
-                        self.wifi_config.mode.value}")
+                commands.append("iwconfig {} mode {}".format(
+                    self.ifname,
+                    self.wifi_config.mode.value
+                ))
+
             # Apply channel
             if self.wifi_config.channel.value != "auto":
-                commands.append(
-                    f"iwconfig {
-                        self.ifname} channel {
-                        self.wifi_config.channel.value}")
+                commands.append("iwconfig {} channel {}".format(
+                    self.ifname,
+                    self.wifi_config.channel.value
+                ))
+
             # Apply TX power
             if self.wifi_config.txpower.value != "auto":
-                commands.append(
-                    f"iwconfig {
-                        self.ifname} txpower {
-                        self.wifi_config.txpower.value}")
+                commands.append("iwconfig {} txpower {}".format(
+                    self.ifname,
+                    self.wifi_config.txpower.value
+                ))
 
             # Execute commands
             for cmd in commands:
@@ -599,7 +602,7 @@ class AdvancedConfigScreen(ConfigListScreen, Screen):
             self.session.openWithCallback(
                 lambda result: self.close(True),
                 MessageBox,
-                _(f"Error applying settings: {e}"),
+                _("Error applying settings: {}".format(e)),
                 MessageBox.TYPE_ERROR
             )
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-version='1.1'
-changelog='\nInitial release'
+version='1.2'
+changelog='\nPorting PY3'
 
 TMPPATH=/tmp/WiFiManager-install
 FILEPATH=/tmp/WiFiManager-main.tar.gz

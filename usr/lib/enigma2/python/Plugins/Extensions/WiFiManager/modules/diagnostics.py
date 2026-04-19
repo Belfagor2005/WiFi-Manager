@@ -598,9 +598,10 @@ class WiFiDiagnostics(Screen):
         try:
             quality = wireless.getQualityAvg()
             if quality:
-                return True, f"Quality: {
-                    quality.quality}%, Signal: {
-                    quality.siglevel} dBm"
+                return True, "Quality: {}%, Signal: {} dBm".format(
+                    quality.quality,
+                    quality.siglevel
+                )
             return False, "No quality data"
         except Exception as e:
             return False, str(e)

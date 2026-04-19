@@ -509,49 +509,54 @@ class WiFiConnectZ(Screen):
             self.execute_connection_with_callback(None)
 
     def connect_to_open_network_thread(self):
-        """Connect to open network - IN THREAD"""
         try:
             essid = self.current_network.get('essid')
 
             # Disconnect first
             subprocess.run(
-                f"iwconfig {
-                    self.interface} essid off",
+                "iwconfig {} essid off".format(self.interface),
                 shell=True,
                 capture_output=True,
-                timeout=5)
+                timeout=5
+            )
             time.sleep(1)
 
             # Connect to open network
-            cmd = f"iwconfig {self.interface} essid \"{essid}\""
+            cmd = 'iwconfig {} essid "{}"'.format(self.interface, essid)
             result = subprocess.run(
                 cmd,
                 shell=True,
                 capture_output=True,
                 text=True,
-                timeout=30)
+                timeout=30
+            )
 
             if result.returncode == 0:
-                # Get IP via DHCP with timeout
                 dhcp_success = False
+
                 for dhcp_client in ['dhcpcd', 'udhcpc', 'dhclient']:
                     try:
                         if dhcp_client == 'dhcpcd':
                             result = subprocess.run(
-                                ['dhcpcd', self.interface], capture_output=True, text=True, timeout=15)
+                                ['dhcpcd', self.interface],
+                                capture_output=True,
+                                text=True,
+                                timeout=15
+                            )
                         elif dhcp_client == 'udhcpc':
-                            result = subprocess.run(['udhcpc',
-                                                     '-i',
-                                                     self.interface,
-                                                     '-t',
-                                                     '5',
-                                                     '-n'],
-                                                    capture_output=True,
-                                                    text=True,
-                                                    timeout=15)
+                            result = subprocess.run(
+                                ['udhcpc', '-i', self.interface, '-t', '5', '-n'],
+                                capture_output=True,
+                                text=True,
+                                timeout=15
+                            )
                         elif dhcp_client == 'dhclient':
                             result = subprocess.run(
-                                ['dhclient', self.interface, '-v'], capture_output=True, text=True, timeout=15)
+                                ['dhclient', self.interface, '-v'],
+                                capture_output=True,
+                                text=True,
+                                timeout=15
+                            )
 
                         if result.returncode == 0:
                             dhcp_success = True
@@ -560,14 +565,13 @@ class WiFiConnectZ(Screen):
                         print(e)
                         continue
 
-                # Verify connection
                 time.sleep(3)
                 return self.verify_connectionp(essid) and dhcp_success
             else:
                 return False
 
         except Exception as e:
-            print(f"[DEBUG] Open network connection error: {e}")
+            print("[DEBUG] Open network connection error: {}".format(e))
             return False
 
     def connect_with_saved_config_thread(self, essid, password=None):

@@ -225,97 +225,97 @@ class WiFiMonitor(Screen):
 
             # Get information using get_interface_info from tools.py
             interface_info = get_interface_info(ifname)
-            print(f"[WiFiMonitor] Interface info: {interface_info}")  # DEBUG
+            print("[WiFiMonitor] Interface info: {}".format(interface_info))
 
             if 'error' in interface_info:
-                print(
-                    f"[WiFiMonitor] Error getting interface info: {
-                        interface_info['error']}")
+                print("[WiFiMonitor] Error getting interface info: {}".format(
+                    interface_info['error']
+                ))
                 return None
 
             # ESSID
-            wifi_data['essid'] = interface_info.get(
-                'essid', _('Not connected'))
+            wifi_data['essid'] = interface_info.get('essid', _('Not connected'))
 
             # Quality
             quality_str = interface_info.get('quality', '0')
-            print(
-                f"[WiFiMonitor] Raw quality string: '{quality_str}'")  # DEBUG
+            print("[WiFiMonitor] Raw quality string: '{}'".format(quality_str))
 
             try:
                 if isinstance(quality_str, str):
-                    # Common cases: "70/70", "50%", "35", "-45 dBm"
+
                     if '/' in quality_str:
-                        # Format "current/max"
                         parts = quality_str.split('/')
                         if len(parts) == 2:
                             current = float(parts[0])
                             max_val = float(parts[1])
-                            quality = int(
-                                (current / max_val) * 100) if max_val > 0 else 0
+                            quality = int((current / max_val) * 100) if max_val > 0 else 0
                         else:
                             quality = 0
+
                     elif '%' in quality_str:
-                        # Remove the % and convert
                         quality = int(float(quality_str.replace('%', '')))
+
                     else:
-                        # Try to convert directly
                         quality_clean = sub(r'[^\d.-]', '', quality_str)
-                        quality = int(
-                            float(quality_clean)) if quality_clean else 0
+                        quality = int(float(quality_clean)) if quality_clean else 0
                 else:
                     quality = int(quality_str)
 
-                # Clamp between 0 and 100
                 wifi_data['quality'] = min(max(quality, 0), 100)
-                print(
-                    f"[WiFiMonitor] Parsed quality: {
-                        wifi_data['quality']}%")  # DEBUG
+
+                print("[WiFiMonitor] Parsed quality: {}%".format(
+                    wifi_data['quality']
+                ))
 
             except (ValueError, TypeError) as e:
-                print(f"[WiFiMonitor] Quality parsing error: {e}")
+                print("[WiFiMonitor] Quality parsing error: {}".format(e))
                 wifi_data['quality'] = 0
 
             # Signal level
             try:
-                # Run iwconfig to get detailed signal info
-                result = subprocess.run(['iwconfig', ifname],
-                                        capture_output=True, text=True, timeout=5)
+                result = subprocess.run(
+                    ['iwconfig', ifname],
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                )
                 output = result.stdout
-                print(f"[WiFiMonitor] iwconfig output: {output}")  # DEBUG
 
-                # Search for signal level in dBm
+                print("[WiFiMonitor] iwconfig output: {}".format(output))
+
                 signal_match = search(r'Signal level=(-?\d+) dBm', output)
+
                 if signal_match:
                     wifi_data['signal'] = int(signal_match.group(1))
-                    print(
-                        f"[WiFiMonitor] Found signal level: {
-                            wifi_data['signal']} dBm")  # DEBUG
+                    print("[WiFiMonitor] Found signal level: {} dBm".format(
+                        wifi_data['signal']
+                    ))
+
                 else:
-                    # Try alternative format
                     signal_match2 = search(r'Signal level=(-?\d+)', output)
+
                     if signal_match2:
                         wifi_data['signal'] = int(signal_match2.group(1))
-                        print(
-                            f"[WiFiMonitor] Found signal level (alt format): {
-                                wifi_data['signal']}")  # DEBUG
+                        print("[WiFiMonitor] Found signal level (alt format): {}".format(
+                            wifi_data['signal']
+                        ))
+
                     else:
-                        # Fallback: use quality-based estimation
                         quality_percent = wifi_data['quality']
-                        # Better conversion: 100% = -20dBm, 0% = -100dBm
-                        wifi_data['signal'] = int(-100 +
-                                                  (quality_percent * 0.8))
-                        print(
-                            f"[WiFiMonitor] Estimated signal: {
-                                wifi_data['signal']} dBm")  # DEBUG
+                        wifi_data['signal'] = int(-100 + (quality_percent * 0.8))
+
+                        print("[WiFiMonitor] Estimated signal: {} dBm".format(
+                            wifi_data['signal']
+                        ))
 
             except Exception as e:
-                print(f"[WiFiMonitor] Error getting signal: {e}")
-                wifi_data['signal'] = -90  # Default value for "no signal"
+                print("[WiFiMonitor] Error getting signal: {}".format(e))
+                wifi_data['signal'] = -90
 
             # IP and MAC
             try:
                 from Components.Network import iNetwork
+
                 ip = iNetwork.getAdapterAttribute(ifname, "ip")
                 mac = iNetwork.getAdapterAttribute(ifname, "mac")
 
@@ -329,30 +329,29 @@ class WiFiMonitor(Screen):
             except Exception as e:
                 print(e)
 
-                # Fallback: try getting IP via subprocess
                 try:
-                    result = subprocess.run(['ip', 'addr', 'show', ifname],
-                                            capture_output=True, text=True)
-                    ip_match = search(
-                        r'inet (\d+\.\d+\.\d+\.\d+)', result.stdout)
-                    wifi_data['ip'] = ip_match.group(
-                        1) if ip_match else _('Not connected')
+                    result = subprocess.run(
+                        ['ip', 'addr', 'show', ifname],
+                        capture_output=True,
+                        text=True
+                    )
 
-                    # Get MAC address
-                    mac_match = search(
-                        r'link/ether ([0-9a-f:]+)', result.stdout, IGNORECASE)
-                    wifi_data['mac'] = mac_match.group(
-                        1) if mac_match else _('N/A')
+                    ip_match = search(r'inet (\d+\.\d+\.\d+\.\d+)', result.stdout)
+                    wifi_data['ip'] = ip_match.group(1) if ip_match else _('Not connected')
+
+                    mac_match = search(r'link/ether ([0-9a-f:]+)', result.stdout, IGNORECASE)
+                    wifi_data['mac'] = mac_match.group(1) if mac_match else _('N/A')
+
                 except Exception as e:
                     print(e)
                     wifi_data['ip'] = _('N/A')
                     wifi_data['mac'] = _('N/A')
 
-            print(f"[WiFiMonitor] Final data: {wifi_data}")  # DEBUG
+            print("[WiFiMonitor] Final data: {}".format(wifi_data))
             return wifi_data
 
         except Exception as e:
-            print(f"[WiFiMonitor] Error: {e}")
+            print("[WiFiMonitor] Error: {}".format(e))
             return None
 
     def show_error(self, message):

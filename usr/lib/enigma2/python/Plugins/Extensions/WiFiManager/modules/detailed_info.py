@@ -99,17 +99,18 @@ class WiFiDetailedInfo(Screen):
         self["info_output"].pageDown()
 
     def refresh_info(self):
-        self._write_debug(f"🔄 STARTING REFRESH for {self.ifname}")
-        print(f"[WiFiDetailedInfo] Starting refresh for {self.ifname}")
+        self._write_debug("🔄 STARTING REFRESH for {}".format(self.ifname))
+        print("[WiFiDetailedInfo] Starting refresh for {}".format(self.ifname))
+
         wifi_ifaces = get_wifi_interfaces()
+
         if self.ifname not in wifi_ifaces:
-            error_msg = _("❌ Interface {} not found or not a WiFi interface\n").format(
-                self.ifname)
+            error_msg = _("❌ Interface {} not found or not a WiFi interface\n").format(self.ifname)
             error_msg += _("Available interfaces: {}").format(
-                ', '.join(wifi_ifaces) if wifi_ifaces else _('None'))
-            self._write_debug(
-                f"Interface not found: {
-                    self.ifname}", error=True)
+                ', '.join(wifi_ifaces) if wifi_ifaces else _('None')
+            )
+
+            self._write_debug("Interface not found: {}".format(self.ifname), error=True)
             self["info_output"].setText(error_msg)
             return
 

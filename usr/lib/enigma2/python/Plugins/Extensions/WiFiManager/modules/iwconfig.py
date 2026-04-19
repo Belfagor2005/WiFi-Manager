@@ -344,20 +344,21 @@ def setEssid(wifi, essid):
     """Set the ESSID on the NIC."""
     try:
         wifi.setEssid(essid)
+
     except OverflowError as e:
         if version_info[0] == 3:
             errno, strerror = e.args
         else:
             errno, strerror = e[0], e[1]
 
-        print(
-            f'Error for wireless request "Set ESSID" ({
-                wifi_flags.SIOCSIWESSID:X}):')
-        print(f'    argument too big (max {wifi_flags.IW_ESSID_MAX_SIZE})')
+        print('Error for wireless request "Set ESSID" ({}):'.format(
+            format(wifi_flags.SIOCSIWESSID, "X")
+        ))
+        print('    argument too big (max {})'.format(wifi_flags.IW_ESSID_MAX_SIZE))
         print(type(errno), errno)
         print(type(strerror), strerror)
+
     except Exception as detail:
-        # Unexpected errors
         print(detail)
 
 
@@ -365,19 +366,21 @@ def setMode(wifi, mode):
     """Set the mode on the NIC."""
     try:
         wifi.setMode(mode)
+
     except ValueError as detail:
-        print(
-            f'Error for wireless request "Set Mode" ({
-                wifi_flags.SIOCSIWMODE:X}):')
-        print(f'    invalid argument "{mode}".')
-        print(f'    detail "{detail}".')
+        print('Error for wireless request "Set Mode" ({}):'.format(
+            format(wifi_flags.SIOCSIWMODE, "X")
+        ))
+        print('    invalid argument "{}".'.format(mode))
+        print('    detail "{}".'.format(detail))
+
     except IOError as e:
-        print(
-            f'Error for wireless request "Set Mode" ({
-                wifi_flags.SIOCSIWMODE:X}):')
-        print(f'    SET failed on device {wifi.ifname}; {e}')
+        print('Error for wireless request "Set Mode" ({}):'.format(
+            format(wifi_flags.SIOCSIWMODE, "X")
+        ))
+        print('    SET failed on device {}; {}'.format(wifi.ifname, e))
+
     except Exception as detail:
-        # Unexpected errors
         print(type(detail), detail)
 
 

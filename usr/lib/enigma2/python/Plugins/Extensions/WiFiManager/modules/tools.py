@@ -251,17 +251,17 @@ def get_interface_info(ifname):
         # Get basic interface info using iwconfig
         result = subprocess.run(['iwconfig', ifname],
                                 capture_output=True, text=True)
+
         if result.returncode != 0:
             info['error'] = _("Interface {} not available").format(ifname)
             return info
 
         output = result.stdout
-        print(f"[DEBUG] iwconfig output for {ifname}:\n{output}")
+        print("[DEBUG] iwconfig output for {}:\n{}".format(ifname, output))
 
         # Extract ESSID
         essid_match = search(r'ESSID:"([^"]*)"', output)
-        info['essid'] = essid_match.group(
-            1) if essid_match else _("Not connected")
+        info['essid'] = essid_match.group(1) if essid_match else _("Not connected")
 
         # Extract AP MAC address
         ap_match = search(r'Access Point: ([0-9A-Fa-f:]{17})', output)
@@ -284,8 +284,7 @@ def get_interface_info(ifname):
 
         # Extract Bitrate
         rate_match = search(r'Bit Rate[=:]([0-9.]+) Mb/s', output)
-        info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)
-                                              ) if rate_match else _("Unknown")
+        info['bitrate'] = _("{} Mb/s").format(rate_match.group(1)) if rate_match else _("Unknown")
 
         # Extract Signal Quality
         quality_match = search(r'Link Quality=(\d+)/(\d+)', output)
@@ -298,13 +297,19 @@ def get_interface_info(ifname):
         # If still not found, try iw
         if not signal_match:
             try:
-                iw_result = subprocess.run(['iw', 'dev', ifname, 'link'],
-                                           capture_output=True, text=True, timeout=5)
+                iw_result = subprocess.run(
+                    ['iw', 'dev', ifname, 'link'],
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                )
+
                 if iw_result.returncode == 0:
-                    iw_signal_match = search(
-                        r'signal: (-?\d+)', iw_result.stdout)
+                    iw_signal_match = search(r'signal: (-?\d+)', iw_result.stdout)
+
                     if iw_signal_match:
                         info['signal_dbm'] = int(iw_signal_match.group(1))
+
             except Exception as e:
                 print(e)
                 pass
@@ -312,15 +317,18 @@ def get_interface_info(ifname):
         if quality_match:
             quality = int(quality_match.group(1))
             max_quality = int(quality_match.group(2))
+
             if max_quality > 0:
                 percentage = (quality / max_quality) * 100
                 info['quality'] = _("{:.1f}%").format(percentage)
             else:
                 info['quality'] = _("0%")
+
         elif signal_match:
             signal_dbm = int(signal_match.group(1))
             info['quality'] = _("{} dBm").format(signal_dbm)
             info['signal_dbm'] = signal_dbm
+
         else:
             info['quality'] = _("Unknown")
 
@@ -330,23 +338,26 @@ def get_interface_info(ifname):
 
         # Extract TX Power
         power_match = search(r'Tx-Power[=:](-?\d+) dBm', output)
-        info['txpower'] = _("{} dBm").format(
-            power_match.group(1)) if power_match else _("Unknown")
+        info['txpower'] = _("{} dBm").format(power_match.group(1)) if power_match else _("Unknown")
 
         # Get protocol (driver) information using ethtool
         try:
             ethtool_result = subprocess.run(
-                ['ethtool', '-i', ifname], capture_output=True, text=True, timeout=5)
+                ['ethtool', '-i', ifname],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
 
             if ethtool_result.returncode == 0:
                 ethtool_output = ethtool_result.stdout
-                print(
-                    f"[DEBUG] ethtool output for {ifname}:\n{ethtool_output}")
+                print("[DEBUG] ethtool output for {}:\n{}".format(ifname, ethtool_output))
 
                 driver_match = search(r'driver:\s*(\S+)', ethtool_output)
+
                 if driver_match:
                     info['protocol'] = driver_match.group(1)
-                    print(f"[DEBUG] Found driver: {info['protocol']}")
+                    print("[DEBUG] Found driver: {}".format(info['protocol']))
                 else:
                     info['protocol'] = _("Unknown")
                     print("[DEBUG] Driver not found in ethtool output")
@@ -359,9 +370,9 @@ def get_interface_info(ifname):
 
             else:
                 info['protocol'] = _("Unknown")
-                print(
-                    f"[DEBUG] ethtool failed with returncode: {
-                        ethtool_result.returncode}")
+                print("[DEBUG] ethtool failed with returncode: {}".format(
+                    ethtool_result.returncode
+                ))
 
         except subprocess.TimeoutExpired:
             info['protocol'] = _("Timeout")
@@ -373,13 +384,13 @@ def get_interface_info(ifname):
 
         except Exception as e:
             info['protocol'] = _("Error")
-            print(f"[DEBUG] ethtool exception: {e}")
+            print("[DEBUG] ethtool exception: {}".format(e))
 
-        print(f"[DEBUG] Final interface info: {info}")
+        print("[DEBUG] Final interface info: {}".format(info))
         return info
 
     except Exception as e:
-        print(f"[DEBUG] Error in get_interface_info: {e}")
+        print("[DEBUG] Error in get_interface_info: {}".format(e))
         return {'name': ifname, 'error': str(e)}
 
 
@@ -694,9 +705,9 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
         ping_commands = [
             ["ping", "-c", str(count), "-W", str(timeout), host],
             ["ping6", "-c", str(count), "-W", str(timeout), host],
-            ["ping", "-c", str(count), host],  # Senza timeout
+            ["ping", "-c", str(count), host],
             ["busybox", "ping", "-c", str(count), host],
-            ["ping", "-4", "-c", str(count), host]  # Forza IPv4
+            ["ping", "-4", "-c", str(count), host]
         ]
 
         ping_result = None
@@ -706,7 +717,7 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
         for cmd in ping_commands:
             try:
                 if debug:
-                    print(f"[PING] Trying command: {' '.join(cmd)}")
+                    print("[PING] Trying command: {}".format(' '.join(cmd)))
 
                 ping_result = subprocess.run(
                     cmd,
@@ -716,20 +727,20 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
                 )
 
                 if ping_result.returncode == 0:
-                    # Memorizza il comando completo
                     used_command = ' '.join(cmd)
                     break
                 else:
                     last_error = ping_result.stderr
                     if debug:
-                        print(
-                            f"[PING] Command failed (code {
-                                ping_result.returncode}): {last_error}")
+                        print("[PING] Command failed (code {}): {}".format(
+                            ping_result.returncode,
+                            last_error
+                        ))
 
             except (subprocess.TimeoutExpired, FileNotFoundError, Exception) as e:
                 last_error = str(e)
                 if debug:
-                    print(f"[PING] Command error: {e}")
+                    print("[PING] Command error: {}".format(e))
                 continue
 
         if ping_result is None or ping_result.returncode != 0:
@@ -741,87 +752,85 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
             return error_msg
 
         if debug:
-            print(f"[PING] Success with: {used_command}")
-            print(f"[PING] Output:\n{ping_result.stdout}")
+            print("[PING] Success with: {}".format(used_command))
+            print("[PING] Output:\n{}".format(ping_result.stdout))
             if ping_result.stderr:
-                print(f"[PING] Error:\n{ping_result.stderr}")
+                print("[PING] Error:\n{}".format(ping_result.stderr))
 
-        # Parse per Enigma2/BusyBox
         output = ping_result.stdout
 
-        # Method 1: Extract individual response times
         time_lines = []
         for line in output.split('\n'):
             if 'time=' in line or 'ms' in line:
                 time_lines.append(line)
                 if debug:
-                    print(f"[PING] Time line: {line}")
+                    print("[PING] Time line: {}".format(line))
 
-        # Extract all times with multiple patterns
         times = []
         time_patterns = [
-            r'time=([\d.]+)\s*ms',      # time=1.234 ms
-            r'time=([\d.]+)ms',         # time=1.234ms
-            r'([\d.]+)\s*ms',           # 1.234 ms (fallback)
-            r'icmp_seq=\d+.+?([\d.]+)\s*ms'  # icmp_seq=1 time=1.234 ms
+            r'time=([\d.]+)\s*ms',
+            r'time=([\d.]+)ms',
+            r'([\d.]+)\s*ms',
+            r'icmp_seq=\d+.+?([\d.]+)\s*ms'
         ]
 
         for line in time_lines:
             for pattern in time_patterns:
                 time_matches = findall(pattern, line)
+
                 for match in time_matches:
                     try:
                         times.append(float(match))
                         if debug:
-                            print(f"[PING] Found time: {match} ms")
-                        break  # Una volta trovato un match, passa alla linea successiva
+                            print("[PING] Found time: {} ms".format(match))
+                        break
                     except ValueError:
                         continue
 
         if debug:
-            print(f"[PING] Found individual times: {times}")
+            print("[PING] Found individual times: {}".format(times))
 
         if times:
-            # Calculate average
             avg_time = sum(times) / len(times)
             if debug:
-                print(f"[PING] Calculated average: {avg_time:.1f} ms")
+                print("[PING] Calculated average: {:.1f} ms".format(avg_time))
             return _("{:.1f} ms").format(avg_time)
 
-        # Method 2: Try with final statistics
-        stats_lines = [line for line in output.split(
-            '\n') if 'min/avg/max' in line.lower() or 'rtt' in line.lower()]
+        stats_lines = [
+            line for line in output.split('\n')
+            if 'min/avg/max' in line.lower() or 'rtt' in line.lower()
+        ]
 
         if stats_lines:
             stats_line = stats_lines[-1]
-            if debug:
-                print(f"[PING] Stats line: {stats_line}")
 
-            # Multiple patterns for statistics
+            if debug:
+                print("[PING] Stats line: {}".format(stats_line))
+
             stats_patterns = [
-                r'([\d.]+)/([\d.]+)/([\d.]+)',  # min/avg/max
-                r'=\s*([\d.]+)/([\d.]+)/([\d.]+)',  # = min/avg/max
-                r'avg\s*[=:]\s*([\d.]+)',  # avg = 1.234
+                r'([\d.]+)/([\d.]+)/([\d.]+)',
+                r'=\s*([\d.]+)/([\d.]+)/([\d.]+)',
+                r'avg\s*[=:]\s*([\d.]+)'
             ]
 
             for pattern in stats_patterns:
                 match = search(pattern, stats_line)
+
                 if match:
                     try:
-                        # For min/avg/max pattern, group 2 is average
                         if len(match.groups()) >= 3:
                             avg_ping = float(match.group(2))
                         else:
                             avg_ping = float(match.group(1))
+
                         if debug:
-                            print(
-                                f"[PING] Found average from stats: {
-                                    avg_ping:.1f} ms")
+                            print("[PING] Found average from stats: {:.1f} ms".format(avg_ping))
+
                         return _("{:.1f} ms").format(avg_ping)
+
                     except (ValueError, IndexError):
                         continue
 
-        # Method 3: Check if we got any responses at all
         if "bytes from" in output or "icmp_seq" in output:
             return _("Connected but no timing data")
 
@@ -829,7 +838,8 @@ def test_ping(host="8.8.8.8", count=3, timeout=5, debug=False):
 
     except subprocess.TimeoutExpired:
         return _("Timeout")
+
     except Exception as e:
         if debug:
-            print(f"[PING] Exception: {e}")
-        return _("Error: {}").format(str(e))
+            print("[PING] Exception: {}".format(e))
+        return _("Error: {}".format(str(e)))
