@@ -1,15 +1,18 @@
-![](https://komarev.com/ghpvc/?username=Belfagor2005)
-[![Python package](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml)
-[![Ruff Status](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/ruff.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/ruff.yml)
+<h1 align="center">📶 WiFi-Manager</h1>
+
+![Visitors](https://komarev.com/ghpvc/?username=Belfagor2005&label=Repository%20Views&color=blueviolet)
 [![Version](https://img.shields.io/badge/Version-1.4-blue.svg)](https://github.com/Belfagor2005/WiFi-Manager)
 [![Enigma2](https://img.shields.io/badge/Enigma2-Plugin-ff6600.svg)](https://www.enigma2.net)
 [![Python](https://img.shields.io/badge/Python-3-blue.svg)](https://www.python.org)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Python package](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml)
+[![Ruff Status](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/ruff.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/ruff.yml)
 [![GitHub stars](https://img.shields.io/github/stars/Belfagor2005/WiFi-Manager?style=social)](https://github.com/Belfagor2005/WiFi-Manager/stargazers)
+[![Donate](https://img.shields.io/badge/_-Donate-red.svg?logo=githubsponsors&labelColor=555555&style=for-the-badge)](Maintainers.md#maintainers "Donate")
 
 ---
 
-# 📶 WiFi-Manager
+
 
 **WiFi-Manager** is a comprehensive tool for **Enigma2 devices** to manage, monitor, and optimize WiFi connections.
 
@@ -84,7 +87,7 @@ It provides both **basic and advanced functionalities**, suitable for **home** a
 ├── wifi-scan.png # Scanner
 ├── wifi-monitor.png # Monitor
 ├── wifi-config.png # Configuration
-├── wifi-diagnostic.png# Diagnostics
+├── wifi-diagnostic.png # Diagnostics
 ├── wifi-info.png # Detailed info
 └── wifi-tools.png # Advanced tools
 ```

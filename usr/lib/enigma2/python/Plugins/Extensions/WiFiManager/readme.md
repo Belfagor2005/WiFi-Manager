@@ -1,13 +1,32 @@
+<h1 align="center">📶 WiFi-Manager</h1>
+
+![Visitors](https://komarev.com/ghpvc/?username=Belfagor2005&label=Repository%20Views&color=blueviolet)
+[![Version](https://img.shields.io/badge/Version-1.4-blue.svg)](https://github.com/Belfagor2005/WiFi-Manager)
+[![Enigma2](https://img.shields.io/badge/Enigma2-Plugin-ff6600.svg)](https://www.enigma2.net)
+[![Python](https://img.shields.io/badge/Python-3-blue.svg)](https://www.python.org)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python package](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/pylint.yml)
-![](https://komarev.com/ghpvc/?username=Belfagor2005)
+[![Ruff Status](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/ruff.yml/badge.svg)](https://github.com/Belfagor2005/WiFi-Manager/actions/workflows/ruff.yml)
+[![GitHub stars](https://img.shields.io/github/stars/Belfagor2005/WiFi-Manager?style=social)](https://github.com/Belfagor2005/WiFi-Manager/stargazers)
+[![Donate](https://img.shields.io/badge/_-Donate-red.svg?logo=githubsponsors&labelColor=555555&style=for-the-badge)](Maintainers.md#maintainers "Donate")
 
-# WiFi-Manager
-
-WiFi-Manager is a comprehensive tool for Enigma2 devices to manage, monitor, and optimize your WiFi connections.
-It provides both basic and advanced functionalities for home or professional use.
+---
 
 
-<img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png">
+                                                                                                                
+                                                                                 
+
+**WiFi-Manager** is a comprehensive tool for **Enigma2 devices** to manage, monitor, and optimize WiFi connections.
+
+It provides both **basic and advanced functionalities**, suitable for **home** and **professional** use.
+
+---
+
+## 📺 Screenshot
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Belfagor2005/WiFi-Manager/main/screen/main.png" height="220">
+</p>
 
 ---
 
@@ -48,6 +67,7 @@ It provides both basic and advanced functionalities for home or professional use
 
 ## 4. Structure
 
+```text
 /usr/lib/enigma2/python/Plugins/Extensions/WiFiManager/
 ├── plugin.py # Main descriptor
 ├── WiFiManager.py # Main screen with 3x2 grid
@@ -72,7 +92,7 @@ It provides both basic and advanced functionalities for home or professional use
 ├── wifi-diagnostic.png # Diagnostics
 ├── wifi-info.png # Detailed info
 └── wifi-tools.png # Advanced tools
-
+```
 ---
 
 ## 5. Support
@@ -80,3 +100,5 @@ It provides both basic and advanced functionalities for home or professional use
 For troubleshooting, guidance, or community support, visit:  
 - [LinuxSat Support](https://www.linuxsat-support.com)  
 - [CorvoBoys Forum](https://www.corvoboys.org)  
+
+---
