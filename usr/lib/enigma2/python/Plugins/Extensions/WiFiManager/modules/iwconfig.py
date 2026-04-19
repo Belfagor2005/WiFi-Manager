@@ -464,7 +464,8 @@ def main():
 
             try:
                 if opts[0][0] in ("-v", "--version"):
-                    print(_("WiFi Manager iwconfig version {}").format(__version__))
+                    print(
+                        _("WiFi Manager iwconfig version {}").format(__version__))
                     return
             except Exception:
                 pass
