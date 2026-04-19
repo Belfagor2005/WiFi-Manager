@@ -4,7 +4,7 @@ import time
 import subprocess
 from re import search
 from json import loads
-from six.moves.urllib.request import urlopen
+from urllib.request import urlopen
 
 from .. import _
 

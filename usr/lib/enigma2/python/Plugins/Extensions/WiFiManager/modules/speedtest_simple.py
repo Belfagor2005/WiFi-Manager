@@ -6,13 +6,11 @@ import subprocess
 import socket
 from json import loads
 from re import search
+from urllib.request import urlopen, Request
+from urllib.error import URLError, HTTPError
+
 from .. import _
 
-try:
-    from urllib.request import urlopen, Request
-    from urllib.error import URLError, HTTPError
-except ImportError:
-    from urllib2 import urlopen, Request, URLError, HTTPError
 
 """
 #########################################################

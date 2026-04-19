@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import division
-from __future__ import print_function
-
 import errno
 import io
 import sys
@@ -99,53 +96,44 @@ class IWListTools(Screen):
 
     def run_tool(self):
         selection = self["menu"].getCurrent()
-        if selection:
-            tool_name = selection[1]
+        if not selection:
+            return
+        tool_name = selection[1]
+        try:
+            ifnames = getWNICnames()
+            if not ifnames:
+                self.session.open(
+                    MessageBox,
+                    _("No WiFi interfaces found"),
+                    MessageBox.TYPE_ERROR)
+                return
 
-            try:
-                ifnames = getWNICnames()
-                if not ifnames:
-                    self.session.open(
-                        MessageBox,
-                        _("No WiFi interfaces found"),
-                        MessageBox.TYPE_ERROR)
-                    return
-
-                ifname = ifnames[0]
-                wifi_obj = Wireless(ifname)
-
-                # Execute the selected iwlist tool
-                tool_function = get_matching_command(tool_name)
+            ifname = ifnames[0]
+            wifi_obj = Wireless(ifname)
+            tool_function = get_matching_command(tool_name)
 
             if tool_function:
-                # Capture the output
                 old_stdout = sys.stdout
                 sys.stdout = mystdout = io.StringIO()
-
                 try:
-                    # Run the function
                     tool_function(wifi_obj)
                 finally:
                     sys.stdout = old_stdout
-
                 output_text = mystdout.getvalue()
-
-                # Display the output in a dedicated screen
                 self.session.open(
                     IWListOutputScreen,
                     "{} - {}".format(selection[0], ifname),
-                    output_text
-                )
+                    output_text)
             else:
                 self["output"].setText(_("Tool not available"))
 
-            except Exception as e:
-                self.session.open(
-                    MessageBox,
-                    _("Error running {tool}: {error}").format(
-                        tool=tool_name,
-                        error=str(e)),
-                    MessageBox.TYPE_ERROR)
+        except Exception as e:
+            self.session.open(
+                MessageBox,
+                _("Error running {tool}: {error}").format(
+                    tool=tool_name,
+                    error=str(e)),
+                MessageBox.TYPE_ERROR)
 
 
 class IWListOutputScreen(Screen):
@@ -178,11 +166,7 @@ def print_scanning_results(wifi, args=None):
         iwrange = Iwrange(wifi.ifname)
         print("iwrange: {}".format(iwrange))
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
-
+        error_number, error_string = e.args
         sys.stderr.write(
             _("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(
                 interface=wifi.ifname
@@ -193,11 +177,7 @@ def print_scanning_results(wifi, args=None):
     try:
         results = wifi.scan()
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
-
+        error_number, error_string = e.args
         if error_number != errno.EPERM:
             sys.stderr.write(
                 _("{interface:<8.16}  Interface doesn't support scanning : {error}\n\n").format(
@@ -285,10 +265,7 @@ def print_channels(wifi, args=None):
         num_frequencies, channels = wifi.getChannelInfo()
         current_freq = wifi.getFrequency()
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
+        error_number, error_string = e.args
 
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
             sys.stderr.write(
@@ -325,11 +302,7 @@ def print_bitrates(wifi, args=None):
     try:
         num_bitrates, bitrates = wifi.getBitrates()
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
-
+        error_number, error_string = e.args
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
             sys.stderr.write(
                 _("{interface:<8.16}  no bit-rate information.\n\n").format(interface=wifi.ifname)
@@ -350,11 +323,7 @@ def print_bitrates(wifi, args=None):
     try:
         bitrate = wifi.wireless_info.getBitrate()
     except IOError as e:
-        if (sys.version_info[0] == 3):
-            error_number, error_string = e.args
-        else:
-            error_number = e[0]
-            error_string = e[1]
+        error_number, error_string = e.args
         # no bit rate info is okay, error was given above
         pass
     else:
@@ -374,10 +343,7 @@ def print_encryption(wifi, args=None):
         keys = wifi.getKeys()
 
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
+        error_number, error_string = e.args
 
         print("error_number: {}  error_string: {}".format(error_number, error_string))
 
@@ -441,10 +407,7 @@ def print_power(wifi, args=None):
         pm_capa, power_period, power_timeout, power_saving, power_params = wifi.getPowermanagement()
 
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
+        error_number, error_string = e.args
 
         print("error_number: {}  error_string: {}".format(error_number, error_string))
 
@@ -529,10 +492,7 @@ def print_retry(wifi, args=None):
     try:
         range_info = Iwrange(wifi.ifname)
     except IOError as e:
-        if sys.version_info[0] == 3:
-            error_number, error_string = e.args
-        else:
-            error_number, error_string = e[0], e[1]
+        error_number, error_string = e.args
         print(f"error_number: {error_number}  error_string: {error_string}")
         if error_number in (errno.EOPNOTSUPP, errno.EINVAL, errno.ENODEV):
             sys.stderr.write(
@@ -603,11 +563,7 @@ def print_aps(wifi, args=None):
         iwrange = Iwrange(wifi.ifname)
         print(f"iwrange: {iwrange}")
     except IOError as e:
-        if (sys.version_info[0] == 3):
-            error_number, error_string = e.args
-        else:
-            error_number = e[0]
-            error_string = e[1]
+        error_number, error_string = e.args
         sys.stderr.write(
             _("{interface:<8.16}  Interface doesn't support scanning.\n\n").format(
                 interface=wifi.ifname))
@@ -618,11 +574,7 @@ def print_aps(wifi, args=None):
         try:
             results = wifi.scan()
         except IOError as e:
-            if (sys.version_info[0] == 3):
-                error_number, error_string = e.args
-            else:
-                error_number = e[0]
-                error_string = e[1]
+            error_number, error_string = e.args
             if error_number != errno.EPERM:
                 sys.stderr.write(
                     _("{interface:<8.16}  Interface doesn't support scanning : {error}\n\n").format(

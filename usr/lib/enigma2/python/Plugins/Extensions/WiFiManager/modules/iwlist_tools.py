@@ -197,7 +197,7 @@ class IWListTools(Screen):
             self.session.openWithCallback(
                 self.close,
                 MessageBox,
-                _(f"Scan error {e}"),
+                _("Scan error {}").format(e)
                 MessageBox.TYPE_ERROR
             )
 

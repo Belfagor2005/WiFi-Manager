@@ -22,13 +22,9 @@
 #    USA
 # mod by lululla 20251110
 
-from __future__ import print_function
-from __future__ import division
-
-from sys import version_info
 from re import compile, I, M, S
 from os import strerror
-
+from typing import Tuple
 import ctypes
 import struct
 import array
@@ -37,7 +33,6 @@ import errno
 import fcntl
 import socket
 import time
-import six
 
 
 from .flags import (
@@ -73,12 +68,7 @@ from .flags import (
 )
 
 
-if (version_info[0] == 2):
-    from types import IntType, TupleType
-else:
-    from typing import Tuple
-    IntType = int
-
+IntType = int
 KILO = 10**3
 MEGA = 10**6
 GIGA = 10**9
@@ -157,11 +147,7 @@ def getConfiguredWNICnames():
             try:
                 result = wifi.getAPaddr()
             except IOError as e:
-                if (version_info[0] == 3):
-                    errno, strerror = e.args
-                else:
-                    errno = e[0]
-                    strerror = e[1]
+                errno, strerror = e.args
                 # don't stop on an individual error
                 print(f"Error  {errno} Strerror {strerror}")
                 pass
@@ -343,8 +329,7 @@ class Wireless(object):
         """
         if len(essid) > IW_ESSID_MAX_SIZE:
             raise OverflowError(errno.EOVERFLOW, strerror(errno.EOVERFLOW))
-        if (version_info[0] == 3):
-            essid = bytes(essid, 'unicode-escape')
+        essid = bytes(essid, 'unicode-escape')
         iwpoint = Iwpoint(essid, 1)
         status, result = self.iwstruct.iw_set_ext(
             self.ifname, SIOCSIWESSID, data=iwpoint.packed_data)
@@ -473,8 +458,7 @@ class Wireless(object):
             raw_key = self.getKey(index, False)
             cooked_key = map(chr, raw_key)
 
-        if (version_info[0] == 3):
-            cooked_key = bytes(cooked_key, 'unicode-escape')
+        cooked_key = bytes(cooked_key, 'unicode-escape')
 
         iwpoint = Iwpoint(
             cooked_key,
@@ -800,10 +784,7 @@ class WirelessConfig(object):
         )
 
         result = result.tobytes().strip(b'\x00')
-        if (version_info[0] == 2):
-            return result
-        else:
-            return result.decode("unicode-escape")
+        return result.decode("unicode-escape")
 
     def getEncryption(self):
         """ Returns the encryption status.
@@ -883,10 +864,7 @@ class WirelessConfig(object):
         )
         raw_essid = iwpoint.buff.tobytes()
         result = raw_essid.strip(b'\x00')
-        if (version_info[0] == 2):
-            return result
-        else:
-            return result.decode("unicode-escape")
+        return result.decode("unicode-escape")
 
     def getMode(self):
         """ Returns currently set operation mode.
@@ -1104,12 +1082,8 @@ class Iwstruct(object):
 
     def pack_test(self, string, buffsize):
         buffsize = buffsize - len(string)
-        if (version_info[0] == 2):
-            buff = array.array('c', string + '\0' * buffsize)
-        else:
-            var_bytes = bytes(string, 'unicode-escape')
-            # <-- QUI buffsize DEVE ESSERE buffsize
-            buff = array.array('B', var_bytes + b'\0' * buffsize)
+        var_bytes = string.encode('utf-8')
+        buff = array.array('B', var_bytes + b'\0' * buffsize)
         caddr_t, length = buff.buffer_info()
         s = struct.pack('PHH', caddr_t, length, 1)  # <-- 3 ARGOMENTI QUI
         return buff, s
@@ -1127,10 +1101,7 @@ class Iwstruct(object):
             f"[DEBUG] iw_get_ext called: ifname={ifname}, request={request}, data={data}")  # DEBUG
 
         buff = IFNAMSIZE - len(ifname)
-        if (version_info[0] == 2):
-            ifreq = array.array('c', ifname + '\0' * buff)
-        else:
-            ifreq = array.array('B', six.ensure_binary(ifname) + b'\0' * buff)
+        ifreq = array.array('B', ifname.encode('utf-8') + b'\0' * buff)
 
         # put some additional data behind the interface name
         if data is not None:
@@ -1198,9 +1169,7 @@ class Iwfreq(object):
         self.index = 0
         self.flags = 0
         if data:
-            if version_info[0] == 2 and isinstance(data, TupleType):
-                self.m, self.e, self.index, self.flags = data
-            elif version_info[0] == 3 and isinstance(data, Tuple):
+            if isinstance(data, Tuple):
                 self.m, self.e, self.index, self.flags = data
             else:
                 self.parse(data)
@@ -1556,11 +1525,7 @@ class Iwscan(object):
                     data=datastr
                 )
             except IOError as e:
-                if (version_info[0] == 3):
-                    error_number, error_string = e.args
-                else:
-                    error_number = e[0]
-                    error_string = e[1]
+                error_number, error_string = e.args
                 print(f"Error Number  {error_number} Strerror {error_string}")
                 if error_number == errno.E2BIG:
                     # Keep resizing the buffer until it's
@@ -1663,10 +1628,7 @@ class Iwscanresult(object):
             If the data is valid but unused, False is returned
 
         """
-        data_string = data
-        if (version_info[0] == 3):
-            # convert byte to string
-            data_string = data.decode("unicode-escape")
+        data_string = data.decode("unicode-escape")
         if ((cmd in range(SIOCIWFIRST,
                           SIOCIWLAST + 1)) or
             (cmd in range(IWEVFIRST,

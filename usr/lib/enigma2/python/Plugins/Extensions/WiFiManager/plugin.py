@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from Plugins.Plugin import PluginDescriptor
-
 """
 #########################################################
 #                                                       #
@@ -28,6 +26,7 @@ def main(session, **kwargs):
 
 
 def Plugins(**kwargs):
+    from Plugins.Plugin import PluginDescriptor
     return PluginDescriptor(
         name="WiFi Manager",
         description="Advanced WiFi diagnostic tools",

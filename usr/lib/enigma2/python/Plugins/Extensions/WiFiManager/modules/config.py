@@ -403,27 +403,25 @@ class WiFiConfigScreen(Screen, ConfigListScreen):
                     failed_commands.append("{}: {}".format(cmd, str(e)))
                     print("[WiFiConfig] Error executing {}: {}".format(cmd, e))
 
+            # Mostra il risultato all'utente
+            if success_count > 0 or failed_commands:
+                if success_count > 0:
+                    message = _("WiFi settings applied successfully\n\n")
+                    message += _("Applied: {} commands\n").format(success_count)
+                    if failed_commands:
+                        message += _("Failed: {} commands").format(len(failed_commands))
+                    self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
+                else:
+                    message = _("No settings were applied\n\nFailed commands:\n")
+                    message += "\n".join(failed_commands[:3])
+                    self.session.open(MessageBox, message, MessageBox.TYPE_WARNING)
+
             return success_count, failed_commands
 
         except Exception as e:
             print("[WiFiConfig] Error in apply_advanced_settings: {}".format(e))
+            self.session.open(MessageBox, _("Error applying advanced settings: {}").format(str(e)), MessageBox.TYPE_ERROR)
             return 0, [str(e)]
-
-            # Show results
-            if success_count > 0:
-                message = _("WiFi settings applied successfully\n\n")
-                message += _("Applied: {} commands\n").format(success_count)
-                if failed_commands:
-                    message += _("Failed: {} commands").format(len(failed_commands))
-                self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
-            else:
-                message = _("No settings were applied\n\nFailed commands:\n")
-                # Show first 3 errors
-                message += "\n".join(failed_commands[:3])
-                self.session.open(MessageBox, message, MessageBox.TYPE_WARNING)
-
-        except Exception as e:
-            print("Error applying settings: " + str(e))
 
     def buildConfigList(self):
         """Build configuration list with basic/advanced/network sections"""

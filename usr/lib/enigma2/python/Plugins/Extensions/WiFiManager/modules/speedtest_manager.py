@@ -17,8 +17,8 @@ except ImportError as e:
     print(f"SpeedtestSimple import error: {e}")
     Enigma2Speedtest = None
 
-from . import speedtest
 from .tools import get_wifi_interfaces
+from . import speedtest
 from .. import _
 
 """
